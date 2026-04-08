@@ -1,0 +1,453 @@
+<!-- data-lineage.component.html -->
+<!-- Angular component template — no external dependencies required -->
+<!-- Place this in any Angular component. Add the <style> block to your component's CSS or keep it inline -->
+
+<div class="dl-wrapper">
+  <style>
+    .dl-wrapper {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      background: #f5f0e8;
+      font-family: 'Segoe UI', Georgia, serif;
+      border-radius: 12px;
+      padding: 24px 16px 32px;
+      box-sizing: border-box;
+    }
+
+    /* ── Section labels (SOURCE / INGEST / REASON / OUTPUT) ── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      fill: #b0a898;
+      text-transform: uppercase;
+    }
+
+    /* ── Source boxes ── */
+    .src-box rect {
+      fill: #ffffff;
+      stroke: #ccc6bb;
+      stroke-width: 1;
+      rx: 6;
+    }
+    .src-box text {
+      font-size: 12px;
+      fill: #2b2b35;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .src-box:hover rect { stroke: #a98a2a; }
+
+    /* ── KWALIFY box ── */
+    .kwalify-box rect {
+      fill: #1c2d4a;
+      stroke: #c9962a;
+      stroke-width: 2;
+    }
+    .kwalify-title {
+      font-size: 13px;
+      font-weight: 700;
+      fill: #e8b84b;
+      letter-spacing: 1px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .kwalify-sub {
+      font-size: 11px;
+      fill: #9aabcc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* ── Knowledge graph ── */
+    .kg-circle {
+      fill: #c9862a;
+    }
+    .kg-label {
+      font-size: 10px;
+      font-weight: 700;
+      fill: #1c2d4a;
+      text-anchor: middle;
+      font-family: 'Segoe UI', sans-serif;
+      pointer-events: none;
+    }
+
+    /* ── Satellite nodes ── */
+    .satellite rect {
+      fill: #ffffff;
+      stroke: #ccc6bb;
+      stroke-width: 1;
+    }
+    .satellite text {
+      font-size: 11px;
+      fill: #3a3a3a;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .satellite.accented rect {
+      stroke: #c9862a;
+      stroke-width: 2;
+    }
+
+    /* ── Output boxes ── */
+    .out-submission rect {
+      fill: #fff9ed;
+      stroke: #c9862a;
+      stroke-width: 2;
+    }
+    .out-submission .out-title { font-size: 12px; font-weight: 700; fill: #b07820; font-family: 'Segoe UI', sans-serif; }
+    .out-submission .out-sub   { font-size: 11px; fill: #7a6040; font-family: 'Segoe UI', sans-serif; }
+
+    .out-discrepancy rect {
+      fill: #ffffff;
+      stroke: #ccc6bb;
+      stroke-width: 1;
+    }
+    .out-discrepancy .out-title { font-size: 12px; font-weight: 700; fill: #2b2b35; font-family: 'Segoe UI', sans-serif; }
+    .out-discrepancy .out-sub   { font-size: 11px; fill: #6a6a6a; font-family: 'Segoe UI', sans-serif; }
+
+    /* ── Bottom caption ── */
+    .caption {
+      font-size: 10px;
+      letter-spacing: 2px;
+      fill: #b0a898;
+      text-anchor: middle;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* ════════════════════════════════
+       ANIMATIONS
+    ════════════════════════════════ */
+
+    /* Draw-on: connector lines */
+    .draw {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+      animation: drawOn 0.8s ease forwards;
+    }
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.25s; }
+    .d3 { animation-delay: 0.4s; }
+    .d4 { animation-delay: 0.55s; }
+    .d5 { animation-delay: 0.7s; }
+    .d6 { animation-delay: 0.85s; }
+    .d7 { animation-delay: 1.0s; }
+    .d8 { animation-delay: 1.15s; }
+    .d9 { animation-delay: 1.3s; }
+    @keyframes drawOn {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Fade-up: boxes and labels */
+    .fadein {
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .f0 { animation-delay: 0.0s; }
+    .f1 { animation-delay: 0.2s; }
+    .f2 { animation-delay: 0.4s; }
+    .f3 { animation-delay: 0.6s; }
+    .f4 { animation-delay: 0.8s; }
+    .f5 { animation-delay: 1.0s; }
+    .f6 { animation-delay: 1.2s; }
+    .f7 { animation-delay: 1.4s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Pulse: knowledge graph hub */
+    .kg-pulse {
+      transform-origin: 340px 320px;
+      animation: kgPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes kgPulse {
+      0%,100% { opacity: 0.15; r: 46; }
+      50%      { opacity: 0.35; r: 54; }
+    }
+
+    /* Moving dots along connector paths */
+    .flow-dot {
+      r: 3.5;
+      fill: #c9862a;
+      opacity: 0;
+    }
+    .flow-dot-blue {
+      r: 3.5;
+      fill: #3a6fa8;
+      opacity: 0;
+    }
+    .flow-dot-green {
+      r: 3.5;
+      fill: #3a8a5a;
+      opacity: 0;
+    }
+
+    /* Satellite orbit shimmer */
+    .orbit-ring {
+      fill: none;
+      stroke: #c9862a;
+      stroke-width: 0.5;
+      stroke-dasharray: 4 4;
+      opacity: 0.2;
+      transform-origin: 340px 320px;
+      animation: spinOrbit 18s linear infinite;
+    }
+    @keyframes spinOrbit {
+      to { transform: rotate(360deg); }
+    }
+
+    /* KWALIFY dot blink */
+    .kw-dot {
+      animation: kwDot 1.8s ease-in-out infinite;
+    }
+    @keyframes kwDot {
+      0%,100% { fill: #e8b84b; opacity: 0.5; }
+      50%      { fill: #ffda80; opacity: 1;   }
+    }
+  </style>
+
+  <svg width="100%" viewBox="0 0 680 720" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- ░░ Section dividers (dashed horizontal grid) ░░ -->
+    <line x1="48" y1="62"  x2="640" y2="62"  stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4"/>
+    <line x1="48" y1="170" x2="640" y2="170" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4"/>
+    <line x1="48" y1="420" x2="640" y2="420" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4"/>
+    <line x1="48" y1="560" x2="640" y2="560" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4"/>
+
+    <!-- ░░ Section labels ░░ -->
+    <text class="section-label fadein f0" x="28" y="120"  transform="rotate(-90, 28, 120)">SOURCE</text>
+    <text class="section-label fadein f0" x="28" y="210"  transform="rotate(-90, 28, 210)">INGEST</text>
+    <text class="section-label fadein f0" x="28" y="380"  transform="rotate(-90, 28, 380)">REASON</text>
+    <text class="section-label fadein f0" x="28" y="510"  transform="rotate(-90, 28, 510)">OUTPUT</text>
+
+    <!-- ════════════════════════════════
+         SOURCE ROW — 4 boxes
+    ════════════════════════════════ -->
+
+    <!-- EDC/CDMS -->
+    <g class="src-box fadein f1">
+      <rect x="64"  y="16" width="108" height="38" rx="6"/>
+      <text x="118" y="40" text-anchor="middle">EDC / CDMS</text>
+    </g>
+
+    <!-- Lab Data -->
+    <g class="src-box fadein f1">
+      <rect x="200" y="16" width="100" height="38" rx="6"/>
+      <text x="250" y="40" text-anchor="middle">Lab Data</text>
+    </g>
+
+    <!-- Safety DB -->
+    <g class="src-box fadein f1">
+      <rect x="326" y="16" width="100" height="38" rx="6"/>
+      <text x="376" y="40" text-anchor="middle">Safety DB</text>
+    </g>
+
+    <!-- Protocol -->
+    <g class="src-box fadein f1">
+      <rect x="452" y="16" width="100" height="38" rx="6"/>
+      <text x="502" y="40" text-anchor="middle">Protocol</text>
+    </g>
+
+    <!-- ════════════════════════════════
+         CONNECTOR LINES: sources → KWALIFY
+    ════════════════════════════════ -->
+    <path class="draw d1" d="M118 54 L300 120"
+          fill="none" stroke="#ccc6bb" stroke-width="1"
+          stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+    <path class="draw d2" d="M250 54 L320 120"
+          fill="none" stroke="#ccc6bb" stroke-width="1"
+          stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+    <path class="draw d3" d="M376 54 L360 120"
+          fill="none" stroke="#ccc6bb" stroke-width="1"
+          stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+    <path class="draw d4" d="M502 54 L385 120"
+          fill="none" stroke="#ccc6bb" stroke-width="1"
+          stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+
+    <!-- ════════════════════════════════
+         KWALIFY BOX
+    ════════════════════════════════ -->
+    <g class="kwalify-box fadein f2">
+      <rect x="242" y="120" width="196" height="56" rx="8"/>
+      <!-- blinking dot accent -->
+      <circle class="kw-dot" cx="293" cy="143" r="3.5"/>
+      <text class="kwalify-title" x="340" y="147" text-anchor="middle">KWALIFY™</text>
+      <text class="kwalify-sub"   x="340" y="162" text-anchor="middle">Data Integration Engine</text>
+    </g>
+
+    <!-- ════════════════════════════════
+         KWALIFY → KNOWLEDGE GRAPH
+    ════════════════════════════════ -->
+    <line class="draw d5" x1="340" y1="176" x2="340" y2="274"
+          stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+
+    <!-- ════════════════════════════════
+         KNOWLEDGE GRAPH HUB
+    ════════════════════════════════ -->
+
+    <!-- Orbit ring -->
+    <circle class="orbit-ring fadein f3" cx="340" cy="320" r="90"/>
+
+    <!-- Outer pulse halo -->
+    <circle class="kg-pulse fadein f3" cx="340" cy="320" r="48"
+            fill="none" stroke="#c9862a" stroke-width="1.5"/>
+
+    <!-- Hub circle -->
+    <circle class="kg-circle fadein f3" cx="340" cy="320" r="40"/>
+
+    <!-- Hub label — two lines -->
+    <text class="kg-label fadein f3" x="340" y="316">KNOWLEDGE</text>
+    <text class="kg-label fadein f3" x="340" y="330">GRAPH</text>
+
+    <!-- ════════════════════════════════
+         SATELLITE NODES (6 orbit nodes)
+    ════════════════════════════════ -->
+
+    <!-- Cross-Domain (top-left) -->
+    <g class="satellite fadein f4">
+      <rect x="142" y="272" width="108" height="34" rx="16"/>
+      <text x="196" y="293" text-anchor="middle">Cross-Domain</text>
+    </g>
+    <line class="draw d6" x1="250" y1="289" x2="300" y2="308"
+          stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+    <!-- Root Cause (top-right) -->
+    <g class="satellite fadein f4">
+      <rect x="432" y="272" width="100" height="34" rx="16"/>
+      <text x="482" y="293" text-anchor="middle">Root Cause</text>
+    </g>
+    <line class="draw d6" x1="432" y1="289" x2="380" y2="308"
+          stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+    <!-- Semantic Rules (far left, accented) -->
+    <g class="satellite accented fadein f4">
+      <rect x="74" y="306" width="126" height="34" rx="6"/>
+      <text x="137" y="327" text-anchor="middle" font-weight="600" fill="#2b2b35" font-family="'Segoe UI',sans-serif" font-size="11">Semantic Rules</text>
+    </g>
+    <line class="draw d7" x1="200" y1="323" x2="300" y2="320"
+          stroke="#c9862a" stroke-width="1" marker-end="url(#arrowAmber)"/>
+
+    <!-- Regulatory Intent (far right, accented) -->
+    <g class="satellite accented fadein f4">
+      <rect x="482" y="306" width="130" height="34" rx="6"/>
+      <text x="547" y="327" text-anchor="middle" font-weight="600" fill="#2b2b35" font-family="'Segoe UI',sans-serif" font-size="11">Regulatory Intent</text>
+    </g>
+    <line class="draw d7" x1="482" y1="323" x2="380" y2="320"
+          stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+    <!-- Lineage Trace (bottom-left) -->
+    <g class="satellite fadein f5">
+      <rect x="152" y="358" width="108" height="34" rx="16"/>
+      <text x="206" y="379" text-anchor="middle">Lineage Trace</text>
+    </g>
+    <line class="draw d8" x1="260" y1="375" x2="302" y2="348"
+          stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+    <!-- Impact Map (bottom-right) -->
+    <g class="satellite fadein f5">
+      <rect x="432" y="358" width="100" height="34" rx="16"/>
+      <text x="482" y="379" text-anchor="middle">Impact Map</text>
+    </g>
+    <line class="draw d8" x1="432" y1="375" x2="378" y2="348"
+          stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+    <!-- ════════════════════════════════
+         KG → OUTPUT connectors
+    ════════════════════════════════ -->
+    <!-- KG → Submission -->
+    <path class="draw d9" d="M315 358 L240 460"
+          fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+
+    <!-- KG → Discrepancy -->
+    <path class="draw d9" d="M365 358 L440 460"
+          fill="none" stroke="#ccc6bb" stroke-width="1"
+          stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+
+    <!-- ════════════════════════════════
+         OUTPUT BOXES
+    ════════════════════════════════ -->
+
+    <!-- Submission (highlighted) -->
+    <g class="out-submission fadein f6">
+      <rect x="152" y="460" width="172" height="64" rx="8"/>
+      <text class="out-title" x="238" y="485" text-anchor="middle">SUBMISSION</text>
+      <text class="out-sub"   x="238" y="505" text-anchor="middle">Audit-Ready Output</text>
+    </g>
+
+    <!-- Discrepancy -->
+    <g class="out-discrepancy fadein f6">
+      <rect x="356" y="460" width="172" height="64" rx="8"/>
+      <text class="out-title" x="442" y="484" text-anchor="middle">DISCREPANCY</text>
+      <text class="out-sub"   x="442" y="505" text-anchor="middle">Root Cause Report</text>
+    </g>
+
+    <!-- ════════════════════════════════
+         BOTTOM CAPTION
+    ════════════════════════════════ -->
+    <text class="caption fadein f7" x="340" y="580">DATA LINEAGE &amp; PROVENANCE MODEL</text>
+
+    <!-- ════════════════════════════════
+         DEFS: Arrow markers
+    ════════════════════════════════ -->
+    <defs>
+      <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5"
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="#aaa" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+      <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5"
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="#c9862a" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+
+    <!-- ════════════════════════════════
+         FLOW DOTS — animated along key paths
+    ════════════════════════════════ -->
+
+    <!-- Dot: EDC → KWALIFY -->
+    <circle class="flow-dot-blue" r="3.5">
+      <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.5s">
+        <mpath href="#p-edc-kw"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <path id="p-edc-kw" d="M118 54 L300 120" fill="none"/>
+
+    <!-- Dot: Protocol → KWALIFY -->
+    <circle class="flow-dot-blue" r="3.5">
+      <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.2s">
+        <mpath href="#p-prot-kw"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" repeatCount="indefinite" begin="1.2s"/>
+    </circle>
+    <path id="p-prot-kw" d="M502 54 L385 120" fill="none"/>
+
+    <!-- Dot: KWALIFY → KG -->
+    <circle class="flow-dot" r="3.5">
+      <animateMotion dur="1.8s" repeatCount="indefinite" begin="0.8s">
+        <mpath href="#p-kw-kg"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" dur="1.8s" repeatCount="indefinite" begin="0.8s"/>
+    </circle>
+    <path id="p-kw-kg" d="M340 176 L340 280" fill="none"/>
+
+    <!-- Dot: KG → Submission -->
+    <circle class="flow-dot" r="3.5">
+      <animateMotion dur="2s" repeatCount="indefinite" begin="1.5s">
+        <mpath href="#p-kg-sub"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+    <path id="p-kg-sub" d="M315 358 L240 460" fill="none"/>
+
+    <!-- Dot: KG → Discrepancy -->
+    <circle class="flow-dot-green" r="3.5">
+      <animateMotion dur="2.1s" repeatCount="indefinite" begin="2.0s">
+        <mpath href="#p-kg-disc"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2.1s" repeatCount="indefinite" begin="2.0s"/>
+    </circle>
+    <path id="p-kg-disc" d="M365 358 L440 460" fill="none"/>
+
+  </svg>
+</div>

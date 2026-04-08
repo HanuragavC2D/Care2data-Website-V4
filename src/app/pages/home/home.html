@@ -1,0 +1,1463 @@
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center bg-[#11193e] overflow-hidden">
+  <!-- 🔥 Animated Background Lines -->
+  <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none">
+
+    <defs>
+      <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#c9862a" stop-opacity="0" />
+        <stop offset="50%" stop-color="#c9862a" stop-opacity="1" />
+        <stop offset="100%" stop-color="#c9862a" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+
+    <!-- Horizontal lines -->
+    <path d="M0 100 H100%" class="bg-line" />
+    <path d="M0 250 H100%" class="bg-line" />
+    <path d="M0 400 H100%" class="bg-line" />
+    <path d="M0 550 H100%" class="bg-line" />
+
+    <!-- Diagonal flow -->
+    <path d="M0 0 L100% 300" class="bg-line slow" />
+    <path d="M0 300 L100% 600" class="bg-line slow" />
+  </svg>
+  <!-- Content Container -->
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 py-16 items-center">
+      <!-- Left Content -->
+      <div class="w-full text-left z-10">
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight my-3 text-white font-heading">
+          Empowering Clinical Submissions with
+          <i class="block text-yellow-400 mt-2">Semantic Intelligence</i>
+        </h1>
+        <p class="text-base md:text-xl text-white mb-4 font-semibold">
+          Setting a New Benchmark for Clinical Data Integrity
+        </p>
+        <p class="text-base md:text-lg text-white mb-4 text-justify leading-relaxed max-w-xl">
+          Care2Data is not just validating clinical data—we’re engineering integrity at its core. <br>
+          Powered by Semantic Intelligence and governed knowledge architecture, our platform transforms Data Quality
+          into a living, reasoning system—ensuring every submission is accurate, consistent, scalable, and built to
+          withstand regulatory scrutiny.
+
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+
+          <button routerLink="/contact-us"
+            class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
+            style="background-color: var(--btn-primary-color); color: #fff;"
+            onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+            onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+            Request a Demo →
+          </button>
+
+          <button routerLink="/contact-us"
+            class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
+            style="background-color: var(--btn-primary-color); color: #fff;"
+            onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+            onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+            Talk to an Expert →
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- Right Side Background Image -->
+      <div class="w-full flex items-center justify-center">
+        <!-- data-lineage.component.html -->
+        <!-- Angular component template — no external dependencies required -->
+
+        <div class="dl-wrapper pb-0 my-2">
+          <style>
+            .dl-wrapper {
+              width: 100%;
+              max-width: 760px;
+              margin: 0 auto;
+              font-family: 'Segoe UI', Georgia, serif;
+              border-radius: 12px;
+              padding: 24px 16px 8px;
+              /* was 32px bottom */
+              box-sizing: border-box;
+            }
+
+            .section-label {
+              font-size: 10px;
+              font-weight: 600;
+              letter-spacing: 2px;
+              fill: #b0a898;
+            }
+
+            .src-box rect {
+              fill: #ffffff;
+              stroke: #ccc6bb;
+              stroke-width: 1;
+            }
+
+            .src-box text {
+              font-size: 12px;
+              fill: #2b2b35;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .src-box:hover rect {
+              stroke: #c9862a;
+            }
+
+            .sdtm-box rect {
+              fill: #eef3fa;
+              stroke: #3a6fa8;
+              stroke-width: 1.5;
+            }
+
+            .sdtm-title {
+              font-size: 12px;
+              font-weight: 700;
+              fill: #1c2d4a;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .sdtm-sub {
+              font-size: 10px;
+              fill: #5a7aaa;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .kwalify-box rect {
+              fill: #1c2d4a;
+              stroke: #c9962a;
+              stroke-width: 2;
+            }
+
+            .kwalify-title {
+              font-size: 13px;
+              font-weight: 700;
+              fill: #e8b84b;
+              letter-spacing: 1px;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .kwalify-sub {
+              font-size: 11px;
+              fill: #9aabcc;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .kw-dot {
+              animation: kwDot 1.8s ease-in-out infinite 1.7s;
+            }
+
+            .kg-circle {
+              fill: #c9862a;
+            }
+
+            .kg-label {
+              font-size: 10px;
+              font-weight: 700;
+              fill: #1c2d4a;
+              text-anchor: middle;
+              font-family: 'Segoe UI', sans-serif;
+              pointer-events: none;
+            }
+
+            .orbit-ring {
+              fill: none;
+              stroke: #c9862a;
+              stroke-width: 0.5;
+              stroke-dasharray: 4 4;
+              opacity: 0.2;
+              transform-origin: 340px 345px;
+              animation: spinOrbit 18s linear infinite 2.2s;
+            }
+
+            .kg-pulse {
+              transform-origin: 340px 345px;
+              animation: kgPulse 2.5s ease-in-out infinite 2.2s;
+            }
+
+            .satellite rect {
+              fill: #ffffff;
+              stroke: #ccc6bb;
+              stroke-width: 1;
+            }
+
+            .satellite text {
+              font-size: 11px;
+              fill: #3a3a3a;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .satellite.accented rect {
+              stroke: #c9862a;
+              stroke-width: 2;
+            }
+
+            .out-submission rect {
+              fill: #fff9ed;
+              stroke: #c9862a;
+              stroke-width: 2;
+            }
+
+            .out-submission .out-title {
+              font-size: 12px;
+              font-weight: 700;
+              fill: #b07820;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .out-submission .out-sub {
+              font-size: 11px;
+              fill: #7a6040;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .out-discrepancy rect {
+              fill: #ffffff;
+              stroke: #ccc6bb;
+              stroke-width: 1;
+            }
+
+            .out-discrepancy .out-title {
+              font-size: 12px;
+              font-weight: 700;
+              fill: #2b2b35;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .out-discrepancy .out-sub {
+              font-size: 11px;
+              fill: #6a6a6a;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            .caption {
+              font-size: 10px;
+              letter-spacing: 2px;
+              fill: #b0a898;
+              text-anchor: middle;
+              font-family: 'Segoe UI', sans-serif;
+            }
+
+            /* ═══════════════════════════════════════════════════
+       CHAINED ANIMATION SEQUENCE
+       Step 1  0.0s  Section labels
+       Step 2  0.3s  Source boxes
+       Step 3  0.7s  SDTM box
+       Step 4  1.1s  Dashed lines: sources → SDTM
+       Step 4e 1.55s Line: SDTM → KWALIFY
+       Step 5  1.7s  KWALIFY box
+       Step 5e 2.0s  Line: KWALIFY → KG
+       Step 6  2.2s  KG hub
+       Step 7  2.6s  Satellites + KG connector lines
+       Step 8  3.0s  KG → output lines
+       Step 9  3.4s  Output boxes
+       Step 10 3.8s  Caption
+    ═══════════════════════════════════════════════════ */
+
+            .fadein {
+              opacity: 0;
+              animation: fadeUp 0.5s ease forwards;
+            }
+
+            .s1 {
+              animation-delay: 0.0s;
+            }
+
+            .s2 {
+              animation-delay: 0.3s;
+            }
+
+            .s3 {
+              animation-delay: 0.7s;
+            }
+
+            .s5 {
+              animation-delay: 1.7s;
+            }
+
+            .s6 {
+              animation-delay: 2.2s;
+            }
+
+            .s7 {
+              animation-delay: 2.6s;
+            }
+
+            .s9 {
+              animation-delay: 3.4s;
+            }
+
+            .s10 {
+              animation-delay: 3.8s;
+            }
+
+            @keyframes fadeUp {
+              from {
+                opacity: 0;
+                transform: translateY(6px);
+              }
+
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            .draw {
+              stroke-dasharray: 400;
+              stroke-dashoffset: 400;
+              animation: drawOn 0.7s ease forwards;
+            }
+
+            .d4a {
+              animation-delay: 1.10s;
+            }
+
+            .d4b {
+              animation-delay: 1.20s;
+            }
+
+            .d4c {
+              animation-delay: 1.30s;
+            }
+
+            .d4d {
+              animation-delay: 1.40s;
+            }
+
+            .d4e {
+              animation-delay: 1.55s;
+            }
+
+            .d5e {
+              animation-delay: 2.00s;
+            }
+
+            .d7a {
+              animation-delay: 2.60s;
+            }
+
+            .d7b {
+              animation-delay: 2.65s;
+            }
+
+            .d7c {
+              animation-delay: 2.70s;
+            }
+
+            .d7d {
+              animation-delay: 2.75s;
+            }
+
+            .d7e {
+              animation-delay: 2.80s;
+            }
+
+            .d7f {
+              animation-delay: 2.85s;
+            }
+
+            .d8a {
+              animation-delay: 3.00s;
+            }
+
+            .d8b {
+              animation-delay: 3.10s;
+            }
+
+            @keyframes drawOn {
+              to {
+                stroke-dashoffset: 0;
+              }
+            }
+
+            @keyframes kwDot {
+
+              0%,
+              100% {
+                fill: #e8b84b;
+                opacity: .5;
+              }
+
+              50% {
+                fill: #ffda80;
+                opacity: 1;
+              }
+            }
+
+            @keyframes spinOrbit {
+              to {
+                transform: rotate(360deg);
+              }
+            }
+
+            @keyframes kgPulse {
+
+              0%,
+              100% {
+                opacity: .15;
+              }
+
+              50% {
+                opacity: .35;
+              }
+            }
+
+            .flow-dot {
+              fill: #c9862a;
+              opacity: 0;
+            }
+
+            .flow-dot-blue {
+              fill: #3a6fa8;
+              opacity: 0;
+            }
+
+            .flow-dot-green {
+              fill: #3a8a5a;
+              opacity: 0;
+            }
+          </style>
+
+          <svg class="w-full h-auto" width="100%" viewBox="0 0 680 650" xmlns="http://www.w3.org/2000/svg">
+
+            <defs>
+              <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </marker>
+              <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#c9862a" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </marker>
+              <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#3a6fa8" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </marker>
+            </defs>
+
+            <!-- Section dividers -->
+            <line x1="48" y1="62" x2="640" y2="62" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
+            <line x1="48" y1="175" x2="640" y2="175" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
+            <line x1="48" y1="300" x2="640" y2="300" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
+            <line x1="48" y1="465" x2="640" y2="465" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
+            <line x1="48" y1="615" x2="640" y2="615" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
+
+            <!-- ── STEP 1: Section labels ── -->
+            <text class="section-label fadein s1" x="28" y="122" transform="rotate(-90,28,122)">SOURCE</text>
+            <text class="section-label fadein s1" x="28" y="242" transform="rotate(-90,28,242)">INGEST</text>
+            <text class="section-label fadein s1" x="28" y="388" transform="rotate(-90,28,388)">REASON</text>
+            <text class="section-label fadein s1" x="28" y="545" transform="rotate(-90,28,545)">OUTPUT</text>
+
+            <!-- ── STEP 2: Source boxes ── -->
+            <g class="src-box fadein s2">
+              <rect x="64" y="16" width="110" height="38" rx="6" />
+              <text x="119" y="40" text-anchor="middle">EDC / CDMS</text>
+            </g>
+            <g class="src-box fadein s2">
+              <rect x="202" y="16" width="98" height="38" rx="6" />
+              <text x="251" y="40" text-anchor="middle">Lab Data</text>
+            </g>
+            <g class="src-box fadein s2">
+              <rect x="326" y="16" width="98" height="38" rx="6" />
+              <text x="375" y="40" text-anchor="middle">Safety DB</text>
+            </g>
+            <g class="src-box fadein s2">
+              <rect x="450" y="16" width="98" height="38" rx="6" />
+              <text x="499" y="40" text-anchor="middle">Protocol</text>
+            </g>
+
+            <!-- ── STEP 3: SDTM box ── -->
+            <g class="sdtm-box fadein s3">
+              <rect x="244" y="88" width="192" height="54" rx="8" />
+              <text class="sdtm-title" x="340" y="112" text-anchor="middle">SDTM / ADaM</text>
+              <text class="sdtm-sub" x="340" y="130" text-anchor="middle">Standardized Data Layer</text>
+            </g>
+
+            <!-- ── STEP 4: Dashed lines — sources → SDTM ── -->
+            <path class="draw d4a" d="M119 54 L288 88" fill="none" stroke="#ccc6bb" stroke-width="1"
+              stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
+            <path class="draw d4b" d="M251 54 L316 88" fill="none" stroke="#ccc6bb" stroke-width="1"
+              stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
+            <path class="draw d4c" d="M375 54 L364 88" fill="none" stroke="#ccc6bb" stroke-width="1"
+              stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
+            <path class="draw d4d" d="M499 54 L400 88" fill="none" stroke="#ccc6bb" stroke-width="1"
+              stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
+
+            <!-- STEP 4e: SDTM → KWALIFY (solid blue) -->
+            <line class="draw d4e" x1="340" y1="142" x2="340" y2="188" stroke="#3a6fa8" stroke-width="1.5"
+              marker-end="url(#arrowBlue)" />
+
+            <!-- ── STEP 5: KWALIFY box ── -->
+            <g class="kwalify-box fadein s5">
+              <rect x="244" y="188" width="192" height="56" rx="8" />
+              <circle class="kw-dot" cx="292" cy="213" r="3.5" />
+              <text class="kwalify-title" x="340" y="213" text-anchor="middle">KWALIFY™</text>
+              <text class="kwalify-sub" x="340" y="231" text-anchor="middle">Data Integration Engine</text>
+            </g>
+
+            <!-- STEP 5e: KWALIFY → KG (amber) -->
+            <line class="draw d5e" x1="340" y1="244" x2="340" y2="305" stroke="#c9862a" stroke-width="1.5"
+              marker-end="url(#arrowAmber)" />
+
+            <!-- ── STEP 6: Knowledge Graph hub ── -->
+            <circle class="orbit-ring fadein s6" cx="340" cy="345" r="90" />
+            <circle class="kg-pulse  fadein s6" cx="340" cy="345" r="48" fill="none" stroke="#c9862a"
+              stroke-width="1.5" />
+            <circle class="kg-circle fadein s6" cx="340" cy="345" r="40" />
+            <text class="kg-label fadein s6" x="340" y="341">KNOWLEDGE</text>
+            <text class="kg-label fadein s6" x="340" y="355">GRAPH</text>
+
+            <!-- ── STEP 7: Satellite nodes + their connector lines ── -->
+
+            <!-- Cross-Domain top-left -->
+            <g class="satellite fadein s7">
+              <rect x="136" y="297" width="116" height="34" rx="16" />
+              <text x="194" y="318" text-anchor="middle">Cross-Domain</text>
+            </g>
+            <line class="draw d7a" x1="252" y1="314" x2="301" y2="333" stroke="#ccc6bb" stroke-width="0.8"
+              stroke-dasharray="4 3" />
+
+            <!-- Root Cause top-right -->
+            <g class="satellite fadein s7">
+              <rect x="432" y="297" width="104" height="34" rx="16" />
+              <text x="484" y="318" text-anchor="middle">Root Cause</text>
+            </g>
+            <line class="draw d7a" x1="432" y1="314" x2="381" y2="333" stroke="#ccc6bb" stroke-width="0.8"
+              stroke-dasharray="4 3" />
+
+            <!-- Semantic Rules far-left (accented) -->
+            <g class="satellite accented fadein s7">
+              <rect x="62" y="340" width="132" height="34" rx="6" />
+              <text x="128" y="361" text-anchor="middle" font-weight="600" fill="#2b2b35"
+                font-family="'Segoe UI',sans-serif" font-size="11">Semantic Rules</text>
+            </g>
+            <line class="draw d7b" x1="194" y1="347" x2="300" y2="345" stroke="#c9862a" stroke-width="1"
+              marker-end="url(#arrowAmber)" />
+
+            <!-- Regulatory Intent far-right (accented) -->
+            <g class="satellite accented fadein s7">
+              <rect x="480" y="340" width="138" height="34" rx="6" />
+              <text x="549" y="361" text-anchor="middle" font-weight="600" fill="#2b2b35"
+                font-family="'Segoe UI',sans-serif" font-size="11">Regulatory Intent</text>
+            </g>
+            <line class="draw d7b" x1="480" y1="347" x2="380" y2="345" stroke="#ccc6bb" stroke-width="0.8"
+              stroke-dasharray="4 3" />
+
+            <!-- Lineage Trace bottom-left -->
+            <g class="satellite fadein s7">
+              <rect x="148" y="382" width="112" height="34" rx="16" />
+              <text x="204" y="403" text-anchor="middle">Lineage Trace</text>
+            </g>
+            <line class="draw d7c" x1="260" y1="399" x2="305" y2="373" stroke="#ccc6bb" stroke-width="0.8"
+              stroke-dasharray="4 3" />
+
+            <!-- Impact Map bottom-right -->
+            <g class="satellite fadein s7">
+              <rect x="432" y="382" width="100" height="34" rx="16" />
+              <text x="482" y="403" text-anchor="middle">Impact Map</text>
+            </g>
+            <line class="draw d7c" x1="432" y1="399" x2="377" y2="373" stroke="#ccc6bb" stroke-width="0.8"
+              stroke-dasharray="4 3" />
+
+            <!-- ── STEP 8: KG → output connectors ── -->
+            <path class="draw d8a" d="M318 384 L237 480" fill="none" stroke="#c9862a" stroke-width="1.5"
+              marker-end="url(#arrowAmber)" />
+            <path class="draw d8b" d="M363 384 L450 480" fill="none" stroke="#ccc6bb" stroke-width="1"
+              stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
+
+            <!-- ── STEP 9: Output boxes ── -->
+            <g class="out-submission fadein s9">
+              <rect x="148" y="480" width="176" height="64" rx="8" />
+              <text class="out-title" x="236" y="505" text-anchor="middle">SUBMISSION</text>
+              <text class="out-sub" x="236" y="526" text-anchor="middle">Audit-Ready Output</text>
+            </g>
+            <g class="out-discrepancy fadein s9">
+              <rect x="360" y="480" width="176" height="64" rx="8" />
+              <text class="out-title" x="448" y="504" text-anchor="middle">DISCREPANCY</text>
+              <text class="out-sub" x="448" y="526" text-anchor="middle">Root Cause Report</text>
+            </g>
+
+            <!-- ── STEP 10: Caption ── -->
+            <text class="caption fadein s10" x="340" y="635">DATA LINEAGE &amp; PROVENANCE MODEL</text>
+
+            <!-- ══════════════════════════════
+         FLOW DOTS — begin after their segment is drawn
+    ══════════════════════════════ -->
+
+            <!-- EDC → SDTM -->
+            <circle class="flow-dot-blue" r="3">
+              <animateMotion dur="2s" repeatCount="indefinite" begin="1.9s">
+                <mpath href="#fp-edc" />
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite" begin="1.9s" />
+            </circle>
+            <path id="fp-edc" d="M119 54 L288 88" fill="none" />
+
+            <!-- Protocol → SDTM -->
+            <circle class="flow-dot-blue" r="3">
+              <animateMotion dur="2.2s" repeatCount="indefinite" begin="2.3s">
+                <mpath href="#fp-prot" />
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite" begin="2.3s" />
+            </circle>
+            <path id="fp-prot" d="M499 54 L400 88" fill="none" />
+
+            <!-- SDTM → KWALIFY -->
+            <circle class="flow-dot-blue" r="3">
+              <animateMotion dur="1.3s" repeatCount="indefinite" begin="2.5s">
+                <mpath href="#fp-sdtm-kw" />
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" dur="1.3s" repeatCount="indefinite" begin="2.5s" />
+            </circle>
+            <path id="fp-sdtm-kw" d="M340 142 L340 188" fill="none" />
+
+            <!-- KWALIFY → KG -->
+            <circle class="flow-dot" r="3.5">
+              <animateMotion dur="1.5s" repeatCount="indefinite" begin="2.8s">
+                <mpath href="#fp-kw-kg" />
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite" begin="2.8s" />
+            </circle>
+            <path id="fp-kw-kg" d="M340 244 L340 305" fill="none" />
+
+            <!-- KG → Submission -->
+            <circle class="flow-dot" r="3.5">
+              <animateMotion dur="2s" repeatCount="indefinite" begin="3.7s">
+                <mpath href="#fp-kg-sub" />
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite" begin="3.7s" />
+            </circle>
+            <path id="fp-kg-sub" d="M318 384 L237 480" fill="none" />
+
+            <!-- KG → Discrepancy -->
+            <circle class="flow-dot-green" r="3.5">
+              <animateMotion dur="2.1s" repeatCount="indefinite" begin="4.1s">
+                <mpath href="#fp-kg-disc" />
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" dur="2.1s" repeatCount="indefinite" begin="4.1s" />
+            </circle>
+            <path id="fp-kg-disc" d="M363 384 L450 480" fill="none" />
+
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Short Positioning -->
+<section class="py-5 bg-[#102c50]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="space-y-5 mb-5">
+
+      <p class="text-base md:text-lg text-white text-justify mb-4 leading-relaxed">
+        Care2Data transforms clinical validation from reactive checking to intelligent governance. <br> <br>
+        Powered by a Knowledge-Centric Architecture, we treat knowledge as a living operational asset—continuously
+        driving accuracy, integrity, conformance, and plausibility across the entire clinical data lifecycle. <br> <br>
+        By eliminating data quality gaps before submission, we prevent costly regulatory rework and accelerate time to
+        market—delivering intelligent, regulator-ready systems built for today’s clinical complexity.
+
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- The Core Value -->
+<section class="bg-[#114167] text-white py-5">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 🔷 HERO -->
+    <div class="text-center mb-5">
+      <!-- Heading -->
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-left mb-5 text-yellow-400 leading-tight">
+        <span style="color: #fff">Semantic Intelligence–Driven</span> Clinical Submission Validation
+      </h2>
+      <p class="text-lg md:text-xl text-gray-300 text-justify">
+        At its core, Care2Data’s platform uses a governed Knowledge Graph architecture
+        to shift validation from rule-based processes to explainable AI-driven reasoning.
+      </p>
+    </div>
+
+    <!-- 🔷 CAPABILITIES GRID -->
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- 1 -->
+      <div class="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+        <h2 class="text-2xl font-semibold mb-2">
+          1. Precision Validation
+        </h2>
+        <p class="text-blue-400 font-medium mb-3">
+          Eliminating Risk Before It Escalates
+        </p>
+
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Our cross-domain reasoning capability, powered by linked data models, validates data contextually—not just
+          structurally.
+        </p>
+
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Instead of isolated rule checks, the platform understands relationships across domains (protocol, SDTM, ADaM,
+          TLFs), detecting inconsistencies before they escalate into regulatory findings.
+        </p>
+
+        <div class="mt-auto bg-yellow-500/10 border border-yellow-400/30 rounded-lg p-3">
+          <p class="text-yellow-300 font-medium">
+            Result: Reduced submission risk. Increased regulatory confidence.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+        <h2 class="text-2xl font-semibold mb-2">
+          2. Clarity
+        </h2>
+        <p class="text-blue-400 font-medium mb-3">
+          Visualizing Impact. Accelerating Decisions
+        </p>
+
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          When protocols evolve, traditional systems create confusion. Care2Data highlights precisely which records are
+          affected and why.
+        </p>
+
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Clinical programmers gain immediate visibility into data impact, minimizing guesswork and accelerating
+          resolution.
+        </p>
+
+        <div class="mt-auto bg-yellow-500/10 border border-yellow-400/30 rounded-lg p-3">
+          <p class="text-yellow-300 font-medium">
+            Result: Faster turnaround. Controlled change management.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+        <h2 class="text-2xl font-semibold mb-2">
+          3. Root Cause Intelligence
+        </h2>
+        <p class="text-blue-400 font-medium mb-3">
+          Beyond Error Flags — Toward True Insight
+        </p>
+
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Most validation systems stop at error identification. Care2Data goes deeper.
+        </p>
+
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Our Knowledge Core provides diagnostic explainable AI reasoning—explaining causal pathways behind
+          discrepancies and integrity violations.
+        </p>
+
+        <div class="mt-auto bg-yellow-500/10 border border-yellow-400/30 rounded-lg p-3">
+          <p class="text-yellow-300 font-medium">
+            Result: Sustainable fixes instead of repetitive corrections.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+        <h2 class="text-2xl font-semibold mb-2">
+          4. Discovery & Impact Awareness
+        </h2>
+        <p class="text-blue-400 font-medium mb-3">
+          Cross-Domain Impact Reasoning
+        </p>
+
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Semantic Intelligence enables proactive discovery of ripple effects across datasets and reports.
+        </p>
+
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          The platform not only identifies downstream impact but also recommends corrective pathways aligned with
+          conformance and plausibility standards.
+        </p>
+
+        <div class="mt-auto bg-yellow-500/10 border border-yellow-400/30 rounded-lg p-3">
+          <p class="text-yellow-300 font-medium">
+            Result: Intelligent decision support across the entire clinical data lifecycle.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 🔷 OUTCOMES -->
+    <div class="mt-5">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-2">
+        OUTCOMES
+      </h2>
+
+      <p class="text-base md:text-xl text-primary mb-4 font-semibold text-center">
+        Setting the Standard for Regulatory Readiness
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <h3 class="text-xl font-semibold mb-3">
+            Zero Rejections
+          </h3>
+          <p class="text-gray-300">
+            Due to conformance, data quality, or data integrity issues.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <h3 class="text-xl font-semibold mb-3">
+            Guaranteed Submission Readiness
+          </h3>
+          <p class="text-gray-300">
+            An easy, intelligent, and structured path to regulator-ready datasets.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <h3 class="text-xl font-semibold mb-3">
+            Scalable Efficiency & Consistency
+          </h3>
+          <p class="text-gray-300">
+            Standardized, repeatable, and globally deployable validation frameworks.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Services -->
+<section class="py-5 bg-[#11193e]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Heading -->
+    <h2
+      class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-left mb-5 text-yellow-400 leading-tight max-w-3xl">
+      <span style="color: #fff">Built to Work</span> Alongside Your Team
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <p class="text-base md:text-lg mb-5 text-white leading-relaxed text-justify">
+        Care2Data partners with sponsors to embed semantic intelligence into clinical operations —
+        <span class="text-secondary">without disrupting existing systems.</span>
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
+            <img src="images/home/white/strategicalignment.png" alt=""
+              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+          </div>
+
+          <h3
+            class="text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold">
+            Strategic Alignment
+          </h3>
+        </div>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
+          Define high-impact knowledge use cases tied to regulatory defensibility
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
+            <img src="images/home/white/deployment.png" alt=""
+              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+          </div>
+
+          <h3
+            class="text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold">
+            Deployment
+          </h3>
+        </div>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
+          Embed knowledge models and reasoning into your existing ecosystem
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
+            <img src="images/home/white/Enablement.png" alt=""
+              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+          </div>
+
+          <h3
+            class="text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold">
+            Enablement
+          </h3>
+        </div>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
+          Equip teams to sustain and scale intelligence independently
+        </p>
+      </div>
+    </div>
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <button routerLink="/engagement-models"
+        class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
+        style="background-color: var(--btn-primary-color); color: #fff;"
+        onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+        onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+        Explore our Services →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Solutions -->
+<section class="py-5 bg-[#102c50]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Heading -->
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-left mb-5 text-yellow-400 leading-tight">
+      <span style="color: #fff"> The Knowledge-Driven</span> Validation Framework
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="text-justify">
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed mb-4">
+          Care2Data transforms fragmented clinical data into structured, governed, and reasoning-enabled intelligence —
+          without replacing your existing systems. </p>
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed mb-8">
+          Validation doesn’t need more rules. It needs understanding.
+          This is how intelligence becomes operational.
+        </p>
+
+        <!-- CTA -->
+        <div class="mt-5">
+          <button routerLink="/knowledge-services"
+            class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
+            style="background-color: var(--btn-primary-color); color: #fff;"
+            onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+            onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+            Explore our Solutions →
+          </button>
+        </div>
+      </div>
+
+      <!-- Cards Wrapper -->
+      <mat-accordion multi="false" class="flex flex-col gap-4">
+
+        <!-- Knowledge Modeling -->
+        <mat-expansion-panel #panel1 hideToggle (mouseenter)="openPanel(panel1)" (mouseleave)="closePanel(panel1)"
+          class="!bg-white/5 !border !border-white/10 !rounded-xl shadow-lg transition-all duration-500 ease-out">
+
+          <mat-expansion-panel-header (click)="$event.stopPropagation()"
+            class="!px-6 !py-4 flex items-center justify-between hover:bg-white/10">
+
+            <div class="flex gap-2">
+              <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
+                <img src="images/home/white/knowledgemodeling.png" alt=""
+                  class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+              </div>
+              <mat-panel-title class="text-lg font-bold" style="color: #fff;">
+                Knowledge Modeling
+              </mat-panel-title>
+            </div>
+
+            <mat-icon class="ml-auto p-1 text-primary">
+              {{ panel1.expanded ? 'remove' : 'add' }}
+            </mat-icon>
+          </mat-expansion-panel-header>
+
+          <div class="px-4 md:px-6 py-3 text-white text-base md:text-lg">
+            We encode study logic and regulatory intent into structured semantic models
+          </div>
+        </mat-expansion-panel>
+
+        <!-- Knowledge Repository -->
+        <mat-expansion-panel #panel2 hideToggle (mouseenter)="openPanel(panel2)" (mouseleave)="closePanel(panel2)"
+          class="!bg-white/5 !border !border-white/10 !rounded-xl shadow-lg transition-all duration-500 ease-out">
+
+          <mat-expansion-panel-header (click)="$event.stopPropagation()"
+            class="!px-6 !py-4 flex items-center justify-between hover:bg-white/10">
+
+            <div class="flex gap-2">
+              <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
+                <img src="images/home/white/knowledgerepository.png" alt=""
+                  class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+              </div>
+              <mat-panel-title class="text-lg font-bold" style="color: #fff;">
+                Knowledge Repository
+              </mat-panel-title>
+            </div>
+
+            <mat-icon class="ml-auto p-1 text-primary">
+              {{ panel2.expanded ? 'remove' : 'add' }}
+            </mat-icon>
+          </mat-expansion-panel-header>
+
+          <div class="px-4 md:px-6 py-3 text-white text-base md:text-lg">
+            We deploy governed knowledge graph repositories as a unified source of truth
+          </div>
+        </mat-expansion-panel>
+
+        <!-- Knowledge Discovery -->
+        <mat-expansion-panel #panel3 hideToggle (mouseenter)="openPanel(panel3)" (mouseleave)="closePanel(panel3)"
+          class="!bg-white/5 !border !border-white/10 !rounded-xl shadow-lg transition-all duration-500 ease-out">
+
+          <mat-expansion-panel-header (click)="$event.stopPropagation()"
+            class="!px-6 !py-4 flex items-center justify-between hover:bg-white/10">
+
+            <div class="flex gap-2">
+              <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
+                <img src="images/home/white/knowledgediscovery.png" alt=""
+                  class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+              </div>
+              <mat-panel-title class="text-lg font-bold" style="color: #fff;">
+                Knowledge Discovery
+              </mat-panel-title>
+            </div>
+
+            <mat-icon class="ml-auto p-1 text-primary">
+              {{ panel3.expanded ? 'remove' : 'add' }}
+            </mat-icon>
+          </mat-expansion-panel-header>
+
+          <div class="px-4 md:px-6 py-3 text-white text-base md:text-lg">
+            We activate reasoning to uncover inconsistencies and hidden risk
+          </div>
+        </mat-expansion-panel>
+
+        <!-- Knowledge Management -->
+        <mat-expansion-panel #panel4 hideToggle (mouseenter)="openPanel(panel4)" (mouseleave)="closePanel(panel4)"
+          class="!bg-white/5 !border !border-white/10 !rounded-xl shadow-lg transition-all duration-500 ease-out">
+
+          <mat-expansion-panel-header (click)="$event.stopPropagation()"
+            class="!px-6 !py-4 flex items-center justify-between hover:bg-white/10">
+
+            <div class="flex gap-2">
+              <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
+                <img src="images/home/white/knowledgemanagement.png" alt=""
+                  class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+              </div>
+              <mat-panel-title class="text-lg font-bold" style="color: #fff;">
+                Knowledge Management
+              </mat-panel-title>
+            </div>
+
+            <mat-icon class="ml-auto p-1 text-primary">
+              {{ panel4.expanded ? 'remove' : 'add' }}
+            </mat-icon>
+          </mat-expansion-panel-header>
+
+          <div class="px-4 md:px-6 py-3 text-white text-base md:text-lg">
+            We ensure continuous model governance and regulatory alignment
+          </div>
+        </mat-expansion-panel>
+
+        <!-- Training & Enablement -->
+        <mat-expansion-panel #panel5 hideToggle (mouseenter)="openPanel(panel5)" (mouseleave)="closePanel(panel5)"
+          class="!bg-white/5 !border !border-white/10 !rounded-xl shadow-lg transition-all duration-500 ease-out">
+
+          <mat-expansion-panel-header (click)="$event.stopPropagation()"
+            class="!px-6 !py-4 flex items-center justify-between hover:bg-white/10">
+
+            <div class="flex gap-2">
+              <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
+                <img src="images/home/white/trainingenablement.png" alt=""
+                  class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+              </div>
+              <mat-panel-title class="text-lg font-bold" style="color: #fff;">
+                Training & Enablement
+              </mat-panel-title>
+            </div>
+
+            <mat-icon class="ml-auto p-1 text-primary">
+              {{ panel5.expanded ? 'remove' : 'add' }}
+            </mat-icon>
+          </mat-expansion-panel-header>
+
+          <div class="px-4 md:px-6 py-3 text-white text-base md:text-lg">
+            We enable teams to sustain and scale intelligence independently
+          </div>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </div>
+  </div>
+</section>
+
+<!-- A Smarter Way to Validate -->
+<section class="py-5 bg-[#114167]">
+  <!-- MASTER CARD CONTAINER -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Heading -->
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-left mb-5 text-yellow-400 leading-tight">
+      <span style="color: #fff"> Kwalify™</span> — Intelligent Clinical Data Validation
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <p class="text-base md:text-xl lg:text-2xl text-white text-left mb-8 font-semibold">
+          Powered by a Linked Clinical Data Model
+        </p>
+
+        <p class="text-white text-justify leading-relaxed mb-4 text-base md:text-lg">
+          <strong>Kwalify™</strong> operationalizes Care2Data’s knowledge-driven validation framework—transforming
+          clinical data
+          validation from rule-based execution into intelligence-driven assurance. <br><br>
+          Purpose-built for complex clinical validation workflows, <strong>Kwalify™</strong> embeds semantic
+          intelligence across linked
+          datasets and leverages Explainable AI to generate transparent, context-aware validation insights—strengthening
+          data accuracy, traceability, and regulatory readiness before submission. <br><br>
+          Designed to work alongside existing clinical systems, it enhances validation capabilities without disrupting
+          established workflows.
+        </p>
+
+        <!-- Outcome Section -->
+        <div class="text-left mb-5 text-white">
+          <p class="text-base md:text-xl lg:text-2xl text-primary text-left mb-5 font-semibold">
+            The Outcome
+          </p>
+          <p
+            class="text-xl md:text-2xl text-yellow-400 font-semibold text-left mb-5 space-x-3 border-l-4 border-primary pl-4">
+            <i> <span>Fewer queries,</span> <br><span> Faster validation cycles, </span> <br> <span>Greater confidence
+                in every submission dataset.</span></i>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <h3 class="text-2xl md:text-4xl px-4 sm:px-6 lg:px-8 font-bold mb-5 text-center text-white">
+      Why Teams Choose Kwalify™
+    </h3>
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+
+      <!-- Card 1 -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0 mb-2">
+          <img src="images/home/white/clinicalvalidation.png" alt=""
+            class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+        </div>
+
+        <h3
+          class="text-lg sm:text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-4 lg:h-18 xl:h-12">
+          Built for clinical validation
+        </h3>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+          Engineered specifically for clinical data validation, regulatory compliance, and submission workflows—not
+          adapted from generic data quality tools.
+        </p>
+
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0 mb-2">
+          <img src="images/home/white/context-aware.png" alt=""
+            class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+        </div>
+
+        <h3
+          class="text-lg sm:text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-4 lg:h-18 xl:h-12">
+          Context-aware & reasoning-enabled
+        </h3>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+          Moves beyond static rule execution by embedding semantic intelligence, cross-dataset reasoning, and
+          Explainable AI-driven validation insights into workflows.
+        </p>
+
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0 mb-2">
+          <img src="images/home/white/traceable.png" alt="" class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+        </div>
+
+        <h3
+          class="text-lg sm:text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-4 lg:h-18 xl:h-12">
+          Traceable by design
+        </h3>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+          Validation logic, lineage, and investigation trails are fully transparent—supported by explainable outputs
+          that enable audit readiness and regulatory review.
+        </p>
+
+      </div>
+
+      <!-- Card 4 -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0 mb-2">
+          <img src="images/home/white/ecosystem.png" alt="" class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+        </div>
+
+        <h3
+          class="text-lg sm:text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-4 lg:h-18 xl:h-12">
+          Works within your ecosystem
+        </h3>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+          Seamlessly integrates with existing clinical systems. <br>
+          No rip-and-replace. No disruption to workflows.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <button routerLink="/kwalify"
+        class="inline-flex items-center cursor-pointer uppercase gap-2 px-6 py-3 text-sm font-semibold rounded-xl transition-all duration-300"
+        style="background-color: var(--btn-primary-color); color: #fff;"
+        onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+        onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+        Learn More →
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Who We Help -->
+<section class="py-5 bg-[#11193e]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+
+    <!-- Heading -->
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-left mb-5 text-yellow-400 leading-tight">
+      <span style="color: #fff"> Built for Detail</span>-Oriented Clinical Teams
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <p
+          class="text-xl md:text-2xl text-yellow-400 font-semibold text-left mb-5 space-x-3 border-l-4 border-primary pl-4">
+          <i> <span>For Clinical Teams Who Lead With Knowledge.</span> <br><span> Where Precision Meets Accountability.
+            </span> <br> <span> For Teams Who Don't Guess. They Know.</span></i>
+        </p>
+
+        <p class="text-white max-w-3xl text-justify leading-relaxed mb-5 text-base md:text-lg">
+          Care2Data is designed for teams who demand precision in clinical data validation—whether managing a single
+          study or complex, multi-study programs.
+        </p>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 my-5">
+
+      <!-- Card 1 -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+        <!-- <div class="w-8 h-8 mx-auto flex items-center justify-center rounded-full mb-5 bg-primary">
+          <mat-icon class="text-2xl text-white">biotech</mat-icon>
+        </div> -->
+
+        <h3
+          class="text-lg sm:text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-2 lg:h-12 xl:h-6">
+          Biotech & Pharma
+        </h3>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+          Ensure assets are supported by high-quality, submission-ready data.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+        <!-- <div class="w-8 h-8 mx-auto flex items-center justify-center rounded-full mb-5 bg-primary">
+          <mat-icon class="text-2xl text-white">handshake</mat-icon>
+        </div> -->
+
+        <h3
+          class="text-lg sm:text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-2 lg:h-12 xl:h-6">
+          CROs & FSPs
+        </h3>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+          Deliver sponsor-ready datasets with less manual effort.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+        <!-- <div class="w-8 h-8 mx-auto flex items-center justify-center rounded-full mb-5 bg-primary">
+          <mat-icon class="text-2xl text-white">analytics</mat-icon>
+        </div> -->
+
+        <h3
+          class="text-lg sm:text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-2 lg:h-12 xl:h-6">
+          Statistical Programmers
+        </h3>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+          Spend less time debugging and more time analyzing.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div
+        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+        <!-- <div class="w-8 h-8 mx-auto flex items-center justify-center rounded-full mb-5 bg-primary">
+          <mat-icon class="text-2xl text-white">rule</mat-icon>
+        </div> -->
+
+        <h3
+          class="text-lg sm:text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-2 lg:h-12 xl:h-6">
+          QA & Regulatory Teams
+        </h3>
+
+        <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+          Get the traceability and documentation needed to sign off confidently.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Why Choose Us? -->
+<section class="py-5 bg-[#102c50]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="space-y-5">
+        <!-- Heading -->
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-left mb-5 text-yellow-400 leading-tight max-w-3xl">
+          <span style="color: #fff">Serious Software for</span> Serious Science.
+        </h2>
+        <p
+          class="text-xl md:text-2xl text-yellow-400 font-semibold text-left mb-5 space-x-3 border-l-4 border-primary pl-4">
+          <i> <span>We didn't build a generic data tool.
+            </span> <br> <span>We built a regulatory tool.</span></i>
+        </p>
+        <!-- <div class="space-y-5">
+          <p class="text-white text-justify leading-relaxed text-base md:text-lg text-white">
+            This isn't an upgrade. It's a reset — from binary checking to knowledge-driven assurance. Care2Data brings
+            order, data intelligence, and confidence to clinical trial data validation so teams can move forward with
+            certainty.
+          </p>
+        </div> -->
+      </div>
+
+      <div class="space-y-5">
+        <div class="rounded-lg overflow-hidden border border-gray-100 shadow-sm">
+          <table class="min-w-full text-left border-collapse">
+            <thead>
+              <tr
+                class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out">
+                <th class="px-6 py-4 text-base md:text-lg font-bold text-white uppercase tracking-wider w-1/3">
+                  Feature</th>
+                <th class="px-6 py-4 text-base md:text-lg font-bold text-white uppercase tracking-wider">
+                  Benefit</th>
+              </tr>
+            </thead>
+            <tbody class="text-base md:text-lg">
+              <tr class="bg-white border-b border-gray-50">
+                <td class="px-4 py-3 font-bold text-[#11193e]">Validation-First Design</td>
+                <td class="px-4 py-3 text-gray-500">Accuracy and compliance is prioritized over everything else</td>
+              </tr>
+              <tr class="bg-[#f8fafb] border-b border-gray-50">
+                <td class="px-4 py-3 font-bold text-[#11193e]">Audit-Ready Evidence</td>
+                <td class="px-4 py-3 text-gray-500">End-to-end traceability is maintained for every validation step</td>
+              </tr>
+              <tr class="bg-white border-b border-gray-50">
+                <td class="px-4 py-3 font-bold text-[#11193e]">Low-Stress Deployment</td>
+                <td class="px-4 py-3 text-gray-500">No disruption to existing systems</td>
+              </tr>
+              <tr class="bg-[#f8fafb]">
+                <td class="px-4 py-3 font-bold text-[#11193e]">Scalable</td>
+                <td class="px-4 py-3 text-gray-500">Processes that scale seamlessly from one study to many</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final Conversion -->
+<section class="py-5 bg-[#11193e]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <p
+      class="text-white max-w-3xl mx-auto leading-relaxed mb-5 text-base md:text-lg text-left md:text-center">
+      Care2Data is not merely a validation tool. <br> It is a Semantic Intelligence outfit transforming clinical data
+      governance—where Knowledge fuels Quality, Integrity, Conformance, and Plausibility by design.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
+
+      <!-- Primary CTA -->
+      <button routerLink="/contact-us"
+        class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
+        style="background-color: var(--btn-primary-color); color: #fff;"
+        onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+        onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+        Request a Demo →
+      </button>
+
+      <!-- Secondary CTA -->
+      <!-- <button routerLink="/contact-us"
+        class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
+        style="background-color: var(--btn-primary-color); color: #fff;"
+        onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+        onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+        Contact Us →
+      </button> -->
+
+      <!-- Tertiary CTA -->
+      <!-- <button
+        class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
+        style="background-color: var(--btn-primary-color); color: #fff;"
+        onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+        onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+        Download Overview →
+      </button> -->
+
+    </div>
+
+  </div>
+</section>

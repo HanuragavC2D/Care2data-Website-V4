@@ -1,0 +1,19 @@
+.bg-line {
+  fill: none;
+  stroke: url(#lineGrad);
+  stroke-width: 1.2;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: flowLine 6s linear infinite;
+  opacity: 0.4;
+}
+
+.bg-line.slow {
+  animation-duration: 10s;
+  opacity: 0.25;
+}
+
+@keyframes flowLine {
+  0% { stroke-dashoffset: 200; }
+  100% { stroke-dashoffset: -200; }
+}

@@ -1,0 +1,82 @@
+<section class="py-20 bg-[#11193e]">
+    <!-- Page Title -->
+    <div class="text-center text-white px-4 sm:px-6 lg:px-8 ">
+        <h1 class="text-3xl md:text-5xl font-bold font-heading mb-4">
+            Resources
+        </h1>
+        <p
+            class="text-white max-w-3xl mx-auto leading-relaxed mb-3 text-base md:text-lg text-center font-semibold">
+            Updates, research, and perspectives from Care2Data.
+        </p>
+        <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+    </div>
+</section>
+
+<section class="py-8 bg-[#102c50]">
+
+    <div class="mx-auto max-w-7xl space-y-12 px-5 md:px-6">
+        <div class="mb-5 flex flex-wrap gap-4 pb-2">
+            <button *ngFor="let c of categories" (click)="selectedCategory = c.value" [ngClass]="selectedCategory === c.value 
+      ? 'border-b-2 border-primary text-primary font-bold'
+      : 'text-slate-500 hover:text-primary font-medium'"
+                class="pb-2 text-sm cursor-pointer transition-colors duration-300">
+                {{ c.label }}
+            </button>
+        </div>
+        <article *ngFor="let article of paginatedArticles"
+            class="group flex flex-col gap-6 sm:flex-row sm:items-center">
+            <div class="h-48 w-full shrink-0 overflow-hidden rounded-xl bg-slate-200 sm:h-40 sm:w-64">
+                <img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    [src]="article.image" />
+            </div>
+
+            <div class="flex flex-1 flex-col">
+                <span class="text-xs font-bold uppercase tracking-wider text-primary">
+                    {{ article.category }}
+                </span>
+
+                <h3 class="mt-2 text-2xl font-bold leading-tight text-white group-hover:text-primary transition-colors">
+                    {{ article.title }}
+                </h3>
+
+                <p class="mt-3 text-secondary line-clamp-2">
+                    {{ article.description }}
+                </p>
+
+                <div class="mt-5 flex items-center justify-between">
+                    <span class="text-sm text-slate-400">{{ article.date }}</span>
+
+                    <button class="flex items-center gap-1 text-sm font-bold text-primary hover:underline uppercase">
+                        Read More →
+                    </button>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- Pagination -->
+    <div *ngIf="articles.length > pageSize" class="mt-5 flex items-center justify-center gap-3">
+        <!-- Prev -->
+        <button (click)="prevPage()" [disabled]="currentPage === 1"
+            [ngClass]="currentPage === 1 ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer hover:bg-primary'"
+            class="px-4 py-2 rounded-lg text-secondary border border-slate-300 hover:bg-primary disabled:opacity-40">
+            ‹
+        </button>
+
+        <!-- Page numbers -->
+        <button *ngFor="let page of [].constructor(totalPages); let i = index" (click)="goToPage(i + 1)" [ngClass]="
+      currentPage === i + 1
+        ? 'bg-blue-600 text-white border-blue-600'
+        : 'border-slate-300 hover:bg-primary text-secondary'"
+            class="px-4 py-2 rounded-lg border text-sm font-medium cursor-pointer">
+            {{ i + 1 }}
+        </button>
+
+        <!-- Next -->
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages"
+            [ngClass]="currentPage === totalPages ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer hover:bg-primary'"
+            class="px-4 py-2 rounded-lg text-secondary border border-slate-300 hover:bg-primary disabled:opacity-40">
+            ›
+        </button>
+    </div>
+</section>

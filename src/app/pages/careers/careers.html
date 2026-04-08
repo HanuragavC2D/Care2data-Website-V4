@@ -1,0 +1,421 @@
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center bg-[#11193e] overflow-hidden">
+
+    <!-- Right Side Background Image -->
+    <div class="absolute top-10 right-0 h-full w-[60%]">
+        <div class="w-full h-full bg-no-repeat bg-right bg-cover" style="background-image:url('images/career.png')">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-l from-transparent via-[#11193e]/60 to-[#11193e]"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center w-full">
+
+        <!-- Left Content -->
+        <div class="w-full lg:w-1/2 text-left space-y-4">
+
+            <span
+                class="inline-block px-3 py-1 text-xs font-semibold tracking-widest bg-black uppercase bg-gray-100 rounded">Join
+                Our Mission</span>
+            <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight font-heading">
+                Build the Future of <span class="text-secondary">Clinical Data</span> Intelligence
+            </h1>
+            <p class="text-lg text-white font-medium">
+                Join a team working at the intersection of clinical data, analytics, and real-world impact. We're hiring
+                pioneers ready to revolutionize healthcare insights.
+            </p>
+
+
+            <!-- CTA -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-start pt-4">
+                <button type="submit" (click)="scrollTo('openPositions')"
+                    class="inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer rounded-md"
+                    style="background-color: var(--btn-primary-color); color: white;"
+                    onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+                    onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+                    View Open Roles →
+                </button>
+                <button type="submit"
+                    class="inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer rounded-md"
+                    style="background-color: var(--btn-primary-color); color: white;"
+                    onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+                    onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+                    Our Culture →
+                </button>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Why Work With Care2Data -->
+<section class="py-8 bg-[#102c50]">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+        <!-- Page Title -->
+        <div class="mb-7">
+            <!-- Heading -->
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-5 text-yellow-400 leading-tight">
+                <span style="color: #fff"> Why Wor</span> With Care2Data?
+            </h2>
+            <p class="text-base md:text-lg text-white mb-5">
+                We provide a environment where technology meets humanity, and your work directly improves patient
+                outcomes.
+            </p>
+            <div class="w-20 h-1 bg-blue-600 rounded-full"></div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+            <!-- Card 1 -->
+            <div
+                class="bg-white/5 hover:bg-white rounded-xl md:rounded-2xl p-6 text-left shadow-sm hover:shadow-lg transition-all duration-300 group">
+
+                <div class="w-14 h-14 flex items-center justify-center rounded-full mb-4 bg-primary text-white">
+                    <!-- Icon: Database -->
+                    <svg class="h-6 w-6 text-brand-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </div>
+
+                <h3
+                    class="text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-3">
+                    Work on Meaningful Clinical Data
+                </h3>
+
+                <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+                    Contribute to projects that transform complex clinical data into insights that support better
+                    healthcare decisions.
+                </p>
+
+            </div>
+
+            <!-- Card 2 -->
+            <div
+                class="bg-white/5 hover:bg-white rounded-xl md:rounded-2xl p-6 text-left shadow-sm hover:shadow-lg transition-all duration-300 group">
+
+                <div class="w-14 h-14 flex items-center justify-center rounded-full mb-4 bg-primary text-white">
+                    <!-- Icon: Puzzle -->
+                    <svg class="h-6 w-6 text-brand-accent" fill="none" stroke="currentColor" viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </div>
+
+                <h3
+                    class="text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-3">
+                    Solve Complex Data Challenges
+                </h3>
+
+                <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+                    Work with advanced data systems, clinical standards, and analytics to tackle real-world data
+                    problems.
+                </p>
+
+            </div>
+
+            <!-- Card 3 -->
+            <div
+                class="bg-white/5 hover:bg-white rounded-xl md:rounded-2xl p-6 text-left shadow-sm hover:shadow-lg transition-all duration-300 group">
+
+                <div class="w-14 h-14 flex items-center justify-center rounded-full mb-4 bg-primary text-white">
+                    <!-- Icon: Users -->
+                    <svg class="h-6 w-6 text-brand-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </div>
+
+                <h3
+                    class="text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-3">
+                    Learn from Industry Experts
+                </h3>
+
+                <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+                    Collaborate with experienced professionals in clinical data, analytics, and data engineering.
+                </p>
+
+            </div>
+
+            <!-- Card 4 -->
+            <div
+                class="bg-white/5 hover:bg-white rounded-xl md:rounded-2xl p-6 text-left shadow-sm hover:shadow-lg transition-all duration-300 group">
+
+                <div class="w-14 h-14 flex items-center justify-center rounded-full mb-4 bg-primary text-white">
+                    <!-- Icon: Trending Up -->
+                    <svg class="h-6 w-6 text-brand-accent" fill="none" stroke="currentColor" viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"></path>
+                    </svg>
+                </div>
+
+                <h3
+                    class="text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-3">
+                    Build Skills for the Future
+                </h3>
+
+                <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+                    Gain hands-on experience with modern data technologies and enterprise-grade healthcare data
+                    systems.
+                </p>
+
+            </div>
+
+            <!-- Card 4 -->
+            <div
+                class="bg-white/5 hover:bg-white rounded-xl md:rounded-2xl p-6 text-left shadow-sm hover:shadow-lg transition-all duration-300 group">
+
+                <div class="w-14 h-14 flex items-center justify-center rounded-full mb-4 bg-primary text-white">
+                    <!-- Icon: Beaker -->
+                    <svg class="h-6 w-6 text-brand-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.288a2 2 0 01-1.645 0l-.628-.288a6 6 0 00-3.86-.517l-2.387.477a2 2 0 00-1.022.547V18a2 2 0 002 2h11a2 2 0 002-2v-2.572zM15 11V5a2 2 0 10-4 0v6m0 0l-1.5 1.5M11 11l1.5 1.5"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </div>
+
+                <h3
+                    class="text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-3">
+                    Grow in a Collaborative Environment
+                </h3>
+
+                <p class="text-base md:text-lg text-white group-hover:text-black leading-relaxed">
+                    Be part of a team that values curiosity, problem-solving, and continuous learning.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Open Positions -->
+<section class="py-20 bg-[#114167]" id="openPositions">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+        <div class="mb-5">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-5 text-left text-white">Open Positions
+            </h2>
+            <p class="text-white">We're looking for passionate people to join our remote-first team.</p>
+        </div>
+
+        <!-- Roles List -->
+        <div class="my-2" *ngFor="let job of paginatedArticles">
+
+            <!-- Roles -->
+            <div
+                class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 bg-[#11193e] rounded-lg p-4 border border-[#102c50] hover:bg-[#102c50] transition duration-300">
+
+                <div>
+                    <h3 class="text-xl font-semibold text-primary">
+                        {{job.jobtitle}}
+                    </h3>
+
+                    <p class="text-white mt-1 max-w-2xl text-sm">
+                        {{job.description}}
+                    </p>
+
+                    <div class="text-sm text-gray-500 mt-3">
+                        {{job.department}} • {{job.location}} • Full time
+                    </div>
+                </div>
+
+                <button
+                    class="inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer rounded-md"
+                    style="background-color: var(--btn-primary-color); color: white;"
+                    onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+                    onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';"
+                    (click)="applyJobs(job)">
+                    Apply →
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div *ngIf="openingRoles.length > pageSize" class="mt-5 flex items-center justify-center gap-3">
+            <!-- Prev -->
+            <button (click)="prevPage()" [disabled]="currentPage === 1"
+                [ngClass]="currentPage === 1 ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer hover:bg-primary'"
+                class="px-4 py-2 rounded-lg text-secondary border border-slate-300 hover:bg-primary disabled:opacity-40">
+                ‹
+            </button>
+
+            <!-- Page numbers -->
+            <button *ngFor="let page of [].constructor(totalPages); let i = index" (click)="goToPage(i + 1)" [ngClass]="
+      currentPage === i + 1
+        ? 'bg-blue-600 text-white border-blue-600'
+        : 'border-slate-300 hover:bg-primary text-secondary'"
+                class="px-4 py-2 rounded-lg border text-sm font-medium cursor-pointer">
+                {{ i + 1 }}
+            </button>
+
+            <!-- Next -->
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages"
+                [ngClass]="currentPage === totalPages ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer hover:bg-primary'"
+                class="px-4 py-2 rounded-lg text-secondary border border-slate-300 hover:bg-primary disabled:opacity-40">
+                ›
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Application Form -->
+<section class="py-20 bg-[#11193e]" id="applicationForm">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+
+        <div class="mb-5">
+            <h2 class="text-3xl font-bold text-white mb-2">Application Form</h2>
+            <p class="text-gray-400">Fill in your details to apply for the selected position</p>
+        </div>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="text-white space-y-6">
+
+            <!-- Name -->
+            <div class="mb-2">
+                <p class="mb-2 font-medium">Name</p>
+                <mat-form-field appearance="outline" class="w-full">
+                    <input matInput formControlName="name" class="!text-white" placeholder="Name" />
+                </mat-form-field>
+
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('name')?.touched) && contactForm.get('name')?.errors?.['required']">
+                    Name is required
+                </p>
+
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('name')?.touched) && contactForm.get('name')?.errors?.['minlength']">
+                    Minimum 3 characters required
+                </p>
+
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('name')?.touched) && contactForm.get('name')?.errors?.['pattern']">
+                    Only alphabets and spaces are allowed
+                </p>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-2">
+                <p class="mb-2 font-medium">Email</p>
+                <mat-form-field appearance="outline" class="w-full">
+                    <input matInput type="email" formControlName="email" class="!text-white" placeholder="Email" />
+                </mat-form-field>
+
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('email')?.touched) && contactForm.get('email')?.errors?.['required']">
+                    Email is required
+                </p>
+
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('email')?.touched) && contactForm.get('email')?.errors?.['email']">
+                    Please enter a valid email address
+                </p>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="mb-2">
+                <p class="mb-2 font-medium">Phone Number *</p>
+
+                <mat-form-field appearance="outline" class="w-full">
+                    <input matInput type="tel" formControlName="phone" maxlength="10"
+                        (keypress)="allowOnlyNumbers($event)" placeholder="Phone Number" />
+                </mat-form-field>
+
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('phone')?.touched) && contactForm.get('phone')?.errors?.['required']">
+                    Phone number is required
+                </p>
+
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('phone')?.touched) && contactForm.get('phone')?.errors?.['pattern']">
+                    Enter valid 10 digit phone number
+                </p>
+            </div>
+
+            <!-- Organization -->
+            <div class="mb-2">
+                <p class="mb-2 font-medium">Company / Organization (Optional)</p>
+                <mat-form-field appearance="outline" class="w-full">
+                    <input matInput formControlName="organization" class="text-white"
+                        placeholder="Company / Organization" />
+                </mat-form-field>
+            </div>
+
+            <!-- Position Applied For Dropdown -->
+            <div>
+                <p class="mb-2 font-medium">Position Applied For *</p>
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-select formControlName="interest" class="!text-white" placeholder="Select Position">
+                        <mat-option *ngFor="let job of openingRoles" [value]="job.jobtitle">
+                            {{job.jobtitle}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('interest')?.touched) && contactForm.get('interest')?.errors?.['required']">
+                    Position Applied For is required
+                </p>
+            </div>
+
+            <!-- Upload CV -->
+            <div class="mb-2">
+                <p class="mb-2 font-medium">Upload CV / Resume *</p>
+
+                <input type="file" accept=".pdf,.doc,.docx" (change)="onFileSelected($event)" class="block w-full text-sm text-gray-300
+           file:mr-4 file:py-2 file:px-4
+           file:rounded-lg file:border-0
+           file:bg-blue-600 file:text-white
+           hover:file:bg-blue-700" />
+
+                <p class="text-red-500 text-sm mt-1" *ngIf="submitted && !selectedFile">
+                    CV / Resume is required
+                </p>
+            </div>
+
+            <!-- Cover Letter / Additional Information -->
+            <div class="mb-2">
+                <p class="mb-2 font-medium">Cover Letter / Additional Information *</p>
+                <mat-form-field appearance="outline" class="w-full">
+                    <textarea matInput rows="5" formControlName="message"
+                        placeholder="Tell us why you're interested in this position and any relevant experience..."
+                        class="!text-white"></textarea>
+                </mat-form-field>
+
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('message')?.touched) && contactForm.get('message')?.errors?.['required']">
+                    Cover Letter is required
+                </p>
+
+                <p class="text-red-500 text-sm mt-1"
+                    *ngIf="(submitted || contactForm.get('message')?.touched) && contactForm.get('message')?.errors?.['minlength']">
+                    Minimum 10 characters required
+                </p>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-5">
+                <button type="submit" [disabled]="isLoading" class="flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer mx-auto w-fit hover:bg-primary hover:border-primary
+           disabled:opacity-50 disabled:cursor-not-allowed"
+                    style="background-color: var(--btn-primary-color); color: white;"
+                    onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
+                    onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+                    <p class="m-0" *ngIf="!isLoading">Apply →</p>
+                    <p class="m-0 text-white" *ngIf="isLoading">Sending Application...
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
