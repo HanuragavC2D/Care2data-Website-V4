@@ -22,10 +22,10 @@ body {
   --font-heading: 'Playfair Display', serif;
 
   --bg-primary: #417ae3;
-  --bg-secondary: #f0ca33;
+  --bg-secondary: #f5c36e;
 
   --primary-color: #417ae3;
-  --secondary-color: #f0ca33;
+  --secondary-color: #f5c36e;
 
   --btn-primary-color: #3d7ffc;
   --btn-secondary-color: #ffffff;
@@ -291,4 +291,58 @@ textarea.mat-mdc-input-element {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ── Home-page gradient theme applied globally ───────────────────────────── */
+[class~="bg-[#11193e]"] {
+  background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%) !important;
+}
+
+[class~="bg-[#102c50]"] {
+  background: linear-gradient(180deg, #07102a 0%, #0b1836 100%) !important;
+}
+
+[class~="bg-[#114167]"] {
+  background: linear-gradient(180deg, #08132a 0%, #081630 100%) !important;
+}
+
+/* ── V3 Gold: override Tailwind yellow-400 (#facc15) with V3 gold (#f5c36e) ── */
+.text-yellow-400 {
+  color: #f5c36e !important;
+}
+
+/* ── Global glass card polish: hover on any rounded bg-white/5 card ─────── */
+div.bg-white\/5.rounded-2xl,
+div.bg-white\/5.rounded-xl,
+div.bg-white\/5.rounded-lg {
+  transition: background-color 0.3s ease, border-color 0.25s ease;
+}
+div.bg-white\/5.rounded-2xl:hover,
+div.bg-white\/5.rounded-xl:hover,
+div.bg-white\/5.rounded-lg:hover {
+  background-color: rgba(255,255,255,0.09) !important;
+  border-color: rgba(245,195,110,0.22) !important;
+}
+
+/* ── Glass card hover pattern usable on any section ─────────────────────── */
+.glass-card-hover:hover {
+  background-color: rgba(255,255,255,0.09) !important;
+  border-color: rgba(245,195,110,0.22) !important;
+  transform: translateY(-3px);
+  transition: all 0.3s ease;
+}
+
+/* ── Gold accent top bar for any card ───────────────────────────────────── */
+.gold-top-bar {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f5c36e, transparent);
+    border-radius: inherit;
+  }
 }

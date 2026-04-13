@@ -1,0 +1,849 @@
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN TOKENS (shared with home & about)
+═══════════════════════════════════════════════════════════════ */
+
+$gold:        #f5c36e;
+$gold-dim:    rgba(245, 195, 110, 0.18);
+$gold-border: rgba(245, 195, 110, 0.22);
+$white-84:    rgba(248, 250, 252, 0.84);
+$white-82:    rgba(248, 250, 252, 0.82);
+$white-78:    rgba(248, 250, 252, 0.78);
+$card-bg:     rgba(255, 255, 255, 0.05);
+$card-hover:  rgba(255, 255, 255, 0.09);
+$card-border: rgba(255, 255, 255, 0.12);
+$inner-width: 1200px;
+$section-pad: 3.5rem 1.5rem;
+$section-pad-sm: 2.5rem 1.25rem;
+
+/* ─── Shared helpers ─────────────────────────────────────────── */
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: $gold;
+}
+
+.section-header {
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+
+  h2 {
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.08;
+    margin-top: 0.75rem;
+    color: white;
+
+    span { color: $gold; }
+  }
+}
+
+.section-subtext {
+  display: block;
+  margin: 0.75rem auto 0;
+  max-width: 680px;
+  color: $white-78;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.95rem 1.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: $gold;
+  color: #111827;
+  &:hover { background: #d19a3e; transform: translateY(-2px); }
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid $gold-border;
+  color: $gold;
+  &:hover { background: $gold-dim; transform: translateY(-2px); }
+}
+
+.btn-sm {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.8rem;
+}
+
+/* ─── Icon square ────────────────────────────────────────────── */
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f5c36e;
+  flex-shrink: 0;
+
+  img { width: 1.75rem; height: 1.75rem; object-fit: contain; filter: brightness(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════════ */
+
+.ks-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(245, 195, 110, 0.14), transparent 24%),
+    linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);
+  color: #f8fafc;
+  padding: 5rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(245, 195, 110, 0.08), transparent 20%);
+    pointer-events: none;
+  }
+}
+
+.ks-hero__bg {
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  height: 100%;
+  width: 60%;
+  z-index: 0;
+}
+
+.ks-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+
+.ks-hero__bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, transparent, rgba(14, 31, 68, 0.65), #090f21);
+}
+
+.ks-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: $inner-width;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.ks-hero__copy {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+
+  h1 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.1;
+    color: white;
+    font-weight: 700;
+    margin: 0;
+
+    span { color: $gold; }
+  }
+
+  p {
+    color: $white-84;
+    font-size: 1rem;
+    line-height: 1.85;
+    max-width: 560px;
+    margin: 0;
+  }
+}
+
+.ks-hero__actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GENERIC SECTION WRAPPER + BACKGROUNDS
+═══════════════════════════════════════════════════════════════ */
+
+.ks-section {
+  padding: $section-pad;
+
+  &__inner {
+    max-width: $inner-width;
+    margin: 0 auto;
+  }
+}
+
+.ks-intro        { background: linear-gradient(180deg, #07102a 0%, #0b1836 100%); }
+.ks-interlinked  { background: linear-gradient(180deg, #060c21 0%, #08132a 100%); }
+.ks-how          { background: linear-gradient(180deg, #08132a 0%, #071022 100%); }
+.ks-operating    { background: linear-gradient(180deg, #071022 0%, #08132a 100%); }
+.ks-architecture { background: linear-gradient(180deg, #08132a 0%, #071022 100%); }
+.ks-proven       { background: linear-gradient(180deg, #07102a 0%, #0b1836 100%); }
+.ks-final-cta    { background: linear-gradient(180deg, #060c21 0%, #060e1e 100%); }
+
+/* ─── Prose ──────────────────────────────────────────────────── */
+
+.ks-prose {
+  max-width: 900px;
+  margin: 0 auto;
+
+  p {
+    color: $white-82;
+    font-size: 1rem;
+    line-height: 1.9;
+    margin: 0 0 1.25rem;
+    &:last-child { margin: 0; }
+    strong { color: $gold; }
+  }
+}
+
+.ks-subheader {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $gold;
+  text-align: center;
+  margin: 2rem auto 1.25rem;
+  max-width: 900px;
+}
+
+.ks-highlight {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  max-width: 900px;
+  margin: 2.5rem auto 0;
+  line-height: 1.7;
+
+  strong { color: $gold; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURE LIST (2×2 icon + text)
+═══════════════════════════════════════════════════════════════ */
+
+.ks-feature-list {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ks-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 1rem;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  transition: background 0.3s ease, transform 0.22s ease, border-color 0.25s ease;
+
+  &:hover {
+    background: $card-hover;
+    transform: translateY(-2px);
+    border-color: $gold-border;
+  }
+
+  p {
+    color: $white-84;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+    font-weight: 500;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BLOCKQUOTE
+═══════════════════════════════════════════════════════════════ */
+
+.ks-blockquote {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  border-left: 4px solid $gold;
+  background: $gold-dim;
+  border-radius: 0 1rem 1rem 0;
+
+  p {
+    color: $gold;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.8;
+    margin: 0 0 0.35rem;
+    &:last-child { margin: 0; }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CHECK CARD (How Care2Data)
+═══════════════════════════════════════════════════════════════ */
+
+.ks-check-card {
+  max-width: $inner-width;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1.75rem;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $gold, transparent);
+    border-radius: 1.75rem 1.75rem 0 0;
+  }
+
+  &__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $gold;
+    text-align: center;
+    margin: 0 0 1.5rem;
+  }
+}
+
+.ks-check-grid {
+  display: grid;
+  gap: 0.875rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ks-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-left: 3px solid rgba(245,195,110,0.3);
+  transition: background 0.25s ease, border-left-color 0.25s ease;
+
+  &:hover {
+    background: rgba(255,255,255,0.07);
+    border-left-color: $gold;
+  }
+
+  p {
+    color: $white-82;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+.ks-check {
+  color: $gold;
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CAROUSEL REDESIGN (knowledge architecture cards)
+═══════════════════════════════════════════════════════════════ */
+
+.ks-carousel-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(245, 195, 110, 0.22) !important;
+  backdrop-filter: blur(16px);
+  color: white !important;
+
+  .ks-carousel-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: $gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    img { width: 1.75rem; height: 1.75rem; object-fit: contain; filter: brightness(0); }
+  }
+
+  // Icon + title horizontal row
+  .ks-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 0.875rem;
+  }
+
+  h3 {
+    color: $gold !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+  }
+
+  p {
+    color: $white-78 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.75 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      color: $white-78 !important;
+      font-size: 0.875rem !important;
+      line-height: 1.75 !important;
+      padding: 0.2rem 0;
+    }
+  }
+}
+
+.ks-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.ks-carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.25);
+
+  &.active {
+    background: $gold;
+    transform: scale(1.2);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   KNOWLEDGE PROCESS (SVG sub-heading)
+═══════════════════════════════════════════════════════════════ */
+
+.ks-process-header {
+  text-align: center;
+  margin: 3.5rem 0 1.5rem;
+
+  h2 {
+    font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+
+    span { color: $gold; }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROVEN / SERVICES CARDS
+═══════════════════════════════════════════════════════════════ */
+
+.ks-card {
+  border-radius: 1.75rem;
+  padding: 2rem;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, border-color 0.25s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $gold, transparent);
+    border-radius: 1.75rem 1.75rem 0 0;
+  }
+
+  &:last-child { margin-bottom: 0; }
+
+  &:hover { background: $card-hover; border-color: $gold-border; }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $gold;
+    text-align: center;
+    margin: 0 0 1.25rem;
+  }
+
+  p {
+    color: $white-82;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin: 0 0 0.875rem;
+    &:last-child { margin: 0; }
+    strong { color: $gold; }
+  }
+}
+
+.ks-bullet-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  counter-reset: bullet-counter;
+}
+
+.ks-bullet-item {
+  counter-increment: bullet-counter;
+  color: $white-82;
+  font-size: 0.925rem;
+  font-weight: 500;
+  line-height: 1.7;
+  padding: 0.875rem 1rem 0.875rem 3.25rem;
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 0.875rem;
+  transition: background 0.25s ease, border-color 0.25s ease;
+  margin: 0;
+
+  &::before {
+    content: counter(bullet-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $gold;
+    font-size: 1rem;
+    font-weight: 800;
+    opacity: 0.7;
+    line-height: 1;
+  }
+
+  &:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: $gold-border;
+  }
+}
+
+.ks-validation-header {
+  text-align: center;
+  margin: 2.5rem 0 1.25rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background: $gold;
+    margin: 0 auto 1.5rem;
+    opacity: 0.5;
+    border-radius: 2px;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 700;
+    color: $gold;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.4;
+  }
+}
+
+.ks-e2e-heading {
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin: 0 0 0.75rem;
+  line-height: 1.15;
+
+  span { color: $gold; }
+}
+
+// Visual pipeline flow (replaces the old plain-text pipeline)
+.ks-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.ks-pipeline__step {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 0.5rem;
+  padding: 0.45rem 1rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.ks-pipeline__arrow {
+  color: $gold;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ks-e2e-subheader {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $gold;
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+}
+
+.ks-outcomes-title {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 700;
+  color: $gold;
+  text-align: center;
+  margin: 0 0 1.5rem;
+}
+
+// ── Knowledge Services combine card ───────────────────────────
+.ks-combine-card {
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $gold, transparent);
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+}
+
+.ks-combine-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $gold;
+  margin: 0 0 1.5rem;
+}
+
+.ks-combine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.ks-combine-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.75rem 1.25rem;
+  border-radius: 1.75rem;
+  border: 1px solid;
+  border-top-width: 3px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  .ks-combine-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #f5c36e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    mat-icon { color: #111827; font-size: 1.25rem; }
+  }
+
+  span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $white-82;
+    line-height: 1.5;
+  }
+}
+
+// Blue
+.ks-combine-item--1 {
+  background: rgba(56, 189, 248, 0.07);
+  border-color: rgba(56, 189, 248, 0.35);
+  border-top-color: #38bdf8;
+  box-shadow: 4px 6px 0 rgba(56, 189, 248, 0.2), 0 12px 32px rgba(0,0,0,0.3);
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(56, 189, 248, 0.2), 0 18px 40px rgba(0,0,0,0.35); }
+}
+
+// Gold
+.ks-combine-item--2 {
+  background: rgba(245, 195, 110, 0.07);
+  border-color: $gold-border;
+  border-top-color: $gold;
+  box-shadow: 4px 6px 0 rgba(245, 195, 110, 0.22), 0 12px 32px rgba(0,0,0,0.3);
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(245, 195, 110, 0.22), 0 18px 40px rgba(0,0,0,0.35); }
+}
+
+// Green
+.ks-combine-item--3 {
+  background: rgba(52, 211, 153, 0.07);
+  border-color: rgba(52, 211, 153, 0.3);
+  border-top-color: #34d399;
+  box-shadow: 4px 6px 0 rgba(52, 211, 153, 0.18), 0 12px 32px rgba(0,0,0,0.3);
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(52, 211, 153, 0.18), 0 18px 40px rgba(0,0,0,0.35); }
+}
+
+// Purple
+.ks-combine-item--4 {
+  background: rgba(192, 132, 252, 0.07);
+  border-color: rgba(192, 132, 252, 0.28);
+  border-top-color: #c084fc;
+  box-shadow: 4px 6px 0 rgba(192, 132, 252, 0.18), 0 12px 32px rgba(0,0,0,0.3);
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(192, 132, 252, 0.18), 0 18px 40px rgba(0,0,0,0.35); }
+}
+
+.ks-combine-footer {
+  font-size: 0.9rem;
+  color: $white-78;
+  line-height: 1.8;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+// ── E2E card (full-width stacked layout) ────────────────────────
+.ks-e2e-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  .ks-bullet-grid { margin-top: 0.75rem; }
+}
+
+.ks-e2e-note {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: $white-82;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+// ── Standalone Measurable Outcomes box ──────────────────────────
+.ks-e2e-box {
+  .ks-e2e-subheader { text-align: left; }
+}
+
+.ks-e2e-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+.ks-e2e-twin {
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════════════════════════ */
+
+.ks-final-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.ks-final-cta__inner {
+  max-width: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.ks-cta-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .ks-hero__copy { width: 65%; }
+
+  .ks-check-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .ks-section { padding: $section-pad-sm; }
+  .ks-hero { padding: 3.5rem 0 2.5rem; }
+  .ks-hero__copy { width: 100%; }
+  .ks-hero__bg { width: 100%; opacity: 0.2; top: 0; }
+  .ks-hero__actions .btn { width: 100%; justify-content: center; }
+
+  .ks-feature-list,
+  .ks-check-grid,
+  .ks-bullet-grid,
+  .ks-cta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2 { font-size: 1.75rem; }
+}

@@ -1,0 +1,436 @@
+// V3 Design Tokens
+$gold:        #f5c36e;
+$gold-dim:    rgba(245,195,110,0.18);
+$gold-border: rgba(245,195,110,0.22);
+$white-82:    rgba(248,250,252,0.82);
+$card-bg:     rgba(255,255,255,0.05);
+$card-hover:  rgba(255,255,255,0.09);
+$card-border: rgba(255,255,255,0.12);
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: $gold;
+  color: #111827;
+  &:hover { background: #e9a83a; transform: translateY(-1px); }
+}
+
+.btn-outline {
+  background: transparent;
+  color: $gold;
+  border: 2px solid $gold-border;
+  &:hover { background: $gold-dim; border-color: $gold; }
+}
+
+// Carousel dark glass
+.eng-carousel-card {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: $gold-border !important;
+  backdrop-filter: blur(16px);
+  color: white !important;
+
+  .eng-card-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: rgba(65,122,227,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 { color: $gold !important; }
+  p  { color: $white-82 !important; }
+}
+
+// Engagement model grid cards
+.eng-model-card {
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid;
+  border-top-width: 3px;
+  transition: all 0.3s ease;
+
+  h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.4rem; }
+  p  { font-size: 0.85rem; color: $white-82; line-height: 1.55; margin: 0; }
+
+  // Blue
+  &:nth-child(3n+1) {
+    background: rgba(56, 189, 248, 0.07);
+    border-color: rgba(56, 189, 248, 0.35);
+    border-top-color: #38bdf8;
+    box-shadow: 4px 6px 0 rgba(56, 189, 248, 0.2), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: #38bdf8; }
+    &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(56, 189, 248, 0.2), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+
+  // Gold
+  &:nth-child(3n+2) {
+    background: rgba(245, 195, 110, 0.07);
+    border-color: $gold-border;
+    border-top-color: $gold;
+    box-shadow: 4px 6px 0 rgba(245, 195, 110, 0.22), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: $gold; }
+    &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(245, 195, 110, 0.22), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+
+  // Green
+  &:nth-child(3n+3) {
+    background: rgba(52, 211, 153, 0.07);
+    border-color: rgba(52, 211, 153, 0.3);
+    border-top-color: #34d399;
+    box-shadow: 4px 6px 0 rgba(52, 211, 153, 0.18), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: #34d399; }
+    &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(52, 211, 153, 0.18), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+}
+
+.eng-card-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $gold;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  &:hover { opacity: 0.8; }
+}
+
+// Methodology icon — gold circle (matches Kwalify style)
+.eng-how-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: $gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  img {
+    width: 1.75rem;
+    height: 1.75rem;
+    object-fit: contain;
+    filter: brightness(0);
+  }
+}
+
+// "How This Works" cards
+.eng-how-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(245,195,110,0.22);
+    transform: translateY(-3px);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MODERN DESIGN ENHANCEMENTS
+═══════════════════════════════════════════════════════════════ */
+
+// Hero section — clears fixed navbar
+.eng-hero {
+  padding-top: 7rem;
+  padding-bottom: 3.5rem;
+}
+
+// Section spacing override (non-hero sections)
+section:not(.eng-hero) {
+  padding-top: 3.5rem !important;
+  padding-bottom: 3.5rem !important;
+}
+
+// Eyebrow label
+.eng-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $gold;
+  margin-bottom: 0.75rem;
+}
+
+// Section header
+.eng-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  h2 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    margin: 0 0 0.5rem;
+    span { color: $gold; }
+  }
+
+  p {
+    font-size: 1rem;
+    color: $white-82;
+    line-height: 1.7;
+    margin: 0.5rem 0 0;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Intro block — gold left accent
+.eng-intro {
+  max-width: 780px;
+  margin: 0 auto 2.5rem;
+  padding: 1.25rem 1.5rem 1.25rem 1.875rem;
+  border-left: 3px solid $gold;
+  background: rgba(245,195,110,0.04);
+  border-radius: 0 0.875rem 0.875rem 0;
+
+  p {
+    color: $white-82;
+    font-size: 0.975rem;
+    line-height: 1.78;
+    margin: 0;
+    & + p { margin-top: 0.875rem; }
+    strong { color: $gold; font-weight: 600; }
+  }
+}
+
+// Engage type cards — auto-numbered
+.eng-type-grid { counter-reset: type-counter; }
+.eng-type-card {
+  counter-increment: type-counter;
+  background: $card-bg;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 1rem;
+  padding: 1.375rem;
+  transition: all 0.25s;
+
+  &::before {
+    content: "0" counter(type-counter);
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: $gold;
+    opacity: 0.65;
+    margin-bottom: 0.5rem;
+  }
+
+  &:hover { border-color: $gold-border; background: $card-hover; transform: translateY(-2px); }
+
+  h4 { font-size: 0.95rem; font-weight: 700; color: $gold; margin: 0 0 0.4rem; }
+  p  { font-size: 0.85rem; color: $white-82; line-height: 1.55; margin: 0; }
+}
+
+// Engage type card color variants
+.eng-type-card--1 {
+  background: rgba(56, 189, 248, 0.07);
+  border-color: rgba(56, 189, 248, 0.35);
+  border-top: 3px solid #38bdf8;
+  box-shadow: 4px 6px 0 rgba(56, 189, 248, 0.2), 0 12px 32px rgba(0,0,0,0.3);
+  h4 { color: #38bdf8; }
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(56, 189, 248, 0.2), 0 18px 40px rgba(0,0,0,0.35); border-color: rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.07); }
+}
+
+.eng-type-card--2 {
+  background: rgba(245, 195, 110, 0.07);
+  border-color: $gold-border;
+  border-top: 3px solid $gold;
+  box-shadow: 4px 6px 0 rgba(245, 195, 110, 0.22), 0 12px 32px rgba(0,0,0,0.3);
+  h4 { color: $gold; }
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(245, 195, 110, 0.22), 0 18px 40px rgba(0,0,0,0.35); border-color: $gold-border; background: rgba(245, 195, 110, 0.07); }
+}
+
+.eng-type-card--3 {
+  background: rgba(52, 211, 153, 0.07);
+  border-color: rgba(52, 211, 153, 0.3);
+  border-top: 3px solid #34d399;
+  box-shadow: 4px 6px 0 rgba(52, 211, 153, 0.18), 0 12px 32px rgba(0,0,0,0.3);
+  h4 { color: #34d399; }
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(52, 211, 153, 0.18), 0 18px 40px rgba(0,0,0,0.35); border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.07); }
+}
+
+.eng-type-card--4 {
+  background: rgba(192, 132, 252, 0.07);
+  border-color: rgba(192, 132, 252, 0.28);
+  border-top: 3px solid #c084fc;
+  box-shadow: 4px 6px 0 rgba(192, 132, 252, 0.18), 0 12px 32px rgba(0,0,0,0.3);
+  h4 { color: #c084fc; }
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(192, 132, 252, 0.18), 0 18px 40px rgba(0,0,0,0.35); border-color: rgba(192, 132, 252, 0.28); background: rgba(192, 132, 252, 0.07); }
+}
+
+// Progression step cards — auto-numbered
+.eng-prog-grid {
+  counter-reset: prog-counter;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr) !important; }
+  @media (max-width: 480px) { grid-template-columns: 1fr !important; }
+}
+.eng-prog-card {
+  counter-increment: prog-counter;
+  border-radius: 1rem;
+  border: 1px solid;
+  border-top-width: 3px;
+  padding: 1.375rem;
+  transition: all 0.25s;
+
+  &::before {
+    content: "0" counter(prog-counter);
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    opacity: 0.65;
+    margin-bottom: 0.625rem;
+  }
+
+  h4 { font-size: 0.925rem; font-weight: 700; margin: 0 0 0.5rem; line-height: 1.3; }
+  p  { font-size: 0.875rem; color: rgba(248,250,252,0.7); line-height: 1.65; margin: 0; }
+
+  // Blue
+  &:nth-child(4n+1) {
+    background: rgba(56, 189, 248, 0.07);
+    border-color: rgba(56, 189, 248, 0.35);
+    border-top-color: #38bdf8;
+    box-shadow: 4px 6px 0 rgba(56, 189, 248, 0.2), 0 12px 32px rgba(0,0,0,0.3);
+    &::before { color: #38bdf8; }
+    h4 { color: #38bdf8; }
+    &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(56, 189, 248, 0.2), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+
+  // Gold
+  &:nth-child(4n+2) {
+    background: rgba(245, 195, 110, 0.07);
+    border-color: $gold-border;
+    border-top-color: $gold;
+    box-shadow: 4px 6px 0 rgba(245, 195, 110, 0.22), 0 12px 32px rgba(0,0,0,0.3);
+    &::before { color: $gold; }
+    h4 { color: $gold; }
+    &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(245, 195, 110, 0.22), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+
+  // Green
+  &:nth-child(4n+3) {
+    background: rgba(52, 211, 153, 0.07);
+    border-color: rgba(52, 211, 153, 0.3);
+    border-top-color: #34d399;
+    box-shadow: 4px 6px 0 rgba(52, 211, 153, 0.18), 0 12px 32px rgba(0,0,0,0.3);
+    &::before { color: #34d399; }
+    h4 { color: #34d399; }
+    &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(52, 211, 153, 0.18), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+
+  // Purple
+  &:nth-child(4n+4) {
+    background: rgba(192, 132, 252, 0.07);
+    border-color: rgba(192, 132, 252, 0.28);
+    border-top-color: #c084fc;
+    box-shadow: 4px 6px 0 rgba(192, 132, 252, 0.18), 0 12px 32px rgba(0,0,0,0.3);
+    &::before { color: #c084fc; }
+    h4 { color: #c084fc; }
+    &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(192, 132, 252, 0.18), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+}
+
+// Flow transition pills
+.eng-flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.eng-flow-pill {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0.625rem;
+  padding: 0.5rem 1.25rem;
+  color: rgba(248,250,252,0.88);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.eng-flow-arrow { color: $gold; font-size: 1.1rem; font-weight: 700; }
+
+// Benefits checkmark grid
+.eng-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.eng-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: rgba(245,195,110,0.05);
+  border: 1px solid $gold-border;
+  border-radius: 0.625rem;
+  transition: background 0.2s;
+
+  &:hover { background: rgba(245,195,110,0.09); }
+
+  .eng-check {
+    flex-shrink: 0;
+    width: 1.375rem;
+    height: 1.375rem;
+    border-radius: 50%;
+    background: rgba(245,195,110,0.12);
+    border: 1px solid rgba(245,195,110,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gold;
+    font-size: 0.6rem;
+    font-weight: 700;
+    margin-top: 0.1rem;
+  }
+
+  p { color: $white-82; font-size: 0.875rem; line-height: 1.55; margin: 0; }
+}
+
+.eng-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.eng-carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.25);
+  &.active { background: $gold; transform: scale(1.2); }
+}

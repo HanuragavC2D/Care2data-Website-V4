@@ -1,4 +1,570 @@
-.snap-start {
-  scroll-snap-align: start;
-  flex: 0 0 auto;
+// ── Design Tokens ──────────────────────────────────────────────
+$gold:        #f5c36e;
+$gold-dim:    rgba(245,195,110,0.18);
+$gold-border: rgba(245,195,110,0.22);
+$white-84:    rgba(248,250,252,0.84);
+$white-82:    rgba(248,250,252,0.82);
+$white-78:    rgba(248,250,252,0.78);
+$card-bg:     rgba(255,255,255,0.05);
+$card-hover:  rgba(255,255,255,0.09);
+$card-border: rgba(255,255,255,0.12);
+$inner-width: 1200px;
+
+// ── Buttons ────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.btn-primary {
+  background: $gold;
+  color: #111827;
+  &:hover { background: #e9a83a; transform: translateY(-1px); }
+}
+.btn-outline {
+  background: transparent;
+  color: $gold;
+  border: 2px solid $gold-border;
+  &:hover { background: $gold-dim; border-color: $gold; }
+}
+
+// ── Section backgrounds ────────────────────────────────────────
+.kw-bg-1 { background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%); }
+.kw-bg-2 { background: linear-gradient(180deg, #07102a 0%, #0b1836 100%); }
+.kw-bg-3 { background: linear-gradient(180deg, #08132a 0%, #071022 100%); }
+
+// ── Hero ──────────────────────────────────────────────────────
+.kw-hero {
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  color: white;
+}
+
+.kw-hero__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+// ── Section shell ──────────────────────────────────────────────
+.kw-section {
+  padding: 4rem 1.5rem;
+  color: white;
+}
+
+.kw-inner {
+  max-width: $inner-width;
+  margin: 0 auto;
+}
+
+.kw-inner--narrow {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+// ── Eyebrow / Section header ───────────────────────────────────
+.kw-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $gold;
+  margin-bottom: 0.75rem;
+}
+
+.kw-section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    margin: 0 0 0.5rem;
+    span { color: $gold; }
+  }
+
+  p {
+    font-size: 1rem;
+    color: $white-82;
+    line-height: 1.7;
+    margin: 0.5rem auto 0;
+    max-width: 680px;
+  }
+}
+
+// ── Hero badge / tagline ───────────────────────────────────────
+.kw-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  background: rgba(245,195,110,0.12);
+  border: 1px solid rgba(245,195,110,0.28);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $gold;
+  margin-bottom: 1.25rem;
+}
+
+.kw-hero-tagline {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0.75rem 0;
+  span { color: $gold; }
+}
+
+// ── Outcome strip pills ────────────────────────────────────────
+.kw-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1.1rem;
+  background: rgba(245,195,110,0.10);
+  border: 1px solid rgba(245,195,110,0.28);
+  border-radius: 999px;
+  color: $gold;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.kw-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+// ── Gold icon circle (matches design system) ───────────────────
+.kw-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: $gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  img {
+    width: 1.75rem;
+    height: 1.75rem;
+    object-fit: contain;
+    filter: brightness(0);
+  }
+}
+
+// ── Check grid ─────────────────────────────────────────────────
+.kw-check-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.625rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.kw-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: rgba(245,195,110,0.05);
+  border: 1px solid $gold-border;
+  border-radius: 0.625rem;
+  transition: background 0.2s;
+  &:hover { background: rgba(245,195,110,0.09); }
+  span { color: $gold; font-weight: 700; flex-shrink: 0; font-size: 1rem; margin-top: 0.1rem; }
+  p { color: $white-82; font-size: 0.9rem; line-height: 1.6; margin: 0; }
+}
+
+// ── Solution intro accent ──────────────────────────────────────
+.kw-solution-intro {
+  max-width: 780px;
+  margin: 0 auto 2rem;
+  padding: 1.25rem 1.5rem 1.25rem 1.875rem;
+  border-left: 3px solid $gold;
+  background: rgba(245,195,110,0.04);
+  border-radius: 0 0.875rem 0.875rem 0;
+
+  p {
+    color: $white-82;
+    font-size: 0.975rem;
+    line-height: 1.78;
+    margin: 0;
+    & + p { margin-top: 0.875rem; }
+    strong { color: $gold; font-weight: 600; }
+  }
+}
+
+// ── Comparison cards ───────────────────────────────────────────
+.kw-compare-card {
+  padding: 1.75rem;
+  border-radius: 1rem;
+  border-top: 3px solid transparent;
+
+  h3 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin: 0 0 1.25rem;
+  }
+}
+
+.kw-compare-card--legacy {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.18);
+  border-top: 3px solid #ef4444;
+  h3 { color: #fca5a5; }
+}
+
+.kw-compare-card--kwalify {
+  background: rgba(52,211,153,0.05);
+  border: 1px solid rgba(52,211,153,0.18);
+  border-top: 3px solid #34d399;
+  h3 { color: #6ee7b7; }
+}
+
+.kw-compare-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: rgba(248,250,252,0.84);
+    line-height: 1.5;
+  }
+
+  .kw-dot-red, .kw-dot-green {
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin-top: 0.45rem;
+  }
+
+  .kw-dot-red   { background: #f87171; }
+  .kw-dot-green { background: #34d399; }
+}
+
+// ── Carousel cards ─────────────────────────────────────────────
+.kw-carousel-card {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: $gold-border !important;
+  backdrop-filter: blur(16px);
+  color: white !important;
+
+  .kw-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .kw-card-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: $gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    img { filter: brightness(0); width: 1.5rem; height: 1.5rem; object-fit: contain; }
+  }
+
+  h3 { color: $gold !important; font-size: 1rem !important; font-weight: 700 !important; margin: 0; }
+  p, li { color: $white-78 !important; font-size: 0.875rem !important; line-height: 1.75 !important; }
+}
+
+.kw-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.kw-carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.25);
+  &.active { background: $gold; transform: scale(1.2); }
+}
+
+// ── Operational visibility feature items ───────────────────────
+.kw-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  transition: background 0.3s ease, border-color 0.25s ease;
+
+  &:hover { background: $card-hover; border-color: $gold-border; }
+
+  p { color: $white-82; font-size: 0.95rem; margin: 0; }
+}
+
+// ── Outcome cards with color variants ─────────────────────────
+.kw-outcome-card {
+  border-radius: 1.5rem;
+  border: 1px solid;
+  border-top-width: 3px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+
+  h3 { font-size: 0.95rem; font-weight: 700; margin: 0.75rem 0 0.4rem; line-height: 1.3; }
+  p  { font-size: 0.875rem; color: $white-82; line-height: 1.7; margin: 0; }
+
+  &--1 {
+    background: rgba(56,189,248,0.07);
+    border-color: rgba(56,189,248,0.35);
+    border-top-color: #38bdf8;
+    box-shadow: 4px 6px 0 rgba(56,189,248,0.2), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: #38bdf8; }
+    &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(56,189,248,0.2), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+  &--2 {
+    background: rgba(245,195,110,0.07);
+    border-color: $gold-border;
+    border-top-color: $gold;
+    box-shadow: 4px 6px 0 rgba(245,195,110,0.22), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: $gold; }
+    &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(245,195,110,0.22), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+  &--3 {
+    background: rgba(52,211,153,0.07);
+    border-color: rgba(52,211,153,0.3);
+    border-top-color: #34d399;
+    box-shadow: 4px 6px 0 rgba(52,211,153,0.18), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: #34d399; }
+    &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(52,211,153,0.18), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+  &--4 {
+    background: rgba(192,132,252,0.07);
+    border-color: rgba(192,132,252,0.28);
+    border-top-color: #c084fc;
+    box-shadow: 4px 6px 0 rgba(192,132,252,0.18), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: #c084fc; }
+    &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(192,132,252,0.18), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+}
+
+// ── Limitation items ───────────────────────────────────────────
+.kw-limit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.875rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.kw-limit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.15);
+  transition: background 0.25s;
+  &:hover { background: rgba(239,68,68,0.09); }
+  p { color: $white-82; font-size: 0.9rem; margin: 0; line-height: 1.5; }
+}
+
+// ── Stats feedback cards ───────────────────────────────────────
+.kw-stat-card {
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 1.5rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.25s;
+
+  &:hover { background: $card-hover; transform: translateY(-2px); }
+  .kw-stat-num { font-size: 2rem; font-weight: 800; color: $gold; display: block; margin-bottom: 0.25rem; }
+  p { color: $white-82; margin: 0; font-size: 0.9rem; line-height: 1.5; }
+}
+
+// ── Role cards with color variants ────────────────────────────
+.kw-role-card {
+  border-radius: 1.5rem;
+  border: 1px solid;
+  border-top-width: 3px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+
+  h3 { font-size: 1rem; font-weight: 700; margin: 0.75rem 0 0.5rem; line-height: 1.3; }
+  p  { font-size: 0.9rem; color: $white-82; line-height: 1.7; margin: 0; }
+
+  &--1 {
+    background: rgba(56,189,248,0.07);
+    border-color: rgba(56,189,248,0.35);
+    border-top-color: #38bdf8;
+    box-shadow: 4px 6px 0 rgba(56,189,248,0.2), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: #38bdf8; }
+    &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(56,189,248,0.2), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+  &--2 {
+    background: rgba(245,195,110,0.07);
+    border-color: $gold-border;
+    border-top-color: $gold;
+    box-shadow: 4px 6px 0 rgba(245,195,110,0.22), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: $gold; }
+    &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(245,195,110,0.22), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+  &--3 {
+    background: rgba(52,211,153,0.07);
+    border-color: rgba(52,211,153,0.3);
+    border-top-color: #34d399;
+    box-shadow: 4px 6px 0 rgba(52,211,153,0.18), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: #34d399; }
+    &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(52,211,153,0.18), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+  &--4 {
+    background: rgba(192,132,252,0.07);
+    border-color: rgba(192,132,252,0.28);
+    border-top-color: #c084fc;
+    box-shadow: 4px 6px 0 rgba(192,132,252,0.18), 0 12px 32px rgba(0,0,0,0.3);
+    h3 { color: #c084fc; }
+    &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(192,132,252,0.18), 0 18px 40px rgba(0,0,0,0.35); }
+  }
+}
+
+// ── Magazine scroll cards ──────────────────────────────────────
+.kw-mag-card {
+  background: $card-bg !important;
+  border: 1px solid $card-border !important;
+  color: white !important;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $card-hover !important;
+    transform: translateY(-4px);
+    border-color: $gold-border !important;
+  }
+
+  h3 { color: $gold !important; }
+  p  { color: $white-82 !important; }
+  span, li { color: $white-78 !important; }
+  ul { color: $white-78 !important; }
+}
+
+// ── Snap ──────────────────────────────────────────────────────
+.snap-start { scroll-snap-align: start; flex: 0 0 auto; }
+
+// ── Pipeline SVG step text ─────────────────────────────────────
+.step-text {
+  font-size: 14px;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+// ── Flow diagram tooltip ───────────────────────────────────────
+.node-group .tooltip {
+  opacity: 0;
+  transform: translateY(7px) scale(0.95);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+.node-group:hover .tooltip {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.tooltip-card {
+  background: #fff;
+  color: #222;
+  border-radius: 10px;
+  padding: 10px;
+  width: 180px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border: 1px solid #e5e7eb;
+}
+.tooltip-title {
+  font-weight: 600;
+  color: #2F6FE8;
+  margin-bottom: 4px;
+}
+.node-icon { pointer-events: none; }
+
+// ── FAQ Accordion ──────────────────────────────────────────────
+mat-expansion-panel {
+  background: $card-bg !important;
+  border: 1px solid $card-border !important;
+  border-radius: 0.75rem !important;
+  color: white !important;
+  margin-bottom: 0.5rem;
+
+  mat-panel-title { color: white !important; font-weight: 600; }
+
+  &.mat-expanded {
+    border-color: $gold-border !important;
+  }
+}
+
+mat-expansion-panel-header {
+  &:hover { background: rgba(255,255,255,0.04) !important; }
+}
+
+// ── Final CTA section ──────────────────────────────────────────
+.kw-final-cta {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: $gold-dim;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  h2, p { position: relative; z-index: 1; }
+  p { color: $white-82; }
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .kw-hero { padding-top: 6rem; padding-bottom: 3rem; }
+  .kw-check-grid { grid-template-columns: 1fr; }
+  .kw-limit-grid { grid-template-columns: 1fr; }
 }

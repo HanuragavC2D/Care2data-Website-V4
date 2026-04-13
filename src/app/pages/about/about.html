@@ -1,867 +1,765 @@
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center bg-[#11193e] overflow-hidden">
-  <!-- Right Side Background Image -->
-  <div class="absolute top-10 right-0 h-full w-[60%]">
-    <div class="w-full h-full bg-no-repeat bg-right bg-cover" style="background-image:url('images/about-us.png')">
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-l from-transparent via-[#11193e]/60 to-[#11193e]"></div>
+<!-- ═══════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════ -->
+<section class="about-hero">
+  <div class="about-hero__bg">
+    <div class="about-hero__bg-img" style="background-image:url('images/about-us.png')"></div>
+    <div class="about-hero__bg-overlay"></div>
   </div>
 
-  <!-- Content Container -->
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex py-20 items-center w-full">
-
-    <!-- Left Content -->
-    <div class="w-full lg:w-1/2 text-left z-10 space-y-2">
-      <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight font-heading">
-        The Intelligence Layer for <span class="text-secondary">Clinical Data</span>
-      </h1>
-      <p class="text-base md:text-lg text-white text-justify leading-relaxed max-w-xl">
-        Clinical research generates vast volumes of complex data across trials, analytics systems, and regulatory
+  <div class="about-hero__content">
+    <div class="about-hero__copy">
+      <span class="about-hero__eyebrow">About Care2Data</span>
+      <h1>The Intelligence Layer for <i>Clinical Data</i></h1>
+      <p>Clinical research generates vast volumes of complex data across trials, analytics systems, and regulatory
         submissions. Yet much of this data remains fragmented across platforms and workflows—making it difficult to
-        maintain clarity, traceability, and regulatory confidence.
-      </p>
-      <p class="text-base md:text-lg text-secondary text-justify leading-relaxed max-w-xl font-semibold">
-        Care2Data transforms fragmented clinical data into governed, connected knowledge systems—enabling organizations
-        to ensure accuracy, traceability, and compliance at scale.
-      </p>
-
-      <!-- CTA -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-start pt-4">
-        <button type="submit" routerLink="/contact-us"
-          class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer"
-          style="background-color: var(--btn-primary-color); color: #fff;"
-          onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-          onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-          Request a Demo →
-        </button>
-        <button type="submit" routerLink="/contact-us"
-          class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer"
-          style="background-color: var(--btn-primary-color); color: #fff;"
-          onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-          onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-          Talk to an Expert →
-        </button>
+        maintain clarity, traceability, and regulatory confidence.</p>
+      <p class="hero-accent">Care2Data transforms fragmented clinical data into governed, connected knowledge
+        systems—enabling organizations to ensure accuracy, traceability, and compliance at scale.</p>
+      <div class="about-hero__actions">
+        <a routerLink="/contact-us" class="btn btn-primary">Request a Demo →</a>
+        <a routerLink="/contact-us" class="btn btn-outline">Talk to an Expert →</a>
       </div>
+    </div>
+  </div>
+</section>
 
+<!-- ═══════════════════════════════════════════════════════════
+   ABOUT US — THE CHALLENGE
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-founding">
+  <div class="about-section__inner">
+    <div class="section-header founding-header">
+      <h2>Ensuring accuracy, traceability, and compliance remains a core clinical challenge</h2>
     </div>
 
+    <p class="founding-intro">Care2Data was founded to address this challenge.</p>
+
+    <div class="founding-cards">
+      <div class="founding-card">
+        <div class="founding-card__num">01</div>
+        <!-- <h4 class="founding-card__title">Knowledge-Driven Architecture</h4> -->
+        <p>By combining deep life sciences expertise with structured knowledge modeling, Care2Data transforms complex
+          clinical datasets into governed knowledge systems. Through ontology frameworks, semantic modeling, and intelligent
+          validation approaches, we help organizations bring structure, context, and reliability to clinical data workflows
+          in highly regulated environments.</p>
+      </div>
+      <div class="founding-card">
+        <div class="founding-card__num">02</div>
+        <!-- <h4 class="founding-card__title">Connected Knowledge Systems</h4> -->
+        <p>Our approach enables life sciences organizations to move beyond fragmented datasets toward connected, trusted
+          knowledge systems—ensuring accuracy, traceability, and compliance across the clinical data lifecycle.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!--  About Us -->
-<section class="py-8 bg-[#102c50]">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-      Ensuring accuracy, traceability, <br><span style="color: #fff"> and</span><br> compliance remains a core clinical
-      challenge
-    </h2>
-
-    <p
-      class="mt-5 text-base md:text-lg text-white font-normal leading-relaxed text-center text-justify max-w-5xl mx-auto">
-      Care2Data was founded to address this challenge. <br> <br>
-      By combining deep life sciences expertise with structured knowledge modeling, Care2Data transforms complex
-      clinical datasets into governed knowledge systems. Through ontology frameworks, semantic modeling, and intelligent
-      validation approaches, we help organizations bring structure, context, and reliability to clinical data workflows
-      in highly regulated environments. <br> <br>
-      Our approach enables life sciences organizations to move beyond fragmented datasets toward connected, trusted
-      knowledge systems—ensuring accuracy, traceability, and compliance across the clinical data lifecycle.
-    </p>
-
-  </div>
-</section>
-
-<!-- Our Purpose -->
-<section class="py-8 bg-[#114167]">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-      <span style="color: #fff">Our</span> Purpose
-    </h2>
-
-    <div class="text-center text-justify max-w-5xl mx-auto">
-      <p class="text-base md:text-lg text-secondary max-w-4xl mb-4">
-        To bring clarity, trust, and intelligence to clinical data—so pharmaceutical and life sciences organizations can
-        make confident decisions and deliver better medicines faster.
-      </p>
-      <p class="mt-5 text-base md:text-lg text-white font-normal leading-relaxed">
-
-        Care2Data believes that clinical data quality is not simply a technical requirement but a foundational element
-        of scientific integrity. <br> <br>
-        With a core focus on validation and verification of clinical trial data across the entire clinical trial
-        lifecycle, Care2Data ensures that data remains accurate, consistent, and reliable at every stage.<br> <br>
-        By structuring and governing data across the clinical trial lifecycle, we help organizations transform
-        fragmented information into reliable knowledge that supports regulatory confidence and better healthcare
-        outcomes.
-
-      </p>
+<!-- ═══════════════════════════════════════════════════════════
+   OUR PURPOSE
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-purpose">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <h2>Our Purpose</h2>
     </div>
 
+    <div class="purpose-statement">
+      <p class="ps-lead">To bring</p>
+      <div class="ps-keywords">
+        <div class="ps-kw ps-kw--1">
+          <span class="ps-kw__label">Clarity</span>
+        </div>
+        <div class="ps-kw-sep">+</div>
+        <div class="ps-kw ps-kw--2">
+          <span class="ps-kw__label">Trust</span>
+        </div>
+        <div class="ps-kw-sep">+</div>
+        <div class="ps-kw ps-kw--3">
+          <span class="ps-kw__label">Intelligence</span>
+        </div>
+      </div>
+      <p class="ps-context">to clinical data</p>
+      <p class="ps-outcome">so pharmaceutical and life sciences organizations can <strong>make confident decisions</strong> and <strong>deliver better medicines faster.</strong></p>
+    </div>
+
+    <div class="purpose-pillars">
+      <div class="purpose-pillar purpose-pillar--1">
+        <h4 class="pillar-title">Scientific Integrity</h4>
+        <p>Care2Data believes that clinical data quality is not simply a technical requirement but a foundational element
+          of scientific integrity.</p>
+      </div>
+      <div class="purpose-pillar purpose-pillar--2">
+        <h4 class="pillar-title">Lifecycle Validation</h4>
+        <p>With a core focus on validation and verification of clinical trial data across the entire clinical trial
+          lifecycle, Care2Data ensures that data remains accurate, consistent, and reliable at every stage.</p>
+      </div>
+      <div class="purpose-pillar purpose-pillar--3">
+        <h4 class="pillar-title">Regulatory Confidence</h4>
+        <p>By structuring and governing data across the clinical trial lifecycle, we help organizations transform
+          fragmented information into reliable knowledge that supports regulatory confidence and better healthcare
+          outcomes.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Who We Are -->
-<section class="py-8 bg-[#11193e]">
-  <div class="max-w-7xl mx-auto px-6">
+<!-- ═══════════════════════════════════════════════════════════
+   WHO WE ARE
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-who">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <h2>Who We Are</h2>
+    </div>
 
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-      <span style="color: #fff">Who</span> We Are
-    </h2>
-
-    <p class="mt-5 text-base md:text-lg text-white font-normal leading-relaxed text-justify max-w-5xl mx-auto">
+    <p class="who-lead">
       Care2Data combines deep life sciences expertise with structured knowledge modeling to validate and operationalize
-      complex clinical data in regulated environments. <br> <br>
-      Our team works at the intersection of clinical research, data standards, and knowledge engineering. By integrating
-      domain expertise with semantic technologies, we help organizations ensure that clinical data remains accurate,
-      traceable, and defensible across the research lifecycle. <br> <br>
-      Rather than treating data as isolated technical artifacts, we design systems that capture the meaning,
-      relationships, and context behind clinical datasets—enabling organizations to operate with greater clarity and
-      confidence.
+      complex clinical data in regulated environments.
     </p>
 
+    <div class="who-cards">
+      <div class="who-card">
+        <p>Our team works at the intersection of clinical research, data standards, and knowledge engineering. By
+          integrating domain expertise with semantic technologies, we help organizations ensure that clinical data remains
+          accurate, traceable, and defensible across the research lifecycle.</p>
+      </div>
+      <div class="who-card">
+        <p>Rather than treating data as isolated technical artifacts, we design systems that capture the meaning,
+          relationships, and context behind clinical datasets—enabling organizations to operate with greater clarity and
+          confidence.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Our Differentiated Approach -->
-<section class="py-8 bg-[#102c50]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="text-center mb-4">
-      <!-- Heading -->
-      <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-        <span style="color: #fff">What Distinguishes</span> Our Approach
-      </h2>
-
-      <p class="text-base md:text-lg font-semibold text-white mb-4">
-        Care2Data follows a <strong class="text-secondary">validation-first philosophy</strong>
-      </p>
-      <p class="text-base md:text-lg text-white leading-relaxed mb-5 max-w-5xl mx-auto text-justify">
-        While many data systems prioritize automation alone, our approach begins with governance, traceability, and
-        audit readiness. This philosophy ensures that validation workflows remain structured, explainable (XAI-enabled),
-        and aligned with evolving regulatory expectations—including compliance with global health authorities and
-        emerging AI guidance in drug development. <br> <br>
-        Care2Data uniquely approaches validation and verification together as a unified discipline. Validation is driven
-        through ontology-based semantic intelligence, while verification is enabled through advanced graph-based
-        reasoning models operating on the same knowledge foundation. This integrated approach ensures a high degree of
-        accuracy, consistency, and scalability across clinical data workflows.
-
-      </p>
-      <p class="text-base md:text-lg text-secondary text-center mb-4 font-semibold">
-        Our approach emphasizes:
-      </p>
+<!-- ═══════════════════════════════════════════════════════════
+   WHAT DISTINGUISHES OUR APPROACH — CAROUSEL
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-approach">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <h2>What Distinguishes Us</h2>
+      <p class="section-subtext" style="color:#f5c36e;font-weight:600;">Care2Data follows a validation-first philosophy</p>
     </div>
 
-    <!-- Carousel -->
-    <div class="overflow-hidden pt-0 lg:pt-5">
-      <div class="relative h-[250px] md:h-[250px] lg:h-[245px] flex items-center justify-center perspective-[900px]">
-        <div *ngFor="let card of approch; let i = index" (click)="onCardClick(i)"
-          class="absolute rounded-2xl p-6 w-full md:w-[400px] lg:w-[465px] h-[250px] md:h-[250px] lg:h-[225px] cursor-pointer border transition-all duration-700 ease-[cubic-bezier(0.34,1.2,0.64,1)] bg-white text-black"
-          [ngStyle]="getStyles(i)">
+    <div class="about-prose" style="margin-bottom: 1.5rem;">
+      <p>Our approach begins with governance, traceability, and audit readiness—not automation alone. Validation
+        workflows remain structured, XAI-enabled, and aligned with evolving regulatory expectations across global
+        health authorities and emerging AI guidance in drug development.</p>
+      <p>Care2Data treats validation and verification as a unified discipline: ontology-based semantic intelligence
+        drives validation, while graph-based reasoning enables verification on the same knowledge foundation—ensuring
+        accuracy, consistency, and scalability across all clinical data workflows.</p>
+    </div>
 
-          <!-- Icon -->
-          <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
+    <p class="about-subheader">Our approach emphasizes:</p>
+
+    <!-- Carousel (redesigned) -->
+    <div class="overflow-hidden pt-0 lg:pt-5">
+      <div class="relative h-[250px] md:h-[250px] lg:h-[260px] flex items-center justify-center perspective-[900px]">
+        <div *ngFor="let card of approch; let i = index" (click)="onCardClick(i)"
+          class="absolute rounded-2xl p-6 w-full md:w-[420px] lg:w-[480px] h-[250px] md:h-[250px] lg:h-[240px] cursor-pointer border transition-all duration-700 ease-[cubic-bezier(0.34,1.2,0.64,1)] carousel-card"
+          [ngStyle]="getStyles(i)">
+          <div class="carousel-icon">
             {{ card.icon }}
           </div>
-
-          <!-- Title -->
-          <h3 class="text-lg md:text-xl font-semibold text-primary mb-2">{{ card.title }}</h3>
-
-          <!-- Description / Content -->
-          <p class="text-sm leading-relaxed mb-2" *ngIf="card.description">
-            {{ card.description }}
-          </p>
+          <h3 class="font-semibold mb-2">{{ card.title }}</h3>
+          <p class="leading-relaxed mb-2" *ngIf="card.description">{{ card.description }}</p>
         </div>
       </div>
-
-      <!-- Dots -->
-      <div class="flex justify-center gap-2 md:mt-6 lg:mt-5">
+      <div class="carousel-dots">
         <div *ngFor="let d of approch; let i = index" (click)="goTo(i)"
-          class="w-[9px] h-[9px] rounded-full cursor-pointer transition-all duration-300"
-          [ngClass]="i === active ? 'bg-yellow-400 scale-105' : 'bg-white/30'">
+          class="carousel-dot"
+          [ngClass]="i === active ? 'active' : ''">
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- Turning Data into Connected -->
-<section class="py-8 bg-[#114167]">
-  <div class="max-w-7xl mx-auto px-6">
+<!-- ═══════════════════════════════════════════════════════════
+   TURNING DATA INTO CONNECTED, TRUSTED KNOWLEDGE
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-connected">
+  <div class="about-section__inner">
 
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-      <span style="color: #fff">Turning Data
-        into Connected,</span> Trusted Knowledge
-    </h2>
-
-    <div class="text-center mb-4 max-w-5xl mx-auto">
-
-      <p class="text-base md:text-lg text-white font-semibold mb-4">
-        Care2Data connects isolated datasets into unified semantic models.
-      </p>
-      <p class="text-base md:text-lg text-white text-justify mb-5">
-        Through ontology frameworks and knowledge-driven modeling, we enable organizations to create structured
-        knowledge systems that bring clarity and consistency to complex clinical data environments.
-      </p>
-
-      <p class="text-base md:text-lg text-secondary text-center mb-4 font-semibold">
-        These systems support:
-      </p>
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white text-left text-base md:text-lg">
-
-        <li class="flex items-center gap-4">
-          <div
-            class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-            <img src="images/about/white/collaboration.png" alt=""
-              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </div>
-          <p class="text-base md:text-lg">Stronger collaboration across scientific and regulatory teams</p>
-        </li>
-
-        <li class="flex items-center gap-4">
-          <div
-            class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-            <img src="images/about/white/traceability.png" alt=""
-              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </div>
-          <p class="text-base md:text-lg">Improved traceability across studies and datasets</p>
-        </li>
-
-        <li class="flex items-center gap-4">
-          <div
-            class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-            <img src="images/about/white/xai.png" alt="" class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </div>
-          <p class="text-base md:text-lg">Scalable foundations for analytics and AI initiatives</p>
-        </li>
-
-      </ul>
-
-      <p class="text-xl md:text-2xl font-semibold text-center text-white mt-5">
-        By treating knowledge as a strategic asset, organizations can unlock deeper insights from their clinical data.
-      </p>
+    <!-- Centered header -->
+    <div class="section-header">
+      <p class="section-eyebrow">Connected Intelligence</p>
+      <h2>Turning Data into Connected, <span style="color:#f5c36e">Trusted Knowledge</span></h2>
     </div>
 
+    <!-- 2-column: prose left | support right — both start at same level -->
+    <div class="connected-layout">
+
+      <!-- Left: copy -->
+      <div class="connected-copy">
+        <div class="about-prose">
+          <p><strong>Care2Data connects isolated datasets into unified semantic models.</strong></p>
+          <p>Through ontology frameworks and knowledge-driven modeling, we enable organizations to create structured
+            knowledge systems that bring clarity and consistency to complex clinical data environments.</p>
+        </div>
+        <p class="about-highlight about-highlight--left">
+          By treating knowledge as a strategic asset, organizations can unlock deeper insights from their clinical data.
+        </p>
+      </div>
+
+      <!-- Right: support items -->
+      <div class="connected-support">
+        <p class="about-subheader" style="text-align:left;">These systems support:</p>
+        <div class="about-feature-list about-feature-list--col">
+          <div class="about-feature-item">
+            <div class="research-icon">
+              <img src="images/about/white/collaboration.png" alt="">
+            </div>
+            <p>Stronger collaboration across scientific and regulatory teams</p>
+          </div>
+          <div class="about-feature-item">
+            <div class="research-icon">
+              <img src="images/about/white/traceability.png" alt="">
+            </div>
+            <p>Improved traceability across studies and datasets</p>
+          </div>
+          <div class="about-feature-item">
+            <div class="research-icon">
+              <img src="images/about/white/xai.png" alt="">
+            </div>
+            <p>Scalable foundations for analytics and AI initiatives</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- Clinical Standards & Compliance -->
-<section class="py-8 bg-[#11193e]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-      <span style="color: #fff"> Clinical
-        Standards</span> & Compliance
-    </h2>
-
-    <div class="max-w-5xl mx-auto text-center mb-4">
-
-      <p class="text-base md:text-lg text-white font-semibold mb-4">
-        Built for Regulatory-Grade Clinical Data Validation
-      </p>
-
-      <p class="text-white text-base md:text-lg leading-relaxed text-justify">
-        Care2Data frameworks align with globally recognized clinical data standards, regulatory expectations, and data
-        integrity principles.
-        <br><br>
-        By embedding these standards into validation and knowledge systems, we help organizations ensure clinical
-        datasets remain <strong class="text-secondary">traceable, conformant, defensible, and submission-ready.</strong>
-      </p>
+<!-- ═══════════════════════════════════════════════════════════
+   CLINICAL STANDARDS & COMPLIANCE
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-standards">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Regulatory Alignment</p>
+      <h2>Clinical Standards &amp; Compliance</h2>
+      <p class="section-subtext">Built for Regulatory-Grade Clinical Data Validation</p>
     </div>
 
-    <!-- Standards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-
-      <!-- CDISC -->
-      <div
-        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
-        <h3
-          class="text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-3">
-          CDISC Standards
-        </h3>
-        <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
-          Support for validation workflows aligned with CDISC standards such as <strong class="text-secondary">SDTM,
-            ADaM, SEND, CDASH, and
-            TAUG</strong>, ensuring consistent and structured datasets for regulatory submissions.
-        </p>
-      </div>
-
-      <!-- FDA -->
-      <div
-        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
-        <h3
-          class="text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-3">
-          FDA Regulatory Expectations
-        </h3>
-        <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
-          Frameworks are designed to align with Guiding Principles of Good AI Practice in Drug Development, GCP, Study
-          Data Technical Conformance Guide and others.
-        </p>
-      </div>
-
-      <!-- ALCOA++ -->
-      <div
-        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
-        <h3
-          class="text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-3">
-          ALCOA++ Data Integrity Principles
-        </h3>
-        <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
-          Ensuring data remains Attributable, Legible, Contemporaneous, Original, Accurate, along with Complete,
-          Consistent, Enduring, and Available.
-        </p>
-      </div>
-
-      <!-- GAMP5 -->
-      <div
-        class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
-        <h3
-          class="text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold mb-3">
-          GAMP5 Principles
-        </h3>
-        <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
-          Development frameworks aligned with GAMP5 guidance for regulated systems, ensuring traceability, governance,
-          and methodological reliability.
-        </p>
-      </div>
-
+    <div class="about-prose" style="margin-bottom: 2rem;">
+      <p>Care2Data frameworks align with globally recognized clinical data standards, regulatory expectations, and data
+        integrity principles.</p>
+      <p>By embedding these standards into validation and knowledge systems, we help organizations ensure clinical
+        datasets remain <strong>traceable, conformant, defensible, and submission-ready.</strong></p>
     </div>
 
-    <!-- CTA -->
-    <div class="text-center mt-5">
-      <button routerLink="/knowledge-services" type="submit"
-        class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer"
-        style="background-color: var(--btn-primary-color); color: #fff;"
-        onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-        onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-        Learn More About Our Validation Approach →
-      </button>
+    <div class="about-standards-grid">
+      <div class="about-standard-card">
+        <div class="std-badge std-badge--blue">CDISC</div>
+        <h3>CDISC Standards</h3>
+        <p>Support for validation workflows aligned with CDISC standards such as <strong>SDTM, ADaM, SEND, CDASH, and
+            TAUG</strong>, ensuring consistent and structured datasets for regulatory submissions.</p>
+      </div>
+
+      <div class="about-standard-card">
+        <div class="std-badge std-badge--red">FDA</div>
+        <h3>FDA Regulatory Expectations</h3>
+        <p>Frameworks are designed to align with Guiding Principles of Good AI Practice in Drug Development, GCP, Study
+          Data Technical Conformance Guide and others.</p>
+      </div>
+
+      <div class="about-standard-card">
+        <div class="std-badge std-badge--gold">ALCOA++</div>
+        <h3>ALCOA++ Data Integrity Principles</h3>
+        <p>Ensuring data remains Attributable, Legible, Contemporaneous, Original, Accurate, along with Complete,
+          Consistent, Enduring, and Available.</p>
+      </div>
+
+      <div class="about-standard-card">
+        <div class="std-badge std-badge--green">GAMP5</div>
+        <h3>GAMP5 Principles</h3>
+        <p>Development frameworks aligned with GAMP5 guidance for regulated systems, ensuring traceability, governance,
+          and methodological reliability.</p>
+      </div>
     </div>
 
+    <div class="section-cta">
+      <a routerLink="/knowledge-services" class="btn btn-primary">Learn More About Our Validation Approach →</a>
+    </div>
   </div>
 </section>
 
-<!-- Why Knowledge Management Matters -->
-<section class="py-8 bg-[#102c50]">
-
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-      <span style="color: #fff">From Information Silos to</span> Decision-Ready Systems
-    </h2>
-
-    <!-- Desc text-whiteription -->
-    <p class="max-w-5xl mx-auto text-white text-base md:text-lg leading-relaxed text-justify mb-5">
-      Many life sciences organizations struggle with information scattered across systems,
-      documents, and teams. <br> <br> Care2Data embeds governed intelligence into operational workflows,
-      enabling organizations to transform disconnected information into scalable and
-      decision-ready systems.
-    </p>
-
-    <p class="text-base md:text-lg text-secondary text-center mb-4 font-semibold">
-      This improves:
-    </p>
-
-    <!-- Features -->
-    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-white">
-
-      <!-- Item -->
-      <div
-        class="flex items-center gap-3 group p-4 rounded-2xl bg-white/5 border border-white/10  hover:bg-white/10 transition">
-        <div
-          class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-          <img src="images/about/white/datadiscover.png" alt=""
-            class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-        </div>
-        <h3 class="text-base md:text-lg mb-0">Data Discoverability</h3>
-      </div>
-
-      <div
-        class="flex items-center gap-3 group p-4 rounded-2xl bg-white/5 border border-white/10  hover:bg-white/10 transition">
-        <div
-          class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-          <img src="images/about/white/reuse.png" alt="" class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-        </div>
-        <h3 class="text-base md:text-lg mb-0">Knowledge Reuse</h3>
-      </div>
-
-      <div
-        class="flex items-center gap-3 group p-4 rounded-2xl bg-white/5 border border-white/10  hover:bg-white/10 transition">
-        <div
-          class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-          <img src="images/about/white/governance.png" alt=""
-            class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-        </div>
-        <h3 class="text-base md:text-lg mb-0">Governance & Traceability</h3>
-      </div>
-
-      <div
-        class="flex items-center gap-3 group p-4 rounded-2xl bg-white/5 border border-white/10  hover:bg-white/10 transition">
-        <div
-          class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-          <img src="images/about/white/regulatoryreadiness.png" alt=""
-            class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-        </div>
-        <h3 class="text-base md:text-lg mb-0">Readiness for Regulatory review</h3>
-      </div>
-
+<!-- ═══════════════════════════════════════════════════════════
+   FROM INFORMATION SILOS TO DECISION-READY SYSTEMS
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-silos">
+  <div class="about-section__inner">
+    <div class="section-header" style="max-width:100%;">
+      <p class="section-eyebrow">Knowledge Management</p>
+      <h2 style="white-space:nowrap;">From Information Silos to <span style="color:#f5c36e">Decision-Ready Systems</span></h2>
     </div>
 
-    <!-- Result Highlight -->
-    <p class="text-xl md:text-2xl font-semibold text-center text-white mt-5 max-w-5xl mx-auto">
+    <div class="about-prose" style="margin-bottom: 1.5rem;">
+      <p>Many life sciences organizations struggle with information scattered across systems, documents, and teams.</p>
+      <p>Care2Data embeds governed intelligence into operational workflows, enabling organizations to transform
+        disconnected information into scalable and decision-ready systems.</p>
+    </div>
+
+    <p class="about-subheader">This improves:</p>
+
+    <div class="about-items-grid">
+      <div class="about-item">
+        <div class="research-icon">
+          <img src="images/about/white/datadiscover.png" alt="">
+        </div>
+        <h3>Data Discoverability</h3>
+      </div>
+
+      <div class="about-item">
+        <div class="research-icon">
+          <img src="images/about/white/reuse.png" alt="">
+        </div>
+        <h3>Knowledge Reuse</h3>
+      </div>
+
+      <div class="about-item">
+        <div class="research-icon">
+          <img src="images/about/white/governance.png" alt="">
+        </div>
+        <h3>Governance &amp; Traceability</h3>
+      </div>
+
+      <div class="about-item">
+        <div class="research-icon">
+          <img src="images/about/white/regulatoryreadiness.png" alt="">
+        </div>
+        <h3>Readiness for Regulatory review</h3>
+      </div>
+    </div>
+
+    <p class="about-highlight about-highlight--gold">
       The result is a stronger foundation for accurate clinical decision making.
     </p>
   </div>
 </section>
 
-<!-- Why Ontology is Essential -->
-<section class="py-8 bg-[#114167]">
-  <div class="max-w-7xl mx-auto px-6">
+<!-- ═══════════════════════════════════════════════════════════
+   ONTOLOGY: THE FOUNDATION OF SCALABLE INTELLIGENCE
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-ontology">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Semantic Architecture</p>
+      <h2 style="white-space:nowrap;">Ontology: <span style="color:#f5c36e">The Foundation of Scalable Intelligence</span></h2>
+    </div>
 
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-      <span style="color: #fff">Ontology:</span> The Foundation of Scalable Intelligence
-    </h2>
+    <div class="onto-layout">
 
-    <div class="text-center mb-4 max-w-5xl mx-auto">
-      <p class="text-white mb-5 leading-relaxed text-base md:text-lg text-justify">
-        Ontology provides the semantic backbone that connects data, rules, and standards. <br> <br>
-        Care2Data designs ontology frameworks that harmonize datasets across clinical research systems, enabling
-        consistent definitions, relationships, and context. By leveraging knowledge graph architectures, these
-        frameworks map relationships across clinical entities, creating <strong class="text-secondary">context-rich,
-          interconnected data</strong> that goes
-        beyond traditional rows and columns. This enables faster, more accurate information retrieval, deeper insights
-        across linked datasets, and a unified understanding of clinical data in context.
-      </p>
-
-      <p class="text-base md:text-lg text-secondary text-center mb-4 font-semibold">
-        Through ontology-driven systems, organizations can:
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
-
-        <div class="flex items-center gap-4">
-          <div
-            class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-            <img src="images/about/white/harmonize.png" alt=""
-              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </div>
-          <p class="text-base md:text-lg text-left lg:text-center">Harmonize data across diverse sources</p>
+      <!-- Left: content -->
+      <div class="onto-content">
+        <div class="about-prose" style="margin-bottom: 1.5rem;">
+          <p>Ontology provides the semantic backbone that connects data, rules, and standards.</p>
+          <p>Care2Data designs ontology frameworks that harmonize datasets across clinical research systems, enabling
+            consistent definitions, relationships, and context. By leveraging knowledge graph architectures, these
+            frameworks map relationships across clinical entities, creating <strong>context-rich, interconnected data</strong>
+            that goes beyond traditional rows and columns.</p>
         </div>
 
-        <div class="flex items-center gap-4">
-          <div
-            class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-            <img src="images/about/white/semanticsearch.png" alt=""
-              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+        <p class="about-subheader" style="text-align:left;margin-left:0;">Through ontology-driven systems, organizations can:</p>
+
+        <div class="about-items-grid">
+          <div class="about-item">
+            <div class="research-icon"><img src="images/about/white/harmonize.png" alt=""></div>
+            <h3>Harmonize data across diverse sources</h3>
           </div>
-          <p class="text-base md:text-lg text-left lg:text-center">Improve semantic search and data discovery
-          </p>
+          <div class="about-item">
+            <div class="research-icon"><img src="images/about/white/semanticsearch.png" alt=""></div>
+            <h3>Improve semantic search and data discovery</h3>
+          </div>
+          <div class="about-item">
+            <div class="research-icon"><img src="images/about/white/datalineage.png" alt=""></div>
+            <h3>Strengthen data lineage and traceability</h3>
+          </div>
+          <div class="about-item">
+            <div class="research-icon"><img src="images/about/white/xai.png" alt=""></div>
+            <h3>Enable advanced analytics and AI initiatives</h3>
+          </div>
         </div>
 
-        <div class="flex items-center gap-4">
-          <div
-            class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-            <img src="images/about/white/datalineage.png" alt=""
-              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </div>
-          <p class="text-base md:text-lg text-left lg:text-center">Strengthen data lineage and traceability
-          </p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <div
-            class="w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 bg-primary text-white font-bold">
-            <img src="images/about/white/xai.png" alt="" class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </div>
-          <p class="text-base md:text-lg text-left lg:text-center">Enable advanced analytics and AI
-            initiatives</p>
-        </div>
       </div>
 
-      <p class="text-xl md:text-2xl font-semibold text-center text-white mt-5">
-        Ontology ensures that clinical data is not only connected—but understood.
-      </p>
+      <!-- Right: Semantic Architecture SVG Diagram -->
+      <div class="onto-diagram-wrap">
+        <svg class="onto-diagram-svg" viewBox="0 0 340 440" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="og-gold-v" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#f5c36e" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#f5c36e" stop-opacity="0.3"/>
+            </linearGradient>
+            <linearGradient id="og-blue-v" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.2"/>
+            </linearGradient>
+            <linearGradient id="og-green-v" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#34d399" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#34d399" stop-opacity="0.2"/>
+            </linearGradient>
+            <filter id="og-glow-gold">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- ── INPUT LAYER (top) ─────────────────── -->
+          <text x="170" y="18" text-anchor="middle" class="og-layer-label">INPUT</text>
+
+          <!-- SDTM box -->
+          <rect x="10" y="26" width="90" height="54" rx="10"
+                fill="rgba(56,189,248,0.07)" stroke="rgba(56,189,248,0.45)" stroke-width="1.5"/>
+          <text x="55" y="47" text-anchor="middle" class="og-node-title" fill="#7dd3fc">SDTM</text>
+          <text x="55" y="63" text-anchor="middle" class="og-node-sub">Clinical Standards</text>
+
+          <!-- ADaM box -->
+          <rect x="125" y="26" width="90" height="54" rx="10"
+                fill="rgba(56,189,248,0.07)" stroke="rgba(56,189,248,0.45)" stroke-width="1.5"/>
+          <text x="170" y="47" text-anchor="middle" class="og-node-title" fill="#7dd3fc">ADaM</text>
+          <text x="170" y="63" text-anchor="middle" class="og-node-sub">Analysis Data</text>
+
+          <!-- Protocol box -->
+          <rect x="240" y="26" width="90" height="54" rx="10"
+                fill="rgba(56,189,248,0.07)" stroke="rgba(56,189,248,0.45)" stroke-width="1.5"/>
+          <text x="285" y="47" text-anchor="middle" class="og-node-title" fill="#7dd3fc">Protocol</text>
+          <text x="285" y="63" text-anchor="middle" class="og-node-sub">Study Definitions</text>
+
+          <!-- ── CONNECTOR: inputs → ontology ──────── -->
+          <line x1="55"  y1="80" x2="100" y2="148" stroke="url(#og-blue-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash"/>
+          <line x1="170" y1="80" x2="170" y2="148" stroke="url(#og-blue-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash"/>
+          <line x1="285" y1="80" x2="240" y2="148" stroke="url(#og-blue-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash"/>
+
+          <!-- ── ONTOLOGY CORE (middle) ──────────────── -->
+          <rect x="30" y="148" width="280" height="144" rx="16"
+                fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.55)" stroke-width="2"
+                filter="url(#og-glow-gold)"/>
+          <!-- top accent bar -->
+          <rect x="30" y="148" width="280" height="4" rx="2" fill="#f5c36e" opacity="0.7"/>
+
+          <text x="170" y="178" text-anchor="middle" class="og-core-label">ONTOLOGY FRAMEWORK</text>
+          <text x="170" y="197" text-anchor="middle" class="og-core-sub">Semantic Intelligence Engine</text>
+
+          <!-- 3 inner pillars -->
+          <rect x="46" y="210" width="74" height="64" rx="8" fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.3)" stroke-width="1"/>
+          <text x="83" y="234" text-anchor="middle" class="og-inner-title">Entities</text>
+          <text x="83" y="250" text-anchor="middle" class="og-inner-sub">Clinical</text>
+          <text x="83" y="263" text-anchor="middle" class="og-inner-sub">Taxonomy</text>
+
+          <rect x="133" y="210" width="74" height="64" rx="8" fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.3)" stroke-width="1"/>
+          <text x="170" y="234" text-anchor="middle" class="og-inner-title">Rules</text>
+          <text x="170" y="250" text-anchor="middle" class="og-inner-sub">Validation</text>
+          <text x="170" y="263" text-anchor="middle" class="og-inner-sub">Logic</text>
+
+          <rect x="220" y="210" width="74" height="64" rx="8" fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.3)" stroke-width="1"/>
+          <text x="257" y="234" text-anchor="middle" class="og-inner-title">Relations</text>
+          <text x="257" y="250" text-anchor="middle" class="og-inner-sub">Semantic</text>
+          <text x="257" y="263" text-anchor="middle" class="og-inner-sub">Graph</text>
+
+          <!-- ── CONNECTOR: ontology → outputs ──────── -->
+          <line x1="100" y1="292" x2="55"  y2="358" stroke="url(#og-green-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash og-dash--delay"/>
+          <line x1="170" y1="292" x2="170" y2="358" stroke="url(#og-green-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash og-dash--delay"/>
+          <line x1="240" y1="292" x2="285" y2="358" stroke="url(#og-green-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash og-dash--delay"/>
+
+          <!-- ── OUTPUT LAYER (bottom) ────────────────── -->
+          <text x="170" y="350" text-anchor="middle" class="og-layer-label">OUTPUT</text>
+
+          <!-- Knowledge box -->
+          <rect x="10" y="358" width="90" height="54" rx="10"
+                fill="rgba(52,211,153,0.07)" stroke="rgba(52,211,153,0.45)" stroke-width="1.5"/>
+          <text x="55" y="379" text-anchor="middle" class="og-node-title" fill="#86efac">Knowledge</text>
+          <text x="55" y="395" text-anchor="middle" class="og-node-sub">Connected Graph</text>
+
+          <!-- Validated box -->
+          <rect x="125" y="358" width="90" height="54" rx="10"
+                fill="rgba(52,211,153,0.07)" stroke="rgba(52,211,153,0.45)" stroke-width="1.5"/>
+          <text x="170" y="379" text-anchor="middle" class="og-node-title" fill="#86efac">Validated</text>
+          <text x="170" y="395" text-anchor="middle" class="og-node-sub">Submission-Ready</text>
+
+          <!-- Regulatory box -->
+          <rect x="240" y="358" width="90" height="54" rx="10"
+                fill="rgba(52,211,153,0.07)" stroke="rgba(52,211,153,0.45)" stroke-width="1.5"/>
+          <text x="285" y="379" text-anchor="middle" class="og-node-title" fill="#86efac">Regulatory</text>
+          <text x="285" y="395" text-anchor="middle" class="og-node-sub">Defensible Data</text>
+        </svg>
+      </div>
+
     </div>
+
+    <!-- Full-width highlight spanning both columns -->
+    <p class="about-highlight about-highlight--gold onto-full-highlight">
+      Ontology ensures that clinical data is not only connected—but understood.
+    </p>
 
   </div>
 </section>
 
-<!-- Research & Scientific Foundation -->
-<section class="py-8 bg-[#11193e] text-white">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-      <span style="color: #fff">Research & </span>Scientific Foundation
-    </h2>
-    <p class="max-w-5xl mx-auto text-justify text-base md:text-lg text-white leading-relaxed mb-5">
-      Care2Data’s work is grounded in continuous research across clinical data standards, knowledge modeling, and
-      intelligent validation systems—forming the foundation of how we differentiate and innovate in clinical data
-      validation and verification. <br> <br>
-      Our research-led approach enables us to move beyond conventional validation tools, transforming fragmented data
-      ecosystems into structured, governed knowledge assets that eliminate information silos and strengthen clinical
-      data integrity at scale. <br> <br>
-      Our team combines expertise in life sciences, ontology engineering, and advanced data science to develop
-      frameworks that enhance the reliability, transparency, and contextual understanding of clinical research data.
-
-    </p>
-
-    <p class="text-base md:text-lg text-secondary text-center mb-4 font-semibold">Through research
-      collaborations
-      and academic partnerships, Care2Data continues to advance methods in:</p>
-
-    <div class="max-w-6xl mx-auto py-5">
-      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-4 ">
-
-        <!-- Item 1 -->
-        <li class="flex flex-col items-center text-center">
-          <span
-            class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white text-lg shadow-lg">
-            <img src="images/about/white/knowledgegraph.png" alt=""
-              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </span>
-          <div class="mt-5">
-            <h3 class="font-semibold text-lg">
-              Knowledge graph–driven validation of clinical datasets
-            </h3>
-          </div>
-        </li>
-
-        <!-- Item 2 -->
-        <li class="flex flex-col items-center text-center">
-          <span
-            class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white text-lg shadow-lg">
-            <img src="images/about/white/semantic.png" alt=""
-              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </span>
-          <div class="mt-5">
-            <h3 class="font-semibold text-lg">
-              Semantic interoperability across clinical data ecosystems
-            </h3>
-          </div>
-        </li>
-
-        <!-- Item 3 -->
-        <li class="flex flex-col items-center text-center">
-          <span
-            class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white text-lg shadow-lg">
-            <img src="images/about/white/xai.png" alt="" class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </span>
-          <div class="mt-5">
-            <h3 class="font-semibold text-lg">
-              XAI for validation and root cause analysis
-            </h3>
-          </div>
-        </li>
-
-        <!-- Item 4 -->
-        <li class="flex flex-col items-center text-center">
-          <span
-            class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white text-lg shadow-lg">
-            <img src="images/about/white/anomoliesdetect.png" alt=""
-              class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-          </span>
-          <div class="mt-5">
-            <h3 class="font-semibold text-lg">
-              Anomaly detection using graph-based models
-            </h3>
-          </div>
-        </li>
-      </ul>
+<!-- ═══════════════════════════════════════════════════════════
+   RESEARCH & SCIENTIFIC FOUNDATION
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-research">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Research Foundation</p>
+      <h2>Research &amp; Scientific Foundation</h2>
     </div>
 
-    <p class="text-xl md:text-2xl font-semibold text-center text-white mt-5 max-w-5xl mx-auto">
+    <div class="about-prose" style="margin-bottom: 1.5rem;">
+      <p>Care2Data's work is grounded in continuous research across clinical data standards, knowledge modeling, and
+        intelligent validation systems—forming the foundation of how we differentiate and innovate in clinical data
+        validation and verification.</p>
+      <p>Our research-led approach enables us to move beyond conventional validation tools, transforming fragmented data
+        ecosystems into structured, governed knowledge assets that eliminate information silos and strengthen clinical
+        data integrity at scale.</p>
+      <p>Our team combines expertise in life sciences, ontology engineering, and advanced data science to develop
+        frameworks that enhance the reliability, transparency, and contextual understanding of clinical research data.</p>
+    </div>
+
+    <p class="about-subheader">Through research collaborations and academic partnerships, Care2Data continues to
+      advance methods in:</p>
+
+    <ul class="about-research-list">
+      <li class="about-research-item">
+        <div class="research-icon">
+          <img src="images/about/white/knowledgegraph.png" alt="">
+        </div>
+        <div class="research-item__body">
+          <h3>Knowledge graph–driven validation</h3>
+          <p>Validation of clinical datasets through interconnected knowledge structures and semantic relationships.</p>
+        </div>
+      </li>
+      <li class="about-research-item">
+        <div class="research-icon">
+          <img src="images/about/white/semantic.png" alt="">
+        </div>
+        <div class="research-item__body">
+          <h3>Semantic interoperability</h3>
+          <p>Connecting clinical data ecosystems through shared ontologies and standardized semantic models.</p>
+        </div>
+      </li>
+      <li class="about-research-item">
+        <div class="research-icon">
+          <img src="images/about/white/xai.png" alt="">
+        </div>
+        <div class="research-item__body">
+          <h3>Explainable AI (XAI)</h3>
+          <p>Transparent validation and root cause analysis powered by interpretable AI models.</p>
+        </div>
+      </li>
+      <li class="about-research-item">
+        <div class="research-icon">
+          <img src="images/about/white/anomoliesdetect.png" alt="">
+        </div>
+        <div class="research-item__body">
+          <h3>Anomaly detection</h3>
+          <p>Graph-based models that surface data anomalies and inconsistencies across clinical datasets.</p>
+        </div>
+      </li>
+    </ul>
+
+    <p class="about-highlight">
       This research-driven approach enables Care2Data to develop intelligent systems that support stronger data quality,
       traceability, and regulatory confidence across the clinical trial lifecycle—while continuously evolving to address
       emerging complexity in clinical data environments.
     </p>
-
   </div>
 </section>
 
-<!-- Academic & Research Partnerships -->
-<section class="py-10 md:py-14 bg-[#102c50] text-white">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-5 text-yellow-400 leading-tight font-heading">
-      <span class="text-white">Academic & </span>Research Partnerships
-    </h2>
-
-    <p class="max-w-5xl mx-auto text-justify text-base md:text-lg leading-relaxed mb-5">
-      Care2Data collaborates with leading academic institutions to advance <strong
-        class="text-secondary">ontology-driven AI, semantic
-        intelligence,
-        and explainable AI (XAI)</strong>, strengthening the scientific and analytical foundations on which our
-      platforms are
-      built.
-    </p>
-
-    <!-- Static Logos -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 items-center justify-items-center">
-
-      <div *ngFor="let card of cards;let i=index" class="w-full max-w-[500px] h-[250px] md:h-[225px] 
-               flex items-center justify-center 
-               bg-white rounded-xl p-4 md:p-6
-               border border-white/10
-               transition-all duration-300
-               hover:scale-105 hover:shadow-xl">
-
-        <img [src]="card.img"
-          [ngClass]="i != 2 ? 'max-h-[80px] md:max-h-[100px] object-contain' : 'max-h-[175px] md:max-h-[175px]'" />
-
-      </div>
-
+<!-- ═══════════════════════════════════════════════════════════
+   ACADEMIC & RESEARCH PARTNERSHIPS
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-partners">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Collaborations</p>
+      <h2>Academic &amp; Research Partnerships</h2>
     </div>
 
+    <div class="about-prose" style="margin-bottom: 2.5rem;">
+      <p>Care2Data collaborates with leading academic institutions to advance <strong>ontology-driven AI, semantic
+          intelligence, and explainable AI (XAI)</strong>, strengthening the scientific and analytical foundations on
+        which our platforms are built.</p>
+    </div>
+
+    <div class="about-logos-grid">
+      <div *ngFor="let card of cards; let i = index"
+           class="about-logo-card"
+           [class.tall]="i === 2">
+        <img [src]="card.img" alt="">
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Vision & Mission -->
-<section class="py-8 bg-[#114167] text-white">
-  <div class="max-w-7xl mx-auto px-6">
+<!-- ═══════════════════════════════════════════════════════════
+   VISION & MISSION
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-vm">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <h2>Vision &amp; Mission</h2>
+    </div>
 
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-white leading-tight">
-      Vision & Mission
-    </h2>
-
-    <div class="grid grid-cols-1 gap-5">
-
-      <!-- Vision -->
-      <div class="flex flex-col gap-2 md:flex-row">
-        <h3 class="text-xl md:text-3xl text-secondary font-semibold mb-4 text-justify">Vision</h3>
-        <p class="pl-3 text-white mb-5 max-w-5xl mx-auto leading-relaxed text-justify text-base md:text-lg">
-          To accelerate drug discovery and enable the delivery of high-quality medicines earlier by becoming the most
-          trusted global clinical research technology partner. <br>
+    <div class="about-vm-grid">
+      <div class="about-vm-item">
+        <h3>Vision</h3>
+        <p>To accelerate drug discovery and enable the delivery of high-quality medicines earlier by becoming the most
+          trusted global clinical research technology partner.<br><br>
           We pursue this vision by enabling fully validated, intelligent systems that strengthen the quality, integrity,
-          consistency, and reliability of data throughout the clinical trial lifecycle.
-
-        </p>
+          consistency, and reliability of data throughout the clinical trial lifecycle.</p>
       </div>
 
-      <!-- Mission -->
-      <div class="flex flex-col gap-2 md:flex-row">
-        <h3 class="text-xl md:text-3xl text-secondary font-semibold mb-4 text-justify">Mission</h3>
-        <p class="text-white mb-5 max-w-5xl mx-auto leading-relaxed text-justify text-base md:text-lg">
-          To ignite a transformative shift in clinical research by delivering Data Quality as a Service. <br>
-          Through intelligent validation and verification systems, we improve the <strong
-            class="text-secondary">efficiency, accuracy, and conformance</strong>
-          of clinical trial submission datasets, analysis datasets, and clinical reports. <br>
+      <div class="about-vm-item">
+        <h3>Mission</h3>
+        <p>To ignite a transformative shift in clinical research by delivering Data Quality as a Service.<br><br>
+          Through intelligent validation and verification systems, we improve the
+          <strong>efficiency, accuracy, and conformance</strong> of clinical trial submission datasets, analysis
+          datasets, and clinical reports.<br><br>
           Our mission is to help organizations prevent regulatory resubmissions caused by data quality issues while
-          establishing stronger standards of quality, consistency, and accuracy prior to regulatory submission.
-
-        </p>
+          establishing stronger standards of quality, consistency, and accuracy prior to regulatory submission.</p>
       </div>
-
     </div>
-
   </div>
 </section>
 
-<!-- Leadership -->
-<section class="py-8 bg-[#11193e] text-white">
-  <div class="max-w-7xl mx-auto px-6">
+<!-- ═══════════════════════════════════════════════════════════
+   LEADERSHIP
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-leadership">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Our Team</p>
+      <h2>Leadership</h2>
+    </div>
 
-    <!-- Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-      Leadership
-    </h2>
+    <div class="about-leaders-grid">
 
-    <!-- Leadership Cards -->
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-10">
-
-      <!-- Leader 1 -->
-      <div
-        class="flex flex-col items-center md:items-start bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition">
-        <div class="flex flex-col md:flex-row items-center md:gap-4">
-          <img src="images/leaders/giri.jpg" alt="Giri Balasubramanian"
-            class="w-32 h-32 rounded-full mb-4 object-cover">
-          <div class="flex flex-col items-center md:items-start gap-2">
-            <h3 class="text-xl font-semibold mb-1">Giri Balasubramanian</h3>
-            <p class="text-blue-400 text-sm mb-2 font-medium">Founder</p>
+      <!-- Giri -->
+      <div class="about-leader-card">
+        <div class="leader-header">
+          <img src="images/leaders/giri.jpg" alt="Giri Balasubramanian">
+          <div>
+            <h3>Giri Balasubramanian</h3>
+            <span class="leader-role">Founder</span>
           </div>
         </div>
-        <p class="text-white mb-5 max-w-5xl mx-auto leading-relaxed text-justify text-base md:text-lg">
-          Giri Balasubramanian is the Founder of Care2Data and a global leader in <strong
-            class="text-secondary">clinical data standards,
-            automation,
-            and analytics.</strong> With more than two decades of experience in life sciences, he has presented
-          pioneering research
-          at international forums including <strong class="text-secondary"> CDISC and PhUSE</strong> across the United
-          States, Europe, and
-          Asia. <br> His expertise
-          spans <strong class="text-secondary">SDTM standards, regulatory submissions, metadata-driven reporting,
-            automation frameworks, and
-            machine
-            learning applications in clinical research</strong>. In addition to his industry contributions, he has
-          delivered a
-          widely recognized <strong class="text-secondary">TEDx talk</strong>, reflecting his ability to combine
-          technical depth with visionary
-          thinking to
-          advance data integrity and innovation across the life sciences ecosystem.
-        </p>
+        <p>Giri Balasubramanian is the Founder of Care2Data and a global leader in <strong>clinical data standards,
+            automation, and analytics.</strong> With more than two decades of experience in life sciences, he has
+          presented pioneering research at international forums including <strong>CDISC and PhUSE</strong> across the
+          United States, Europe, and Asia.<br><br>
+          His expertise spans <strong>SDTM standards, regulatory submissions, metadata-driven reporting, automation
+            frameworks, and machine learning applications in clinical research</strong>. In addition to his industry
+          contributions, he has delivered a widely recognized <strong>TEDx talk</strong>, reflecting his ability to
+          combine technical depth with visionary thinking to advance data integrity and innovation across the life
+          sciences ecosystem.</p>
         <a href="https://www.linkedin.com/in/giri-balasubramanian-21a31013/" target="_blank"
-          class="mt-auto w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-primary text-white text-base md:text-lg md:text-lg hover:scale-110 transition-all duration-300">
+          class="leader-linkedin">
           <i class="fa-brands fa-linkedin"></i>
         </a>
       </div>
 
-      <!-- Leader 2 -->
-      <div
-        class="flex flex-col items-center md:items-start bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition">
-        <div class="flex flex-col md:flex-row items-center md:gap-4">
-          <img src="images/leaders/gopinath.jpg" alt="Gopinath Viswanathan"
-            class="w-32 h-32 rounded-full mb-4 object-cover">
-          <div class="flex flex-col items-center md:items-start gap-2">
-            <h3 class="text-xl font-semibold mb-1">Gopinath Viswanathan</h3>
-            <p class="text-blue-400 text-sm mb-2 font-medium">Promoter & Leadership</p>
+      <!-- Gopinath -->
+      <div class="about-leader-card">
+        <div class="leader-header">
+          <img src="images/leaders/gopinath.jpg" alt="Gopinath Viswanathan">
+          <div>
+            <h3>Gopinath Viswanathan</h3>
+            <span class="leader-role">Promoter &amp; Leadership</span>
           </div>
         </div>
-        <p class="text-white mb-5 max-w-5xl mx-auto leading-relaxed text-justify text-base md:text-lg">
-          Gopinath Viswanathan brings over two decades of experience across <strong
-            class="text-secondary">pharmaceutical, CRO, and life
-            sciences
-            organizations</strong>, with deep expertise in global randomized clinical trials across Phases I–IV. <br>
-          His background
-          includes <strong class="text-secondary">clinical operations, data management, biometrics, regulatory
-            submissions, pharmacovigilance, and
-            clinical data standards such as SDTM and ADaM</strong>. He has led the development of enterprise platforms
-          leveraging
-          <strong class="text-secondary">knowledge graphs, semantic integration, and AI-driven validation
-            frameworks</strong> to improve data quality and
-          regulatory compliance.
-        </p>
+        <p>Gopinath Viswanathan brings over two decades of experience across <strong>pharmaceutical, CRO, and life
+            sciences organizations</strong>, with deep expertise in global randomized clinical trials across Phases
+          I–IV.<br><br>
+          His background includes <strong>clinical operations, data management, biometrics, regulatory submissions,
+            pharmacovigilance, and clinical data standards such as SDTM and ADaM</strong>. He has led the development
+          of enterprise platforms leveraging <strong>knowledge graphs, semantic integration, and AI-driven validation
+            frameworks</strong> to improve data quality and regulatory compliance.</p>
         <a href="https://www.linkedin.com/in/gopinath-viswanathan-1502607a/" target="_blank"
-          class="mt-auto w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-primary text-white text-base md:text-lg md:text-lg hover:scale-110 transition-all duration-300">
+          class="leader-linkedin">
           <i class="fa-brands fa-linkedin"></i>
         </a>
       </div>
 
     </div>
-
   </div>
 </section>
 
-<!-- Timeline -->
-<section class="py-8 bg-[#102c50] text-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <!-- Header -->
-    <div class="text-center fade-up">
-      <p class="text-xs uppercase tracking-[0.3em] text-[#fff] font-medium mb-2">Our Journey</p>
-      <!-- Heading -->
-      <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-        <span style="color: #fff">Care2Data </span>Milestones
-      </h2>
+<!-- ═══════════════════════════════════════════════════════════
+   TIMELINE — MILESTONES
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-timeline">
+  <div class="about-section__inner">
+    <div class="section-header">
+      <span class="timeline-eyebrow">Our Journey</span>
+      <h2>Care2Data Milestones</h2>
     </div>
 
     <svg viewBox="0 0 1600 220" preserveAspectRatio="xMidYMid meet"
       style="width: 100%; height: auto; display: block; filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));">
 
       <style>
-        .step-label {
-          font-size: 50px;
-          font-weight: bolder;
-          text-anchor: middle;
-        }
-
-        .step-title {
-          font-size: 16px;
-          font-weight: 800;
-          text-anchor: middle;
-        }
+        .step-label { font-size: 50px; font-weight: bolder; text-anchor: middle; }
+        .step-title  { font-size: 16px; font-weight: 800; text-anchor: middle; }
       </style>
 
-      <!-- CENTER WRAPPER -->
-      <!-- total width used ≈ 1048px → center offset = (1600-1048)/2 ≈ 276 -->
       <g transform="translate(276, 0)">
-
-        <!-- 1 -->
         <g>
           <polygon points="0,30 200,30 230,100 200,170 0,170 30,100" fill="#11193e" />
           <text x="115" y="115" class="step-label" fill="white">2022</text>
           <text x="115" y="200" class="step-title" fill="#fff">Company Founded</text>
         </g>
-
-        <!-- 2 -->
         <g>
           <polygon points="212,30 412,30 442,100 412,170 212,170 242,100" fill="#2a347a" />
           <text x="327" y="115" class="step-label" fill="white">2023</text>
           <text x="327" y="200" class="step-title" fill="#fff">
             <tspan x="327" dy="0">Proof of Concept</tspan>
-            <tspan x="327" dy="16">& International Recognitions </tspan>
+            <tspan x="327" dy="16">&amp; International Recognitions</tspan>
           </text>
         </g>
-
-        <!-- 3 -->
         <g>
           <polygon points="424,30 624,30 654,100 624,170 424,170 454,100" fill="#f1dba0" />
           <text x="539" y="115" class="step-label" fill="black">2024</text>
           <text x="539" y="200" class="step-title" fill="#fff">
-            <tspan x="539" dy="0">Research & Academic</tspan>
+            <tspan x="539" dy="0">Research &amp; Academic</tspan>
             <tspan x="539" dy="16">Partnerships</tspan>
           </text>
         </g>
-
-        <!-- 4 -->
         <g>
           <polygon points="636,30 836,30 866,100 836,170 636,170 666,100" fill="#b78c3e" />
           <text x="751" y="115" class="step-label" fill="white">2025</text>
           <text x="751" y="200" class="step-title" fill="#fff">
             <tspan x="751" dy="0">Platform Design</tspan>
-            <tspan x="751" dy="16">& Patent Initiation</tspan>
+            <tspan x="751" dy="16">&amp; Patent Initiation</tspan>
           </text>
         </g>
-
-        <!-- 5 -->
         <g>
           <polygon points="848,30 1048,30 1078,100 1048,170 848,170 878,100" fill="#11193e" />
           <text x="963" y="115" class="step-label" fill="white">2026</text>
           <text x="963" y="200" class="step-title" fill="#fff">
             <tspan x="963" dy="0">Kwalify™ Launch</tspan>
-            <tspan x="963" dy="16"> phUSE</tspan>
+            <tspan x="963" dy="16">phUSE</tspan>
           </text>
         </g>
-
       </g>
     </svg>
-
   </div>
 </section>
 
-<!-- Our Core Focus -->
-<section class="py-8 bg-[#114167]">
-  <div class="max-w-7xl mx-auto text-center px-6">
-
-    <h1 class="text-5xl lg:text-6xl font-bold text-white mb-5 font-heading">
-      From Data to Knowledge. <br> <span class="text-secondary">From Knowledge to Confidence.</span>
-    </h1>
-
-    <p class="text-white mb-5 max-w-5xl mx-auto leading-relaxed text-justify text-base md:text-lg">
-      Care2Data helps life sciences organizations move from fragmented datasets to connected intelligence and trusted
-      knowledge systems. <br><br>
-
+<!-- ═══════════════════════════════════════════════════════════
+   CLOSING CTA
+═══════════════════════════════════════════════════════════ -->
+<section class="about-section about-closer">
+  <div class="about-closer__inner">
+    <span class="section-eyebrow" style="display:flex;justify-content:center;margin-bottom:1rem;">Our Commitment</span>
+    <h2>From Data to Knowledge.<br><span>From Knowledge to Confidence.</span></h2>
+    <p>Care2Data helps life sciences organizations move from fragmented datasets to connected intelligence and trusted
+      knowledge systems.<br><br>
       By combining life sciences expertise with semantic modeling, validation frameworks and AI RAG systems, we enable
       organizations to strengthen compliance, accelerate insight, and operate with greater confidence across clinical
-      research.
-
-    </p>
-
-    <div class="text-center mt-5">
-      <button routerLink="/kwalify"
-        class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer"
-        style="background-color: var(--btn-primary-color); color: #fff;"
-        onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-        onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-        Contact Us →
-      </button>
-    </div>
+      research.</p>
+    <a routerLink="/kwalify" class="btn btn-primary">Contact Us →</a>
   </div>
 </section>

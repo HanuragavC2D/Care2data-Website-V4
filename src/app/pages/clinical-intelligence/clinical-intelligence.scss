@@ -1,0 +1,176 @@
+// ── Design tokens ─────────────────────────────────────────────
+$gold:        #f5c36e;
+$gold-dim:    rgba(245, 195, 110, 0.18);
+$gold-border: rgba(245, 195, 110, 0.22);
+$white-82:    rgba(248, 250, 252, 0.82);
+$white-78:    rgba(248, 250, 252, 0.78);
+$card-bg:     rgba(255, 255, 255, 0.04);
+$card-border: rgba(255, 255, 255, 0.12);
+$inner-width: 1200px;
+$section-pad: 3.5rem 1.5rem;
+
+// ── Shared eyebrow / header (scoped) ─────────────────────────
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: $gold;
+}
+
+.section-header {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+
+  h2 {
+    font-size: clamp(1.75rem, 2.8vw, 2.75rem);
+    line-height: 1.1;
+    margin-top: 0.75rem;
+    color: white;
+    white-space: nowrap;
+  }
+}
+
+// ── Section shell ─────────────────────────────────────────────
+.ci-section {
+  padding: $section-pad;
+  padding-top: 7rem; // clears fixed navbar (~5rem) + breathing room
+  background: linear-gradient(180deg, #0d1530 0%, #0b1836 100%);
+}
+
+.ci-inner {
+  max-width: $inner-width;
+  margin: 0 auto;
+}
+
+// ── Prose ─────────────────────────────────────────────────────
+.ci-prose {
+  max-width: 860px;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+
+  p {
+    color: $white-82;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin: 0 0 1rem;
+
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
+// ── Subheader ─────────────────────────────────────────────────
+.ci-subheader {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $gold;
+  text-align: center;
+  margin: 0 auto 1.5rem;
+}
+
+// ── 2-column card grid ────────────────────────────────────────
+.ci-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  max-width: $inner-width;
+  margin: 0 auto;
+}
+
+// ── Feature card base ─────────────────────────────────────────
+.ci-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 1.75rem;
+  border: 1px solid;
+  border-top-width: 3px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  p {
+    color: $white-82;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0;
+    font-weight: 500;
+  }
+}
+
+// ── Icon — circular gold (matches Kwalify / Research Foundation) ──
+.ci-card__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #f5c36e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  mat-icon { color: #111827; font-size: 1.25rem; }
+}
+
+// ── Color variants with 3D depth ──────────────────────────────
+.ci-card--1 {
+  background: rgba(56, 189, 248, 0.07);
+  border-color: rgba(56, 189, 248, 0.35);
+  border-top-color: #38bdf8;
+  box-shadow: 4px 6px 0 rgba(56, 189, 248, 0.2), 0 12px 32px rgba(0,0,0,0.3);
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(56, 189, 248, 0.2), 0 18px 40px rgba(0,0,0,0.35); }
+}
+
+.ci-card--2 {
+  background: rgba(245, 195, 110, 0.07);
+  border-color: $gold-border;
+  border-top-color: $gold;
+  box-shadow: 4px 6px 0 rgba(245, 195, 110, 0.22), 0 12px 32px rgba(0,0,0,0.3);
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(245, 195, 110, 0.22), 0 18px 40px rgba(0,0,0,0.35); }
+}
+
+.ci-card--3 {
+  background: rgba(52, 211, 153, 0.07);
+  border-color: rgba(52, 211, 153, 0.3);
+  border-top-color: #34d399;
+  box-shadow: 4px 6px 0 rgba(52, 211, 153, 0.18), 0 12px 32px rgba(0,0,0,0.3);
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(52, 211, 153, 0.18), 0 18px 40px rgba(0,0,0,0.35); }
+}
+
+.ci-card--4 {
+  background: rgba(192, 132, 252, 0.07);
+  border-color: rgba(192, 132, 252, 0.28);
+  border-top-color: #c084fc;
+  box-shadow: 4px 6px 0 rgba(192, 132, 252, 0.18), 0 12px 32px rgba(0,0,0,0.3);
+  &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(192, 132, 252, 0.18), 0 18px 40px rgba(0,0,0,0.35); }
+}
+
+// ── Closing statement ─────────────────────────────────────────
+.ci-closing {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  max-width: 860px;
+  margin: 2.5rem auto 0;
+  line-height: 1.75;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  background: $gold-dim;
+  border: 1px solid $gold-border;
+
+  strong { color: $gold; font-weight: 700; }
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .ci-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .ci-section { padding: 6rem 1.25rem 2.5rem; }
+  .section-header h2 { white-space: normal; }
+}

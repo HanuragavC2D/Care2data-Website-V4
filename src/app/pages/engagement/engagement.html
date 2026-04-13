@@ -1,244 +1,127 @@
 <!-- Hero Section -->
-<section class="bg-[#11193e] text-white py-24 px-6 relative min-h-screen overflow-hidden">
+<section class="eng-hero text-white px-6 relative overflow-hidden" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);">
     <div class="max-w-7xl mx-auto">
-        <div class="flex transition-transform duration-700 ease-in-out"
-            [style.transform]="'translateX(-' + activeIndex * 100 + '%)'">
 
-            <div *ngFor="let slide of slides;let i = index" class="w-full flex-shrink-0 px-4">
+        <div class="eng-header">
+            <span class="eng-eyebrow">Clinical Data Intelligence</span>
+            <h2>Engineering <span>Clinical Data Intelligence</span></h2>
+            <p>Clinical trial data challenges are not only technical — they are structural.</p>
+        </div>
 
+        <div class="eng-intro">
+            <p>Care2Data partners with life sciences organizations to embed <strong>semantic intelligence,
+                validation &amp; verification, and governance frameworks</strong> into clinical data
+                operations — without disrupting existing systems.</p>
+            <p>We deliver <strong>inspection-ready, knowledge-driven data environments</strong> that strengthen
+                regulatory defensibility and submission confidence.</p>
+        </div>
 
-                <!-- 🔷 HEADER -->
-                <div class="text-center mb-5" *ngIf="slide.index == 0">
-                    <h1
-                        class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight my-3 text-white font-heading">
-                        Engineering Clinical
-                        <i class="block text-yellow-400 mt-2">Data Intelligence</i>
-                    </h1>
-
-                    <p class="text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed mb-4">
-                        Clinical trial data challenges are not only technical—they are structural.
-                    </p>
-
-                    <p class="text-lg text-white max-w-5xl mx-auto leading-relaxed mb-4">
-                        Care2Data partners with life sciences organizations to embed <strong
-                            class="text-secondary">semantic
-                            intelligence, validation &
-                            verification, and governance frameworks</strong> into clinical data operations—without
-                        disrupting
-                        existing
-                        systems.
-                    </p>
-
-                    <p class="text-lg text-white max-w-5xl mx-auto leading-relaxed">
-                        We deliver <strong class="text-secondary">inspection-ready, knowledge-driven data
-                            environments</strong>
-                        that strengthen regulatory defensibility
-                        and submission confidence.
-                    </p>
+        <!-- How You Can Engage -->
+        <div class="mb-10">
+            <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:1rem;">How You Can Engage</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 eng-type-grid">
+                <div class="eng-type-card eng-type-card--1">
+                    <h4>Advisory</h4>
+                    <p>Define strategies, use cases, and architecture aligned with regulatory and operational goals.</p>
                 </div>
-
-                <div class="max-w-5xl mx-auto" *ngIf="slide.index == 1">
-                    <!-- 🔷 ENGAGEMENT -->
-                    <div class="mb-8">
-                        <h3 class="text-2xl text-center text-blue-400 mb-5">
-                            How You Can Engage
-                        </h3>
-
-                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-                            <div class="bg-white/5 border rounded-2xl p-6">
-                                <h4 class="text-secondary">Advisory</h4>
-                                <p>Define strategies</p>
-                            </div>
-
-                            <div class="bg-white/5 border rounded-2xl p-6">
-                                <h4 class="text-secondary">Implementation</h4>
-                                <p>Deploy frameworks</p>
-                            </div>
-
-                            <div class="bg-white/5 border rounded-2xl p-6">
-                                <h4 class="text-secondary">Validation</h4>
-                                <p>Ensure quality</p>
-                            </div>
-
-                            <div class="bg-white/5 border rounded-2xl p-6">
-                                <h4 class="text-secondary">Enablement</h4>
-                                <p>BOT model</p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- 🔷 PILLARS -->
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl text-blue-400 mb-4">
-                            Built on Three Pillars
-                        </h3>
-
-                        <p
-                            class="text-xs sm:text-xl font-senibold tracking-wider uppercase font-medium text-yellow-400">
-                            Governance • Intelligence • Defensibility
-                        </p>
-
-                    </div>
+                <div class="eng-type-card eng-type-card--2">
+                    <h4>Implementation</h4>
+                    <p>Deploy semantic intelligence, validation frameworks, and knowledge architectures.</p>
                 </div>
-
-                <!-- 🔷 CTA -->
-                <div class="text-center">
-                    <button routerLink="/contact-us" class="px-6 py-3 rounded-xl font-semibold uppercase"
-                        style="background-color: var(--btn-primary-color); color: #fff;">
-                        Architect Your Engagement →
-                    </button>
+                <div class="eng-type-card eng-type-card--3">
+                    <h4>Validation</h4>
+                    <p>Ensure quality, traceability, and regulatory alignment across clinical data systems.</p>
+                </div>
+                <div class="eng-type-card eng-type-card--4">
+                    <h4>Enablement</h4>
+                    <p>Equip teams through a Build, Operate, and Transfer (BOT) model for independent ownership.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 🔘 DOT INDICATORS -->
-        <div class="flex justify-center mt-8 space-x-3">
-            <button *ngFor="let slide of slides; let i = index" (click)="activeIndex = i"
-                class="w-3 h-3 rounded-full transition-all duration-300" [ngClass]="{
-            'bg-yellow-400 scale-125': activeIndex === i,
-            'bg-white/40': activeIndex !== i
-        }">
-            </button>
-        </div>
-    </div>
-</section>
-
-<section class="bg-[#102c50] py-8">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="max-w-5xl mx-auto text-center mb-4">
-            <!-- Heading -->
-            <h2
-                class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-                <span style="color: #fff">Intelligence That Integrates</span> — Not Disrupts
-            </h2>
-
-            <p class="text-base md:text-lg font-semibold text-white mb-4">
-                Our engagement model is designed to strengthen internal teams and existing systems—without disrupting
-                current workflows or technology investments.
+        <!-- Pillars -->
+        <div class="text-center mb-8">
+            <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:0.75rem;">Built on Three Pillars</p>
+            <p class="text-lg font-semibold" style="color: #f5c36e; letter-spacing: 0.12em;">
+                Governance &nbsp;•&nbsp; Intelligence &nbsp;•&nbsp; Defensibility
             </p>
         </div>
 
-        <!-- Carousel -->
-        <div class="overflow-hidden py-5">
-            <div
-                class="relative h-[350px] md:h-[300px] lg:h-[275px] flex items-center justify-center perspective-[900px]">
-                <div *ngFor="let card of approch; let i = index" (click)="onCardClick(i)"
-                    class="absolute flex flex-col rounded-2xl p-6 w-full md:w-[400px] lg:w-[465px] h-[325px] md:h-[275px] lg:h-[260px] cursor-pointer border transition-all duration-700 ease-[cubic-bezier(0.34,1.2,0.64,1)] bg-white text-black"
-                    [ngStyle]="getStyles(i)">
+        <div class="text-center">
+            <button routerLink="/contact-us" class="btn btn-primary">
+                Architect Your Engagement →
+            </button>
+        </div>
 
-                    <!-- Icon -->
-                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
-                        {{ card.icon }}
-                    </div>
+    </div>
+</section>
 
-                    <!-- Title -->
-                    <h3 class="text-lg md:text-xl font-semibold text-primary mb-2">{{ card.title }}</h3>
+<section class="text-white py-16" style="background: linear-gradient(180deg, #07102a 0%, #0b1836 100%);">
+    <div class="max-w-7xl mx-auto px-6">
 
-                    <!-- Description / Content -->
-                    <p class="text-sm leading-relaxed mb-2" *ngIf="card.description">
-                        {{ card.description }}
-                    </p>
+        <div class="eng-header">
+            <span class="eng-eyebrow">Engagement Model</span>
+            <h2>Intelligence That <span>Integrates</span> — Not Disrupts</h2>
+            <p>Our engagement model strengthens internal teams and existing systems — without disrupting
+                current workflows or technology investments.</p>
+        </div>
 
-                    <!-- Description / Content -->
-                    <div class="mt-auto md:pt-0 lg:pt-2">
-                        <a [routerLink]="[card.link]" [fragment]="card.fragment" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-block text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
-                            style="background-color: var(--btn-primary-color); color: #fff;"
-                            onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                            onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-                            Read More →
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dots -->
-            <div class="flex justify-center gap-2 md:mt-6 lg:mt-5">
-                <div *ngFor="let d of approch; let i = index" (click)="goTo(i)"
-                    class="w-[9px] h-[9px] rounded-full cursor-pointer transition-all duration-300"
-                    [ngClass]="i === active ? 'bg-yellow-400 scale-105' : 'bg-white/30'">
-                </div>
+        <!-- Engagement model cards (dynamic) -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div *ngFor="let card of approch" class="eng-model-card">
+                <div class="eng-card-icon mb-4">{{ card.icon }}</div>
+                <h3 class="text-base font-semibold mb-2" style="color: #f5c36e;">{{ card.title }}</h3>
+                <p class="text-sm leading-relaxed" style="color: rgba(248,250,252,0.78);" *ngIf="card.description">{{ card.description }}</p>
+                <a [routerLink]="[card.link]" [fragment]="card.fragment" class="eng-card-link mt-3 inline-block">Read More →</a>
             </div>
         </div>
 
-        <h3 class="text-2xl md:text-3xl font-semibold text-center mb-5 text-blue-400">
-            How This Works
+        <!-- How This Works -->
+        <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:0.5rem;">Methodology</p>
+        <h3 class="text-2xl md:text-3xl font-semibold text-center mb-8" style="color:white;">
+            How This <span style="color:#f5c36e;">Works</span>
         </h3>
 
-        <!-- Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Card -->
-            <div
-                class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
-
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="eng-how-card">
                 <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
-                        <img src="images/home/white/strategicalignment.png" alt=""
-                            class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+                    <div class="eng-how-icon">
+                        <img src="images/home/white/strategicalignment.png" alt="">
                     </div>
-
-                    <h3
-                        class="text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold">
-                        Strategic Alignment
-                    </h3>
+                    <h3 class="text-lg font-semibold" style="color: #f5c36e;">Strategic Alignment</h3>
                 </div>
-
-                <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
+                <p style="color: rgba(248,250,252,0.82);">
                     Define the right use cases and architecture aligned with regulatory and operational goals.
                 </p>
             </div>
 
-            <!-- Card -->
-            <div
-                class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
+            <div class="eng-how-card">
                 <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
-                        <img src="images/home/white/deployment.png" alt=""
-                            class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+                    <div class="eng-how-icon">
+                        <img src="images/home/white/deployment.png" alt="">
                     </div>
-
-                    <h3
-                        class="text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold">
-                        Deployment
-                    </h3>
+                    <h3 class="text-lg font-semibold" style="color: #f5c36e;">Deployment</h3>
                 </div>
-
-                <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
+                <p style="color: rgba(248,250,252,0.82);">
                     Embed semantic intelligence, validation logic, and reasoning frameworks into existing ecosystems.
                 </p>
             </div>
 
-            <!-- Card -->
-            <div
-                class="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500 ease-out group">
-
+            <div class="eng-how-card">
                 <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary shrink-0">
-                        <img src="images/home/white/Enablement.png" alt=""
-                            class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
+                    <div class="eng-how-icon">
+                        <img src="images/home/white/Enablement.png" alt="">
                     </div>
-
-                    <h3
-                        class="text-lg md:text-lg md:text-xl text-[var(--secondary-color)] group-hover:text-[var(--primary-color)] transition font-semibold">
-                        Enablement
-                    </h3>
+                    <h3 class="text-lg font-semibold" style="color: #f5c36e;">Enablement</h3>
                 </div>
-
-                <p class="text-base md:text-lg text-white group-hover:text-black text-justify">
+                <p style="color: rgba(248,250,252,0.82);">
                     Equip teams to sustain and scale clinical data intelligence independently.
                 </p>
             </div>
         </div>
-        <!-- CTA -->
-        <div class="text-center mt-5">
-            <a [routerLink]="['/models-explore']" target="_blank" rel="noopener noreferrer"
-                class="inline-block text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
-                style="background-color: var(--btn-primary-color); color: #fff;"
-                onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+
+        <div class="text-center">
+            <a [routerLink]="['/models-explore']" class="btn btn-primary">
                 Explore Engagement Models in Detail →
             </a>
         </div>
@@ -246,126 +129,99 @@
 </section>
 
 <!-- A Structured Maturity Framework -->
-<section class="bg-[#114167] text-white py-8">
+<section class="text-white py-16" style="background: linear-gradient(180deg, #08132a 0%, #071022 100%);">
     <div class="max-w-6xl mx-auto px-6">
 
-        <!-- 🔷 HEADER -->
-        <div class="text-center mb-5">
-            <h2
-                class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-5 text-yellow-400 leading-tight">
-                <span style="color: #fff">A Structured</span> Maturity Framework
-            </h2>
-            <p class="max-w-4xl mx-auto leading-relaxed">
-                Care2Data engagements follow a structured progression—ensuring that clinical data intelligence is not
-                only implemented, but <strong class="text-secondary">validated, governed, and sustained over
-                    time</strong>.
-                <br>
-                This framework underpins how organizations move from fragmented data environments to <strong
-                    class="text-secondary">interlinked,
-                    intelligence-driven, and submission-ready systems</strong>.
-            </p>
+        <div class="eng-header">
+            <span class="eng-eyebrow">Framework</span>
+            <h2>A Structured <span>Maturity Framework</span></h2>
+            <p>Care2Data engagements follow a structured progression — ensuring that clinical data intelligence
+                is not only implemented, but validated, governed, and sustained over time.</p>
         </div>
 
-        <!-- 🔷 PROGRESSION CARDS -->
-        <div class="mb-5">
-            <h3 class="text-2xl md:text-3xl font-semibold text-primary text-center mb-5">
-                Engagement Progression
-            </h3>
+        <!-- Progression Cards -->
+        <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:1rem;">Engagement Progression</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 eng-prog-grid mb-10">
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- CARD -->
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:scale-105 transition">
-                    <h4 class="text-yellow-400 font-semibold mb-2">
-                        1. Structural Clarity & Alignment
-                    </h4>
-                    <p class="text-white text-base md:text-lg">
-                        Define expectations, regulatory standards, and structural assumptions across clinical data
-                        systems, validation logic, and submission requirements.
-                    </p>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:scale-105 transition">
-                    <h4 class="text-yellow-400 font-semibold mb-2">
-                        2. Controlled Validation (PoCs)
-                    </h4>
-                    <p class="text-white text-base md:text-lg">
-                        Validate architectural and validation assumptions through structured PoCs—identifying risks,
-                        inconsistencies, and scalability challenges early.
-                    </p>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:scale-105 transition">
-                    <h4 class="text-yellow-400 font-semibold mb-2">
-                        3. Design & Deployment
-                    </h4>
-                    <p class="text-white text-base md:text-lg">
-                        Implement semantic models, knowledge architectures, and validation & verification frameworks
-                        within existing ecosystems.
-                    </p>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:scale-105 transition">
-                    <h4 class="text-yellow-400 font-semibold mb-2">
-                        4. Governance & Lifecycle Stabilisation
-                    </h4>
-                    <p class="text-white text-base md:text-lg">
-                        Establish traceability, governance controls, and lifecycle management frameworks to ensure
-                        regulatory alignment and long-term resilience.
-                    </p>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:scale-105 transition">
-                    <h4 class="text-yellow-400 font-semibold mb-2">
-                        5. Capability Transfer & Scale
-                    </h4>
-                    <p class="text-white text-base md:text-lg">
-                        Enable teams through training and BOT models to independently operate, extend, and scale
-                        clinical data intelligence systems.
-                    </p>
-                </div>
-
+            <div class="eng-prog-card">
+                <h4>Structural Clarity &amp; Alignment</h4>
+                <p>Define expectations, regulatory standards, and structural assumptions across clinical data
+                    systems, validation logic, and submission requirements.</p>
             </div>
+
+            <div class="eng-prog-card">
+                <h4>Controlled Validation (PoCs)</h4>
+                <p>Validate architectural and validation assumptions through structured PoCs — identifying
+                    risks, inconsistencies, and scalability challenges early.</p>
+            </div>
+
+            <div class="eng-prog-card">
+                <h4>Design &amp; Deployment</h4>
+                <p>Implement semantic models, knowledge architectures, and validation &amp; verification
+                    frameworks within existing ecosystems.</p>
+            </div>
+
+            <div class="eng-prog-card">
+                <h4>Governance &amp; Lifecycle Stabilisation</h4>
+                <p>Establish traceability, governance controls, and lifecycle management frameworks to ensure
+                    regulatory alignment and long-term resilience.</p>
+            </div>
+
+            <div class="eng-prog-card">
+                <h4>Capability Transfer &amp; Scale</h4>
+                <p>Enable teams through training and BOT models to independently operate, extend, and scale
+                    clinical data intelligence systems.</p>
+            </div>
+
         </div>
 
-        <!-- 🔷 TRANSFORMATION FLOW -->
-        <div class="text-center mb-5">
-            <h3 class="text-2xl md:text-3xl font-semibold text-primary mb-8">
-                From Engagement to Enduring Capability
+        <!-- Transformation Flow -->
+        <div class="text-center">
+            <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:0.75rem;">Transformation</p>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6" style="color:white;">
+                From Engagement to <span style="color:#f5c36e;">Enduring Capability</span>
             </h3>
 
-            <p class="text-white max-w-4xl mx-auto mb-8">
-                Care2Data engagements are designed not just to deliver systems—but to establish <strong
-                    class="text-secondary">sustainable,
-                    knowledge-driven operating models</strong>.
+            <p class="text-base text-white max-w-3xl mx-auto mb-8" style="color:rgba(248,250,252,0.82); line-height:1.75;">
+                Care2Data engagements are designed not just to deliver systems — but to establish
+                <strong style="color:#f5c36e; font-weight:600;">sustainable, knowledge-driven operating models</strong>.
             </p>
-            <p class="text-base md:text-lg text-secondary text-center mb-4 font-semibold">
+
+            <p class="text-xs font-semibold mb-4" style="color:rgba(248,250,252,0.45); text-transform:uppercase; letter-spacing:0.18em;">
                 The outcome is a transition from:
             </p>
-            <!-- FLOW -->
-            <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-sm md:text-base font-medium">
 
-                <span class="bg-white/5 px-4 py-2 rounded-lg border border-white/10">Fragmented Data</span>
-                <span class="text-primary">→</span>
-
-                <span class="bg-white/5 px-4 py-2 rounded-lg border border-white/10">Structured Knowledge</span>
-                <span class="text-primary">→</span>
-
-                <span class="bg-white/5 px-4 py-2 rounded-lg border border-white/10">Clinical Intelligence</span>
-                <span class="text-primary">→</span>
-
-                <span class="bg-white/5 px-4 py-2 rounded-lg border border-white/10">Defensible Submissions</span>
-
+            <div class="eng-flow-row mb-8">
+                <span class="eng-flow-pill">Fragmented Data</span>
+                <span class="eng-flow-arrow">→</span>
+                <span class="eng-flow-pill">Structured Knowledge</span>
+                <span class="eng-flow-arrow">→</span>
+                <span class="eng-flow-pill">Clinical Intelligence</span>
+                <span class="eng-flow-arrow">→</span>
+                <span class="eng-flow-pill">Defensible Submissions</span>
             </div>
-            <p class="text-base md:text-lg text-secondary text-center my-4 font-semibold">
+
+            <p class="text-xs font-semibold mb-4" style="color:rgba(248,250,252,0.45); text-transform:uppercase; letter-spacing:0.18em;">
                 Organizations gain:
             </p>
-            <!-- BENEFITS -->
-            <div class="grid md:grid-cols-2 gap-4 text-white max-w-4xl mx-auto mt-5 text-left">
-                <p>• Consistent, submission-ready datasets</p>
-                <p>• Governed validation and verification processes</p>
-                <p>• Reduced dependency on manual intervention</p>
-                <p>• Scalable systems aligned with regulatory expectations</p>
+
+            <div class="eng-benefits-grid">
+                <div class="eng-benefit-item">
+                    <span class="eng-check">✓</span>
+                    <p>Consistent, submission-ready datasets</p>
+                </div>
+                <div class="eng-benefit-item">
+                    <span class="eng-check">✓</span>
+                    <p>Governed validation and verification processes</p>
+                </div>
+                <div class="eng-benefit-item">
+                    <span class="eng-check">✓</span>
+                    <p>Reduced dependency on manual intervention</p>
+                </div>
+                <div class="eng-benefit-item">
+                    <span class="eng-check">✓</span>
+                    <p>Scalable systems aligned with regulatory expectations</p>
+                </div>
             </div>
         </div>
 
@@ -373,36 +229,18 @@
 </section>
 
 <!-- Final Conversion -->
-<section class="py-8 bg-[#11193e]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="text-white py-16" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 60%, #08112a 100%);">
+    <div class="max-w-4xl mx-auto px-6">
 
-        <p class="text-white max-w-3xl mx-auto leading-relaxed mb-5 text-base md:text-lg text-left md:text-center">
-            Clinical data quality is not achieved at the point of submission.
-            It is engineered across the lifecycle. <br> <br> Care2Data enables organizations to move beyond validation
-            as a task—
-            <strong class="text-secondary">toward validation and verification as a governed, intelligence-driven system
-                of assurance</strong>.
-        </p>
+        <div class="eng-intro" style="margin-bottom:2.5rem;">
+            <p>Clinical data quality is not achieved at the point of submission. It is engineered across the lifecycle.</p>
+            <p>Care2Data enables organizations to move beyond validation as a task — <strong>toward validation and
+                verification as a governed, intelligence-driven system of assurance</strong>.</p>
+        </div>
 
-        <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
-
-            <button routerLink="/contact-us"
-                class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
-                style="background-color: var(--btn-primary-color); color: #fff;"
-                onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-                Architect Your Engagement→
-            </button>
-
-            <button
-                class="text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase"
-                style="background-color: var(--btn-primary-color); color: #fff;"
-                onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-                Contact Us →
-            </button>
-
+            <button routerLink="/contact-us" class="btn btn-primary">Architect Your Engagement →</button>
+            <button routerLink="/contact-us" class="btn btn-outline">Contact Us →</button>
         </div>
 
     </div>

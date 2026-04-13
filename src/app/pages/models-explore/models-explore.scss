@@ -1,0 +1,446 @@
+// ── Design Tokens ──────────────────────────────────────────────
+$gold:        #f5c36e;
+$gold-dim:    rgba(245,195,110,0.18);
+$gold-border: rgba(245,195,110,0.22);
+$white-82:    rgba(248,250,252,0.82);
+$white-70:    rgba(248,250,252,0.70);
+$card-bg:     rgba(255,255,255,0.05);
+$card-border: rgba(255,255,255,0.12);
+$inner-width: 1200px;
+
+// ── Buttons ────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.btn-primary {
+  background: $gold;
+  color: #111827;
+  &:hover { background: #e9a83a; transform: translateY(-1px); }
+}
+.btn-outline {
+  background: transparent;
+  color: $gold;
+  border: 2px solid $gold-border;
+  &:hover { background: $gold-dim; border-color: $gold; }
+}
+
+// ── Shared eyebrow / header ────────────────────────────────────
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: $gold;
+}
+
+.section-header {
+  max-width: 860px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    margin-top: 0.75rem;
+    span { color: $gold; }
+  }
+}
+
+// ── Section shell ──────────────────────────────────────────────
+.me-section {
+  padding: 4rem 1.5rem;
+  color: white;
+}
+
+.me-section--first {
+  padding-top: 7rem;
+}
+
+.me-inner {
+  max-width: $inner-width;
+  margin: 0 auto;
+}
+
+// ── Tagline ───────────────────────────────────────────────────
+.me-tagline {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $gold;
+  letter-spacing: 0.04em;
+  margin: -1rem auto 2rem;
+  max-width: 680px;
+}
+
+// ── Accent quote block ─────────────────────────────────────────
+.me-accent-quote {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  padding: 1.125rem 1.5rem 1.125rem 1.75rem;
+  border-left: 3px solid $gold;
+  background: rgba(245,195,110,0.05);
+  border-radius: 0 0.875rem 0.875rem 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: $gold;
+  line-height: 1.7;
+}
+
+// ── Prose ─────────────────────────────────────────────────────
+.me-prose {
+  max-width: 860px;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+
+  p {
+    color: $white-82;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin: 0 0 0.875rem;
+    &:last-child { margin-bottom: 0; }
+    strong { color: $gold; font-weight: 600; }
+  }
+}
+
+// ── Subheadings ───────────────────────────────────────────────
+.me-subhead {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin: 2rem 0 1.25rem;
+
+  &--center { text-align: center; }
+}
+
+// ── Label ─────────────────────────────────────────────────────
+.me-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $gold;
+  text-align: center;
+  margin: 0 auto 1.25rem;
+  max-width: 760px;
+  display: block;
+}
+
+// ── Check / bullet grid ───────────────────────────────────────
+.me-check-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem;
+  max-width: 900px;
+  margin: 0 auto 1.75rem;
+
+  &--2 { grid-template-columns: repeat(2, 1fr); }
+  &--3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+.me-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: rgba(245,195,110,0.05);
+  border: 1px solid $gold-border;
+  border-radius: 0.625rem;
+  transition: background 0.2s;
+  &:hover { background: rgba(245,195,110,0.09); }
+
+  p { color: $white-82; font-size: 0.875rem; line-height: 1.55; margin: 0; }
+}
+
+.me-check {
+  flex-shrink: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 50%;
+  background: rgba(245,195,110,0.12);
+  border: 1px solid rgba(245,195,110,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $gold;
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-top: 0.1rem;
+}
+
+// ── Card grids ────────────────────────────────────────────────
+.me-card-grid--4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.125rem;
+  margin-bottom: 1.75rem;
+}
+
+.me-card-grid--3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.125rem;
+  margin-bottom: 1.75rem;
+}
+
+// ── Card base ─────────────────────────────────────────────────
+.me-card {
+  border-radius: 1.25rem;
+  border: 1px solid;
+  border-top-width: 3px;
+  padding: 1.375rem;
+  transition: all 0.25s ease;
+
+  h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+  p {
+    font-size: 0.875rem;
+    color: $white-82;
+    line-height: 1.65;
+    margin: 0;
+  }
+}
+
+// Card color variants
+.me-card--1 {
+  background: rgba(56,189,248,0.07);
+  border-color: rgba(56,189,248,0.35);
+  border-top-color: #38bdf8;
+  box-shadow: 4px 6px 0 rgba(56,189,248,0.2), 0 12px 32px rgba(0,0,0,0.3);
+  h4 { color: #38bdf8; }
+  &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(56,189,248,0.2), 0 18px 40px rgba(0,0,0,0.35); }
+}
+.me-card--2 {
+  background: rgba(245,195,110,0.07);
+  border-color: $gold-border;
+  border-top-color: $gold;
+  box-shadow: 4px 6px 0 rgba(245,195,110,0.22), 0 12px 32px rgba(0,0,0,0.3);
+  h4 { color: $gold; }
+  &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(245,195,110,0.22), 0 18px 40px rgba(0,0,0,0.35); }
+}
+.me-card--3 {
+  background: rgba(52,211,153,0.07);
+  border-color: rgba(52,211,153,0.3);
+  border-top-color: #34d399;
+  box-shadow: 4px 6px 0 rgba(52,211,153,0.18), 0 12px 32px rgba(0,0,0,0.3);
+  h4 { color: #34d399; }
+  &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(52,211,153,0.18), 0 18px 40px rgba(0,0,0,0.35); }
+}
+.me-card--4 {
+  background: rgba(192,132,252,0.07);
+  border-color: rgba(192,132,252,0.28);
+  border-top-color: #c084fc;
+  box-shadow: 4px 6px 0 rgba(192,132,252,0.18), 0 12px 32px rgba(0,0,0,0.3);
+  h4 { color: #c084fc; }
+  &:hover { transform: translate(-3px,-3px); box-shadow: 7px 9px 0 rgba(192,132,252,0.18), 0 18px 40px rgba(0,0,0,0.35); }
+}
+
+// ── Two-column detail card ────────────────────────────────────
+.me-two-col-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.me-two-col-card__label {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: $gold;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  min-height: 2.5rem;
+}
+
+.me-two-col-card__col {
+  ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0;
+
+    li {
+      color: $white-82;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      margin-bottom: 0.5rem;
+      strong { color: $gold; font-weight: 600; }
+    }
+  }
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+}
+
+// ── Use Case block ────────────────────────────────────────────
+.me-use-case {
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.me-use-case__intro {
+  color: $white-82;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0 0 1.5rem;
+}
+
+.me-use-case__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.me-use-case__col {
+  ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0;
+    li {
+      color: $white-82;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      margin-bottom: 0.5rem;
+      strong { color: $gold; font-weight: 600; }
+    }
+  }
+}
+
+.me-use-case__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $gold;
+  line-height: 1.5;
+  margin: 0 0 0.75rem;
+  min-height: 2.5rem;
+  display: block;
+}
+
+.me-use-case__mid {
+  color: $white-82;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin: 0 0 1.25rem;
+  strong { color: $gold; font-weight: 600; }
+}
+
+.me-use-case__outcome {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.25rem;
+  p {
+    color: $gold;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0;
+    strong { font-weight: 700; }
+  }
+}
+
+// ── Outcome block ─────────────────────────────────────────────
+.me-outcome-block {
+  background: $gold-dim;
+  border: 1px solid $gold-border;
+  border-radius: 1rem;
+  padding: 1.75rem 2rem;
+
+  p {
+    color: $white-82;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 0;
+    strong { color: $gold; font-weight: 600; }
+  }
+}
+
+.me-outcome-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $gold;
+  margin: 0 0 0.875rem;
+}
+
+// ── Closing note ──────────────────────────────────────────────
+.me-closing-note {
+  max-width: 760px;
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.75rem;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 0.875rem;
+
+  p {
+    color: $white-82;
+    font-size: 0.975rem;
+    line-height: 1.8;
+    margin: 0;
+    strong { color: $gold; font-weight: 600; }
+  }
+
+  &--center { text-align: center; }
+}
+
+// ── Highlight phrase ──────────────────────────────────────────
+.me-highlight-phrase {
+  text-align: center;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: $gold;
+  margin: 2rem 0;
+  letter-spacing: 0.06em;
+}
+
+// ── CTA ───────────────────────────────────────────────────────
+.me-cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 1024px) {
+  .me-card-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .me-section { padding: 3rem 1.25rem; }
+  .me-section--first { padding-top: 6rem; }
+  .me-card-grid--3,
+  .me-card-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .me-two-col-card { grid-template-columns: 1fr; gap: 1.5rem; }
+  .me-use-case__grid { grid-template-columns: 1fr; }
+  .me-check-grid,
+  .me-check-grid--3 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .me-card-grid--3,
+  .me-card-grid--4 { grid-template-columns: 1fr; }
+  .me-check-grid--2 { grid-template-columns: 1fr; }
+}

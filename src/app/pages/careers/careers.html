@@ -28,20 +28,10 @@
 
             <!-- CTA -->
             <div class="flex flex-col sm:flex-row gap-4 justify-start pt-4">
-                <button type="submit" (click)="scrollTo('openPositions')"
-                    class="inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer rounded-md"
-                    style="background-color: var(--btn-primary-color); color: white;"
-                    onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                    onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+                <button type="button" (click)="scrollTo('openPositions')" class="btn btn-primary">
                     View Open Roles →
                 </button>
-                <button type="submit"
-                    class="inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer rounded-md"
-                    style="background-color: var(--btn-primary-color); color: white;"
-                    onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                    onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-                    Our Culture →
-                </button>
+                <button type="button" class="btn btn-outline">Our Culture →</button>
             </div>
 
         </div>
@@ -64,7 +54,7 @@
                 We provide a environment where technology meets humanity, and your work directly improves patient
                 outcomes.
             </p>
-            <div class="w-20 h-1 bg-blue-600 rounded-full"></div>
+            <div class="cr-divider"></div>
         </div>
 
         <!-- Cards Grid -->
@@ -232,14 +222,7 @@
                     </div>
                 </div>
 
-                <button
-                    class="inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer rounded-md"
-                    style="background-color: var(--btn-primary-color); color: white;"
-                    onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                    onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';"
-                    (click)="applyJobs(job)">
-                    Apply →
-                </button>
+                <button class="btn btn-primary" (click)="applyJobs(job)">Apply →</button>
 
             </div>
 
@@ -406,14 +389,10 @@
             </div>
 
             <!-- Submit Button -->
-            <div class="mt-5">
-                <button type="submit" [disabled]="isLoading" class="flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer mx-auto w-fit hover:bg-primary hover:border-primary
-           disabled:opacity-50 disabled:cursor-not-allowed"
-                    style="background-color: var(--btn-primary-color); color: white;"
-                    onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                    onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-                    <p class="m-0" *ngIf="!isLoading">Apply →</p>
-                    <p class="m-0 text-white" *ngIf="isLoading">Sending Application...
+            <div class="mt-5 flex justify-center">
+                <button type="submit" [disabled]="isLoading" class="btn btn-primary">
+                    <span *ngIf="!isLoading">Apply →</span>
+                    <span *ngIf="isLoading">Sending Application...</span>
                 </button>
             </div>
         </form>

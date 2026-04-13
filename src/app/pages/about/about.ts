@@ -166,7 +166,7 @@ export class About {
   }
 
   startAutoSlide() {
-    this.timer = setInterval(() => this.go(1), 10000); // 10s per slide
+    this.timer = setInterval(() => this.go(1), 5000); // 10s per slide
   }
 
   resetTimer() {

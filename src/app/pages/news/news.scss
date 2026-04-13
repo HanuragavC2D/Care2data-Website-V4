@@ -1,5 +1,232 @@
-::ng-deep .mat-mdc-chip-option.mdc-evolution-chip--selected {
-  border-bottom: 2px solid var(--text-primary);
-  color: var(--text-primary);
+// ── Design Tokens ──────────────────────────────────────────────
+$gold:        #f5c36e;
+$gold-dim:    rgba(245,195,110,0.18);
+$gold-border: rgba(245,195,110,0.22);
+$white-82:    rgba(248,250,252,0.82);
+$white-50:    rgba(248,250,252,0.50);
+$card-bg:     rgba(255,255,255,0.05);
+$card-border: rgba(255,255,255,0.12);
+
+// ── Hero ───────────────────────────────────────────────────────
+.news-hero {
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: center;
+  color: white;
+}
+
+.news-hero__inner {
+  max-width: 760px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 0.875rem;
+  }
+
+  p {
+    color: $white-82;
+    font-size: 1rem;
+    line-height: 1.85;
+    max-width: 560px;
+    margin: 0 auto 1.25rem;
+  }
+}
+
+.news-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.775rem;
   font-weight: 700;
+  color: $gold;
+  margin-bottom: 0.75rem;
+}
+
+.news-divider {
+  width: 4rem;
+  height: 4px;
+  background: $gold;
+  border-radius: 999px;
+  margin: 0 auto;
+}
+
+// ── Articles section ───────────────────────────────────────────
+.news-section {
+  padding: 3rem 1.5rem;
+  color: white;
+}
+
+.news-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// ── Category tabs ──────────────────────────────────────────────
+.news-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.news-tab {
+  padding: 0.4rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $white-50;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-right: 1.25rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -0.5rem;
+
+  &:hover { color: $gold; }
+}
+
+.news-tab-active {
+  color: $gold;
+  font-weight: 700;
+  border-bottom: 2px solid $gold;
+}
+
+// ── Article card ───────────────────────────────────────────────
+.news-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: opacity 0.2s;
+
+  &:last-child { border-bottom: none; }
+  &:hover { opacity: 0.92; }
+
+  @media (min-width: 640px) { flex-direction: row; align-items: center; }
+}
+
+.news-article__img {
+  width: 100%;
+  height: 12rem;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.05);
+
+  @media (min-width: 640px) { width: 16rem; height: 10rem; }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img { transform: scale(1.05); }
+}
+
+.news-article__body { flex: 1; }
+
+.news-article__category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: $gold;
+}
+
+.news-article__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+  margin: 0.5rem 0 0.75rem;
+  transition: color 0.2s;
+
+  &:hover { color: $gold; }
+}
+
+.news-article__desc {
+  color: $white-82;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-article__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.news-article__date {
+  font-size: 0.8rem;
+  color: $white-50;
+}
+
+.news-article__read-more {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  &:hover { opacity: 0.75; }
+}
+
+// ── Pagination ─────────────────────────────────────────────────
+.news-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+.page-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: $gold;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &:hover:not(:disabled) {
+    background: $gold;
+    color: #111827;
+    border-color: $gold;
+  }
+
+  &.active {
+    background: $gold;
+    color: #111827;
+    border-color: $gold;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 }

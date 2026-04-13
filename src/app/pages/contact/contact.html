@@ -1,117 +1,104 @@
-<section class="pt-20 pb-5 bg-[#11193e]">
-  <div class="max-w-6xl mx-auto px-4 md:px-6">
+<section class="contact-section" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);">
+  <div class="contact-inner">
 
-    <!-- Page Title -->
-    <div class="text-center mb-7 text-white">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 font-heading">
-        Contact
-        <span class="text-secondary"> Us</span>
-      </h2>
-      <p class="text-white max-w-3xl mx-auto leading-relaxed mb-3 text-base md:text-lg text-center font-semibold">
-        Let’s discuss your data challenges.
-      </p>
-      <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+    <!-- Header -->
+    <div class="contact-header">
+      <span class="contact-eyebrow">Get In Touch</span>
+      <h2>Contact <span>Us</span></h2>
+      <p>Let's discuss your data challenges.</p>
+      <div class="contact-divider"></div>
     </div>
 
-    <div class="max-w-3xl mx-auto">
-
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="text-white space-y-6">
+    <!-- Form -->
+    <div class="contact-form-wrap">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
         <!-- Name -->
-        <div class="mb-2">
-          <p class="mb-2 font-medium text-sm">Name</p>
-          <mat-form-field appearance="outline" class="w-full text-sm">
+        <div style="margin-bottom: 1rem;">
+          <label class="contact-field-label">Name</label>
+          <mat-form-field appearance="outline">
             <input matInput formControlName="name" placeholder="Name" />
           </mat-form-field>
-
-          <p class="text-red-500 text-sm mt-1"
+          <p class="contact-field-error"
             *ngIf="(submitted || contactForm.get('name')?.touched) && contactForm.get('name')?.errors?.['required']">
             Name is required
           </p>
-
-          <p class="text-red-500 text-sm mt-1"
+          <p class="contact-field-error"
             *ngIf="(submitted || contactForm.get('name')?.touched) && contactForm.get('name')?.errors?.['minlength']">
             Minimum 3 characters required
           </p>
-
-          <p class="text-red-500 text-sm mt-1"
+          <p class="contact-field-error"
             *ngIf="(submitted || contactForm.get('name')?.touched) && contactForm.get('name')?.errors?.['pattern']">
             Only alphabets and spaces are allowed
           </p>
         </div>
 
         <!-- Email -->
-        <div class="mb-2">
-          <p class="mb-2 font-medium text-sm">Work Email</p>
-          <mat-form-field appearance="outline" class="w-full text-sm">
+        <div style="margin-bottom: 1rem;">
+          <label class="contact-field-label">Work Email</label>
+          <mat-form-field appearance="outline">
             <input matInput type="email" formControlName="email" placeholder="Work Email" />
           </mat-form-field>
-
-          <p class="text-red-500 text-sm mt-1"
+          <p class="contact-field-error"
             *ngIf="(submitted || contactForm.get('email')?.touched) && contactForm.get('email')?.errors?.['required']">
             Email is required
           </p>
-
-          <p class="text-red-500 text-sm mt-1"
+          <p class="contact-field-error"
             *ngIf="(submitted || contactForm.get('email')?.touched) && contactForm.get('email')?.errors?.['email']">
             Please enter a valid email address
           </p>
         </div>
 
         <!-- Organization -->
-        <div class="mb-2">
-          <p class="mb-2 font-medium text-sm">Organization</p>
-          <mat-form-field appearance="outline" class="w-full text-sm">
+        <div style="margin-bottom: 1rem;">
+          <label class="contact-field-label">Organization</label>
+          <mat-form-field appearance="outline">
             <input matInput formControlName="organization" placeholder="Organization" />
           </mat-form-field>
         </div>
 
-        <!-- Area of Interest Dropdown -->
-        <div>
-          <p class="mb-2 font-medium text-sm">Area of Interest</p>
-          <mat-form-field appearance="outline" class="w-full text-sm">
+        <!-- Area of Interest -->
+        <div style="margin-bottom: 1rem;">
+          <label class="contact-field-label">Area of Interest</label>
+          <mat-form-field appearance="outline">
             <mat-select formControlName="interest" placeholder="Select an area of interest">
               <mat-option value="About KWALIFY">About KWALIFY</mat-option>
               <mat-option value="Partnerships">Partnerships</mat-option>
               <mat-option value="Request for Demo">Request for Demo</mat-option>
             </mat-select>
           </mat-form-field>
-          <p class="text-red-500 text-sm mt-1"
+          <p class="contact-field-error"
             *ngIf="(submitted || contactForm.get('interest')?.touched) && contactForm.get('interest')?.errors?.['required']">
             Area of Interest is required
           </p>
         </div>
 
         <!-- Message -->
-        <div class="mb-2">
-          <p class="mb-2 font-medium text-sm">Message</p>
-          <mat-form-field appearance="outline" class="w-full text-sm">
+        <div style="margin-bottom: 1rem;">
+          <label class="contact-field-label">Message</label>
+          <mat-form-field appearance="outline">
             <textarea matInput rows="5" formControlName="message" placeholder="Enter your message here..."></textarea>
           </mat-form-field>
-
-          <p class="text-red-500 text-sm mt-1"
+          <p class="contact-field-error"
             *ngIf="(submitted || contactForm.get('message')?.touched) && contactForm.get('message')?.errors?.['required']">
             Message is required
           </p>
-
-          <p class="text-red-500 text-sm mt-1"
+          <p class="contact-field-error"
             *ngIf="(submitted || contactForm.get('message')?.touched) && contactForm.get('message')?.errors?.['minlength']">
             Minimum 10 characters required
           </p>
         </div>
 
-        <!-- Submit Button -->
-        <div class="my-6">
-          <button type="submit" [disabled]="isLoading" class="flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase cursor-pointer mx-auto w-fit hover:bg-primary hover:border-primary
-           disabled:opacity-50 disabled:cursor-not-allowed"
-            style="background-color: var(--btn-primary-color); color: white;"
-            onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-            onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
-            <p class="m-0" *ngIf="!isLoading">Send Message</p>
-            <p class="m-0 text-white" *ngIf="isLoading">Sending Message...</p>
+        <!-- Submit -->
+        <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
+          <button type="submit" [disabled]="isLoading" class="btn btn-primary">
+            <span *ngIf="!isLoading">Send Message</span>
+            <span *ngIf="isLoading">Sending Message...</span>
           </button>
         </div>
+
       </form>
     </div>
+
   </div>
 </section>
