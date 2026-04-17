@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Meta, Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+import { JobOpening } from '../../shared/types/content.types';
+import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
 
 @Component({
   selector: 'app-careers',
@@ -19,7 +21,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class Careers implements OnInit {
 
-  openingRoles: any = [
+  openingRoles: JobOpening[] = [
     {
       jobtitle: 'Clinical Data Analyst',
       department: 'Clinical Data Management',
@@ -81,7 +83,7 @@ export class Careers implements OnInit {
     // Change Meta url
     this.metaService.updateTag({
       name: 'og:url',
-      content: 'https://gokulgovindharaj.github.io/Care2Data-Website/#/careers'
+      content: getCanonicalUrl('careers')
     });
 
     // Change Keywords
@@ -137,14 +139,14 @@ export class Careers implements OnInit {
     });
   }
 
-  allowOnlyNumbers(event: any) {
+  allowOnlyNumbers(event: KeyboardEvent): void {
     const charCode = event.which ? event.which : event.keyCode;
     if (charCode < 48 || charCode > 57) {
       event.preventDefault();
     }
   }
 
-  applyJobs(job: any) {
+  applyJobs(job: JobOpening): void {
     // Set the selected position in the dropdown
     this.contactForm.patchValue({
       interest: job.jobtitle
@@ -185,9 +187,8 @@ export class Careers implements OnInit {
     if (this.currentPage > 1) this.currentPage--;
   }
 
-  onFileSelected(event: any) {
-
-    const file = event.target.files[0];
+  onFileSelected(event: Event): void {
+    const file = (event.target as HTMLInputElement).files?.[0];
 
     if (!file) return;
 

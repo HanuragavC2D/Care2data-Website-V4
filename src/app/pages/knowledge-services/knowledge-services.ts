@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { debounceTime, fromEvent } from 'rxjs';
+import { debounceTime, fromEvent, Subscription } from 'rxjs';
+import { CarouselPosition, CarouselPositionKey } from '../../shared/carousel/carousel.types';
+import { KnowledgeServiceCard } from '../../shared/types/content.types';
+import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
 
 @Component({
   selector: 'app-knowledge-services',
@@ -13,7 +16,7 @@ import { debounceTime, fromEvent } from 'rxjs';
 })
 export class KnowledgeServices {
 
-  cards: any = [
+  cards: KnowledgeServiceCard[] = [
     {
       link: '/services-explore',
       icon: 'images/home/white/knowledgemodeling.png',
@@ -52,17 +55,17 @@ export class KnowledgeServices {
   ];
 
   active = 0;
-  timer: any;
+  timer: ReturnType<typeof setInterval> | undefined;
   isMobile = false;
   isTablet = false;
-  positions: any = {
+  positions: Record<CarouselPositionKey, CarouselPosition> = {
     center: { x: 0, z: 0, scale: 1.15, opacity: 1, blur: 0, border: 'rgba(250,204,21,0.6)' },
     left: { x: -220, z: -80, scale: 0.8, opacity: 0.55, blur: 1.5, border: 'rgba(255,255,255,0.1)' },
     right: { x: 220, z: -80, scale: 0.8, opacity: 0.55, blur: 1.5, border: 'rgba(255,255,255,0.1)' },
     hidden: { x: 0, z: -200, scale: 0.5, opacity: 0, blur: 4, border: 'rgba(255,255,255,0.05)' }
   };
 
-  groupedCards: any[][] = [];
+  groupedCards: KnowledgeServiceCard[][] = [];
   currentIndex = 0;
 
   constructor(private titleService: Title, private metaService: Meta) { }
@@ -83,7 +86,7 @@ export class KnowledgeServices {
     // Change Meta url
     this.metaService.updateTag({
       name: 'og:url',
-      content: 'https://gokulgovindharaj.github.io/Care2Data-Website/#/knowledge-services'
+      content: getCanonicalUrl('knowledge-services')
     });
 
     // Change Keywords

@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -10,23 +11,36 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
-export class Navbar implements OnInit {
+export class Navbar implements OnInit, OnDestroy {
   isMenuOpen = false;
   solutionsDropdownOpen = false;
   productDropdownOpen = false;
   mobileSolutionsOpen = false;
   mobileProductOpen = false;
+  scrollProgress = 0;
+  private routerSub: Subscription | undefined;
+
+  @HostListener('window:scroll')
+  onScroll() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    this.scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  }
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    // Close dropdown after navigation completes
-    this.router.events.subscribe((event) => {
+    this.routerSub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.solutionsDropdownOpen = false;
         this.productDropdownOpen = false;
       }
     });
+
+  }
+
+  ngOnDestroy(): void {
+    this.routerSub?.unsubscribe();
   }
 
   toggleMenu() {

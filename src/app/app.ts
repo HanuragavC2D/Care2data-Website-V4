@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal, OnInit } from '@angular/core';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { Footer } from './shared/footer/footer';
 import { Navbar } from './shared/navbar/navbar';
 import { CommonModule } from '@angular/common';
@@ -16,7 +17,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit {
   protected readonly title = signal('kwalify-website');
   activePanel: 'essential' | 'targeting' | 'performance' | 'functional' | null = null;
   showBanner = false;
@@ -25,6 +26,15 @@ export class App {
   targetingEnabled = false;
   performanceEnabled = false;
   functionalEnabled = false;
+
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe(() => {
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      });
+  }
 
   ngOnInit() {
 

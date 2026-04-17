@@ -1,24 +1,122 @@
-// V3 Design Tokens
+// ── Design Tokens ──────────────────────────────────────────────
 $gold:        #f5c36e;
+$gold-dim:    rgba(245,195,110,0.18);
+$gold-border: rgba(245,195,110,0.22);
+$white-82:    rgba(248,250,252,0.82);
+$card-bg:     rgba(255,255,255,0.05);
+$card-border: rgba(255,255,255,0.12);
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
+// ── Page shell ─────────────────────────────────────────────────
+.lp-section {
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  color: white;
+  min-height: 100vh;
 }
 
-.btn-primary {
+.lp-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+// ── Header ─────────────────────────────────────────────────────
+.lp-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+
+  h1 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    span { color: $gold; }
+  }
+}
+
+.lp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: $gold;
+  margin-bottom: 0.75rem;
+}
+
+.lp-divider {
+  width: 4rem;
+  height: 4px;
   background: $gold;
-  color: #111827;
-  &:hover { background: #e9a83a; transform: translateY(-1px); }
+  border-radius: 999px;
+  margin: 0 auto;
+}
+
+// ── Content blocks ─────────────────────────────────────────────
+.lp-block {
+  margin-bottom: 2.75rem;
+}
+
+.lp-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $gold;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $gold-border;
+}
+
+.lp-text {
+  color: $white-82;
+  font-size: 0.975rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+
+  strong { color: white; }
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.lp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+
+  li {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: $card-bg;
+    border: 1px solid $card-border;
+    border-radius: 0.75rem;
+    color: $white-82;
+    font-size: 0.95rem;
+    line-height: 1.7;
+
+    &::before {
+      content: '›';
+      color: $gold;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    strong { color: white; }
+  }
+}
+
+// ── Highlight card ─────────────────────────────────────────────
+.lp-card {
+  background: $gold-dim;
+  border: 1px solid $gold-border;
+  border-radius: 1rem;
+  padding: 1.5rem;
+
+  .lp-text { color: $white-82; }
 }

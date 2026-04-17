@@ -1,10 +1,13 @@
-<nav class="fixed top-0 left-0 w-full z-50 bg-[#0B1020] border-b border-white/10 shadow-lg">
+<!-- Scroll Progress Bar (fixed, top of viewport) -->
+<div class="scroll-progress-bar" [style.width.%]="scrollProgress"></div>
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#0B1020] border-b border-white/10 shadow-lg" role="navigation" aria-label="Main navigation">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 xl:px-8 py-3 flex justify-between items-center">
 
         <!-- Logo -->
         <div class="flex-shrink-0 w-32 sm:w-40">
-            <img src="assets/logo.png" routerLink="/" alt="logo" class="w-full h-auto cursor-pointer">
+            <img src="assets/logo.png" routerLink="/" alt="Care2Data logo" width="128" height="26" class="w-full h-auto cursor-pointer">
         </div>
 
         <div class="flex items-center gap-2 md:gap-4 xl:gap-6">
@@ -88,10 +91,7 @@
 
             <!-- CTA -->
             <button routerLink="/contact-us"
-                class="hidden lg:inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-3 xl:px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase rounded-md"
-                style="background-color: var(--btn-primary-color); color: white;"
-                onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+                class="navbar-cta-btn hidden lg:inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-3 xl:px-6 py-3 cursor-pointer font-semibold uppercase rounded-md">
                 Request a Demo →
             </button>
 
@@ -99,7 +99,8 @@
 
         <!-- Mobile Button -->
         <div class="lg:hidden flex-shrink-0 nav-menu">
-            <button mat-icon-button (click)="toggleMenu()" class="text-white hover:text-[#417ae3] transition">
+            <button mat-icon-button (click)="toggleMenu()" class="text-white hover:text-[#417ae3] transition"
+                [attr.aria-expanded]="isMenuOpen" aria-label="Toggle navigation menu">
                 <mat-icon class="text-2xl text-[#ffffff]">
                     {{!isMenuOpen ? 'menu':'close'}}
                 </mat-icon>
@@ -109,12 +110,16 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div class="absolute left-0 w-full lg:hidden
+    <div class="absolute left-0 right-0 w-full lg:hidden
 bg-[#0d1117] border-t border-white/10
-transition-all duration-500 ease-in-out" [ngClass]="isMenuOpen 
-  ? 'max-h-[calc(100vh-72px)] opacity-100 overflow-y-auto' 
-  : 'max-h-0 opacity-0 overflow-hidden'">
+transition-all duration-500 ease-in-out"
+        [ngClass]="isMenuOpen
+  ? 'max-h-[calc(100vh-72px)] opacity-100 overflow-y-auto'
+  : 'max-h-0 opacity-0 overflow-hidden'"
+        [attr.aria-hidden]="!isMenuOpen"
+        role="menu">
 
+        <ng-container *ngIf="isMenuOpen">
         <div class="flex flex-col px-4 sm:px-6 py-4 space-y-1">
 
             <a routerLink="/" (click)="closeMenu()" class="text-base text-[#E0E0E0] font-semibold px-4 py-3 rounded-lg
@@ -168,14 +173,12 @@ transition-all duration-500 ease-in-out" [ngClass]="isMenuOpen
             </a>
 
             <button routerLink="/contact-us" (click)="onMobileLinkClick()"
-                class="inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold transition duration-700 uppercase rounded-md"
-                style="background-color: var(--btn-primary-color); color: white;"
-                onmouseover="this.style.backgroundColor='var(--btn-secondary-color)'; this.style.color='#000';"
-                onmouseout="this.style.backgroundColor='var(--btn-primary-color)'; this.style.color='white';">
+                class="navbar-cta-btn inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold uppercase rounded-md">
                 Request a Demo →
             </button>
 
         </div>
+        </ng-container>
     </div>
 
 </nav>

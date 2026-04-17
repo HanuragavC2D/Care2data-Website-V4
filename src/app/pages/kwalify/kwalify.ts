@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, NgZone, ViewChild } from '@angular/core';
+import { Component, ElementRef, NgZone, ViewChild, OnDestroy } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { debounceTime, fromEvent } from 'rxjs';
+import { debounceTime, fromEvent, Subscription } from 'rxjs';
+import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
 
 @Component({
   selector: 'app-kwalify',
@@ -12,10 +13,12 @@ import { debounceTime, fromEvent } from 'rxjs';
   templateUrl: './kwalify.html',
   styleUrl: './kwalify.scss',
 })
-export class Kwalify {
+export class Kwalify implements OnDestroy {
 
   isAtStart = false;
   isAtEnd = false;
+  private resizeSubscription: Subscription | undefined;
+  private scrollSubscription: Subscription | undefined;
   @ViewChild('scrollContainer', { static: false }) scrollContainer!: ElementRef;
   constructor(private titleService: Title, private metaService: Meta, private ngZone: NgZone) { }
 
@@ -35,7 +38,7 @@ export class Kwalify {
     // Change Meta url
     this.metaService.updateTag({
       name: 'og:url',
-      content: 'https://gokulgovindharaj.github.io/Care2Data-Website/#/kwalify'
+      content: getCanonicalUrl('kwalify')
     });
 
     // Change Keywords
@@ -56,7 +59,7 @@ export class Kwalify {
       content: 'KWALIFY™ by Care2Data is an intelligent clinical data validation platform using semantic inference and contextual rules to deliver audit-ready, submission-ready clinical trial datasets.'
     });
     this.checkDevice();
-    fromEvent(window, 'resize')
+    this.resizeSubscription = fromEvent(window, 'resize')
       .pipe(debounceTime(200))
       .subscribe(() => this.checkDevice());
   }
@@ -81,13 +84,13 @@ export class Kwalify {
       }, 300);
     });
 
-    this.ngZone.runOutsideAngular(() => {
+    this.scrollSubscription = this.ngZone.runOutsideAngular(() =>
       fromEvent(el, 'scroll')
         .pipe(debounceTime(50))
         .subscribe(() => {
           this.ngZone.run(() => this.updateScrollState());
-        });
-    });
+        })
+    );
   }
 
   scroll(direction: 'left' | 'right') {
@@ -185,17 +188,19 @@ export class Kwalify {
   ];
 
   active = 0;
-  timer: any;
+  timer: ReturnType<typeof setInterval> | undefined;
 
-  positions: any = {
+  positions = {
     center: { x: 0, z: 0, scale: 1.15, opacity: 1, blur: 0, border: 'rgba(250,204,21,0.6)' },
     left: { x: -420, z: -80, scale: 0.8, opacity: 0.55, blur: 1.5, border: 'rgba(255,255,255,0.1)' },
     right: { x: 420, z: -80, scale: 0.8, opacity: 0.55, blur: 1.5, border: 'rgba(255,255,255,0.1)' },
     hidden: { x: 0, z: -200, scale: 0.5, opacity: 0, blur: 4, border: 'rgba(255,255,255,0.05)' }
   };
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     clearInterval(this.timer);
+    this.resizeSubscription?.unsubscribe();
+    this.scrollSubscription?.unsubscribe();
   }
 
   getPos(i: number) {
@@ -214,7 +219,6 @@ export class Kwalify {
 
     let scale = pos.scale;
 
-    // 🔥 Device-based override
     if (this.isMobile) {
       scale = type === 'center' ? 0.9 : 0.8;
     } else if (this.isTablet) {
@@ -251,7 +255,7 @@ export class Kwalify {
   }
 
   startAutoSlide() {
-    this.timer = setInterval(() => this.go(1), 10000); // 10s per slide
+    this.timer = setInterval(() => this.go(1), 10000);
   }
 
   resetTimer() {

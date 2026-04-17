@@ -1,0 +1,23 @@
+.navbar-cta-btn {
+  background-color: var(--btn-primary-color);
+  color: white;
+  transition: background-color 0.7s ease, color 0.7s ease;
+
+  &:hover {
+    background-color: var(--btn-secondary-color);
+    color: #000;
+  }
+}
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #c9862a, #f5c36e);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.1s linear;
+  pointer-events: none;
+  z-index: 9999;
+}

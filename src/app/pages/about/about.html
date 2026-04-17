@@ -9,12 +9,12 @@
 
   <div class="about-hero__content">
     <div class="about-hero__copy">
-      <span class="about-hero__eyebrow">About Care2Data</span>
-      <h1>The Intelligence Layer for <i>Clinical Data</i></h1>
+      <span class="about-hero__eyebrow">About CARE2DATA</span>
+      <h1>The Intelligence Layer<br>for <i>Clinical Data</i></h1>
       <p>Clinical research generates vast volumes of complex data across trials, analytics systems, and regulatory
         submissions. Yet much of this data remains fragmented across platforms and workflows—making it difficult to
         maintain clarity, traceability, and regulatory confidence.</p>
-      <p class="hero-accent">Care2Data transforms fragmented clinical data into governed, connected knowledge
+      <p class="hero-accent">CARE2DATA transforms fragmented clinical data into governed, connected knowledge
         systems—enabling organizations to ensure accuracy, traceability, and compliance at scale.</p>
       <div class="about-hero__actions">
         <a routerLink="/contact-us" class="btn btn-primary">Request a Demo →</a>
@@ -30,16 +30,16 @@
 <section class="about-section about-founding">
   <div class="about-section__inner">
     <div class="section-header founding-header">
-      <h2>Ensuring accuracy, traceability, and compliance remains a core clinical challenge</h2>
+      <h2>Ensuring <i>accuracy</i>, <i>traceability</i>, and <i>compliance</i> remains a core clinical challenge</h2>
     </div>
 
-    <p class="founding-intro">Care2Data was founded to address this challenge.</p>
+    <p class="founding-intro">CARE2DATA was founded to address this challenge.</p>
 
     <div class="founding-cards">
       <div class="founding-card">
         <div class="founding-card__num">01</div>
         <!-- <h4 class="founding-card__title">Knowledge-Driven Architecture</h4> -->
-        <p>By combining deep life sciences expertise with structured knowledge modeling, Care2Data transforms complex
+        <p>By combining deep life sciences expertise with structured knowledge modeling, CARE2DATA transforms complex
           clinical datasets into governed knowledge systems. Through ontology frameworks, semantic modeling, and intelligent
           validation approaches, we help organizations bring structure, context, and reliability to clinical data workflows
           in highly regulated environments.</p>
@@ -79,7 +79,7 @@
         </div>
       </div>
       <p class="ps-context">to clinical data</p>
-      <p class="ps-outcome">so pharmaceutical and life sciences organizations can <strong>make confident decisions</strong> and <strong>deliver better medicines faster.</strong></p>
+      <p class="ps-outcome">so pharmaceutical and life sciences organizations can <span class="gold-highlight">make confident decisions</span> and <span class="gold-highlight">deliver better medicines faster.</span></p>
     </div>
 
     <div class="purpose-pillars">
@@ -91,7 +91,7 @@
       <div class="purpose-pillar purpose-pillar--2">
         <h4 class="pillar-title">Lifecycle Validation</h4>
         <p>With a core focus on validation and verification of clinical trial data across the entire clinical trial
-          lifecycle, Care2Data ensures that data remains accurate, consistent, and reliable at every stage.</p>
+          lifecycle, CARE2DATA ensures that data remains accurate, consistent, and reliable at every stage.</p>
       </div>
       <div class="purpose-pillar purpose-pillar--3">
         <h4 class="pillar-title">Regulatory Confidence</h4>
@@ -113,8 +113,9 @@
     </div>
 
     <p class="who-lead">
-      Care2Data combines deep life sciences expertise with structured knowledge modeling to validate and operationalize
-      complex clinical data in regulated environments.
+      CARE2DATA combines <span class="gold-highlight">deep life sciences expertise</span> with structured
+      <span class="gold-highlight">knowledge modeling</span> to validate and
+      <span class="gold-highlight">operationalize complex clinical data</span> in regulated environments.
     </p>
 
     <div class="who-cards">
@@ -139,40 +140,21 @@
   <div class="about-section__inner">
     <div class="section-header">
       <h2>What Distinguishes Us</h2>
-      <p class="section-subtext" style="color:#f5c36e;font-weight:600;">Care2Data follows a validation-first philosophy</p>
+      <p class="section-subtext" style="color:rgba(248,250,252,0.82);font-weight:500;">CARE2DATA follows a <span style="color:#f5c36e;font-weight:700;">validation-first philosophy</span></p>
     </div>
 
     <div class="about-prose" style="margin-bottom: 1.5rem;">
       <p>Our approach begins with governance, traceability, and audit readiness—not automation alone. Validation
         workflows remain structured, XAI-enabled, and aligned with evolving regulatory expectations across global
         health authorities and emerging AI guidance in drug development.</p>
-      <p>Care2Data treats validation and verification as a unified discipline: ontology-based semantic intelligence
+      <p>CARE2DATA treats validation and verification as a unified discipline: ontology-based semantic intelligence
         drives validation, while graph-based reasoning enables verification on the same knowledge foundation—ensuring
         accuracy, consistency, and scalability across all clinical data workflows.</p>
     </div>
 
     <p class="about-subheader">Our approach emphasizes:</p>
 
-    <!-- Carousel (redesigned) -->
-    <div class="overflow-hidden pt-0 lg:pt-5">
-      <div class="relative h-[250px] md:h-[250px] lg:h-[260px] flex items-center justify-center perspective-[900px]">
-        <div *ngFor="let card of approch; let i = index" (click)="onCardClick(i)"
-          class="absolute rounded-2xl p-6 w-full md:w-[420px] lg:w-[480px] h-[250px] md:h-[250px] lg:h-[240px] cursor-pointer border transition-all duration-700 ease-[cubic-bezier(0.34,1.2,0.64,1)] carousel-card"
-          [ngStyle]="getStyles(i)">
-          <div class="carousel-icon">
-            {{ card.icon }}
-          </div>
-          <h3 class="font-semibold mb-2">{{ card.title }}</h3>
-          <p class="leading-relaxed mb-2" *ngIf="card.description">{{ card.description }}</p>
-        </div>
-      </div>
-      <div class="carousel-dots">
-        <div *ngFor="let d of approch; let i = index" (click)="goTo(i)"
-          class="carousel-dot"
-          [ngClass]="i === active ? 'active' : ''">
-        </div>
-      </div>
-    </div>
+    <app-carousel [cards]="approach" [intervalMs]="10000" />
   </div>
 </section>
 
@@ -194,7 +176,7 @@
       <!-- Left: copy -->
       <div class="connected-copy">
         <div class="about-prose">
-          <p><strong>Care2Data connects isolated datasets into unified semantic models.</strong></p>
+          <p><strong>CARE2DATA connects isolated datasets into unified semantic models.</strong></p>
           <p>Through ontology frameworks and knowledge-driven modeling, we enable organizations to create structured
             knowledge systems that bring clarity and consistency to complex clinical data environments.</p>
         </div>
@@ -244,7 +226,7 @@
     </div>
 
     <div class="about-prose" style="margin-bottom: 2rem;">
-      <p>Care2Data frameworks align with globally recognized clinical data standards, regulatory expectations, and data
+      <p>CARE2DATA frameworks align with globally recognized clinical data standards, regulatory expectations, and data
         integrity principles.</p>
       <p>By embedding these standards into validation and knowledge systems, we help organizations ensure clinical
         datasets remain <strong>traceable, conformant, defensible, and submission-ready.</strong></p>
@@ -252,28 +234,24 @@
 
     <div class="about-standards-grid">
       <div class="about-standard-card">
-        <div class="std-badge std-badge--blue">CDISC</div>
         <h3>CDISC Standards</h3>
         <p>Support for validation workflows aligned with CDISC standards such as <strong>SDTM, ADaM, SEND, CDASH, and
             TAUG</strong>, ensuring consistent and structured datasets for regulatory submissions.</p>
       </div>
 
       <div class="about-standard-card">
-        <div class="std-badge std-badge--red">FDA</div>
-        <h3>FDA Regulatory Expectations</h3>
+        <h3>Regulatory Expectations</h3>
         <p>Frameworks are designed to align with Guiding Principles of Good AI Practice in Drug Development, GCP, Study
           Data Technical Conformance Guide and others.</p>
       </div>
 
       <div class="about-standard-card">
-        <div class="std-badge std-badge--gold">ALCOA++</div>
         <h3>ALCOA++ Data Integrity Principles</h3>
         <p>Ensuring data remains Attributable, Legible, Contemporaneous, Original, Accurate, along with Complete,
           Consistent, Enduring, and Available.</p>
       </div>
 
       <div class="about-standard-card">
-        <div class="std-badge std-badge--green">GAMP5</div>
         <h3>GAMP5 Principles</h3>
         <p>Development frameworks aligned with GAMP5 guidance for regulated systems, ensuring traceability, governance,
           and methodological reliability.</p>
@@ -298,7 +276,7 @@
 
     <div class="about-prose" style="margin-bottom: 1.5rem;">
       <p>Many life sciences organizations struggle with information scattered across systems, documents, and teams.</p>
-      <p>Care2Data embeds governed intelligence into operational workflows, enabling organizations to transform
+      <p>CARE2DATA embeds governed intelligence into operational workflows, enabling organizations to transform
         disconnected information into scalable and decision-ready systems.</p>
     </div>
 
@@ -334,7 +312,7 @@
       </div>
     </div>
 
-    <p class="about-highlight about-highlight--gold">
+    <p class="about-highlight about-highlight--gold" style="color:rgba(248,250,252,0.92)!important;font-style:italic;font-weight:500;">
       The result is a stronger foundation for accurate clinical decision making.
     </p>
   </div>
@@ -356,7 +334,7 @@
       <div class="onto-content">
         <div class="about-prose" style="margin-bottom: 1.5rem;">
           <p>Ontology provides the semantic backbone that connects data, rules, and standards.</p>
-          <p>Care2Data designs ontology frameworks that harmonize datasets across clinical research systems, enabling
+          <p>CARE2DATA designs ontology frameworks that harmonize datasets across clinical research systems, enabling
             consistent definitions, relationships, and context. By leveraging knowledge graph architectures, these
             frameworks map relationships across clinical entities, creating <strong>context-rich, interconnected data</strong>
             that goes beyond traditional rows and columns.</p>
@@ -387,7 +365,7 @@
 
       <!-- Right: Semantic Architecture SVG Diagram -->
       <div class="onto-diagram-wrap">
-        <svg class="onto-diagram-svg" viewBox="0 0 340 440" xmlns="http://www.w3.org/2000/svg">
+        <svg class="onto-diagram-svg" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
           <defs>
             <linearGradient id="og-gold-v" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stop-color="#f5c36e" stop-opacity="0.9"/>
@@ -405,92 +383,115 @@
               <feGaussianBlur stdDeviation="3" result="blur"/>
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
+            <!-- Arrow markers -->
+            <marker id="arr-blue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 z" fill="rgba(56,189,248,0.85)"/>
+            </marker>
+            <marker id="arr-green" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 z" fill="rgba(52,211,153,0.85)"/>
+            </marker>
           </defs>
 
-          <!-- ── INPUT LAYER (top) ─────────────────── -->
-          <text x="170" y="18" text-anchor="middle" class="og-layer-label">INPUT</text>
+          <!-- ── INPUT LAYER ──────────────────────────── -->
+          <text x="210" y="16" text-anchor="middle" class="og-layer-label">INPUT</text>
 
-          <!-- SDTM box -->
-          <rect x="10" y="26" width="90" height="54" rx="10"
+          <!-- SDTM -->
+          <rect x="15" y="24" width="110" height="52" rx="10"
                 fill="rgba(56,189,248,0.07)" stroke="rgba(56,189,248,0.45)" stroke-width="1.5"/>
-          <text x="55" y="47" text-anchor="middle" class="og-node-title" fill="#7dd3fc">SDTM</text>
-          <text x="55" y="63" text-anchor="middle" class="og-node-sub">Clinical Standards</text>
+          <text x="70" y="45" text-anchor="middle" class="og-node-title" fill="#7dd3fc">SDTM</text>
+          <text x="70" y="61" text-anchor="middle" class="og-node-sub">Clinical Standards</text>
 
-          <!-- ADaM box -->
-          <rect x="125" y="26" width="90" height="54" rx="10"
+          <!-- ADaM -->
+          <rect x="155" y="24" width="110" height="52" rx="10"
                 fill="rgba(56,189,248,0.07)" stroke="rgba(56,189,248,0.45)" stroke-width="1.5"/>
-          <text x="170" y="47" text-anchor="middle" class="og-node-title" fill="#7dd3fc">ADaM</text>
-          <text x="170" y="63" text-anchor="middle" class="og-node-sub">Analysis Data</text>
+          <text x="210" y="45" text-anchor="middle" class="og-node-title" fill="#7dd3fc">ADaM</text>
+          <text x="210" y="61" text-anchor="middle" class="og-node-sub">Analysis Data</text>
 
-          <!-- Protocol box -->
-          <rect x="240" y="26" width="90" height="54" rx="10"
+          <!-- Protocol -->
+          <rect x="295" y="24" width="110" height="52" rx="10"
                 fill="rgba(56,189,248,0.07)" stroke="rgba(56,189,248,0.45)" stroke-width="1.5"/>
-          <text x="285" y="47" text-anchor="middle" class="og-node-title" fill="#7dd3fc">Protocol</text>
-          <text x="285" y="63" text-anchor="middle" class="og-node-sub">Study Definitions</text>
+          <text x="350" y="45" text-anchor="middle" class="og-node-title" fill="#7dd3fc">Protocol</text>
+          <text x="350" y="61" text-anchor="middle" class="og-node-sub">Study Definitions</text>
 
-          <!-- ── CONNECTOR: inputs → ontology ──────── -->
-          <line x1="55"  y1="80" x2="100" y2="148" stroke="url(#og-blue-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash"/>
-          <line x1="170" y1="80" x2="170" y2="148" stroke="url(#og-blue-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash"/>
-          <line x1="285" y1="80" x2="240" y2="148" stroke="url(#og-blue-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash"/>
+          <!-- ── CONNECTORS: INPUT → ONTOLOGY (with arrows) ── -->
+          <line x1="70"  y1="76" x2="66"  y2="112" stroke="rgba(56,189,248,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-blue)" class="og-dash"/>
+          <line x1="210" y1="76" x2="210" y2="112" stroke="rgba(56,189,248,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-blue)" class="og-dash"/>
+          <line x1="350" y1="76" x2="354" y2="112" stroke="rgba(56,189,248,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-blue)" class="og-dash"/>
 
-          <!-- ── ONTOLOGY CORE (middle) ──────────────── -->
-          <rect x="30" y="148" width="280" height="144" rx="16"
+          <!-- ── ONTOLOGY FRAMEWORK ──────────────────── -->
+          <rect x="10" y="116" width="400" height="194" rx="16"
                 fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.55)" stroke-width="2"
                 filter="url(#og-glow-gold)"/>
-          <!-- top accent bar -->
-          <rect x="30" y="148" width="280" height="4" rx="2" fill="#f5c36e" opacity="0.7"/>
+          <rect x="10" y="116" width="400" height="4" rx="2" fill="#f5c36e" opacity="0.7"/>
 
-          <text x="170" y="178" text-anchor="middle" class="og-core-label">ONTOLOGY FRAMEWORK</text>
-          <text x="170" y="197" text-anchor="middle" class="og-core-sub">Semantic Intelligence Engine</text>
+          <text x="210" y="145" text-anchor="middle" class="og-core-label">ONTOLOGY FRAMEWORK</text>
+          <text x="210" y="163" text-anchor="middle" class="og-core-sub">Semantic Intelligence Engine</text>
 
-          <!-- 3 inner pillars -->
-          <rect x="46" y="210" width="74" height="64" rx="8" fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.3)" stroke-width="1"/>
-          <text x="83" y="234" text-anchor="middle" class="og-inner-title">Entities</text>
-          <text x="83" y="250" text-anchor="middle" class="og-inner-sub">Clinical</text>
-          <text x="83" y="263" text-anchor="middle" class="og-inner-sub">Taxonomy</text>
+          <!-- Entities -->
+          <rect x="22" y="174" width="85" height="114" rx="8" fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.3)" stroke-width="1"/>
+          <text x="64"  y="200" text-anchor="middle" class="og-inner-title">Entities</text>
+          <text x="64"  y="218" text-anchor="middle" class="og-inner-sub">Clinical</text>
+          <text x="64"  y="232" text-anchor="middle" class="og-inner-sub">Taxonomy</text>
 
-          <rect x="133" y="210" width="74" height="64" rx="8" fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.3)" stroke-width="1"/>
-          <text x="170" y="234" text-anchor="middle" class="og-inner-title">Rules</text>
-          <text x="170" y="250" text-anchor="middle" class="og-inner-sub">Validation</text>
-          <text x="170" y="263" text-anchor="middle" class="og-inner-sub">Logic</text>
+          <!-- Rules -->
+          <rect x="117" y="174" width="85" height="114" rx="8" fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.3)" stroke-width="1"/>
+          <text x="159" y="200" text-anchor="middle" class="og-inner-title">Rules</text>
+          <text x="159" y="218" text-anchor="middle" class="og-inner-sub">Validation</text>
+          <text x="159" y="232" text-anchor="middle" class="og-inner-sub">Logic</text>
 
-          <rect x="220" y="210" width="74" height="64" rx="8" fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.3)" stroke-width="1"/>
-          <text x="257" y="234" text-anchor="middle" class="og-inner-title">Relations</text>
-          <text x="257" y="250" text-anchor="middle" class="og-inner-sub">Semantic</text>
-          <text x="257" y="263" text-anchor="middle" class="og-inner-sub">Graph</text>
+          <!-- Relations -->
+          <rect x="212" y="174" width="85" height="114" rx="8" fill="rgba(245,195,110,0.08)" stroke="rgba(245,195,110,0.3)" stroke-width="1"/>
+          <text x="254" y="200" text-anchor="middle" class="og-inner-title">Relations</text>
+          <text x="254" y="218" text-anchor="middle" class="og-inner-sub">Semantic</text>
+          <text x="254" y="232" text-anchor="middle" class="og-inner-sub">Graph</text>
 
-          <!-- ── CONNECTOR: ontology → outputs ──────── -->
-          <line x1="100" y1="292" x2="55"  y2="358" stroke="url(#og-green-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash og-dash--delay"/>
-          <line x1="170" y1="292" x2="170" y2="358" stroke="url(#og-green-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash og-dash--delay"/>
-          <line x1="240" y1="292" x2="285" y2="358" stroke="url(#og-green-v)" stroke-width="1.5" stroke-dasharray="5 4" class="og-dash og-dash--delay"/>
+          <!-- Semantic Reasoning (new) -->
+          <rect x="307" y="174" width="85" height="114" rx="8" fill="rgba(245,195,110,0.14)" stroke="rgba(245,195,110,0.55)" stroke-width="1.5"/>
+          <text x="349" y="200" text-anchor="middle" class="og-inner-title" fill="#f5c36e">Semantic</text>
+          <text x="349" y="216" text-anchor="middle" class="og-inner-title" fill="#f5c36e">Reasoning</text>
+          <text x="349" y="236" text-anchor="middle" class="og-inner-sub">Inference</text>
+          <text x="349" y="250" text-anchor="middle" class="og-inner-sub">Engine</text>
 
-          <!-- ── OUTPUT LAYER (bottom) ────────────────── -->
-          <text x="170" y="350" text-anchor="middle" class="og-layer-label">OUTPUT</text>
+          <!-- ── CONNECTORS: ONTOLOGY → OUTPUT (with arrows) ── -->
+          <line x1="66"  y1="310" x2="66"  y2="344" stroke="rgba(52,211,153,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-green)" class="og-dash og-dash--delay"/>
+          <line x1="160" y1="310" x2="160" y2="344" stroke="rgba(52,211,153,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-green)" class="og-dash og-dash--delay"/>
+          <line x1="254" y1="310" x2="254" y2="344" stroke="rgba(52,211,153,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-green)" class="og-dash og-dash--delay"/>
+          <line x1="354" y1="310" x2="354" y2="344" stroke="rgba(52,211,153,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-green)" class="og-dash og-dash--delay"/>
 
-          <!-- Knowledge box -->
-          <rect x="10" y="358" width="90" height="54" rx="10"
+          <!-- ── OUTPUT LAYER ──────────────────────────── -->
+          <text x="210" y="340" text-anchor="middle" class="og-layer-label">OUTPUT</text>
+
+          <!-- Knowledge -->
+          <rect x="22" y="348" width="88" height="56" rx="10"
                 fill="rgba(52,211,153,0.07)" stroke="rgba(52,211,153,0.45)" stroke-width="1.5"/>
-          <text x="55" y="379" text-anchor="middle" class="og-node-title" fill="#86efac">Knowledge</text>
-          <text x="55" y="395" text-anchor="middle" class="og-node-sub">Connected Graph</text>
+          <text x="66"  y="369" text-anchor="middle" class="og-node-title" fill="#86efac">Knowledge</text>
+          <text x="66"  y="385" text-anchor="middle" class="og-node-sub">Connected Graph</text>
 
-          <!-- Validated box -->
-          <rect x="125" y="358" width="90" height="54" rx="10"
+          <!-- Validated -->
+          <rect x="118" y="348" width="88" height="56" rx="10"
                 fill="rgba(52,211,153,0.07)" stroke="rgba(52,211,153,0.45)" stroke-width="1.5"/>
-          <text x="170" y="379" text-anchor="middle" class="og-node-title" fill="#86efac">Validated</text>
-          <text x="170" y="395" text-anchor="middle" class="og-node-sub">Submission-Ready</text>
+          <text x="162" y="369" text-anchor="middle" class="og-node-title" fill="#86efac">Validated</text>
+          <text x="162" y="385" text-anchor="middle" class="og-node-sub">Submission-Ready</text>
 
-          <!-- Regulatory box -->
-          <rect x="240" y="358" width="90" height="54" rx="10"
+          <!-- Regulatory -->
+          <rect x="214" y="348" width="88" height="56" rx="10"
                 fill="rgba(52,211,153,0.07)" stroke="rgba(52,211,153,0.45)" stroke-width="1.5"/>
-          <text x="285" y="379" text-anchor="middle" class="og-node-title" fill="#86efac">Regulatory</text>
-          <text x="285" y="395" text-anchor="middle" class="og-node-sub">Defensible Data</text>
+          <text x="258" y="369" text-anchor="middle" class="og-node-title" fill="#86efac">Regulatory</text>
+          <text x="258" y="385" text-anchor="middle" class="og-node-sub">Defensible Data</text>
+
+          <!-- Explainable AI (new) -->
+          <rect x="310" y="348" width="88" height="56" rx="10"
+                fill="rgba(192,132,252,0.1)" stroke="rgba(192,132,252,0.5)" stroke-width="1.5"/>
+          <text x="354" y="366" text-anchor="middle" class="og-node-title" fill="#d8b4fe">Explainable</text>
+          <text x="354" y="380" text-anchor="middle" class="og-node-title" fill="#d8b4fe">AI</text>
+          <text x="354" y="395" text-anchor="middle" class="og-node-sub">XAI Insights</text>
         </svg>
       </div>
 
     </div>
 
     <!-- Full-width highlight spanning both columns -->
-    <p class="about-highlight about-highlight--gold onto-full-highlight">
+    <p class="about-highlight about-highlight--gold onto-full-highlight" style="color:rgba(248,250,252,0.92)!important;font-style:italic;font-weight:500;">
       Ontology ensures that clinical data is not only connected—but understood.
     </p>
 
@@ -508,7 +509,7 @@
     </div>
 
     <div class="about-prose" style="margin-bottom: 1.5rem;">
-      <p>Care2Data's work is grounded in continuous research across clinical data standards, knowledge modeling, and
+      <p>CARE2DATA's work is grounded in continuous research across clinical data standards, knowledge modeling, and
         intelligent validation systems—forming the foundation of how we differentiate and innovate in clinical data
         validation and verification.</p>
       <p>Our research-led approach enables us to move beyond conventional validation tools, transforming fragmented data
@@ -518,7 +519,7 @@
         frameworks that enhance the reliability, transparency, and contextual understanding of clinical research data.</p>
     </div>
 
-    <p class="about-subheader">Through research collaborations and academic partnerships, Care2Data continues to
+    <p class="about-subheader">Through research collaborations and academic partnerships, CARE2DATA continues to
       advance methods in:</p>
 
     <ul class="about-research-list">
@@ -536,7 +537,7 @@
           <img src="images/about/white/semantic.png" alt="">
         </div>
         <div class="research-item__body">
-          <h3>Semantic interoperability</h3>
+          <h3>Semantic Interoperability</h3>
           <p>Connecting clinical data ecosystems through shared ontologies and standardized semantic models.</p>
         </div>
       </li>
@@ -554,14 +555,14 @@
           <img src="images/about/white/anomoliesdetect.png" alt="">
         </div>
         <div class="research-item__body">
-          <h3>Anomaly detection</h3>
+          <h3>Anomaly Detection</h3>
           <p>Graph-based models that surface data anomalies and inconsistencies across clinical datasets.</p>
         </div>
       </li>
     </ul>
 
     <p class="about-highlight">
-      This research-driven approach enables Care2Data to develop intelligent systems that support stronger data quality,
+      This research-driven approach enables CARE2DATA to develop intelligent systems that support stronger data quality,
       traceability, and regulatory confidence across the clinical trial lifecycle—while continuously evolving to address
       emerging complexity in clinical data environments.
     </p>
@@ -579,7 +580,7 @@
     </div>
 
     <div class="about-prose" style="margin-bottom: 2.5rem;">
-      <p>Care2Data collaborates with leading academic institutions to advance <strong>ontology-driven AI, semantic
+      <p>CARE2DATA collaborates with leading academic institutions to advance <strong>ontology-driven AI, semantic
           intelligence, and explainable AI (XAI)</strong>, strengthening the scientific and analytical foundations on
         which our platforms are built.</p>
     </div>
@@ -619,7 +620,7 @@
           <strong>efficiency, accuracy, and conformance</strong> of clinical trial submission datasets, analysis
           datasets, and clinical reports.<br><br>
           Our mission is to help organizations prevent regulatory resubmissions caused by data quality issues while
-          establishing stronger standards of quality, consistency, and accuracy prior to regulatory submission.</p>
+          establishing higher standards of quality, consistency, and accuracy prior to regulatory submission.</p>
       </div>
     </div>
   </div>
@@ -646,7 +647,7 @@
             <span class="leader-role">Founder</span>
           </div>
         </div>
-        <p>Giri Balasubramanian is the Founder of Care2Data and a global leader in <strong>clinical data standards,
+        <p>Giri Balasubramanian is the Founder of CARE2DATA and a global leader in <strong>clinical data standards,
             automation, and analytics.</strong> With more than two decades of experience in life sciences, he has
           presented pioneering research at international forums including <strong>CDISC and PhUSE</strong> across the
           United States, Europe, and Asia.<br><br>
@@ -694,53 +695,54 @@
   <div class="about-section__inner">
     <div class="section-header">
       <span class="timeline-eyebrow">Our Journey</span>
-      <h2>Care2Data Milestones</h2>
+      <h2>CARE2DATA Milestones</h2>
     </div>
 
-    <svg viewBox="0 0 1600 220" preserveAspectRatio="xMidYMid meet"
-      style="width: 100%; height: auto; display: block; filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));">
+    <svg viewBox="0 0 1750 275" preserveAspectRatio="xMidYMid meet"
+      style="width: 100%; height: auto; display: block; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
 
-      <style>
-        .step-label { font-size: 50px; font-weight: bolder; text-anchor: middle; }
-        .step-title  { font-size: 16px; font-weight: 800; text-anchor: middle; }
-      </style>
+      <g transform="translate(120, 0)">
+        <!-- Step 1: 2022 — Formation -->
+        <g>
+          <polygon points="0,25 240,25 275,115 240,205 0,205 35,115" fill="#11193e" />
+          <text x="120" y="125" class="step-label" fill="white">2022</text>
+          <text x="120" y="232" class="step-title" fill="#fff">Formation</text>
+        </g>
 
-      <g transform="translate(276, 0)">
+        <!-- Step 2: 2023 — PoC & EC-JRC Recognition -->
         <g>
-          <polygon points="0,30 200,30 230,100 200,170 0,170 30,100" fill="#11193e" />
-          <text x="115" y="115" class="step-label" fill="white">2022</text>
-          <text x="115" y="200" class="step-title" fill="#fff">Company Founded</text>
-        </g>
-        <g>
-          <polygon points="212,30 412,30 442,100 412,170 212,170 242,100" fill="#2a347a" />
-          <text x="327" y="115" class="step-label" fill="white">2023</text>
-          <text x="327" y="200" class="step-title" fill="#fff">
-            <tspan x="327" dy="0">Proof of Concept</tspan>
-            <tspan x="327" dy="16">&amp; International Recognitions</tspan>
+          <polygon points="295,25 535,25 570,115 535,205 295,205 330,115" fill="#2a347a" />
+          <text x="415" y="125" class="step-label" fill="white">2023</text>
+          <text x="415" y="228" class="step-title" fill="#fff">
+            <tspan x="415" dy="0">PoC &amp; EC-JRC</tspan>
+            <tspan x="415" dy="20">Recognition</tspan>
           </text>
         </g>
+
+        <!-- Step 3: 2024 — Establish R&D Partnerships -->
         <g>
-          <polygon points="424,30 624,30 654,100 624,170 424,170 454,100" fill="#f1dba0" />
-          <text x="539" y="115" class="step-label" fill="black">2024</text>
-          <text x="539" y="200" class="step-title" fill="#fff">
-            <tspan x="539" dy="0">Research &amp; Academic</tspan>
-            <tspan x="539" dy="16">Partnerships</tspan>
+          <polygon points="590,25 830,25 865,115 830,205 590,205 625,115" fill="#f1dba0" />
+          <text x="710" y="125" class="step-label" fill="black">2024</text>
+          <text x="710" y="228" class="step-title" fill="#fff">
+            <tspan x="710" dy="0">Establish R&amp;D</tspan>
+            <tspan x="710" dy="20">Partnerships</tspan>
           </text>
         </g>
+
+        <!-- Step 4: 2025 — Patent Filed -->
         <g>
-          <polygon points="636,30 836,30 866,100 836,170 636,170 666,100" fill="#b78c3e" />
-          <text x="751" y="115" class="step-label" fill="white">2025</text>
-          <text x="751" y="200" class="step-title" fill="#fff">
-            <tspan x="751" dy="0">Platform Design</tspan>
-            <tspan x="751" dy="16">&amp; Patent Initiation</tspan>
-          </text>
+          <polygon points="885,25 1125,25 1160,115 1125,205 885,205 920,115" fill="#b78c3e" />
+          <text x="1005" y="125" class="step-label" fill="white">2025</text>
+          <text x="1005" y="232" class="step-title" fill="#fff">Patent Filed</text>
         </g>
+
+        <!-- Step 5: 2026 — Kwalify™ Demoed in PhUSE -->
         <g>
-          <polygon points="848,30 1048,30 1078,100 1048,170 848,170 878,100" fill="#11193e" />
-          <text x="963" y="115" class="step-label" fill="white">2026</text>
-          <text x="963" y="200" class="step-title" fill="#fff">
-            <tspan x="963" dy="0">Kwalify™ Launch</tspan>
-            <tspan x="963" dy="16">phUSE</tspan>
+          <polygon points="1180,25 1420,25 1455,115 1420,205 1180,205 1215,115" fill="#11193e" />
+          <text x="1300" y="125" class="step-label" fill="white">2026</text>
+          <text x="1300" y="228" class="step-title" fill="#fff">
+            <tspan x="1300" dy="0">Kwalify™ Demoed</tspan>
+            <tspan x="1300" dy="20">in PhUSE</tspan>
           </text>
         </g>
       </g>
@@ -755,11 +757,11 @@
   <div class="about-closer__inner">
     <span class="section-eyebrow" style="display:flex;justify-content:center;margin-bottom:1rem;">Our Commitment</span>
     <h2>From Data to Knowledge.<br><span>From Knowledge to Confidence.</span></h2>
-    <p>Care2Data helps life sciences organizations move from fragmented datasets to connected intelligence and trusted
+    <p>CARE2DATA helps life sciences organizations move from fragmented datasets to connected intelligence and trusted
       knowledge systems.<br><br>
       By combining life sciences expertise with semantic modeling, validation frameworks and AI RAG systems, we enable
       organizations to strengthen compliance, accelerate insight, and operate with greater confidence across clinical
       research.</p>
-    <a routerLink="/kwalify" class="btn btn-primary">Contact Us →</a>
+    <a routerLink="/contact-us" class="btn btn-primary">Contact Us →</a>
   </div>
 </section>

@@ -4,6 +4,8 @@ import { Meta, Title } from '@angular/platform-browser';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NewsArticle } from '../../shared/types/content.types';
+import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
 
 @Component({
   selector: 'app-news',
@@ -21,7 +23,7 @@ export class News {
     { label: 'Perspectives', value: 'Perspectives' }
   ];
 
-  articles: any = [
+  articles: NewsArticle[] = [
     {
       "id": 1,
       "category": "Research",
@@ -113,7 +115,7 @@ export class News {
     // Change Meta url
     this.metaService.updateTag({
       name: 'og:url',
-      content: 'https://gokulgovindharaj.github.io/Care2Data-Website/#/news'
+      content: getCanonicalUrl('news')
     });
 
     // Change Keywords
@@ -141,7 +143,7 @@ export class News {
 
   get filteredArticles() {
     if (this.selectedCategory === 'all') return this.articles;
-    return this.articles.filter((a: any) => a.category === this.selectedCategory);
+    return this.articles.filter((a: NewsArticle) => a.category === this.selectedCategory);
   }
 
   get totalPages() {

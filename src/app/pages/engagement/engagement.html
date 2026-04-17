@@ -66,15 +66,8 @@
                 current workflows or technology investments.</p>
         </div>
 
-        <!-- Engagement model cards (dynamic) -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <div *ngFor="let card of approch" class="eng-model-card">
-                <div class="eng-card-icon mb-4">{{ card.icon }}</div>
-                <h3 class="text-base font-semibold mb-2" style="color: #f5c36e;">{{ card.title }}</h3>
-                <p class="text-sm leading-relaxed" style="color: rgba(248,250,252,0.78);" *ngIf="card.description">{{ card.description }}</p>
-                <a [routerLink]="[card.link]" [fragment]="card.fragment" class="eng-card-link mt-3 inline-block">Read More →</a>
-            </div>
-        </div>
+        <!-- Engagement model cards (carousel) -->
+        <app-carousel [cards]="approach" [intervalMs]="10000" />
 
         <!-- How This Works -->
         <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:0.5rem;">Methodology</p>

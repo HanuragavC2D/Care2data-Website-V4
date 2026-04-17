@@ -3,6 +3,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
 
 @Component({
   selector: 'app-synthetic-gen',
@@ -32,7 +33,7 @@ export class SyntheticGen {
     // Change Meta url
     this.metaService.updateTag({
       name: 'og:url',
-      content: 'https://gokulgovindharaj.github.io/Care2Data-Website/#/synthetic-gen'
+      content: getCanonicalUrl('synthetic-gen')
     });
 
     // Change Keywords

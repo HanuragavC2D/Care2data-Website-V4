@@ -1,4 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
 import { App } from './app/app';
 import { routes } from './app/app.routes';
 import { provideRouter, withHashLocation, withInMemoryScrolling } from '@angular/router';
@@ -7,7 +8,8 @@ import { provideToastr } from 'ngx-toastr';
 
 bootstrapApplication(App, {
   providers: [
-    provideAnimations(),   // required for toastr animations
+    provideAnimations(),
+    provideHttpClient(),
     provideToastr({
       timeOut: 3000,
       positionClass: 'toast-top-right',

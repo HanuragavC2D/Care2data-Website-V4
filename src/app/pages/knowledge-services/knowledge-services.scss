@@ -115,15 +115,14 @@ $section-pad-sm: 2.5rem 1.25rem;
 
 .ks-hero {
   position: relative;
-  min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
   background:
     radial-gradient(circle at top left, rgba(245, 195, 110, 0.14), transparent 24%),
     linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);
   color: #f8fafc;
-  padding: 5rem 0;
+  padding: 7rem 0 5rem;
 
   &::before {
     content: '';
@@ -179,7 +178,7 @@ $section-pad-sm: 2.5rem 1.25rem;
     font-weight: 700;
     margin: 0;
 
-    span { color: $gold; }
+    span { color: $gold; white-space: nowrap; }
   }
 
   p {
@@ -213,7 +212,7 @@ $section-pad-sm: 2.5rem 1.25rem;
 
 .ks-intro        { background: linear-gradient(180deg, #07102a 0%, #0b1836 100%); }
 .ks-interlinked  { background: linear-gradient(180deg, #060c21 0%, #08132a 100%); }
-.ks-how          { background: linear-gradient(180deg, #08132a 0%, #071022 100%); }
+.ks-how          { background: linear-gradient(180deg, #08132a 0%, #071022 100%); padding-top: 2rem; }
 .ks-operating    { background: linear-gradient(180deg, #071022 0%, #08132a 100%); }
 .ks-architecture { background: linear-gradient(180deg, #08132a 0%, #071022 100%); }
 .ks-proven       { background: linear-gradient(180deg, #07102a 0%, #0b1836 100%); }
@@ -297,11 +296,32 @@ $section-pad-sm: 2.5rem 1.25rem;
    BLOCKQUOTE
 ═══════════════════════════════════════════════════════════════ */
 
+/* ── Industry Context two-column layout ──────────────────────── */
+
+.ks-industry-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.ks-industry-prose {
+  p {
+    color: $white-82;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin: 0 0 1.25rem;
+    text-align: justify;
+    &:last-child { margin: 0; }
+  }
+}
+
 .ks-blockquote {
   max-width: 720px;
-  margin: 0 auto 2.5rem;
-  padding: 1.5rem 2rem 1.5rem 2rem;
-  border-left: 4px solid $gold;
+  margin: 0;
+  padding: 1.5rem 2rem 1.5rem 1rem;
+  border-left: 4px solid #38bdf8;
   background: $gold-dim;
   border-radius: 0 1rem 1rem 0;
 
@@ -386,6 +406,47 @@ $section-pad-sm: 2.5rem 1.25rem;
   margin-top: 0.1rem;
 }
 
+/* ── Our Approach check items – 4-color 3D variants ──────────── */
+.ks-how .ks-check-item:nth-child(1) {
+  background: rgba(56, 189, 248, 0.06);
+  border-left: 3px solid #38bdf8;
+  border-color: rgba(56, 189, 248, 0.25);
+  box-shadow: 4px 5px 0 rgba(56, 189, 248, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  &:hover { transform: translate(-2px, -2px); box-shadow: 6px 7px 0 rgba(56, 189, 248, 0.22); background: rgba(56, 189, 248, 0.1); }
+  .ks-check { color: #38bdf8; }
+}
+
+.ks-how .ks-check-item:nth-child(2) {
+  background: rgba(245, 195, 110, 0.06);
+  border-left: 3px solid $gold;
+  border-color: $gold-border;
+  box-shadow: 4px 5px 0 rgba(245, 195, 110, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  &:hover { transform: translate(-2px, -2px); box-shadow: 6px 7px 0 rgba(245, 195, 110, 0.25); background: rgba(245, 195, 110, 0.1); }
+  .ks-check { color: $gold; }
+}
+
+.ks-how .ks-check-item:nth-child(3) {
+  background: rgba(52, 211, 153, 0.06);
+  border-left: 3px solid #34d399;
+  border-color: rgba(52, 211, 153, 0.25);
+  box-shadow: 4px 5px 0 rgba(52, 211, 153, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  &:hover { transform: translate(-2px, -2px); box-shadow: 6px 7px 0 rgba(52, 211, 153, 0.22); background: rgba(52, 211, 153, 0.1); }
+  .ks-check { color: #34d399; }
+}
+
+.ks-how .ks-check-item:nth-child(4) {
+  background: rgba(192, 132, 252, 0.06);
+  border-left: 3px solid #c084fc;
+  border-color: rgba(192, 132, 252, 0.25);
+  box-shadow: 4px 5px 0 rgba(192, 132, 252, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  &:hover { transform: translate(-2px, -2px); box-shadow: 6px 7px 0 rgba(192, 132, 252, 0.22); background: rgba(192, 132, 252, 0.1); }
+  .ks-check { color: #c084fc; }
+}
+
 /* ═══════════════════════════════════════════════════════════════
    CAROUSEL REDESIGN (knowledge architecture cards)
 ═══════════════════════════════════════════════════════════════ */
@@ -442,6 +503,40 @@ $section-pad-sm: 2.5rem 1.25rem;
       line-height: 1.75 !important;
       padding: 0.2rem 0;
     }
+  }
+}
+
+/* ── Carousel navigation arrows ──────────────────────────────── */
+.ks-carousel-nav-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ks-carousel-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 195, 110, 0.35);
+  background: rgba(245, 195, 110, 0.06);
+  color: $gold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.18s ease;
+
+  &:hover {
+    background: rgba(245, 195, 110, 0.16);
+    border-color: rgba(245, 195, 110, 0.7);
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $gold;
+    outline-offset: 2px;
   }
 }
 

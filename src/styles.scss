@@ -37,16 +37,48 @@ body {
   --c2: #3d7ffc;
 }
 
+/* Scrollbar styling */
+:root {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 134, 42, 0.5) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 134, 42, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 195, 110, 0.8);
+}
+
 /* Layout */
 html,
 body {
   height: 100%;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-padding-top: 64px;
 }
 
 body {
   font-family: var(--font-inter);
   background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+main {
+  overflow-x: hidden;
 }
 
 /* Typography */

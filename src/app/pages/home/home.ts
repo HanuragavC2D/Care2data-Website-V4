@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
+export class Home implements OnDestroy {
   slides = [
     {
       title: 'Kwalify™  ·  Data Quality Platform',
@@ -42,10 +43,12 @@ export class Home {
   ];
   current = 0;
   animationClass = 'opacity-100 scale-100';
+  private intervalId: ReturnType<typeof setInterval> | undefined;
+
   constructor(private titleService: Title, private metaService: Meta) { }
 
   ngOnInit(): void {
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.animationClass = 'opacity-0 scale-95';
 
       setTimeout(() => {
@@ -69,7 +72,7 @@ export class Home {
     // Change Meta url
     this.metaService.updateTag({
       name: 'url',
-      content: 'https://gokulgovindharaj.github.io/Care2Data-Website/#/home'
+      content: getCanonicalUrl('home')
     });
 
     // Change Keywords
@@ -89,9 +92,15 @@ export class Home {
       property: 'og:description',
       content: 'Care2Data delivers intelligent clinical data validation software through KWALIFY™, enabling regulatory-compliant, audit-ready and submission-ready clinical trial datasets.'
     });
+
+    // Open Graph Image
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: SITE_CONFIG.ogImage
+    });
   }
 
-  hoverTimeout: any;
+  hoverTimeout: ReturnType<typeof setTimeout> | undefined;
 
   openPanel(panel: MatExpansionPanel) {
     clearTimeout(this.hoverTimeout);
@@ -105,5 +114,14 @@ export class Home {
     this.hoverTimeout = setTimeout(() => {
       panel.close();
     }, 150);
+  }
+
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+    if (this.hoverTimeout) {
+      clearTimeout(this.hoverTimeout);
+    }
   }
 }

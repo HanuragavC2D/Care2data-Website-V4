@@ -13,12 +13,12 @@
         <stop offset="100%" stop-color="#c9862a" stop-opacity="0" />
       </linearGradient>
     </defs>
-    <path d="M0 100 H100%" class="bg-line" />
-    <path d="M0 250 H100%" class="bg-line" />
-    <path d="M0 400 H100%" class="bg-line" />
-    <path d="M0 550 H100%" class="bg-line" />
-    <path d="M0 0 L100% 300" class="bg-line slow" />
-    <path d="M0 300 L100% 600" class="bg-line slow" />
+    <path d="M0 100 H680" class="bg-line" />
+    <path d="M0 250 H680" class="bg-line" />
+    <path d="M0 400 H680" class="bg-line" />
+    <path d="M0 550 H680" class="bg-line" />
+    <path d="M0 0 L680 300" class="bg-line slow" />
+    <path d="M0 300 L680 600" class="bg-line slow" />
   </svg>
 
   <div class="home-hero__grid">
@@ -28,11 +28,12 @@
       <h1>Empowering Clinical Submissions with
         <i>Semantic Intelligence</i>
       </h1>
-      <p>Care2Data is not just validating clinical data—we're engineering integrity at its core.
+      <p>CARE2DATA is not just validating clinical data—we're engineering integrity at its core.
         Powered by Semantic Intelligence and governed knowledge architecture, our platform transforms Data Quality
         into a living, reasoning system—ensuring every submission is accurate, consistent, scalable, and built to
         withstand regulatory scrutiny.
       </p>
+      <p>&nbsp;</p>
       <div class="home-hero__actions">
         <a routerLink="/contact-us" class="btn btn-primary">Request a Demo →</a>
         <a routerLink="/contact-us" class="btn btn-outline">Talk to an Expert →</a>
@@ -42,242 +43,7 @@
     <!-- Right: Data Lineage Diagram -->
     <div class="home-hero__panel glass-card">
       <div class="dl-wrapper pb-0 my-2">
-        <style>
-          .dl-wrapper {
-            width: 100%;
-            max-width: 760px;
-            margin: 0 auto;
-            font-family: 'Segoe UI', Georgia, serif;
-            border-radius: 12px;
-            padding: 24px 16px 8px;
-            box-sizing: border-box;
-          }
-
-          .section-label {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            fill: #b0a898;
-          }
-
-          .src-box rect {
-            fill: #ffffff;
-            stroke: #ccc6bb;
-            stroke-width: 1;
-          }
-
-          .src-box text {
-            font-size: 12px;
-            fill: #2b2b35;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .src-box:hover rect {
-            stroke: #c9862a;
-          }
-
-          .sdtm-box rect {
-            fill: #eef3fa;
-            stroke: #3a6fa8;
-            stroke-width: 1.5;
-          }
-
-          .sdtm-title {
-            font-size: 12px;
-            font-weight: 700;
-            fill: #1c2d4a;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .sdtm-sub {
-            font-size: 10px;
-            fill: #5a7aaa;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .kwalify-box rect {
-            fill: #1c2d4a;
-            stroke: #c9962a;
-            stroke-width: 2;
-          }
-
-          .kwalify-title {
-            font-size: 13px;
-            font-weight: 700;
-            fill: #e8b84b;
-            letter-spacing: 1px;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .kwalify-sub {
-            font-size: 11px;
-            fill: #9aabcc;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .kw-dot {
-            animation: kwDot 1.8s ease-in-out infinite 1.7s;
-          }
-
-          .kg-circle {
-            fill: #c9862a;
-          }
-
-          .kg-label {
-            font-size: 10px;
-            font-weight: 700;
-            fill: #1c2d4a;
-            text-anchor: middle;
-            font-family: 'Segoe UI', sans-serif;
-            pointer-events: none;
-          }
-
-          .orbit-ring {
-            fill: none;
-            stroke: #c9862a;
-            stroke-width: 0.5;
-            stroke-dasharray: 4 4;
-            opacity: 0.2;
-            transform-origin: 340px 345px;
-            animation: spinOrbit 18s linear infinite 2.2s;
-          }
-
-          .kg-pulse {
-            transform-origin: 340px 345px;
-            animation: kgPulse 2.5s ease-in-out infinite 2.2s;
-          }
-
-          .satellite rect {
-            fill: #ffffff;
-            stroke: #ccc6bb;
-            stroke-width: 1;
-          }
-
-          .satellite text {
-            font-size: 11px;
-            fill: #3a3a3a;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .satellite.accented rect {
-            stroke: #c9862a;
-            stroke-width: 2;
-          }
-
-          .out-submission rect {
-            fill: #fff9ed;
-            stroke: #c9862a;
-            stroke-width: 2;
-          }
-
-          .out-submission .out-title {
-            font-size: 12px;
-            font-weight: 700;
-            fill: #b07820;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .out-submission .out-sub {
-            font-size: 11px;
-            fill: #7a6040;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .out-discrepancy rect {
-            fill: #ffffff;
-            stroke: #ccc6bb;
-            stroke-width: 1;
-          }
-
-          .out-discrepancy .out-title {
-            font-size: 12px;
-            font-weight: 700;
-            fill: #2b2b35;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .out-discrepancy .out-sub {
-            font-size: 11px;
-            fill: #6a6a6a;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          .caption {
-            font-size: 10px;
-            letter-spacing: 2px;
-            fill: #b0a898;
-            text-anchor: middle;
-            font-family: 'Segoe UI', sans-serif;
-          }
-
-          /* ═══════════════════════════════════════════════════
-             CHAINED ANIMATION SEQUENCE
-          ═══════════════════════════════════════════════════ */
-
-          .fadein {
-            opacity: 0;
-            animation: fadeUp 0.5s ease forwards;
-          }
-
-          .s1  { animation-delay: 0.0s; }
-          .s2  { animation-delay: 0.3s; }
-          .s3  { animation-delay: 0.7s; }
-          .s5  { animation-delay: 1.7s; }
-          .s6  { animation-delay: 2.2s; }
-          .s7  { animation-delay: 2.6s; }
-          .s9  { animation-delay: 3.4s; }
-          .s10 { animation-delay: 3.8s; }
-
-          @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(6px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-
-          .draw {
-            stroke-dasharray: 400;
-            stroke-dashoffset: 400;
-            animation: drawOn 0.7s ease forwards;
-          }
-
-          .d4a { animation-delay: 1.10s; }
-          .d4b { animation-delay: 1.20s; }
-          .d4c { animation-delay: 1.30s; }
-          .d4d { animation-delay: 1.40s; }
-          .d4e { animation-delay: 1.55s; }
-          .d5e { animation-delay: 2.00s; }
-          .d7a { animation-delay: 2.60s; }
-          .d7b { animation-delay: 2.65s; }
-          .d7c { animation-delay: 2.70s; }
-          .d7d { animation-delay: 2.75s; }
-          .d7e { animation-delay: 2.80s; }
-          .d7f { animation-delay: 2.85s; }
-          .d8a { animation-delay: 3.00s; }
-          .d8b { animation-delay: 3.10s; }
-
-          @keyframes drawOn {
-            to { stroke-dashoffset: 0; }
-          }
-
-          @keyframes kwDot {
-            0%, 100% { fill: #e8b84b; opacity: .5; }
-            50%       { fill: #ffda80; opacity: 1; }
-          }
-
-          @keyframes spinOrbit {
-            to { transform: rotate(360deg); }
-          }
-
-          @keyframes kgPulse {
-            0%, 100% { opacity: .15; }
-            50%       { opacity: .35; }
-          }
-
-          .flow-dot       { fill: #c9862a; opacity: 0; }
-          .flow-dot-blue  { fill: #3a6fa8; opacity: 0; }
-          .flow-dot-green { fill: #3a8a5a; opacity: 0; }
-        </style>
-
-        <svg class="w-full h-auto" width="100%" viewBox="0 0 680 650" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto" width="100%" viewBox="0 0 680 600" xmlns="http://www.w3.org/2000/svg">
 
           <defs>
             <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
@@ -300,15 +66,15 @@
           <!-- Section dividers -->
           <line x1="48" y1="62"  x2="640" y2="62"  stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
           <line x1="48" y1="175" x2="640" y2="175" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
-          <line x1="48" y1="300" x2="640" y2="300" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
-          <line x1="48" y1="465" x2="640" y2="465" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
-          <line x1="48" y1="615" x2="640" y2="615" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
+          <line x1="48" y1="292" x2="640" y2="292" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
+          <line x1="48" y1="468" x2="640" y2="468" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
+          <line x1="48" y1="565" x2="640" y2="565" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
 
           <!-- STEP 1: Section labels -->
           <text class="section-label fadein s1" x="28" y="122" transform="rotate(-90,28,122)">SOURCE</text>
           <text class="section-label fadein s1" x="28" y="242" transform="rotate(-90,28,242)">INGEST</text>
-          <text class="section-label fadein s1" x="28" y="388" transform="rotate(-90,28,388)">REASON</text>
-          <text class="section-label fadein s1" x="28" y="545" transform="rotate(-90,28,545)">OUTPUT</text>
+          <text class="section-label fadein s1" x="28" y="380" transform="rotate(-90,28,380)">REASON</text>
+          <text class="section-label fadein s1" x="28" y="516" transform="rotate(-90,28,516)">OUTPUT</text>
 
           <!-- STEP 2: Source boxes -->
           <g class="src-box fadein s2">
@@ -349,7 +115,7 @@
             <rect x="244" y="188" width="192" height="56" rx="8" />
             <circle class="kw-dot" cx="292" cy="213" r="3.5" />
             <text class="kwalify-title" x="340" y="213" text-anchor="middle">KWALIFY™</text>
-            <text class="kwalify-sub"   x="340" y="231" text-anchor="middle">Data Integration Engine</text>
+            <text class="kwalify-sub"   x="340" y="231" text-anchor="middle">Data Validation Engine</text>
           </g>
 
           <!-- STEP 5e: KWALIFY → KG (amber) -->
@@ -401,7 +167,16 @@
 
           <!-- STEP 8: KG → output connectors -->
           <path class="draw d8a" d="M318 384 L237 480" fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)" />
-          <path class="draw d8b" d="M363 384 L450 480" fill="none" stroke="#ccc6bb" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
+          <!-- KG → XAI node -->
+          <path class="draw d8b" d="M363 384 L456 446" fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)" />
+          <!-- XAI node → Discrepancy -->
+          <path class="draw d8c" d="M520 460 L488 480" fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)" />
+
+          <!-- STEP 8x: Explainable AI node -->
+          <g class="satellite accented fadein s9">
+            <rect x="456" y="432" width="128" height="28" rx="6" />
+            <text x="520" y="450" text-anchor="middle" font-weight="700" fill="#2b2b35" font-family="'Segoe UI',sans-serif" font-size="10">Explainable AI (XAI)</text>
+          </g>
 
           <!-- STEP 9: Output boxes -->
           <g class="out-submission fadein s9">
@@ -412,11 +187,11 @@
           <g class="out-discrepancy fadein s9">
             <rect x="360" y="480" width="176" height="64" rx="8" />
             <text class="out-title" x="448" y="504" text-anchor="middle">DISCREPANCY</text>
-            <text class="out-sub"   x="448" y="526" text-anchor="middle">Root Cause Report</text>
+            <text class="out-sub"   x="448" y="526" text-anchor="middle">Root Cause Analysis</text>
           </g>
 
           <!-- STEP 10: Caption -->
-          <text class="caption fadein s10" x="340" y="635">DATA LINEAGE &amp; PROVENANCE MODEL</text>
+          <text class="caption fadein s10" x="340" y="585">DATA LINEAGE &amp; PROVENANCE MODEL</text>
 
           <!-- FLOW DOTS -->
           <circle class="flow-dot-blue" r="3">
@@ -453,7 +228,7 @@
             <animateMotion dur="2.1s" repeatCount="indefinite" begin="4.1s"><mpath href="#fp-kg-disc" /></animateMotion>
             <animate attributeName="opacity" values="0;1;1;0" dur="2.1s" repeatCount="indefinite" begin="4.1s" />
           </circle>
-          <path id="fp-kg-disc" d="M363 384 L450 480" fill="none" />
+          <path id="fp-kg-disc" d="M363 384 L456 446 L520 446 L520 460 L488 480" fill="none" />
 
         </svg>
       </div>
@@ -469,7 +244,7 @@
 
     <div class="positioning-item">
       <span class="positioning-num">Transform</span>
-      <p>Care2Data transforms clinical validation from reactive checking to intelligent governance.</p>
+      <p>CARE2DATA transforms clinical validation from reactive checking to intelligent governance.</p>
     </div>
 
     <div class="positioning-item">
@@ -494,7 +269,7 @@
   <div class="section-header">
     <p class="section-eyebrow">Core Value</p>
     <h2>Semantic Intelligence–Driven <i><span style="color:#f5c36e">Clinical Submission Validation</span></i></h2>
-    <p class="section-subtext">At its core, Care2Data's platform uses a governed Knowledge Graph architecture
+    <p class="section-subtext">At its core, CARE2DATA's platform uses a governed Knowledge Graph architecture
       to shift validation from rule-based processes to explainable AI-driven reasoning.</p>
   </div>
 
@@ -511,7 +286,7 @@
         structurally.</p>
       <p>Instead of isolated rule checks, the platform understands relationships across domains (protocol, SDTM, ADaM,
         TLFs), detecting inconsistencies before they escalate into regulatory findings.</p>
-      <span class="pillar-result">Result: Reduced submission risk. Increased regulatory confidence.</span>
+      <span class="pillar-result">Result: <span>Reduced submission risk. Increased regulatory confidence.</span></span>
     </div>
 
     <!-- 2 -->
@@ -521,11 +296,11 @@
         <h3>Clarity</h3>
       </div>
       <p class="pillar-subtitle">Visualizing Impact. Accelerating Decisions</p>
-      <p>When protocols evolve, traditional systems create confusion. Care2Data highlights precisely which records are
+      <p>When protocols evolve, traditional systems create confusion. CARE2DATA highlights precisely which records are
         affected and why.</p>
       <p>Clinical programmers gain immediate visibility into data impact, minimizing guesswork and accelerating
         resolution.</p>
-      <span class="pillar-result">Result: Faster turnaround. Controlled change management.</span>
+      <span class="pillar-result">Result: <span>Faster turnaround. Controlled change management.</span></span>
     </div>
 
     <!-- 3 -->
@@ -535,10 +310,10 @@
         <h3>Root Cause Intelligence</h3>
       </div>
       <p class="pillar-subtitle">Beyond Error Flags — Toward True Insight</p>
-      <p>Most validation systems stop at error identification. Care2Data goes deeper.</p>
+      <p>Most validation systems stop at error identification. CARE2DATA goes deeper.</p>
       <p>Our Knowledge Core provides diagnostic explainable AI reasoning—explaining causal pathways behind
         discrepancies and integrity violations.</p>
-      <span class="pillar-result">Result: Sustainable fixes instead of repetitive corrections.</span>
+      <span class="pillar-result">Result: <span>Sustainable fixes instead of repetitive corrections.</span></span>
     </div>
 
     <!-- 4 -->
@@ -551,7 +326,7 @@
       <p>Semantic Intelligence enables proactive discovery of ripple effects across datasets and reports.</p>
       <p>The platform not only identifies downstream impact but also recommends corrective pathways aligned with
         conformance and plausibility standards.</p>
-      <span class="pillar-result">Result: Intelligent decision support across the entire clinical data lifecycle.</span>
+      <span class="pillar-result">Result: <span>Intelligent decision support across the entire clinical data lifecycle.</span></span>
     </div>
 
   </div>
@@ -583,8 +358,8 @@
   <div class="section-header">
     <p class="section-eyebrow">Models of Engagement</p>
     <h2>Built to Work Alongside Your Team</h2>
-    <p class="section-subtext">Care2Data partners with sponsors to embed semantic intelligence into clinical
-      operations—without disrupting existing systems.</p>
+    <p class="section-subtext">CARE2DATA partners with sponsors to embed semantic intelligence into clinical
+      operations—<span style="color: #f5c36e;">without disrupting existing systems.</span></p>
   </div>
 
   <div class="engagement-grid">
@@ -631,9 +406,9 @@
 
     <!-- Left: Copy -->
     <div class="solution-copy">
-      <span class="section-eyebrow">The Care2Data Solution</span>
+      <span class="section-eyebrow">The CARE2DATA Solution</span>
       <h2>The Knowledge-Driven Validation Framework</h2>
-      <p>Care2Data transforms fragmented clinical data into structured, governed, and reasoning-enabled intelligence —
+      <p>CARE2DATA transforms fragmented clinical data into structured, governed, and reasoning-enabled intelligence —
         without replacing your existing systems.</p>
       <p>Validation doesn't need more rules. It needs understanding.
         This is how intelligence becomes operational.</p>
@@ -684,7 +459,7 @@
     <div class="kwalify-layout">
       <div class="kwalify-copy">
         <p class="kwalify-intro">
-          <strong>Kwalify™</strong> operationalizes Care2Data's knowledge-driven validation framework—transforming
+          <strong>Kwalify™</strong> operationalizes CARE2DATA's knowledge-driven validation framework—transforming
           clinical data validation from rule-based execution into intelligence-driven assurance.
           <br><br>
           Purpose-built for complex clinical validation workflows, <strong>Kwalify™</strong> embeds semantic
@@ -804,7 +579,7 @@
   <div class="section-header">
     <p class="section-eyebrow">Built for Clinical Teams</p>
     <h2>Built for Detail-Oriented Clinical Teams</h2>
-    <p class="section-subtext">Care2Data is designed for teams who demand precision in clinical data
+    <p class="section-subtext">CARE2DATA is designed for teams who demand precision in clinical data
       validation—whether managing a single study or complex, multi-study programs.</p>
     <div class="highlights-quotes">
       <div class="hq-phrase hq-phrase--1">For Clinical Teams Who Lead With Knowledge.</div>
@@ -849,7 +624,7 @@
       <h2>Serious Software for Serious Science.</h2>
       <p class="why-quote">
         We didn't build a generic data tool.<br>
-        We built a regulatory tool.
+        We built a regulatory compliant tool.
       </p>
     </div>
 
@@ -893,8 +668,8 @@
     <div>
       <p class="cta-eyebrow">Experience submission-ready intelligence</p>
       <h2><strong>Kwalify™</strong> is not merely a validation tool.</h2>
-      <p>It is a Semantic Intelligence platform transforming clinical data governance—where Knowledge fuels
-        Quality, Integrity, Conformance, and Plausibility by design.</p>
+      <p>It is a <span style="color:#f5c36e;">Semantic Intelligence platform</span> transforming clinical data governance—where <span style="color:#f5c36e;">Knowledge fuels</span>
+        Quality, Integrity, Conformance, and Plausibility <span style="color:#f5c36e;">by design.</span></p>
     </div>
     <div class="cta-actions">
       <a routerLink="/contact-us" class="btn btn-primary">Request a Demo →</a>

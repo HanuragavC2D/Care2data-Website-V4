@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Meta, Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+import { ContactFormService } from '../../shared/services/contact-form.service';
+import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
 
 @Component({
   selector: 'app-contact',
-  imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule,
-    CommonModule, ReactiveFormsModule, HttpClientModule, MatButtonModule],
+  imports: [MatFormFieldModule, MatSelectModule, MatInputModule,
+    CommonModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
@@ -20,8 +21,13 @@ export class Contact {
   contactForm!: FormGroup;
   submitted = false;
   isLoading = false;
-  constructor(private fb: FormBuilder, private titleService: Title, private metaService: Meta,
-    private http: HttpClient, private toastr: ToastrService
+
+  constructor(
+    private fb: FormBuilder,
+    private titleService: Title,
+    private metaService: Meta,
+    private contactService: ContactFormService,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit() {
@@ -40,7 +46,7 @@ export class Contact {
     // Change Meta url
     this.metaService.updateTag({
       name: 'og:url',
-      content: 'https://gokulgovindharaj.github.io/Care2Data-Website/#/contact-us'
+      content: getCanonicalUrl('contact-us')
     });
 
     // Change Keywords
@@ -88,35 +94,21 @@ export class Contact {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
     this.isLoading = true;
-    if (this.contactForm.valid) {
-      const formData = {
-        'Name': this.contactForm.value.name,
-        'Email ID': this.contactForm.value.email,
-        'Organization Name': this.contactForm.value.organization,
-        'Area of Interest': this.contactForm.value.interest,
-        'Message': this.contactForm.value.message,
-        _captcha: "false",
-        _subject: "Care2Data : New Contact Message"
-      };
 
-      this.http.post(
-        'https://formsubmit.co/ajax/admin@care2data.com',
-        formData,
-        { headers: { 'Content-Type': 'application/json' } }
-      ).subscribe({
+    if (this.contactForm.valid) {
+      this.contactService.submit(this.contactForm.value).subscribe({
         next: () => {
           this.toastr.success('Message sent successfully!');
           this.contactForm.reset();
           this.isLoading = false;
         },
-        error: (err) => {
-
+        error: () => {
           this.toastr.error('Something went wrong!');
           this.isLoading = false;
-        }
+        },
       });
     } else {
       this.toastr.error('Please fill all required fields.');
