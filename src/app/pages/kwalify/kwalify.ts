@@ -147,13 +147,13 @@ export class Kwalify implements OnDestroy {
     {
       icon: 'images/home/white/context-aware.png',
       title: 'Context-Aware Validation',
-      subtitle: `KWALIFY™ evaluates relationships across domains, variables, and study logic—moving beyond isolated rule checks.`,
+      subtitle: `Kwalify™ evaluates relationships across domains, variables, and study logic—moving beyond isolated rule checks.`,
       description1: "Validation logic understands study structure, regulatory expectations, and cross-dataset dependencies."
     },
     {
       icon: 'images/about/white/xai.png',
       title: 'Explainable AI',
-      subtitle: 'For every validation finding, KWALIFY™ generates:',
+      subtitle: 'For every validation finding, Kwalify™ generates:',
       list: [
         'Issue summary',
         'Root cause explanation',
@@ -177,11 +177,11 @@ export class Kwalify implements OnDestroy {
     {
       icon: 'images/home/white/ecosystem.png',
       title: 'Works Within Your Ecosystem',
-      subtitle: 'KWALIFY integrates seamlessly with existing clinical systems including:',
+      subtitle: 'Kwalify™ integrates seamlessly with existing clinical systems including:',
       list: [
-        'Electronic Data Capture (EDC) platforms',
         'Clinical Data Management Systems (CDMS)',
-        'Statistical Analysis Environments'
+        'Statistical Computing Environment (SCE)',
+        'Meta Data Repository Systems (MDR)'
       ],
       footer: `No rip-and-replace. No disruption.`,
     }

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Care2Data — Knowledge Services Brochure</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    color: #1a1a2e;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+
+  /* ── Print: two A4 pages ── */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* ── Page wrapper ── */
+  html, body { margin: 0; padding: 0; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    break-after: page;
+    page-break-after: always;
+  }
+  .page:last-child {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Screen: show pages stacked with gap */
+  @media screen {
+    body { background: #e5e7eb; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .page { box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+  }
+
+  /* ── Colours ── */
+  :root {
+    --navy:      #060c1e;
+    --navy2:     #0d1b3e;
+    --gold:      #f5c36e;
+    --gold-bdr:  rgba(245,195,110,0.35);
+    --text:      #1a1a2e;
+    --muted:     #4b5563;
+    --light:     #f8f9fb;
+    --border:    #e2e8f0;
+  }
+
+  /* ════════════════════════════════════════════
+     PAGE 1
+  ════════════════════════════════════════════ */
+
+  /* ── Header band ── */
+  .p1-header {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-bottom: 1px solid var(--gold-bdr);
+    padding: 14mm 18mm 10mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .p1-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -20px; right: -20px;
+    height: 80px;
+    background: #fff;
+    transform: rotate(-2deg);
+  }
+
+  .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .brand-dot {
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .brand-name {
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .p1-title {
+    font-size: 28pt;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    max-width: 140mm;
+  }
+  .p1-title span { color: var(--gold); }
+
+  .p1-tagline {
+    font-size: 10pt;
+    color: rgba(255,255,255,0.82);
+    max-width: 130mm;
+    line-height: 1.65;
+    margin-top: 10px;
+  }
+
+  .p1-badge {
+    position: absolute;
+    top: 22mm; right: 18mm;
+    background: rgba(245,195,110,0.12);
+    border: 1.5px solid rgba(245,195,110,0.4);
+    border-radius: 50%;
+    width: 36mm; height: 36mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--gold);
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .p1-badge strong { font-size: 14pt; display: block; letter-spacing: 0; }
+
+  /* ── Intro block ── */
+  .p1-intro {
+    padding: 8mm 18mm 4mm;
+  }
+  .p1-intro p {
+    font-size: 9.5pt;
+    color: #4b5563;
+    line-height: 1.7;
+    text-align: justify;
+  }
+  .p1-intro strong { color: #1a1a2e; }
+
+  /* ── Offerings grid ── */
+  .p1-offerings {
+    padding: 0 18mm 6mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm;
+  }
+
+  .offering-card {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 5mm;
+    padding: 5mm 6mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .offering-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .offering-card.c1::before { background: #38bdf8; }
+  .offering-card.c2::before { background: var(--gold); }
+  .offering-card.c3::before { background: #34d399; }
+  .offering-card.c4::before { background: #c084fc; }
+  .offering-card.c5::before { background: #fb923c; }
+
+  .offering-num {
+    font-size: 6.5pt;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .c1 .offering-num { color: #38bdf8; }
+  .c2 .offering-num { color: #d4963a; }
+  .c3 .offering-num { color: #34d399; }
+  .c4 .offering-num { color: #c084fc; }
+  .c5 .offering-num { color: #fb923c; }
+
+  .offering-title {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+    line-height: 1.25;
+  }
+
+  .offering-desc {
+    font-size: 8.5pt;
+    color: #4b5563;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  /* 5th card spans full width */
+  .offering-card.full { grid-column: 1 / -1; }
+
+  /* ── Footer strip page 1 ── */
+  .p1-footer {
+    background: #f8f9fb;
+    border-top: 1px solid #e2e8f0;
+    padding: 4mm 18mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+  .p1-footer-text {
+    font-size: 7.5pt;
+    color: #4b5563;
+  }
+  .p1-footer-url {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: #0f2a5c;
+  }
+
+  /* ════════════════════════════════════════════
+     PAGE 2
+  ════════════════════════════════════════════ */
+
+  .p2-topbar {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-bottom: 1px solid var(--gold-bdr);
+    padding: 6mm 18mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .p2-topbar-brand {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .p2-topbar-title {
+    font-size: 8pt;
+    color: rgba(255,255,255,0.82);
+  }
+
+  .p2-body {
+    padding: 8mm 18mm 8mm;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .p2-section-title {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 6mm;
+    padding-bottom: 3mm;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  /* ── Capability table ── */
+  .cap-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8mm;
+  }
+  .cap-table th {
+    background: linear-gradient(135deg, #0d1b3e 0%, #102c50 100%);
+    color: #fff;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3mm 4mm;
+    text-align: left;
+    border-bottom: 2px solid var(--gold);
+  }
+  .cap-table td {
+    font-size: 8.5pt;
+    color: #1a1a2e;
+    padding: 2.5mm 4mm;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+  .cap-table tr:nth-child(even) td { background: #f8f9fb; }
+  .cap-table .cap-name {
+    font-weight: 700;
+    white-space: nowrap;
+    width: 42mm;
+    color: #1a1a2e;
+  }
+  .cap-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  /* ── Pipeline ── */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 6mm 0 8mm;
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-radius: 4mm;
+    overflow: hidden;
+  }
+  .pipeline-step {
+    flex: 1;
+    text-align: center;
+    padding: 4mm 3mm;
+    font-size: 8pt;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .pipeline-step::after {
+    content: '→';
+    position: absolute;
+    right: -4px;
+    top: 50%; transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 10pt;
+    z-index: 1;
+  }
+  .pipeline-step:last-child::after { display: none; }
+  .pipeline-step span {
+    display: block;
+    font-size: 6pt;
+    font-weight: 400;
+    color: rgba(255,255,255,0.72);
+    margin-top: 1mm;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Two-column outcomes ── */
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm;
+    margin-bottom: 8mm;
+  }
+
+  .outcomes-col h4 {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 3mm;
+    padding-bottom: 2mm;
+    border-bottom: 1.5px solid var(--gold);
+  }
+
+  .outcomes-list {
+    list-style: none;
+    padding: 0;
+  }
+  .outcomes-list li {
+    font-size: 8.5pt;
+    color: #4b5563;
+    padding: 1.5mm 0 1.5mm 5mm;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+    line-height: 1.5;
+  }
+  .outcomes-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 7pt;
+    top: 2mm;
+  }
+
+  /* ── Closing note ── */
+  .closing-note {
+    background: #fdf9f0;
+    border-left: 4px solid var(--gold);
+    padding: 4mm 6mm;
+    font-size: 9pt;
+    color: #1a1a2e;
+    line-height: 1.7;
+    border-radius: 0 3mm 3mm 0;
+    margin-bottom: 8mm;
+    text-align: justify;
+  }
+  .closing-note strong { color: #0f2a5c; }
+
+  /* ── CTA box ── */
+  .cta-box {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border: 1px solid var(--gold-bdr);
+    border-radius: 4mm;
+    padding: 6mm 8mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cta-box-text h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 2mm;
+  }
+  .cta-box-text p {
+    font-size: 8pt;
+    color: rgba(255,255,255,0.6);
+  }
+  .cta-box-contact {
+    text-align: right;
+  }
+  .cta-box-contact p {
+    font-size: 8.5pt;
+    color: var(--gold);
+    font-weight: 600;
+    line-height: 1.8;
+  }
+
+  /* ── Print button (screen only) ── */
+  .print-btn {
+    position: fixed;
+    top: 16px; right: 16px;
+    background: #060c1e;
+    color: #f5c36e;
+    border: 1.5px solid #f5c36e;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 999;
+    letter-spacing: 0.05em;
+  }
+  .print-btn:hover { background: rgba(245,195,110,0.1); }
+
+  @media print {
+    .print-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">⬇ Save as PDF</button>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 — Overview of 5 Offerings
+══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- Header -->
+  <div class="p1-header">
+    <div class="brand-line">
+      <div class="brand-dot"></div>
+      <span class="brand-name">Care2Data</span>
+    </div>
+    <div class="p1-title">Knowledge<br>Services<br><span>Solution Offerings</span></div>
+    <p class="p1-tagline">
+      Transforming fragmented clinical, regulatory, and scientific data into a governed
+      knowledge ecosystem powered by semantic intelligence and Kwalify&#8482;-enabled validation.
+    </p>
+    <div class="p1-badge">
+      <strong>5</strong>
+      Service<br>Offerings
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="p1-intro">
+    <p>
+      CARE2DATA enables life sciences organizations to move beyond fragmented data systems by engineering
+      <strong>interlinked knowledge-driven platforms</strong> that bring structure, context, and intelligence
+      to clinical data workflows. By combining ontology frameworks, knowledge graphs, and explainable AI,
+      we connect entities, relationships, and regulatory context—enabling
+      <strong>intelligent validation, verification, and discovery</strong> across the clinical data lifecycle.
+    </p>
+  </div>
+
+  <!-- 5 Offering Cards -->
+  <div class="p1-offerings">
+
+    <div class="offering-card c1">
+      <div class="offering-num">Offering 01</div>
+      <div class="offering-title">Knowledge Modelling</div>
+      <div class="offering-desc">
+        Engineering structured semantic representations of clinical entities, regulatory dependencies,
+        workflows, and scientific relationships — the foundation for context-aware validation and reasoning.
+        Delivered through ontology &amp; taxonomy design, semantic model engineering, and CDISC standards alignment.
+      </div>
+    </div>
+
+    <div class="offering-card c2">
+      <div class="offering-num">Offering 02</div>
+      <div class="offering-title">Knowledge Repository Creation &amp; Setup</div>
+      <div class="offering-desc">
+        Operationalise knowledge models within scalable knowledge graph infrastructure, creating a unified
+        semantic source of truth across clinical datasets and systems.
+        Covers graph database setup, data ingestion pipelines, and API integration.
+      </div>
+    </div>
+
+    <div class="offering-card c3">
+      <div class="offering-num">Offering 03</div>
+      <div class="offering-title">Knowledge Discovery &amp; Reasoning</div>
+      <div class="offering-desc">
+        Enable contextual discovery, relationship analysis, anomaly detection, and knowledge-driven clinical
+        data validation and verification through reasoning-enabled systems.
+        Leverages SPARQL querying, explainable AI, and automated anomaly detection.
+      </div>
+    </div>
+
+    <div class="offering-card c4">
+      <div class="offering-num">Offering 04</div>
+      <div class="offering-title">Governance &amp; Lifecycle Management</div>
+      <div class="offering-desc">
+        Implement governance frameworks, traceability mechanisms, and regulatory compliance controls —
+        ensuring long-term reliability, audit readiness, and alignment with evolving standards.
+        Includes version control, access management, and regulatory mapping.
+      </div>
+    </div>
+
+    <div class="offering-card c5 full">
+      <div class="offering-num">Offering 05</div>
+      <div class="offering-title">Training &amp; Capability Transfer (BOT Model)</div>
+      <div class="offering-desc">
+        Equip sponsor and partner teams with the knowledge and capabilities to manage, operate, and extend
+        these systems independently — following a <strong>Build, Operate, and Transfer (BOT)</strong> model.
+        Includes hands-on workshops, documentation, and ongoing support during transition.
+        Each service offering layer reinforces the next — transforming fragmented datasets into
+        interlinked, reasoning-enabled clinical intelligence.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="p1-footer">
+    <span class="p1-footer-text">CARE2DATA Knowledge Services &nbsp;|&nbsp; Confidential</span>
+    <span class="p1-footer-url">www.care2data.com &nbsp; · &nbsp; info@care2data.com</span>
+  </div>
+
+</div><!-- /page 1 -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 — Capabilities, Pipeline & Outcomes
+══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- Top bar -->
+  <div class="p2-topbar">
+    <span class="p2-topbar-brand">Care2Data</span>
+    <span class="p2-topbar-title">Knowledge Services — Capabilities &amp; Outcomes</span>
+  </div>
+
+  <div class="p2-body">
+
+    <!-- Section heading -->
+    <p class="p2-section-title">Key Capabilities per Offering</p>
+
+    <!-- Capability table -->
+    <table class="cap-table">
+      <thead>
+        <tr>
+          <th>Offering</th>
+          <th>Core Capabilities</th>
+          <th>Key Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#38bdf8"></span>Knowledge Modelling</td>
+          <td>Ontology design · Taxonomy frameworks · RDF/linked data · CDISC alignment</td>
+          <td>Context-aware validation foundation</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#f5c36e"></span>Knowledge Repository</td>
+          <td>Graph DB setup · Data ingestion pipelines · API &amp; system integration · Semantic querying</td>
+          <td>Unified semantic source of truth</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#34d399"></span>Discovery &amp; Reasoning</td>
+          <td>SPARQL querying · Explainable AI · Anomaly detection · Cross-study reasoning</td>
+          <td>Reasoning-driven clinical intelligence</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#c084fc"></span>Governance &amp; Lifecycle</td>
+          <td>Version control · Audit trails · Access management · Regulatory mapping</td>
+          <td>Audit-ready compliance posture</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#fb923c"></span>Training &amp; BOT</td>
+          <td>Workshops · Documentation · Capability transfer · Ongoing advisory support</td>
+          <td>Self-sufficient in-house capability</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pipeline -->
+    <p class="p2-section-title" style="margin-top:6mm;">End-to-End Knowledge Transformation</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">Data<span>Raw Clinical Data</span></div>
+      <div class="pipeline-step">Interlinked Knowledge<span>Structured &amp; Connected</span></div>
+      <div class="pipeline-step">Clinical Intelligence<span>Validated &amp; Reasoned</span></div>
+      <div class="pipeline-step">Quantifiable Impact<span>Submission-Ready</span></div>
+    </div>
+
+    <!-- Two-column outcomes -->
+    <div class="outcomes-grid">
+      <div class="outcomes-col">
+        <h4>Transforms Fragmented Data Into</h4>
+        <ul class="outcomes-list">
+          <li>Structured semantic knowledge systems</li>
+          <li>Governed, reasoning-enabled intelligence</li>
+          <li>Submission-ready validation &amp; verification frameworks</li>
+          <li>Sustainable competitive advantage in R&amp;D</li>
+        </ul>
+      </div>
+      <div class="outcomes-col">
+        <h4>Measurable Outcomes</h4>
+        <ul class="outcomes-list">
+          <li>Reduced time to insight</li>
+          <li>Improved research productivity</li>
+          <li>Stronger regulatory compliance posture</li>
+          <li>Data-driven decision systems across clinical programs</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Closing note -->
+    <div class="closing-note">
+      This integrated approach — powered by <strong>Kwalify&#8482;</strong> — establishes a new operating model
+      for clinical data validation, verification, and knowledge-driven research systems, enabling life sciences
+      organizations to move beyond fragmented datasets toward <strong>connected, context-aware, and
+      submission-ready knowledge systems.</strong>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <div class="cta-box-text">
+        <h4>Ready to Lead with Clinical Intelligence?</h4>
+        <p>Talk to our team about your clinical data challenges and how Knowledge Services can help.</p>
+      </div>
+      <div class="cta-box-contact">
+        <p>www.care2data.com</p>
+        <p>info@care2data.com</p>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /page 2 -->
+
+</body>
+</html>

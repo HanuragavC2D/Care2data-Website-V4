@@ -264,7 +264,7 @@ $section-pad-sm: 2.5rem 1.25rem;
 .about-research  { background: linear-gradient(180deg, #08132a 0%, #071022 100%); }
 .about-partners  { background: linear-gradient(180deg, #07102a 0%, #0b1836 100%); }
 .about-vm        { background: linear-gradient(180deg, #060c21 0%, #08132a 100%); }
-.about-leadership { background: linear-gradient(180deg, #08132a 0%, #081630 100%); }
+.about-leadership { background: linear-gradient(180deg, #08132a 0%, #081630 100%); scroll-margin-top: 72px; }
 .about-timeline  { background: linear-gradient(180deg, #08122f 0%, #071022 100%); }
 .about-closer    { background: linear-gradient(180deg, #071022 0%, #060e1e 100%); }
 
@@ -724,11 +724,88 @@ $section-pad-sm: 2.5rem 1.25rem;
 ═══════════════════════════════════════════════════════════════ */
 
 .about-leaders-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
   max-width: $inner-width;
   margin: 0 auto;
+}
+
+// ── Photo card (Fractal-style) ────────────────────────────────
+.leader-photo-card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 260px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+
+    .leader-photo-overlay { opacity: 1; }
+    img { border-color: $gold; box-shadow: 0 0 0 6px rgba(245,195,110,0.18); }
+  }
+}
+
+.leader-photo-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    border: 3px solid rgba(245,195,110,0.35);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+}
+
+.leader-photo-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(6,12,30,0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  backdrop-filter: blur(2px);
+
+  span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: $gold;
+    letter-spacing: 0.06em;
+  }
+}
+
+.leader-photo-info {
+  text-align: center;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 0.3rem;
+  }
+
+  .leader-role {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $gold;
+    letter-spacing: 0.04em;
+  }
 }
 
 .about-leader-card {
@@ -1601,7 +1678,7 @@ $section-pad-sm: 2.5rem 1.25rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .onto-content {
@@ -1618,15 +1695,15 @@ $section-pad-sm: 2.5rem 1.25rem;
 .onto-diagram-wrap {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  flex-shrink: 0;
-  padding-top: 2.5rem;
+  align-items: center;
+  height: 100%;
+  transform: translateY(-7%);
 }
 
 .onto-diagram-svg {
-  width: 420px;
+  width: auto;
+  height: 90%;
   max-width: 100%;
-  height: auto;
   overflow: visible;
 }
 

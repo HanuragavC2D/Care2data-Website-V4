@@ -30,9 +30,12 @@ export class App implements OnInit {
   constructor(private router: Router) {
     this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
-      .subscribe(() => {
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
+      .subscribe((e: any) => {
+        // Don't reset scroll when navigating to a fragment anchor
+        if (!e.urlAfterRedirects?.includes('#')) {
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        }
       });
   }
 

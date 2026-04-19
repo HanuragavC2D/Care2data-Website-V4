@@ -33,7 +33,7 @@ export class SyntheticGen {
     // Change Meta url
     this.metaService.updateTag({
       name: 'og:url',
-      content: getCanonicalUrl('synthetic-gen')
+      content: getCanonicalUrl('trialgen')
     });
 
     // Change Keywords

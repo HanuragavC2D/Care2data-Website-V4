@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ContactFormService } from '../../shared/services/contact-form.service';
 import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
@@ -28,6 +29,7 @@ export class Contact {
     private metaService: Meta,
     private contactService: ContactFormService,
     private toastr: ToastrService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -92,6 +94,12 @@ export class Contact {
         ]
       ]
     });
+
+    // Pre-fill Area of Interest from query param (e.g. ?interest=Request+an+Executive+Demo)
+    const preselect = this.route.snapshot.queryParamMap.get('interest');
+    if (preselect) {
+      this.contactForm.patchValue({ interest: preselect });
+    }
   }
 
   onSubmit(): void {

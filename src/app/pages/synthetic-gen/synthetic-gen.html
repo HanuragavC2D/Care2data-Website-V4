@@ -12,7 +12,7 @@
             </h1>
 
             <p style="color: rgba(248,250,252,0.82); font-size: 1rem; line-height: 1.85; margin-bottom: 1rem; max-width: 520px;">
-                SyntheticGEN™ enables the generation of statistically consistent, regulation-aware synthetic
+                TrialGen™ enables the generation of statistically consistent, regulation-aware synthetic
                 clinical datasets — allowing teams to test, validate, and refine workflows without exposure to
                 sensitive patient data.
             </p>
@@ -23,8 +23,8 @@
             </p>
 
             <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-                <button routerLink="/contact-us" class="btn btn-primary">Explore SyntheticGEN™ →</button>
-                <button routerLink="/contact-us" class="btn btn-outline">Request a Demo →</button>
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore our Services'}" class="btn btn-primary">Explore TrialGen™ →</button>
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-outline">Request a Demo →</button>
             </div>
         </div>
 
@@ -44,13 +44,13 @@
     <div class="sg-inner">
 
         <div class="sg-section-header">
-            <span class="sg-eyebrow">The Problem</span>
+            <span class="sg-eyebrow">The Problem &amp; Shift</span>
             <h2>Clinical Validation is <span>Limited by Data Access</span></h2>
             <p>Clinical data teams often face a fundamental constraint — real data is either unavailable, restricted,
                 or incomplete when it's needed most.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start;">
+        <div class="sg-problem-grid">
 
             <!-- LEFT — Bottleneck list -->
             <div>
@@ -75,20 +75,22 @@
                         <span>Privacy and compliance risks restrict data usage across teams</span>
                     </li>
                 </ul>
-                <p style="color: rgba(248,250,252,0.78); font-size: 0.925rem; line-height: 1.75;">
-                    As a result, systems are often validated reactively, not proactively.
-                </p>
             </div>
 
             <!-- RIGHT — Shift card -->
             <div class="sg-shift-card">
                 <span class="sg-shift-label">The Shift</span>
-                <h3>SyntheticGEN™ removes this dependency — enabling teams to simulate realistic clinical datasets on
+                <h3>TrialGen™ removes this dependency — enabling teams to simulate realistic clinical datasets on
                     demand and validate systems before real data is available.</h3>
-                <button routerLink="/contact-us" class="btn btn-primary">Understand the Approach →</button>
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore our Services'}" class="btn btn-primary">Understand the Approach →</button>
             </div>
 
         </div>
+
+        <!-- Reactive sentence — full width, below both columns -->
+        <p class="sg-reactive-note">
+            As a result, systems are often validated <strong>reactively</strong>, not <strong>proactively</strong>.
+        </p>
 
     </div>
 </section>
@@ -98,11 +100,11 @@
     <div class="sg-inner">
 
         <div class="sg-section-header">
-            <span class="sg-eyebrow">Platform</span>
+            <span class="sg-eyebrow">What TrialGen™ Enables</span>
             <h2>Safe, Scalable Testing for <span>Clinical Data Systems</span></h2>
-            <p>SyntheticGEN™ creates high-fidelity synthetic datasets that replicate the structure, relationships, and
+            <p>TrialGen™ creates high-fidelity synthetic datasets that replicate the structure, relationships, and
                 statistical behavior of real clinical trial data — without compromising privacy or compliance.</p>
-            <p style="margin-top: 0.75rem;">It enables teams to simulate real-world scenarios across study design, data validation, and regulatory
+            <p class="sg-platform-lead">It enables teams to simulate real-world scenarios across study design, data validation, and regulatory
                 workflows, ensuring systems perform as expected before live deployment.</p>
         </div>
 
@@ -139,7 +141,7 @@
         </div>
 
         <div style="text-align: center;">
-            <button routerLink="/contact-us" class="btn btn-primary">See How It Works →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'See How it Works'}" class="btn btn-primary">See How It Works →</button>
         </div>
 
     </div>
@@ -150,23 +152,23 @@
     <div class="sg-inner">
 
         <div class="sg-section-header">
-            <span class="sg-eyebrow">Use Cases &amp; Value</span>
+            <span class="sg-eyebrow">Where It Fits &amp; Why It Matters</span>
             <h2>From Data Constraints <span>to Data Readiness</span></h2>
-            <p>SyntheticGEN™ integrates seamlessly into clinical data workflows — supporting simulation, validation,
+            <p>TrialGen™ integrates seamlessly into clinical data workflows — supporting simulation, validation,
                 and system readiness across the lifecycle.</p>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
 
-            <ul class="sg-list-card">
+            <ul class="sg-list-card sg-list-card--blue">
                 <h3>Use Cases</h3>
                 <li><mat-icon>science</mat-icon><span>Clinical trial simulation before study execution</span></li>
                 <li><mat-icon>settings</mat-icon><span>System and pipeline testing (EDC, SDTM, downstream workflows)</span></li>
-                <li><mat-icon>verified</mat-icon><span>Validation framework testing (including KWALIFY™)</span></li>
+                <li><mat-icon>verified</mat-icon><span>Validation framework testing (including Kwalify™)</span></li>
                 <li><mat-icon>school</mat-icon><span>Training and sandbox environments</span></li>
             </ul>
 
-            <ul class="sg-list-card">
+            <ul class="sg-list-card sg-list-card--green">
                 <h3>Value</h3>
                 <li><mat-icon>bolt</mat-icon><span>Accelerates development and validation cycles</span></li>
                 <li><mat-icon>insights</mat-icon><span>Improves confidence in data and system behavior</span></li>
@@ -178,12 +180,11 @@
 
         <div style="text-align: center; max-width: 700px; margin: 0 auto;">
             <p class="sg-closing-quote">
-                SyntheticGEN™ transforms synthetic data from a workaround into a strategic validation layer.
+                TrialGen™ transforms synthetic data from a workaround into a strategic validation layer.
             </p>
 
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                <button routerLink="/contact-us" class="btn btn-primary">Request a Demo →</button>
-                <button routerLink="/contact-us" class="btn btn-outline">Explore KWALIFY™ →</button>
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request a Demo →</button>
             </div>
         </div>
 

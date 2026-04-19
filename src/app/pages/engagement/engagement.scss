@@ -133,17 +133,36 @@ $card-border: rgba(255,255,255,0.12);
 
 // "How This Works" cards
 .eng-how-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 1.25rem;
   padding: 1.25rem 1.5rem;
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
 
-  &:hover {
-    background: rgba(255,255,255,0.09);
-    border-color: rgba(245,195,110,0.22);
-    transform: translateY(-3px);
-  }
+// Blue — Strategic Alignment
+.eng-how-card--1 {
+  background: rgba(56,189,248,0.06);
+  border: 1px solid rgba(56,189,248,0.25);
+  box-shadow: 4px 5px 0 rgba(56,189,248,0.18);
+  h3 { color: #38bdf8 !important; }
+  &:hover { transform: translate(-2px,-2px); box-shadow: 6px 7px 0 rgba(56,189,248,0.26); background: rgba(56,189,248,0.10); }
+}
+
+// Green — Deployment
+.eng-how-card--2 {
+  background: rgba(52,211,153,0.06);
+  border: 1px solid rgba(52,211,153,0.25);
+  box-shadow: 4px 5px 0 rgba(52,211,153,0.18);
+  h3 { color: #34d399 !important; }
+  &:hover { transform: translate(-2px,-2px); box-shadow: 6px 7px 0 rgba(52,211,153,0.26); background: rgba(52,211,153,0.10); }
+}
+
+// Purple — Enablement
+.eng-how-card--3 {
+  background: rgba(192,132,252,0.06);
+  border: 1px solid rgba(192,132,252,0.25);
+  box-shadow: 4px 5px 0 rgba(192,132,252,0.18);
+  h3 { color: #c084fc !important; }
+  &:hover { transform: translate(-2px,-2px); box-shadow: 6px 7px 0 rgba(192,132,252,0.26); background: rgba(192,132,252,0.10); }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -284,12 +303,65 @@ section:not(.eng-hero) {
 }
 
 // Progression step cards — auto-numbered
+// ── Outer framework container ─────────────────────────────────
+.eng-framework-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(245,195,110,0.2);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
 .eng-prog-grid {
   counter-reset: prog-counter;
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr) !important; }
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.25rem;
   @media (max-width: 480px) { grid-template-columns: 1fr !important; }
+}
+
+// ── Capability Transfer strip ─────────────────────────────────
+.eng-capability-strip {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(245,195,110,0.2);
+}
+
+.eng-capability-strip__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background: rgba(245,195,110,0.06);
+  border: 1px solid rgba(245,195,110,0.25);
+  border-left: 4px solid #f5c36e;
+  border-radius: 1rem;
+  padding: 1.125rem 1.375rem;
+  transition: background 0.25s ease;
+  &:hover { background: rgba(245,195,110,0.10); }
+}
+
+.eng-capability-strip__num {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #f5c36e;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.eng-capability-strip__title {
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: #f5c36e;
+  margin: 0 0 0.35rem;
+  line-height: 1.3;
+}
+
+.eng-capability-strip__text {
+  font-size: 0.875rem;
+  color: rgba(248,250,252,0.7);
+  line-height: 1.65;
+  margin: 0;
 }
 .eng-prog-card {
   counter-increment: prog-counter;
@@ -355,6 +427,186 @@ section:not(.eng-hero) {
     h4 { color: #c084fc; }
     &:hover { transform: translate(-3px, -3px); box-shadow: 7px 9px 0 rgba(192, 132, 252, 0.18), 0 18px 40px rgba(0,0,0,0.35); }
   }
+}
+
+// ── Bento grid — Organizations Gain ──────────────────────────
+.eng-bento {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.875rem;
+  max-width: 780px;
+  margin: 0 auto 2rem;
+
+  @media (max-width: 640px) { grid-template-columns: 1fr; }
+}
+
+.eng-bento__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.5rem 1.25rem;
+  border: 1px solid;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover { transform: translateY(-3px); }
+
+  // Row 1: 01 wide (3) | 02 narrow (2)
+  &--1 { grid-column: 1 / 4; grid-row: 1; }
+  &--2 { grid-column: 4 / 6; grid-row: 1; }
+  // Row 2: 03 narrow (2) | 04 wide (3) — flipped
+  &--3 { grid-column: 1 / 3; grid-row: 2; }
+  &--4 { grid-column: 3 / 6; grid-row: 2; }
+
+  &--1 {
+    background: linear-gradient(135deg, rgba(56,189,248,0.10) 0%, rgba(56,189,248,0.03) 100%);
+    border-color: rgba(56,189,248,0.25);
+    box-shadow: 0 0 0 1px rgba(56,189,248,0.08), 4px 6px 0 rgba(56,189,248,0.15);
+    .eng-bento__num  { color: rgba(56,189,248,0.15); }
+    .eng-bento__icon { color: #38bdf8; }
+    .eng-bento__title { color: #38bdf8; }
+  }
+  &--2 {
+    background: linear-gradient(135deg, rgba(245,195,110,0.10) 0%, rgba(245,195,110,0.03) 100%);
+    border-color: rgba(245,195,110,0.25);
+    box-shadow: 0 0 0 1px rgba(245,195,110,0.08), 4px 6px 0 rgba(245,195,110,0.15);
+    .eng-bento__num  { color: rgba(245,195,110,0.15); }
+    .eng-bento__icon { color: #f5c36e; }
+    .eng-bento__title { color: #f5c36e; }
+  }
+  &--3 {
+    background: linear-gradient(135deg, rgba(52,211,153,0.10) 0%, rgba(52,211,153,0.03) 100%);
+    border-color: rgba(52,211,153,0.25);
+    box-shadow: 0 0 0 1px rgba(52,211,153,0.08), 4px 6px 0 rgba(52,211,153,0.15);
+    .eng-bento__num  { color: rgba(52,211,153,0.15); }
+    .eng-bento__icon { color: #34d399; }
+    .eng-bento__title { color: #34d399; }
+  }
+  &--4 {
+    background: linear-gradient(135deg, rgba(192,132,252,0.10) 0%, rgba(192,132,252,0.03) 100%);
+    border-color: rgba(192,132,252,0.25);
+    box-shadow: 0 0 0 1px rgba(192,132,252,0.08), 4px 6px 0 rgba(192,132,252,0.15);
+    .eng-bento__num  { color: rgba(192,132,252,0.15); }
+    .eng-bento__icon { color: #c084fc; }
+    .eng-bento__title { color: #c084fc; }
+  }
+}
+
+.eng-bento__num {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  letter-spacing: -0.04em;
+}
+
+.eng-bento__icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.eng-bento__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.eng-bento__text {
+  font-size: 0.85rem;
+  color: rgba(248,250,252,0.72);
+  line-height: 1.65;
+  margin: 0;
+}
+
+// ── Manifesto statement block ─────────────────────────────────
+.eng-manifesto {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eng-manifesto__tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f5c36e;
+  border: 1px solid rgba(245,195,110,0.35);
+  border-radius: 2rem;
+  padding: 0.3rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.eng-manifesto__contrast {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.eng-manifesto__faded {
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-weight: 500;
+  color: rgba(248,250,252,0.35);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.eng-manifesto__bold {
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  font-weight: 900;
+  color: rgba(248,250,252,0.95);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+
+  span {
+    color: #f5c36e;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      bottom: -3px;
+      height: 3px;
+      background: linear-gradient(90deg, #f5c36e, transparent);
+      border-radius: 2px;
+    }
+  }
+}
+
+.eng-manifesto__card {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1.25rem;
+  padding: 1.75rem 2rem;
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+
+  p {
+    font-size: 1.05rem;
+    color: rgba(248,250,252,0.72);
+    line-height: 1.85;
+    margin: 0;
+    strong {
+      color: rgba(248,250,252,0.95);
+      font-weight: 700;
+    }
+  }
+}
+
+.eng-manifesto__card-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f5c36e 0%, rgba(245,195,110,0.3) 60%, transparent 100%);
 }
 
 // Flow transition pills

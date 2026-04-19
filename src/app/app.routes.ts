@@ -14,6 +14,7 @@ import { TermsConditions } from './pages/terms-conditions/terms-conditions';
 import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy';
 import { Accessibility } from './pages/accessibility/accessibility';
 import { ModelsExplore } from './pages/models-explore/models-explore';
+import { TeamProfile } from './pages/team-profile/team-profile';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -25,12 +26,13 @@ export const routes: Routes = [
   { path: 'news', component: News },
   { path: 'engagement-models', component: Engagement },
   { path: 'models-explore', component: ModelsExplore },
-  { path: 'synthetic-gen', component: SyntheticGen },
+  { path: 'trialgen', component: SyntheticGen },
   { path: 'clinical-intelligence', component: ClinicalIntelligence },
   { path: 'services-explore', component: ServicesExplore },
   { path: 'privacy-policy', component: PrivacyPolicy },
   { path: 'terms-conditions', component: TermsConditions },
   { path: 'accessibility', component: Accessibility },
+  { path: 'team/:id', component: TeamProfile },
   // Wildcard MUST be last
   { path: '**', redirectTo: '' }
 ];

@@ -185,4 +185,15 @@ export class KnowledgeServices {
     clearInterval(this.timer);
     this.startAutoSlide();
   }
+
+  openService(link: string, fragment: string) {
+    const base = window.location.href.split('#')[0];
+    const url = `${base}#/${link}#${fragment}`;
+    // Signal any already-open services-explore tab to scroll to the section
+    const bc = new BroadcastChannel('se-navigate');
+    bc.postMessage({ fragment });
+    bc.close();
+    // Open or focus the named tab
+    window.open(url, 'care2data-services');
+  }
 }

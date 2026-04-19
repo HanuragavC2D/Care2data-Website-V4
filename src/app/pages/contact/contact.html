@@ -62,9 +62,26 @@
           <label class="contact-field-label">Area of Interest</label>
           <mat-form-field appearance="outline">
             <mat-select formControlName="interest" placeholder="Select an area of interest">
-              <mat-option value="About KWALIFY">About KWALIFY</mat-option>
-              <mat-option value="Partnerships">Partnerships</mat-option>
-              <mat-option value="Request for Demo">Request for Demo</mat-option>
+              <mat-optgroup label="General">
+                <mat-option value="Talk to an Expert">Talk to an Expert</mat-option>
+                <mat-option value="Request an Executive Demo">Request an Executive Demo</mat-option>
+                <mat-option value="Explore our Services">Explore our Services</mat-option>
+                <mat-option value="Architect your Engagement">Architect your Engagement</mat-option>
+                <mat-option value="Partnerships">Partnerships</mat-option>
+                <mat-option value="General Inquiry">General Inquiry</mat-option>
+              </mat-optgroup>
+              <mat-optgroup label="Kwalify™ — Validation Platform">
+                <mat-option value="Explore the Validation Framework">Explore the Validation Framework</mat-option>
+                <mat-option value="See How Intelligent Validation Works">See How Intelligent Validation Works</mat-option>
+                <mat-option value="Explore Platform Capabilities">Explore Platform Capabilities</mat-option>
+                <mat-option value="Request a Technical Walkthrough">Request a Technical Walkthrough</mat-option>
+                <mat-option value="Discover the Kwalify Advantage">Discover the Kwalify™ Advantage</mat-option>
+                <mat-option value="Learn About Compliance Architecture">Learn About Compliance Architecture</mat-option>
+                <mat-option value="Speak with a Clinical Data Expert">Speak with a Clinical Data Expert</mat-option>
+              </mat-optgroup>
+              <mat-optgroup label="TrialGen™ — Synthetic Data">
+                <mat-option value="See How it Works">See How it Works</mat-option>
+              </mat-optgroup>
             </mat-select>
           </mat-form-field>
           <p class="contact-field-error"

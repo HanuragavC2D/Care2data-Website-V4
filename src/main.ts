@@ -17,7 +17,7 @@ bootstrapApplication(App, {
     }),
     provideRouter(routes,
       withInMemoryScrolling({
-        scrollPositionRestoration: 'top',
+        scrollPositionRestoration: 'enabled',
         anchorScrolling: 'enabled'
       }),
       withHashLocation()

@@ -1,3 +1,130 @@
+// ── Layout ───────────────────────────────────────────────────
+.se-layout {
+  min-height: 100vh;
+  padding-top: 48px; // reserve space for the tab bar height
+}
+
+// ── Sticky horizontal tab bar ─────────────────────────────────
+.se-tabnav {
+  position: fixed;
+  top: 64px; // sits just below the main navbar
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(6, 12, 30, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.se-tabnav__inner {
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.se-tab-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.04);
+    .se-tab-label { color: rgba(248, 250, 252, 0.82); }
+  }
+
+  &.active {
+    border-bottom-color: #f5c36e;
+    .se-tab-num { color: #f5c36e; }
+    .se-tab-label { color: white; font-weight: 600; }
+  }
+}
+
+.se-tab-num {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.28);
+  transition: color 0.2s;
+}
+
+.se-tab-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.2s;
+}
+
+.se-main {
+  min-width: 0;
+  padding-top: 2.5rem;
+}
+
+// ── Step cards horizontal carousel ────────────────────────────
+.se-steps-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.se-steps-scroll {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 0.5rem;
+  &::-webkit-scrollbar { display: none; }
+
+  .se-step-card {
+    scroll-snap-align: start;
+    flex: 0 0 calc(44% - 0.5rem);
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+.se-steps-arrow {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 195, 110, 0.35);
+  background: rgba(245, 195, 110, 0.06);
+  color: #f5c36e;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.18s ease;
+
+  &:hover {
+    background: rgba(245, 195, 110, 0.16);
+    border-color: rgba(245, 195, 110, 0.7);
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #f5c36e;
+    outline-offset: 2px;
+  }
+}
+
 // V3 Design Tokens
 $gold:        #f5c36e;
 $gold-dim:    rgba(245,195,110,0.18);
@@ -11,8 +138,9 @@ $card-border: rgba(255,255,255,0.12);
 section[id] {
   position: relative;
   overflow: hidden;
-  padding-top: 4rem !important;
-  padding-bottom: 4rem !important;
+  padding-top: 2.5rem !important;
+  padding-bottom: 1.5rem !important;
+  scroll-margin-top: 116px; // navbar (64px) + tab bar (~48px) + 4px buffer
 }
 
 // ── Decorative background number ──────────────────────────────
@@ -121,7 +249,36 @@ section[id] {
   line-height: 1.6;
 }
 
-// ── Enables grid (checkmark pills) ───────────────────────────
+// ── What This Enables — continuous ticker ─────────────────────
+.se-enables-ticker {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.se-enables-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: se-ticker 32s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+
+  .se-enables-item {
+    flex-shrink: 0;
+    width: 280px;
+  }
+}
+
+@keyframes se-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-50% - 0.5rem)); }
+}
+
+// ── Enables grid (fallback — kept for any non-scroll usage) ───
 .se-enables-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -168,20 +325,30 @@ section[id] {
   }
 }
 
-// ── Steps grid (How We Execute) ───────────────────────────────
-.se-steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
+// ── Step counter + connector arrow ────────────────────────────
+.se-steps-scroll {
   counter-reset: step-counter;
+  align-items: center; // vertically centre connectors with cards
 }
 
+.se-step-connector {
+  flex-shrink: 0;
+  color: #f5c36e;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 0.25rem;
+  opacity: 0.7;
+  align-self: center;
+}
+
+// Step card base
 .se-step-card {
-  padding: 1.375rem;
+  padding: 1rem 1.125rem;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 1rem;
-  transition: all 0.25s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   counter-increment: step-counter;
 
   &::before {
@@ -193,13 +360,6 @@ section[id] {
     color: $gold;
     opacity: 0.7;
     margin-bottom: 0.625rem;
-  }
-
-  &:hover {
-    border-color: $gold-border;
-    background: rgba(255,255,255,0.08);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
   }
 
   h4 {
@@ -215,24 +375,60 @@ section[id] {
     color: $white-68;
     line-height: 1.65;
     margin: 0;
+    text-align: justify;
   }
+}
+
+// ── Step card 4-color 3D variants (cycles: blue → gold → green → purple) ──
+.se-step-card:nth-child(4n+1) {
+  background: rgba(56,189,248,0.06);
+  border-color: rgba(56,189,248,0.25);
+  box-shadow: 4px 5px 0 rgba(56,189,248,0.18);
+  &::before { color: #38bdf8; opacity: 1; }
+  &:hover { transform: translate(-2px,-2px); box-shadow: 6px 7px 0 rgba(56,189,248,0.26); background: rgba(56,189,248,0.10); }
+}
+
+.se-step-card:nth-child(4n+2) {
+  background: rgba(245,195,110,0.06);
+  border-color: rgba(245,195,110,0.25);
+  box-shadow: 4px 5px 0 rgba(245,195,110,0.18);
+  &::before { color: #f5c36e; opacity: 1; }
+  &:hover { transform: translate(-2px,-2px); box-shadow: 6px 7px 0 rgba(245,195,110,0.26); background: rgba(245,195,110,0.10); }
+}
+
+.se-step-card:nth-child(4n+3) {
+  background: rgba(52,211,153,0.06);
+  border-color: rgba(52,211,153,0.25);
+  box-shadow: 4px 5px 0 rgba(52,211,153,0.18);
+  &::before { color: #34d399; opacity: 1; }
+  &:hover { transform: translate(-2px,-2px); box-shadow: 6px 7px 0 rgba(52,211,153,0.26); background: rgba(52,211,153,0.10); }
+}
+
+.se-step-card:nth-child(4n+4) {
+  background: rgba(192,132,252,0.06);
+  border-color: rgba(192,132,252,0.25);
+  box-shadow: 4px 5px 0 rgba(192,132,252,0.18);
+  &::before { color: #c084fc; opacity: 1; }
+  &:hover { transform: translate(-2px,-2px); box-shadow: 6px 7px 0 rgba(192,132,252,0.26); background: rgba(192,132,252,0.10); }
 }
 
 // ── Use Case block ────────────────────────────────────────────
 .se-usecase {
   margin-bottom: 2.75rem;
   padding: 1.625rem 1.75rem;
-  background: rgba(65,122,227,0.05);
-  border: 1px solid rgba(65,122,227,0.18);
-  border-top: 3px solid #417ae3;
-  border-radius: 0 0 1rem 1rem;
+  background: rgba(65,122,227,0.04);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-left: 3px solid #f5c36e;
+  border-right: 3px solid #f5c36e;
+  border-radius: 0.5rem;
 
   &__label {
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #60a5fa;
+    color: #f5c36e;
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
@@ -241,7 +437,7 @@ section[id] {
       content: '';
       flex: 1;
       height: 1px;
-      background: rgba(96,165,250,0.22);
+      background: rgba(245,195,110,0.22);
     }
   }
 
@@ -256,6 +452,7 @@ section[id] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.75rem;
+    align-items: end; // content aligned at bottom of each column
   }
 
   &__col-label {
@@ -265,6 +462,17 @@ section[id] {
     letter-spacing: 0.03em;
     margin-bottom: 0.75rem;
     font-style: italic;
+  }
+}
+
+// Right column — larger font highlight
+.se-plain-list--highlight {
+  li {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: rgba(248,250,252,0.95) !important;
+    border-left-color: rgba(245,195,110,0.4) !important;
+    padding-left: 1rem !important;
   }
 }
 
@@ -357,8 +565,9 @@ section[id] {
 }
 
 @media (max-width: 640px) {
-  .se-enables-grid,
-  .se-steps-grid { grid-template-columns: 1fr; }
+  .se-enables-grid { grid-template-columns: 1fr; }
   .se-intro { padding: 1rem 1.25rem 1rem 1.25rem; }
   .se-outcome { padding: 1.25rem 1.375rem; }
+  .se-steps-scroll .se-step-card { flex: 0 0 85%; }
+  .se-steps-wrap { gap: 0.5rem; }
 }

@@ -13,7 +13,7 @@
       <p>Transform fragmented clinical, regulatory, and scientific data into a governed knowledge ecosystem
         powered by semantic intelligence and reasoning-driven AI validation.</p>
       <div class="ks-hero__actions">
-        <a routerLink="/contact-us" class="btn btn-primary">Request a Demo →</a>
+        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request a Demo →</a>
         <a routerLink="/engagement-models" class="btn btn-outline">Explore Services →</a>
       </div>
     </div>
@@ -225,10 +225,9 @@
           </ul>
 
           <div class="mt-auto pt-2">
-            <a [routerLink]="[card.link]" [fragment]="card.fragment" target="_blank"
-              rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            <button (click)="openService(card.link!, card.fragment!)" class="btn btn-primary btn-sm">
               Read More →
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -276,7 +275,7 @@
         </div>
         <div class="ks-combine-item ks-combine-item--4">
           <div class="ks-combine-icon"><mat-icon>verified</mat-icon></div>
-          <span>Platform enablement through KWALIFY</span>
+          <span>Platform enablement through Kwalify&#8482;</span>
         </div>
       </div>
       <p class="ks-combine-footer">
@@ -292,7 +291,7 @@
 
     <div class="ks-prose" style="margin-bottom: 0;">
       <p>CARE2DATA offers <strong>end-to-end validation and verification of clinical trial
-          data</strong> as a dedicated capability—enabled through the KWALIFY platform—ensuring data quality,
+          data</strong> as a dedicated capability—enabled through the Kwalify&#8482; platform—ensuring data quality,
         integrity, consistency, and conformance across the entire clinical trial lifecycle.</p>
       <p>By combining semantic intelligence, reasoning-driven validation, and verification frameworks,
         CARE2DATA enables organizations to identify discrepancies, validate data contextually, and ensure
@@ -316,46 +315,51 @@
         <span class="ks-pipeline__step">Quantifiable Impact</span>
       </div>
 
-      <!-- Subheader -->
-      <p class="ks-e2e-subheader" style="margin-top:1.5rem;">CARE2DATA transforms fragmented clinical and scientific data into:</p>
+      <!-- Two-column layout: Left (transforms) + Right (measurable outcomes) -->
+      <div class="ks-e2e-twin-grid">
 
-      <!-- 2-column bullet grid -->
-      <div class="ks-bullet-grid">
-        <p class="ks-bullet-item">Structured semantic knowledge systems</p>
-        <p class="ks-bullet-item">Governed, reasoning-enabled intelligence</p>
-        <p class="ks-bullet-item">Submission-ready validation and verification frameworks</p>
-        <p class="ks-bullet-item">Sustainable competitive advantage in research and development</p>
+        <!-- Left -->
+        <div class="ks-e2e-col">
+          <p class="ks-e2e-subheader">Transforms fragmented clinical and scientific data into:</p>
+          <div class="ks-bullet-grid ks-bullet-grid--single">
+            <p class="ks-bullet-item">Structured semantic knowledge systems</p>
+            <p class="ks-bullet-item">Governed, reasoning-enabled intelligence</p>
+            <p class="ks-bullet-item">Submission-ready validation and verification frameworks</p>
+            <p class="ks-bullet-item">Sustainable competitive advantage in research and development</p>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="ks-e2e-col">
+          <p class="ks-e2e-subheader">Measurable Outcomes:</p>
+          <div class="ks-check-grid">
+            <div class="ks-check-item">
+              <span class="ks-check">✔</span>
+              <p>Reduced time to insight</p>
+            </div>
+            <div class="ks-check-item">
+              <span class="ks-check">✔</span>
+              <p>Improved research productivity</p>
+            </div>
+            <div class="ks-check-item">
+              <span class="ks-check">✔</span>
+              <p>Stronger regulatory compliance posture</p>
+            </div>
+            <div class="ks-check-item">
+              <span class="ks-check">✔</span>
+              <p>Data-driven decision systems across clinical programs</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Closing note -->
+      <!-- Closing note — full width below both columns -->
       <p class="ks-e2e-note">
-        This integrated approach—powered by KWALIFY—establishes a new operating model for clinical data
+        This integrated approach—powered by Kwalify&#8482;—establishes a new operating model for clinical data
         validation, verification, and knowledge-driven research systems.
       </p>
 
-    </div>
-
-    <!-- Measurable Outcomes — standalone card -->
-    <div class="ks-card ks-e2e-box" style="margin-top: 1.25rem;">
-      <p class="ks-e2e-subheader">Measurable Outcomes:</p>
-      <div class="ks-check-grid">
-        <div class="ks-check-item">
-          <span class="ks-check">✔</span>
-          <p>Reduced time to insight</p>
-        </div>
-        <div class="ks-check-item">
-          <span class="ks-check">✔</span>
-          <p>Improved research productivity</p>
-        </div>
-        <div class="ks-check-item">
-          <span class="ks-check">✔</span>
-          <p>Stronger regulatory compliance posture</p>
-        </div>
-        <div class="ks-check-item">
-          <span class="ks-check">✔</span>
-          <p>Data-driven decision systems across clinical programs</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -367,7 +371,7 @@
   <div class="ks-final-cta__inner">
     <div class="section-header" style="max-width:100%;">
       <p class="section-eyebrow">Get Started</p>
-      <h2 style="white-space:nowrap;font-size:clamp(1.5rem,2.5vw,2.5rem);">Ready to Lead with Interlinked Data &amp; <span>Clinical Intelligence?</span></h2>
+      <h2 style="white-space:nowrap;font-size:clamp(1.5rem,2.5vw,2.5rem);">Ready to Lead with Interlinked Data &amp; <span>Clinical Intelligence</span></h2>
     </div>
 
     <p style="color: rgba(248,250,252,0.82); font-size: 1rem; line-height: 1.85; max-width: 680px; margin: 0 auto 2.5rem;">
@@ -377,7 +381,7 @@
 
     <div class="ks-cta-grid">
       <a routerLink="/contact-us" class="btn btn-primary">Contact Us →</a>
-      <a href="/assets/brochure.pdf" download class="btn btn-outline">Download Brochure →</a>
+      <a href="/assets/brochure.html" target="_blank" class="btn btn-outline">Download Brochure →</a>
     </div>
   </div>
 </section>

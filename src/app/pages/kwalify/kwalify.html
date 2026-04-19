@@ -7,13 +7,20 @@
         </div>
 
         <h1 style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 0.75rem;">
-            KWALIFY™ &nbsp;·&nbsp;
-            <span style="color: #f5c36e;">Intelligent Clinical Data Validation</span>
+            Kwalify™ &nbsp;·&nbsp;
+            <span style="color: #f5c36e;">Semantic Intelligence Driven Validation</span>
         </h1>
 
-        <p style="color: rgba(248,250,252,0.82); font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">
-            Powered by a Linked Clinical Data Model
-        </p>
+        <div class="kw-graphai-ticker">
+          <div class="kw-graphai-track">
+            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+          </div>
+        </div>
 
         <p class="kw-hero-tagline">
             Stop Checking Data.<br>
@@ -21,15 +28,26 @@
         </p>
 
         <p style="color: rgba(248,250,252,0.82); font-size: 1rem; line-height: 1.85; max-width: 700px; margin: 0 auto 1.5rem;">
-            KWALIFY™ operationalizes Care2Data's knowledge-driven validation framework — embedding semantic
+            Kwalify™ operationalizes Care2Data's knowledge-driven validation framework — embedding semantic
             intelligence across linked clinical datasets to strengthen accuracy, traceability, and regulatory
             readiness before submission.
         </p>
 
-        <div class="kw-pills-row">
-            <span class="kw-stat-pill">Fewer queries</span>
-            <span class="kw-stat-pill">Faster validation cycles</span>
-            <span class="kw-stat-pill">Higher accuracy</span>
+        <div class="kw-outcomes-strip">
+            <div class="kw-outcome-item kw-outcome-item--blue">
+                <span class="kw-outcome-icon">↓</span>
+                <span class="kw-outcome-label">Fewer Queries</span>
+            </div>
+            <div class="kw-outcomes-divider"></div>
+            <div class="kw-outcome-item kw-outcome-item--gold">
+                <span class="kw-outcome-icon">⚡</span>
+                <span class="kw-outcome-label">Faster Validation Cycles</span>
+            </div>
+            <div class="kw-outcomes-divider"></div>
+            <div class="kw-outcome-item kw-outcome-item--green">
+                <span class="kw-outcome-icon">✓</span>
+                <span class="kw-outcome-label">Higher Accuracy</span>
+            </div>
         </div>
 
         <p style="font-size: clamp(1rem, 1.8vw, 1.25rem); font-weight: 600; margin: 1.5rem auto 2rem; max-width: 680px; color: white;">
@@ -38,8 +56,8 @@
         </p>
 
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-            <button routerLink="/contact-us" class="btn btn-primary">Request an Executive Demo →</button>
-            <button routerLink="/contact-us" class="btn btn-outline">Explore the Validation Framework →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request an Executive Demo →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore the Validation Framework'}" class="btn btn-outline">Explore the Validation Framework →</button>
         </div>
 
     </div>
@@ -47,25 +65,43 @@
 
 <!-- ═══ BUILT FOR THE REALITY ═══ -->
 <section class="kw-section kw-bg-2">
-    <div class="kw-inner kw-inner--narrow">
+    <div class="kw-inner">
+        <div class="kw-reality-layout">
 
-        <div class="kw-section-header">
-            <span class="kw-eyebrow">The Reality</span>
-            <h2>Built for the Reality of <span>Clinical Validation</span></h2>
-            <p>Modern clinical validation demands more than rule execution — it requires systems that understand complexity, reduce inefficiencies, and scale with evolving study needs.</p>
-        </div>
-
-        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 1.25rem; padding: 1.75rem;">
-            <p style="font-size: 1rem; font-weight: 700; color: #f5c36e; text-align: center; margin-bottom: 1.25rem;">
-                KWALIFY is designed to address these realities through:
-            </p>
-            <div class="kw-check-grid">
-                <div class="kw-check-item"><span>✔</span><p>Purpose-built capabilities for complex clinical validation workflows</p></div>
-                <div class="kw-check-item"><span>✔</span><p>Seamless integration with existing clinical systems</p></div>
-                <div class="kw-check-item" style="grid-column: 1 / -1;"><span>✔</span><p>Elimination of hidden inefficiencies in SDTM validation — where 65% of teams spend 5+ hours per week resolving errors manually</p></div>
+            <!-- Left: 3 stacked key items (solution-card style) -->
+            <div class="kw-reality-cards">
+                <div class="kw-reality-card kw-reality-card--1">
+                    <h3>Purpose-Built Validation</h3>
+                    <p>Capabilities engineered specifically for complex clinical validation workflows — not repurposed from general analytics tools.</p>
+                </div>
+                <div class="kw-reality-card kw-reality-card--2">
+                    <h3>Seamless Integration</h3>
+                    <p>Embeds within existing clinical systems and workflows without requiring replacement or operational disruption.</p>
+                </div>
+                <div class="kw-reality-card kw-reality-card--3">
+                    <h3>Eliminate Hidden Inefficiencies</h3>
+                    <p>65% of teams spend 5+ hours per week resolving SDTM validation errors manually. Kwalify™ eliminates this hidden cost.</p>
+                </div>
             </div>
-        </div>
 
+            <!-- Right: section header + check grid -->
+            <div class="kw-reality-content">
+                <div class="kw-section-header" style="text-align: left; margin-bottom: 1.75rem;">
+                    <span class="kw-eyebrow">The Reality</span>
+                    <h2>Built for the Reality of <span>Clinical Validation</span></h2>
+                    <p style="max-width: 100%;">Modern clinical validation demands more than rule execution — it requires systems that understand complexity, reduce inefficiencies, and scale with evolving study needs.</p>
+                </div>
+                <p style="font-size: 1rem; font-weight: 700; color: #f5c36e; margin-bottom: 1.25rem;">
+                    Kwalify™ is designed to address these realities through:
+                </p>
+                <div class="kw-check-grid">
+                    <div class="kw-check-item"><span>✔</span><p>Purpose-built capabilities for complex clinical validation workflows</p></div>
+                    <div class="kw-check-item"><span>✔</span><p>Seamless integration with existing clinical systems</p></div>
+                    <div class="kw-check-item" style="grid-column: 1 / -1;"><span>✔</span><p>Elimination of hidden inefficiencies in SDTM validation — where 65% of teams spend 5+ hours per week resolving errors manually</p></div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 
@@ -91,14 +127,14 @@
                         <li><span class="kw-dot-red"></span>Provide limited cross-dataset reasoning</li>
                     </ul>
                 </div>
-                <p style="color: #f5c36e; font-style: italic; font-weight: 600; text-align: center; margin-top: 1rem; font-size: 0.9rem;">
-                    They detect symptoms. They do not diagnose causes.
+                <p class="kw-punchline kw-punchline--legacy">
+                    They detect symptoms.<br>They do not diagnose causes.
                 </p>
             </div>
 
             <div>
                 <div class="kw-compare-card kw-compare-card--kwalify">
-                    <h3>KWALIFY™:</h3>
+                    <h3>Kwalify™:</h3>
                     <ul class="kw-compare-list">
                         <li><span class="kw-dot-green"></span>Applies semantic, context-aware validation across linked datasets</li>
                         <li><span class="kw-dot-green"></span>Generates explainable insights — not just pass/fail outcomes</li>
@@ -106,24 +142,26 @@
                         <li><span class="kw-dot-green"></span>Enables cross-domain intelligence and impact-aware validation</li>
                     </ul>
                 </div>
-                <p style="color: #f5c36e; font-style: italic; font-weight: 600; text-align: center; margin-top: 1rem; font-size: 0.9rem;">
-                    It connects signals. It diagnoses causes.
+                <p class="kw-punchline kw-punchline--kwalify">
+                    It connects signals.<br>It diagnoses causes.
                 </p>
             </div>
 
         </div>
 
-        <div style="max-width: 780px; margin: 2rem auto 0;">
-            <div class="kw-solution-intro">
-                <p>KWALIFY™ introduces an intelligence layer for clinical data validation.</p>
+        <div class="kw-why-box">
+            <div class="kw-why-box__inner">
+                <span class="kw-why-eyebrow">Why Kwalify™</span>
+                <h3 class="kw-why-heading">The Intelligence Difference</h3>
+                <p>Kwalify™ introduces a <strong>Semantic intelligence layer</strong> for clinical data validation.</p>
                 <p>By combining semantic reasoning, anomaly verification, and contextual validation across linked
-                    datasets, KWALIFY™ transforms validation from checklist execution into
+                    datasets, Kwalify™ transforms validation from checklist execution into
                     <strong>knowledge-driven assurance</strong>.</p>
-                <p>Instead of identifying violations, KWALIFY™ enables teams to understand the
+                <p>Instead of identifying violations, Kwalify™ enables teams to understand the
                     <strong>cause, impact, and resolution</strong> of data inconsistencies before submission.</p>
             </div>
-            <div style="text-align: center; margin-top: 1.5rem;">
-                <button routerLink="/contact-us" class="btn btn-primary">See How Intelligent Validation Works →</button>
+            <div style="text-align: center; margin-top: 1.75rem;">
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'See How Intelligent Validation Works'}" class="btn btn-primary">See How Intelligent Validation Works →</button>
             </div>
         </div>
 
@@ -137,62 +175,140 @@
         <div class="kw-section-header">
             <span class="kw-eyebrow">Platform Capabilities</span>
             <h2>Built for Clinical Validation — <span>Not Repurposed Analytics</span></h2>
-            <p>Many market solutions evolved from general-purpose data quality tools. KWALIFY™ was engineered specifically for clinical validation, regulatory compliance, and submission workflows.</p>
+            <p>Many market solutions evolved from general-purpose data quality tools. Kwalify™ was engineered specifically for clinical validation, regulatory compliance, and submission workflows.</p>
         </div>
 
-        <!-- Carousel -->
-        <div class="overflow-hidden pt-0 lg:pt-5">
-            <div class="relative h-[390px] lg:h-[330px] flex items-center justify-center perspective-[900px]">
-
-                <div *ngFor="let card of cards; let i = index" (click)="onCardClick(i)"
-                    class="absolute rounded-2xl p-6 w-full md:w-[400px] lg:w-[465px] h-[375px] md:h-[310px] cursor-pointer border transition-all duration-700 ease-[cubic-bezier(0.34,1.2,0.64,1)] kw-carousel-card"
-                    [ngStyle]="getStyles(i)">
-
-                    <div class="kw-card-header">
-                        <div class="kw-card-icon">
-                            <img [src]="card.icon" alt="" class="w-7 h-7 md:w-8 md:h-8 object-contain flex-shrink-0">
-                        </div>
-                        <h3 class="font-semibold">{{ card.title }}</h3>
-                    </div>
-
-                    <p class="text-sm leading-relaxed mb-2" *ngIf="card.subtitle">{{ card.subtitle }}</p>
-                    <p class="text-sm leading-relaxed mb-2" *ngIf="card.description1">{{ card.description1 }}</p>
-
-                    <ul class="text-sm space-y-2" *ngIf="card.list?.length">
-                        <li *ngFor="let item of card.list">• <span class="ml-2">{{ item }}</span></li>
-                    </ul>
-
-                    <p class="text-sm leading-relaxed mt-2" *ngIf="card.footer">{{ card.footer }}</p>
+        <!-- 5-card static grid (3 + 2 centred) -->
+        <div class="kw-caps-grid">
+            <div *ngFor="let card of cards; let i = index" class="kw-cap-card">
+                <div class="kw-cap-icon-wrap">
+                    <img [src]="card.icon" alt="" class="kw-cap-icon-img">
                 </div>
-
-            </div>
-
-            <div class="kw-carousel-dots">
-                <div *ngFor="let d of cards; let i = index" (click)="goTo(i)"
-                    class="kw-carousel-dot" [ngClass]="{'active': i === active}">
-                </div>
+                <h3>{{ card.title }}</h3>
+                <p *ngIf="card.subtitle">{{ card.subtitle }}</p>
+                <p *ngIf="card.description1">{{ card.description1 }}</p>
+                <ul *ngIf="card.list?.length">
+                    <li *ngFor="let item of card.list">{{ item }}</li>
+                </ul>
+                <p *ngIf="card.footer" class="kw-cap-footer">{{ card.footer }}</p>
             </div>
         </div>
 
         <div style="text-align: center; margin-top: 2rem;">
-            <button routerLink="/contact-us" class="btn btn-primary">Explore Platform Capabilities →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore Platform Capabilities'}" class="btn btn-primary">Explore Platform Capabilities →</button>
         </div>
 
     </div>
 </section>
 
-<!-- ═══ HOW KWALIFY OPERATES (SVG FLOW) ═══ -->
+<!-- ═══ HOW Kwalify™ OPERATES ═══ -->
 <section class="kw-section kw-bg-2">
     <div class="kw-inner">
 
         <div class="kw-section-header">
-            <span class="kw-eyebrow">How It Operates</span>
+            <span class="kw-eyebrow">How Kwalify™ Operates</span>
             <h2>Regulatory Confidence — <span>Driven by Accuracy, Consistency, and Scalability</span></h2>
-            <p>KWALIFY™ operates as an intelligence layer across submission datasets.</p>
+            <p>Kwalify™ operates as a semantic intelligence layer across submission datasets — from ingestion to verified, audit-ready output.</p>
         </div>
 
-        <div style="padding-left: 1.25rem;">
-            <svg width="100%" viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" style="overflow: visible;">
+        <!-- 5-Step Infographic -->
+        <div class="kw-operate-flow">
+            <!-- Connector line runs behind the circles -->
+            <div class="kw-osf-track">
+
+                <!-- Step 1 -->
+                <div class="kw-osf-step">
+                    <div class="kw-osf-top">
+                        <div class="kw-osf-circle kw-osf-circle--1">
+                            <img src="images/kwalify/black/storage.png" alt="">
+                        </div>
+                        <span class="kw-osf-num">01</span>
+                    </div>
+                    <div class="kw-osf-body">
+                        <h4>Submission Dataset Ingestion</h4>
+                        <p>Clinical datasets from EDC systems are uploaded into Kwalify™ in standard formats (SAS, CSV) representing submission-ready data structures.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="kw-osf-step">
+                    <div class="kw-osf-top">
+                        <div class="kw-osf-circle kw-osf-circle--2">
+                            <img src="images/kwalify/black/qa.png" alt="">
+                        </div>
+                        <span class="kw-osf-num">02</span>
+                    </div>
+                    <div class="kw-osf-body">
+                        <h4>Regulatory Rule Validation</h4>
+                        <p>Datasets validated against FDA and CDISC rule libraries, ensuring conformance with regulatory data submission expectations.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="kw-osf-step">
+                    <div class="kw-osf-top">
+                        <div class="kw-osf-circle kw-osf-circle--3">
+                            <img src="images/kwalify/black/knowledgemodeling.png" alt="">
+                        </div>
+                        <span class="kw-osf-num">03</span>
+                    </div>
+                    <div class="kw-osf-body">
+                        <h4>Cross-Domain Contextual Validation</h4>
+                        <ul>
+                            <li>Adverse events</li>
+                            <li>Subject lifecycle data</li>
+                            <li>Treatment exposure</li>
+                            <li>Safety signals & endpoints</li>
+                        </ul>
+                        <p>Validation examines data meaning and relationships — not just syntax.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="kw-osf-step">
+                    <div class="kw-osf-top">
+                        <div class="kw-osf-circle kw-osf-circle--4">
+                            <img src="images/kwalify/black/datasetsubmission.png" alt="">
+                        </div>
+                        <span class="kw-osf-num">04</span>
+                    </div>
+                    <div class="kw-osf-body">
+                        <h4>AI-Assisted Root Cause Analysis</h4>
+                        <ul>
+                            <li>Issue summary</li>
+                            <li>Root cause analysis</li>
+                            <li>Regulatory impact</li>
+                            <li>Remediation steps</li>
+                        </ul>
+                        <p>Guided resolution — reducing investigation time significantly.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="kw-osf-step">
+                    <div class="kw-osf-top">
+                        <div class="kw-osf-circle kw-osf-circle--5">
+                            <img src="images/kwalify/white/anomoliesdetect.png" alt="">
+                        </div>
+                        <span class="kw-osf-num">05</span>
+                    </div>
+                    <div class="kw-osf-body">
+                        <h4>Verification Through Anomaly Detection</h4>
+                        <ul>
+                            <li>Temporal inconsistencies</li>
+                            <li>Subject lifecycle contradictions</li>
+                            <li>Sequence conflicts</li>
+                            <li>Unexpected data relationships</li>
+                        </ul>
+                        <p>True data integrity — beyond rule compliance.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- OLD SVG (removed) -->
+        <div style="display:none"><svg width="100%" viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" style="overflow: visible;">
 
                 <defs>
                     <polygon id="arrowShape" points="0,-5 10,0 0,5" fill="#2F6FE8" />
@@ -237,7 +353,7 @@
                     <text font-size="7" x="90" y="131" text-anchor="middle" fill="#222">Ingestion</text>
                     <foreignObject x="10" y="0" width="200" height="90" class="tooltip">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="tooltip-card">
-                            <p class="text-[8px]">Clinical datasets extracted from EDC systems are uploaded into KWALIFY™ in standard formats such as SAS datasets or CSV. These datasets represent the submission-ready data structures required for regulatory filings.</p>
+                            <p class="text-[8px]">Clinical datasets extracted from EDC systems are uploaded into Kwalify™ in standard formats such as SAS datasets or CSV. These datasets represent the submission-ready data structures required for regulatory filings.</p>
                         </div>
                     </foreignObject>
                 </g>
@@ -251,7 +367,7 @@
                     <text font-size="7" x="270" y="131" text-anchor="middle" fill="#222">Validation</text>
                     <foreignObject x="190" y="0" width="200" height="90" class="tooltip">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="tooltip-card">
-                            <p class="text-[8px]">KWALIFY™ validates datasets against established regulatory standards including FDA and CDISC rule libraries. These checks ensure conformance with regulatory data submission expectations.</p>
+                            <p class="text-[8px]">Kwalify™ validates datasets against established regulatory standards including FDA and CDISC rule libraries. These checks ensure conformance with regulatory data submission expectations.</p>
                         </div>
                     </foreignObject>
                 </g>
@@ -287,7 +403,7 @@
                     <text font-size="7" x="90" y="281" text-anchor="middle" fill="#222">Analysis</text>
                     <foreignObject x="10" y="80" width="200" height="170" class="tooltip">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="tooltip-card">
-                            <p class="text-[8px] mb-1" style="color:#2F6FE8; font-weight:600;">When validation issues are detected, KWALIFY™ automatically generates explainable insights including:</p>
+                            <p class="text-[8px] mb-1" style="color:#2F6FE8; font-weight:600;">When validation issues are detected, Kwalify™ automatically generates explainable insights including:</p>
                             <ul class="text-[7px]">
                                 <li>• <span class="ml-2">Issue summary</span></li>
                                 <li>• <span class="ml-2">Root cause analysis</span></li>
@@ -308,7 +424,7 @@
                     <text font-size="7" x="270" y="342" text-anchor="middle" fill="white">Anomaly Detection</text>
                     <foreignObject x="190" y="125" width="200" height="180" class="tooltip">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="tooltip-card">
-                            <p class="text-[8px]">KWALIFY™ introduces an additional layer of assurance: data verification using anomaly detection.</p>
+                            <p class="text-[8px]">Kwalify™ introduces an additional layer of assurance: data verification using anomaly detection.</p>
                             <p class="text-[8px] mb-1" style="color:#2F6FE8; font-weight:600;">While rule validation ensures regulatory conformance, anomaly detection identifies deeper inconsistencies such as:</p>
                             <ul class="text-[7px]">
                                 <li>• <span class="ml-2">Temporal inconsistencies</span></li>
@@ -321,75 +437,266 @@
                     </foreignObject>
                 </g>
 
-            </svg>
-        </div>
+            </svg></div>
 
         <div style="text-align: center; margin-top: 2.5rem;">
-            <button routerLink="/contact-us" class="btn btn-primary">Request a Technical Walkthrough →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request a Technical Walkthrough'}" class="btn btn-primary">Request a Technical Walkthrough →</button>
         </div>
 
     </div>
 </section>
 
-<!-- ═══ OPERATIONAL VISIBILITY ═══ -->
+<!-- ═══ REAL-TIME VALIDATION INTELLIGENCE ═══ -->
 <section class="kw-section kw-bg-3">
-    <div class="kw-inner kw-inner--narrow">
+    <div class="kw-inner">
 
         <div class="kw-section-header">
-            <span class="kw-eyebrow">Dashboard</span>
+            <span class="kw-eyebrow">Real-Time Validation Intelligence</span>
             <h2>Operational Visibility <span>Across Studies</span></h2>
-            <p>KWALIFY™ provides a centralized validation dashboard for monitoring study progress and compliance readiness.</p>
+            <p>Kwalify™ provides a centralized validation dashboard for monitoring study progress and compliance readiness — giving every team member instant, actionable insight.</p>
         </div>
 
-        <p style="font-size: 0.95rem; font-weight: 600; color: #f5c36e; text-align: center; margin-bottom: 1.25rem;">
-            Teams can instantly view:
-        </p>
+        <!-- Intro label above the grid -->
+        <p class="kw-dash-intro">Teams can instantly view:</p>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; margin-bottom: 2rem;">
-            <div class="kw-feature-item">
-                <div class="kw-icon">
-                    <img src="images/kwalify/white/undervalidation.png" alt="">
+        <!-- Two-column: feature list left, dashboard image right — both start/end together -->
+        <div class="kw-dash-layout">
+
+            <!-- Left: 5 feature cards only -->
+            <div class="kw-dash-feature-list">
+                <div class="kw-dash-feat">
+                    <div class="kw-dash-feat__icon">
+                        <img src="images/kwalify/white/undervalidation.png" alt="">
+                    </div>
+                    <div class="kw-dash-feat__text">
+                        <h4>Active Studies Under Validation</h4>
+                        <p>Monitor all ongoing clinical studies in a single, unified view.</p>
+                    </div>
                 </div>
-                <p>Active studies under validation</p>
-            </div>
-            <div class="kw-feature-item">
-                <div class="kw-icon">
-                    <img src="images/kwalify/white/compliancestatus.png" alt="">
+                <div class="kw-dash-feat">
+                    <div class="kw-dash-feat__icon">
+                        <img src="images/kwalify/white/compliancestatus.png" alt="">
+                    </div>
+                    <div class="kw-dash-feat__text">
+                        <h4>Rule Compliance Status</h4>
+                        <p>Real-time conformance tracking against FDA and CDISC rule libraries.</p>
+                    </div>
                 </div>
-                <p>Rule compliance status</p>
-            </div>
-            <div class="kw-feature-item">
-                <div class="kw-icon">
-                    <img src="images/kwalify/white/validationprogress.png" alt="">
+                <div class="kw-dash-feat">
+                    <div class="kw-dash-feat__icon">
+                        <img src="images/kwalify/white/validationprogress.png" alt="">
+                    </div>
+                    <div class="kw-dash-feat__text">
+                        <h4>Validation Progress Milestones</h4>
+                        <p>Track submission readiness against study timelines and deadlines.</p>
+                    </div>
                 </div>
-                <p>Validation progress milestones</p>
-            </div>
-            <div class="kw-feature-item">
-                <div class="kw-icon">
-                    <img src="images/kwalify/white/domainlevelviolation.png" alt="">
+                <div class="kw-dash-feat">
+                    <div class="kw-dash-feat__icon">
+                        <img src="images/kwalify/white/domainlevelviolation.png" alt="">
+                    </div>
+                    <div class="kw-dash-feat__text">
+                        <h4>Domain-Level Violation Summaries</h4>
+                        <p>Instantly identify which domains carry the highest error density.</p>
+                    </div>
                 </div>
-                <p>Domain-level violation summaries</p>
-            </div>
-            <div class="kw-feature-item" style="grid-column: 1 / -1;">
-                <div class="kw-icon">
-                    <img src="images/kwalify/white/validationtrend.png" alt="">
+                <div class="kw-dash-feat">
+                    <div class="kw-dash-feat__icon">
+                        <img src="images/kwalify/white/validationtrend.png" alt="">
+                    </div>
+                    <div class="kw-dash-feat__text">
+                        <h4>Validation Trend Analysis</h4>
+                        <p>Intelligent grouping and prioritization of errors across multiple runs — eliminating manual cluster identification.</p>
+                    </div>
                 </div>
-                <p>Validation trend analysis across multiple runs</p>
             </div>
+
+            <!-- Right: inline dashboard mockup -->
+            <div class="kw-dash-preview">
+                <div class="kw-dash-preview__frame">
+
+                    <!-- Browser chrome bar -->
+                    <div class="kw-dash-preview__bar">
+                        <span></span><span></span><span></span>
+                        <span class="kw-dm-url">kwalify.care2data.com / dashboard</span>
+                        <span class="kw-dm-live">● Live</span>
+                    </div>
+
+                    <!-- Dashboard body -->
+                    <div class="kw-dm">
+
+                        <!-- Inner topbar -->
+                        <div class="kw-dm-topbar">
+                            <span class="kw-dm-topbar__badge">SDTM Validation Dashboard</span>
+                            <span class="kw-dm-topbar__logo">Kwalify™</span>
+                        </div>
+
+                        <!-- 4 stat tiles (features 1–3 + completed) -->
+                        <div class="kw-dm-tiles">
+                            <div class="kw-dm-tile">
+                                <span class="kw-dm-tile__num">9</span>
+                                <span class="kw-dm-tile__label">Total Studies</span>
+                            </div>
+                            <div class="kw-dm-tile kw-dm-tile--blue">
+                                <span class="kw-dm-tile__num">8</span>
+                                <span class="kw-dm-tile__label">Active Studies</span>
+                            </div>
+                            <div class="kw-dm-tile kw-dm-tile--gold">
+                                <span class="kw-dm-tile__num">7</span>
+                                <span class="kw-dm-tile__label">In Validation</span>
+                            </div>
+                            <div class="kw-dm-tile kw-dm-tile--green">
+                                <span class="kw-dm-tile__num">2</span>
+                                <span class="kw-dm-tile__label">Completed</span>
+                            </div>
+                        </div>
+
+                        <!-- Table header -->
+                        <div class="kw-dm-thead">
+                            <span>Study</span>
+                            <span>Validation Status</span>
+                            <span>Progress</span>
+                            <span>Compliance</span>
+                        </div>
+
+                        <!-- 3 study rows -->
+                        <div class="kw-dm-tbody">
+
+                            <!-- Row 1 → Active Studies Under Validation -->
+                            <div class="kw-dm-row">
+                                <div class="kw-dm-row__study">
+                                    <span class="kw-dm-av kw-dm-av--bi">BI</span>
+                                    <div><b>BD-P1</b><small>BioMedical</small></div>
+                                </div>
+                                <div class="kw-dm-row__status kw-dm-status--warn">✕ 15 violations</div>
+                                <div class="kw-dm-row__prog">
+                                    <div class="kw-dm-prog"><div class="kw-dm-prog__fill" style="width:48.5%"></div></div>
+                                    <span>48.5%</span>
+                                </div>
+                                <div class="kw-dm-badge kw-dm-badge--fair">74.13%<small>FAIR</small></div>
+                            </div>
+
+                            <!-- Row 2 → Rule Compliance Status -->
+                            <div class="kw-dm-row">
+                                <div class="kw-dm-row__study">
+                                    <span class="kw-dm-av kw-dm-av--bi">BI</span>
+                                    <div><b>BD-R1</b><small>BioMedical</small></div>
+                                </div>
+                                <div class="kw-dm-row__status kw-dm-status--warn">✕ 21 violations</div>
+                                <div class="kw-dm-row__prog">
+                                    <div class="kw-dm-prog"><div class="kw-dm-prog__fill" style="width:39%"></div></div>
+                                    <span>39.08%</span>
+                                </div>
+                                <div class="kw-dm-badge kw-dm-badge--poor">68.93%<small>POOR</small></div>
+                            </div>
+
+                            <!-- Row 3 → Validation Progress Milestones -->
+                            <div class="kw-dm-row kw-dm-row--pass">
+                                <div class="kw-dm-row__study">
+                                    <span class="kw-dm-av kw-dm-av--bi">BI</span>
+                                    <div><b>K-DR-3</b><small>BioMedical</small></div>
+                                </div>
+                                <div class="kw-dm-row__status kw-dm-status--pass">✓ Validation passed</div>
+                                <div class="kw-dm-row__prog">
+                                    <div class="kw-dm-prog"><div class="kw-dm-prog__fill kw-dm-prog__fill--good" style="width:97%"></div></div>
+                                    <span>97%</span>
+                                </div>
+                                <div class="kw-dm-badge kw-dm-badge--good">90%<small>GOOD</small></div>
+                            </div>
+
+                        </div>
+
+                        <!-- Bottom panels: Domain Violations + Trend -->
+                        <div class="kw-dm-bottom">
+
+                            <!-- Domain-Level Violation Summaries -->
+                            <div class="kw-dm-bp">
+                                <div class="kw-dm-bp__title">Domain-Level Violations</div>
+                                <div class="kw-dm-bp__bars">
+                                    <div class="kw-dm-bpbar">
+                                        <span class="kw-dm-bpbar__domain">AE</span>
+                                        <div class="kw-dm-bpbar__track">
+                                            <div class="kw-dm-bpbar__fill kw-dm-bpbar--red" style="width:72%"></div>
+                                        </div>
+                                        <span class="kw-dm-bpbar__val">36</span>
+                                    </div>
+                                    <div class="kw-dm-bpbar">
+                                        <span class="kw-dm-bpbar__domain">DM</span>
+                                        <div class="kw-dm-bpbar__track">
+                                            <div class="kw-dm-bpbar__fill kw-dm-bpbar--amber" style="width:45%"></div>
+                                        </div>
+                                        <span class="kw-dm-bpbar__val">22</span>
+                                    </div>
+                                    <div class="kw-dm-bpbar">
+                                        <span class="kw-dm-bpbar__domain">EX</span>
+                                        <div class="kw-dm-bpbar__track">
+                                            <div class="kw-dm-bpbar__fill kw-dm-bpbar--blue" style="width:30%"></div>
+                                        </div>
+                                        <span class="kw-dm-bpbar__val">15</span>
+                                    </div>
+                                    <div class="kw-dm-bpbar">
+                                        <span class="kw-dm-bpbar__domain">LB</span>
+                                        <div class="kw-dm-bpbar__track">
+                                            <div class="kw-dm-bpbar__fill kw-dm-bpbar--green" style="width:18%"></div>
+                                        </div>
+                                        <span class="kw-dm-bpbar__val">9</span>
+                                    </div>
+                                    <div class="kw-dm-bpbar">
+                                        <span class="kw-dm-bpbar__domain">VS</span>
+                                        <div class="kw-dm-bpbar__track">
+                                            <div class="kw-dm-bpbar__fill kw-dm-bpbar--purple" style="width:10%"></div>
+                                        </div>
+                                        <span class="kw-dm-bpbar__val">5</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Validation Trend Analysis -->
+                            <div class="kw-dm-bp">
+                                <div class="kw-dm-bp__title">Validation Trend · Last 6 Runs</div>
+                                <svg class="kw-dm-trend-svg" viewBox="0 0 180 72" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#2563eb" stop-opacity="0.2"/>
+                                            <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <line x1="0" y1="18" x2="180" y2="18" stroke="#e4ebf5" stroke-width="1"/>
+                                    <line x1="0" y1="36" x2="180" y2="36" stroke="#e4ebf5" stroke-width="1"/>
+                                    <line x1="0" y1="54" x2="180" y2="54" stroke="#e4ebf5" stroke-width="1"/>
+                                    <polygon points="0,62 36,52 72,42 108,28 144,16 180,8 180,72 0,72" fill="url(#trendGrad)"/>
+                                    <polyline points="0,62 36,52 72,42 108,28 144,16 180,8" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+                                    <circle cx="0"   cy="62" r="2.5" fill="#2563eb"/>
+                                    <circle cx="36"  cy="52" r="2.5" fill="#2563eb"/>
+                                    <circle cx="72"  cy="42" r="2.5" fill="#2563eb"/>
+                                    <circle cx="108" cy="28" r="2.5" fill="#2563eb"/>
+                                    <circle cx="144" cy="16" r="2.5" fill="#2563eb"/>
+                                    <circle cx="180" cy="8"  r="3"   fill="#2563eb" stroke="#fff" stroke-width="1.5"/>
+                                    <text x="0"   y="70" font-size="6" fill="#8fa3c0" text-anchor="middle">R1</text>
+                                    <text x="36"  y="70" font-size="6" fill="#8fa3c0" text-anchor="middle">R2</text>
+                                    <text x="72"  y="70" font-size="6" fill="#8fa3c0" text-anchor="middle">R3</text>
+                                    <text x="108" y="70" font-size="6" fill="#8fa3c0" text-anchor="middle">R4</text>
+                                    <text x="144" y="70" font-size="6" fill="#8fa3c0" text-anchor="middle">R5</text>
+                                    <text x="180" y="70" font-size="6" fill="#8fa3c0" text-anchor="middle">R6</text>
+                                </svg>
+                                <p class="kw-dm-trend-note">Error rate ↓ 61% across 6 runs</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div style="background: rgba(245,195,110,0.06); border: 1px solid rgba(245,195,110,0.22); border-radius: 1rem; padding: 1.5rem 2rem; text-align: center; margin-bottom: 2rem;">
-            <p style="color: white; font-size: 1rem; line-height: 1.85; font-weight: 600; margin: 0;">
-                Includes intelligent grouping of related errors and prioritization — addressing a major pain point
-                where teams struggle to identify affected records and error clusters efficiently.
-            </p>
-            <p style="color: rgba(248,250,252,0.78); font-size: 0.9rem; margin: 0.75rem 0 0;">
-                This enables proactive issue resolution and faster submission readiness.
-            </p>
+        <!-- Note and CTA below the grid -->
+        <div class="kw-dash-note">
+            <p>Enables proactive issue resolution and faster submission readiness — turning validation reporting into an operational advantage.</p>
         </div>
 
-        <div style="text-align: center;">
-            <button routerLink="/contact-us" class="btn btn-primary">Learn More →</button>
+        <div style="margin-top: 1.75rem;">
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request a Dashboard Demo →</button>
         </div>
 
     </div>
@@ -436,13 +743,13 @@
                     <img src="images/kwalify/white/scalability.png" alt="">
                 </div>
                 <h3>Enterprise Scalability</h3>
-                <p>KWALIFY™ scales across therapeutic areas, studies, and global trial programs without increasing validation complexity.</p>
+                <p>Kwalify™ scales across therapeutic areas, studies, and global trial programs without increasing validation complexity.</p>
             </div>
 
         </div>
 
         <div style="text-align: center;">
-            <button routerLink="/contact-us" class="btn btn-primary">See Enterprise Use Cases →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary">See Enterprise Use Cases →</button>
         </div>
 
     </div>
@@ -510,8 +817,8 @@
 
         <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 1rem; padding: 1.5rem 2rem; margin-bottom: 2rem;">
             <p style="color: rgba(248,250,252,0.82); font-size: 0.95rem; line-height: 1.85; margin: 0;">
-                KWALIFY™ addresses these gaps through an intelligence-driven validation architecture. By combining
-                semantic reasoning, anomaly verification, and explainable AI validation outputs, KWALIFY enables
+                Kwalify™ addresses these gaps through an intelligence-driven validation architecture. By combining
+                semantic reasoning, anomaly verification, and explainable AI validation outputs, Kwalify™ enables
                 teams to move beyond simple rule checking toward comprehensive data integrity assurance. The result
                 is a validation process that is not only faster — but also more accurate, consistent and scalable
                 under regulatory scrutiny.
@@ -519,81 +826,65 @@
         </div>
 
         <div style="text-align: center;">
-            <button routerLink="/contact-us" class="btn btn-primary">Discover the KWALIFY™ Advantage →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Discover the Kwalify Advantage'}" class="btn btn-primary">Discover the Kwalify™ Advantage →</button>
         </div>
 
     </div>
 </section>
 
-<!-- ═══ NOT JUST A TOOL — MAGAZINE SCROLL ═══ -->
+<!-- ═══ WHAT MAKES KWALIFY ENTERPRISE-READY ═══ -->
 <section class="kw-section kw-bg-3">
     <div class="kw-inner">
 
-        <div class="kw-section-header">
-            <span class="kw-eyebrow">Intelligence Infrastructure</span>
-            <h2>Not Just a Tool. <span>An Intelligence Infrastructure.</span></h2>
-        </div>
+        <div class="kw-ii-layout">
 
-        <div class="relative magzine">
+            <!-- Left: header + intro + CTA -->
+            <div class="kw-ii-left">
+                <span class="kw-eyebrow">What Makes Kwalify™ Enterprise-Ready</span>
+                <h2 style="font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 800; color: white; line-height: 1.15; margin: 1rem 0 1.25rem;">
+                    Not Just a Tool.<br><span style="color: #f5c36e;">An Intelligence Infrastructure.</span>
+                </h2>
+                <p style="color: rgba(248,250,252,0.78); font-size: 1rem; line-height: 1.85; margin-bottom: 2rem;">
+                    Kwalify™ is engineered as a long-term clinical validation infrastructure — combining semantic reasoning, linked data models, and audit-ready architecture to deliver enterprise-grade data quality at every stage of the trial lifecycle.
+                </p>
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Learn About Compliance Architecture'}" class="btn btn-primary">Learn About Compliance Architecture →</button>
+            </div>
 
-            <button *ngIf="!isAtStart" (click)="scroll('left')"
-                class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-secondary text-black shadow-md rounded-full p-2 hover:scale-110 cursor-pointer transition">
-                <mat-icon>chevron_left</mat-icon>
-            </button>
+            <!-- Right: 5 solution-style cards -->
+            <div class="kw-ii-cards">
 
-            <button *ngIf="!isAtEnd" (click)="scroll('right')"
-                class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-secondary text-black shadow-md rounded-full p-2 hover:scale-110 cursor-pointer transition">
-                <mat-icon>chevron_right</mat-icon>
-            </button>
-
-            <div #scrollContainer class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-4 no-scrollbar">
-
-                <div class="snap-start flex-shrink-0 w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] kw-mag-card flex flex-col">
-                    <div class="p-5 flex flex-col flex-1">
-                        <h3 class="text-base md:text-lg font-semibold mb-2 h-12 max-w-3xl">Knowledge-Driven Validation Framework</h3>
-                        <p class="text-base leading-relaxed flex-1">Operationalizes semantic reasoning across the validation lifecycle.</p>
-                        <span style="font-weight: 600; font-size: 0.95rem; color: rgba(248,250,252,0.9); display: block; margin-bottom: 0.5rem;">Delivers the exact capabilities users ranked most valuable:</span>
-                        <ul class="list-disc pl-6 space-y-2">
-                            <li>Root Cause Explanation</li>
-                            <li>Downstream Impact Analysis</li>
-                            <li>Impact chain visibility (rated very valuable by 61%)</li>
-                        </ul>
-                    </div>
+                <div class="kw-ii-card kw-ii-card--1">
+                    <h3>Knowledge-Driven Validation Framework</h3>
+                    <p>Operationalizes semantic reasoning to deliver User Expectation.</p>
+                    <ul>
+                        <li>RCA — Root Cause Analysis</li>
+                        <li>Downstream Impact Analysis</li>
+                        <li>Impact chain visibility</li>
+                    </ul>
                 </div>
 
-                <div class="snap-start flex-shrink-0 w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] kw-mag-card flex flex-col">
-                    <div class="p-5 flex flex-col flex-1">
-                        <h3 class="text-base md:text-lg font-semibold mb-2 h-12 max-w-3xl">Linked Clinical Data Model</h3>
-                        <p class="text-base leading-relaxed flex-1">Enables structured reasoning across datasets rather than isolated rule checks.</p>
-                    </div>
+                <div class="kw-ii-card kw-ii-card--2">
+                    <h3>Linked Clinical Data Model</h3>
+                    <p>Enables structured reasoning across datasets rather than isolated rule checks.</p>
                 </div>
 
-                <div class="snap-start flex-shrink-0 w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] kw-mag-card flex flex-col">
-                    <div class="p-5 flex flex-col flex-1">
-                        <h3 class="text-base md:text-lg font-semibold mb-2 h-12 max-w-3xl">Embedded Semantic Intelligence</h3>
-                        <p class="text-base leading-relaxed flex-1">Encodes study logic and regulatory expectations directly into validation workflows.</p>
-                    </div>
+                <div class="kw-ii-card kw-ii-card--3">
+                    <h3>Embedded Semantic Intelligence</h3>
+                    <p>Encodes study logic and regulatory expectations directly into validation workflows.</p>
                 </div>
 
-                <div class="snap-start flex-shrink-0 w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] kw-mag-card flex flex-col">
-                    <div class="p-5 flex flex-col flex-1">
-                        <h3 class="text-base md:text-lg font-semibold mb-2 h-12 max-w-3xl">Audit-Ready Architecture</h3>
-                        <p class="text-base leading-relaxed flex-1">Traceability, lineage, and validation transparency built in — ensuring quality, integrity, and conformance.</p>
-                    </div>
+                <div class="kw-ii-card kw-ii-card--4">
+                    <h3>Audit-Ready Architecture</h3>
+                    <p>Traceability, lineage, and validation transparency built in — ensuring quality, integrity, and conformance.</p>
                 </div>
 
-                <div class="snap-start flex-shrink-0 w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] kw-mag-card flex flex-col">
-                    <div class="p-5 flex flex-col flex-1">
-                        <h3 class="text-base md:text-lg font-semibold mb-2 h-12 max-w-3xl">Governance-Aligned Deployment</h3>
-                        <p class="text-base leading-relaxed flex-1">Supports regulatory expectations including data integrity requirements and 21 CFR Part 11 alignment.</p>
-                    </div>
+                <div class="kw-ii-card kw-ii-card--5">
+                    <h3>Governance-Aligned Deployment</h3>
+                    <p>Supports regulatory expectations including data integrity requirements and 21 CFR Part 11 alignment.</p>
                 </div>
 
             </div>
-        </div>
 
-        <div style="text-align: center; margin-top: 1.5rem;">
-            <button routerLink="/contact-us" class="btn btn-primary">Learn About Compliance Architecture →</button>
         </div>
 
     </div>
@@ -604,48 +895,48 @@
     <div class="kw-inner">
 
         <div class="kw-section-header">
-            <span class="kw-eyebrow">Built For You</span>
+            <span class="kw-eyebrow">Built for the Clinical Data Ecosystem</span>
             <h2>Designed for Teams <span>Responsible for Submission Integrity</span></h2>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
 
             <div class="kw-role-card kw-role-card--1">
-                <div class="kw-icon">
-                    <img src="images/kwalify/white/croleadership.png" alt="">
+                <div class="kw-role-card__header">
+                    <div class="kw-icon"><img src="images/kwalify/white/croleadership.png" alt=""></div>
+                    <h3>CRO Leadership</h3>
                 </div>
-                <h3>CRO Leadership</h3>
                 <p>Scale validation across sponsors while reducing operational variability.</p>
             </div>
 
             <div class="kw-role-card kw-role-card--2">
-                <div class="kw-icon">
-                    <img src="images/kwalify/white/pharmaceutical.png" alt="">
+                <div class="kw-role-card__header">
+                    <div class="kw-icon"><img src="images/kwalify/white/pharmaceutical.png" alt=""></div>
+                    <h3>Pharmaceutical &amp; Biotech Sponsors</h3>
                 </div>
-                <h3>Pharmaceutical &amp; Biotech Sponsors</h3>
                 <p>Strengthen submission confidence across global clinical programs.</p>
             </div>
 
             <div class="kw-role-card kw-role-card--3">
-                <div class="kw-icon">
-                    <img src="images/kwalify/white/clinicalprogrammer.png" alt="">
+                <div class="kw-role-card__header">
+                    <div class="kw-icon"><img src="images/kwalify/white/clinicalprogrammer.png" alt=""></div>
+                    <h3>Clinical Data Managers &amp; SAS Programmers</h3>
                 </div>
-                <h3>Clinical Data Managers &amp; SAS Programmers</h3>
                 <p>Quickly identify validation violations and investigate affected records.</p>
             </div>
 
             <div class="kw-role-card kw-role-card--4">
-                <div class="kw-icon">
-                    <img src="images/kwalify/white/qa.png" alt="">
+                <div class="kw-role-card__header">
+                    <div class="kw-icon"><img src="images/kwalify/white/qa.png" alt=""></div>
+                    <h3>QA and Regulatory Teams</h3>
                 </div>
-                <h3>QA and Regulatory Teams</h3>
                 <p>Gain traceable, defensible validation outputs aligned with regulatory expectations.</p>
             </div>
 
         </div>
 
         <div style="text-align: center;">
-            <button routerLink="/contact-us" class="btn btn-primary">Speak with a Clinical Data Expert →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Speak with a Clinical Data Expert'}" class="btn btn-primary">Speak with a Clinical Data Expert →</button>
         </div>
 
     </div>
@@ -662,40 +953,65 @@
 
         <div style="text-align: center; margin-bottom: 2rem;">
             <p style="color: rgba(248,250,252,0.82); font-size: 1rem; line-height: 1.85; margin-bottom: 1rem;">
-                KWALIFY™ is designed as a validation platform, not just a submission checker.
+                Kwalify™ is designed as a validation platform, not just a submission checker.
             </p>
             <p style="color: rgba(248,250,252,0.82); font-size: 1rem; line-height: 1.85;">
                 The current platform focuses on submission dataset validation, with a roadmap extending across the entire clinical trial lifecycle.
             </p>
         </div>
 
-        <p style="font-size: 0.95rem; font-weight: 600; color: #f5c36e; text-align: center; margin-bottom: 1.25rem;">
+        <p style="font-size: 0.85rem; font-weight: 700; color: #f5c36e; text-align: center; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem;">
             Future capabilities will support validation of:
         </p>
 
-        <svg viewBox="0 0 1150 150" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
-            style="width: 100%; height: auto; display: block; filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));">
-            <g>
-                <polygon points="15,40 245,40 275,75 245,110 15,110 45,75" fill="#11193e" />
-                <text x="145" y="80" class="step-text" fill="white">Derived analysis outputs</text>
-            </g>
-            <g>
-                <polygon points="285,40 515,40 545,75 515,110 285,110 315,75" fill="#2a347a" />
-                <text x="425" y="80" class="step-text" fill="white">Statistical analysis datasets</text>
-            </g>
-            <g>
-                <polygon points="555,40 785,40 815,75 785,110 555,110 585,75" fill="#f1dba0" />
-                <text x="690" y="80" class="step-text" fill="black">Clinical reporting data</text>
-            </g>
-            <g>
-                <polygon points="825,40 1085,40 1115,75 1085,110 825,110 855,75" fill="#b78c3e" />
-                <text x="980" y="80" class="step-text" fill="white">Cross-stage clinical data integrity</text>
-            </g>
-        </svg>
+        <!-- 4-step timeline infographic -->
+        <div class="kw-roadmap-track">
 
-        <p style="color: rgba(248,250,252,0.82); font-size: 1rem; font-weight: 600; text-align: center; margin-top: 1.5rem;">
-            This positions KWALIFY™ as a long-term validation infrastructure for modern clinical trials.
-        </p>
+            <div class="kw-rm-step kw-rm-step--1">
+                <div class="kw-rm-node">
+                    <span class="kw-rm-num">01</span>
+                </div>
+                <div class="kw-rm-body">
+                    <h4>Derived Analysis Outputs</h4>
+                    <p>ADaM datasets and analysis-ready derived variables supporting statistical endpoints.</p>
+                </div>
+            </div>
+
+            <div class="kw-rm-step kw-rm-step--2">
+                <div class="kw-rm-node">
+                    <span class="kw-rm-num">02</span>
+                </div>
+                <div class="kw-rm-body">
+                    <h4>Statistical Analysis Datasets</h4>
+                    <p>Validation of datasets used in statistical computing environments and TFL generation.</p>
+                </div>
+            </div>
+
+            <div class="kw-rm-step kw-rm-step--3">
+                <div class="kw-rm-node">
+                    <span class="kw-rm-num">03</span>
+                </div>
+                <div class="kw-rm-body">
+                    <h4>Clinical Reporting Data</h4>
+                    <p>End-to-end traceability from data collection through tables, figures, and listings.</p>
+                </div>
+            </div>
+
+            <div class="kw-rm-step kw-rm-step--4">
+                <div class="kw-rm-node">
+                    <span class="kw-rm-num">04</span>
+                </div>
+                <div class="kw-rm-body">
+                    <h4>Cross-Stage Clinical Data Integrity</h4>
+                    <p>Unified validation intelligence spanning every lifecycle stage — from collection to submission.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="kw-roadmap-closing">
+            <p>This positions <strong>Kwalify™</strong> as a long-term validation infrastructure<br>for modern clinical trials.</p>
+        </div>
 
     </div>
 </section>
@@ -705,12 +1021,12 @@
     <div class="kw-inner kw-inner--narrow" style="text-align: center;">
 
         <div class="kw-section-header">
-            <span class="kw-eyebrow">Get Started</span>
-            <h2>See the <span>Intelligence Layer</span> in Action</h2>
+            <span class="kw-eyebrow">Experience Kwalify™</span>
+            <h2>See the <span>Semantic Intelligence Layer</span> in Action</h2>
         </div>
 
         <p style="color: rgba(248,250,252,0.82); font-size: 1rem; line-height: 1.85; max-width: 640px; margin: 0 auto 1rem;">
-            Discover how KWALIFY™ identifies validation issues, diagnoses root causes, and verifies data integrity before submission.
+            Discover how Kwalify™ identifies validation issues, diagnoses root causes, and verifies data integrity before submission.
         </p>
 
         <p style="color: rgba(248,250,252,0.82); font-size: 1rem; line-height: 1.85; max-width: 640px; margin: 0 auto 2rem;">
@@ -718,8 +1034,8 @@
         </p>
 
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-            <button routerLink="/contact-us" class="btn btn-primary">Request an Executive Demonstration →</button>
-            <button routerLink="/contact-us" class="btn btn-outline">Schedule a Technical Deep Dive →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request an Executive Demonstration →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request a Technical Walkthrough'}" class="btn btn-outline">Schedule a Technical Deep Dive →</button>
         </div>
 
     </div>
@@ -734,8 +1050,8 @@
             <span style="color: #f5c36e;">Confidence is driven by accuracy, consistency, and scalability.</span>
         </h2>
 
-        <p style="color: rgba(248,250,252,0.82); font-size: 1rem; line-height: 1.85; max-width: 680px; margin: 0 auto 0.875rem; font-weight: 600;">
-            KWALIFY™ transforms clinical data validation from binary rule checking into enterprise-grade, knowledge-driven assurance.
+        <p style="color: white; font-size: clamp(1.1rem, 1.8vw, 1.4rem); line-height: 1.75; max-width: 680px; margin: 0 auto 0.875rem; font-weight: 700;">
+            Kwalify™ transforms clinical data validation from binary rule checking into enterprise-grade, knowledge-driven quality assurance.
         </p>
 
         <p style="color: rgba(248,250,252,0.78); font-size: 0.95rem; line-height: 1.85; max-width: 640px; margin: 0 auto;">
@@ -756,31 +1072,31 @@
 
         <mat-accordion multi="false" class="flex flex-col gap-3 space-y-2">
 
-            <mat-expansion-panel #faqpanel1 hideToggle>
+            <mat-expansion-panel #faqpanel1 hideToggle class="kw-faq-panel kw-faq-panel--1">
                 <mat-expansion-panel-header class="!px-6 !py-4">
-                    <mat-panel-title class="text-sm font-bold" style="color: white;">What is KWALIFY™?</mat-panel-title>
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">What is Kwalify™?</mat-panel-title>
                     <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
                         {{ faqpanel1.expanded ? 'arrow_upward' : 'arrow_downward' }}
                     </mat-icon>
                 </mat-expansion-panel-header>
                 <p class="text-sm text-gray-300 leading-relaxed px-0 py-3 border-t border-[#24293a]">
-                    KWALIFY™ is an intelligent clinical data validation and verification platform developed by
+                    Kwalify™ is an intelligent clinical data validation and verification platform developed by
                     Care2Data to identify discrepancies, inconsistencies, and data integrity issues in clinical
                     trial datasets prior to regulatory submission.<br><br>
-                    Designed as a long-term validation infrastructure, KWALIFY extends beyond submission checks to
+                    Designed as a long-term validation infrastructure, Kwalify™ extends beyond submission checks to
                     support the entire clinical trial data lifecycle — ensuring continuous data integrity across every stage of a study.
                 </p>
             </mat-expansion-panel>
 
-            <mat-expansion-panel #faqpanel2 hideToggle>
+            <mat-expansion-panel #faqpanel2 hideToggle class="kw-faq-panel kw-faq-panel--2">
                 <mat-expansion-panel-header class="!px-6 !py-4">
-                    <mat-panel-title class="text-sm font-bold" style="color: white;">How does KWALIFY™ validate clinical trial data?</mat-panel-title>
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">How does Kwalify™ validate clinical trial data?</mat-panel-title>
                     <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
                         {{ faqpanel2.expanded ? 'arrow_upward' : 'arrow_downward' }}
                     </mat-icon>
                 </mat-expansion-panel-header>
                 <p class="text-sm text-gray-300 leading-relaxed px-0 py-3 border-t border-[#24293a]">
-                    KWALIFY applies semantic relationships, inference techniques, contextual validation, and
+                    Kwalify™ applies semantic relationships, inference techniques, contextual validation, and
                     intelligent rule application to detect both explicit and implicit data inconsistencies that
                     traditional validation methods may miss.<br><br>
                     By combining semantic intelligence with explainable AI, the platform evaluates cross-domain
@@ -789,9 +1105,9 @@
                 </p>
             </mat-expansion-panel>
 
-            <mat-expansion-panel #faqpanel3 hideToggle>
+            <mat-expansion-panel #faqpanel3 hideToggle class="kw-faq-panel kw-faq-panel--3">
                 <mat-expansion-panel-header class="!px-6 !py-4">
-                    <mat-panel-title class="text-sm font-bold" style="color: white;">How is KWALIFY™ different from double programming?</mat-panel-title>
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">How is Kwalify™ different from double programming?</mat-panel-title>
                     <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
                         {{ faqpanel3.expanded ? 'arrow_upward' : 'arrow_downward' }}
                     </mat-icon>
@@ -799,16 +1115,16 @@
                 <p class="text-sm text-gray-300 leading-relaxed px-0 py-3 border-t border-[#24293a]">
                     Traditional double programming relies on duplicate code and manual comparison to identify
                     discrepancies — often making it time-consuming, resource-intensive, and prone to human variability.<br><br>
-                    KWALIFY introduces both validation and verification within a unified intelligence layer. It not
+                    Kwalify™ introduces both validation and verification within a unified intelligence layer. It not
                     only detects inconsistencies but also verifies data integrity through anomaly detection and
                     cross-dataset reasoning — making traditional approaches increasingly redundant.<br><br>
                     The result is broader coverage, faster validation cycles, and more consistent, defensible outputs.
                 </p>
             </mat-expansion-panel>
 
-            <mat-expansion-panel #faqpanel4 hideToggle>
+            <mat-expansion-panel #faqpanel4 hideToggle class="kw-faq-panel kw-faq-panel--4">
                 <mat-expansion-panel-header class="!px-6 !py-4">
-                    <mat-panel-title class="text-sm font-bold" style="color: white;">What does validation and verification mean in KWALIFY™?</mat-panel-title>
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">What does validation and verification mean in Kwalify™?</mat-panel-title>
                     <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
                         {{ faqpanel4.expanded ? 'arrow_upward' : 'arrow_downward' }}
                     </mat-icon>
@@ -817,19 +1133,19 @@
                     Validation ensures that clinical data conforms to predefined rules, standards, and regulatory expectations.<br><br>
                     Verification goes a step further — identifying hidden inconsistencies, unexpected patterns, and
                     cross-domain conflicts that may not be captured by rules alone.<br><br>
-                    By combining both, KWALIFY ensures true data integrity, not just rule compliance.
+                    By combining both, Kwalify™ ensures true data integrity, not just rule compliance.
                 </p>
             </mat-expansion-panel>
 
-            <mat-expansion-panel #faqpanel5 hideToggle>
+            <mat-expansion-panel #faqpanel5 hideToggle class="kw-faq-panel kw-faq-panel--5">
                 <mat-expansion-panel-header class="!px-6 !py-4">
-                    <mat-panel-title class="text-sm font-bold" style="color: white;">Who should use KWALIFY™?</mat-panel-title>
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">Who should use Kwalify™?</mat-panel-title>
                     <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
                         {{ faqpanel5.expanded ? 'arrow_upward' : 'arrow_downward' }}
                     </mat-icon>
                 </mat-expansion-panel-header>
                 <div class="py-4 border-t border-[#24293a]">
-                    <p class="text-sm font-semibold text-white mb-3">KWALIFY is designed for teams responsible for ensuring clinical data quality and submission readiness, including:</p>
+                    <p class="text-sm font-semibold text-white mb-3">Kwalify™ is designed for teams responsible for ensuring clinical data quality and submission readiness, including:</p>
                     <ul class="space-y-2 text-gray-300">
                         <li class="flex gap-3 items-start"><span style="color: #f5c36e; font-weight: 700;">•</span><span class="text-sm">Contract Research Organizations (CROs)</span></li>
                         <li class="flex gap-3 items-start"><span style="color: #f5c36e; font-weight: 700;">•</span><span class="text-sm">Pharmaceutical &amp; Biotech Sponsors</span></li>
@@ -839,30 +1155,30 @@
                 </div>
             </mat-expansion-panel>
 
-            <mat-expansion-panel #faqpanel6 hideToggle>
+            <mat-expansion-panel #faqpanel6 hideToggle class="kw-faq-panel kw-faq-panel--6">
                 <mat-expansion-panel-header class="!px-6 !py-4">
-                    <mat-panel-title class="text-sm font-bold" style="color: white;">Is KWALIFY™ suitable for regulatory submissions?</mat-panel-title>
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">Is Kwalify™ suitable for regulatory submissions?</mat-panel-title>
                     <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
                         {{ faqpanel6.expanded ? 'arrow_upward' : 'arrow_downward' }}
                     </mat-icon>
                 </mat-expansion-panel-header>
                 <p class="text-sm text-gray-300 leading-relaxed px-0 py-3 border-t border-[#24293a]">
-                    Yes. KWALIFY is built to support submission-ready and audit-ready datasets, with embedded
+                    Yes. Kwalify™ is built to support submission-ready and audit-ready datasets, with embedded
                     traceability, lineage, and explainable validation outputs.<br><br>
                     The platform aligns with regulatory expectations, including data integrity requirements and 21
                     CFR Part 11 compliance, enabling teams to submit with greater confidence and defensibility.
                 </p>
             </mat-expansion-panel>
 
-            <mat-expansion-panel #faqpanel7 hideToggle>
+            <mat-expansion-panel #faqpanel7 hideToggle class="kw-faq-panel kw-faq-panel--7">
                 <mat-expansion-panel-header class="!px-6 !py-4">
-                    <mat-panel-title class="text-sm font-bold" style="color: white;">What types of clinical data does KWALIFY™ support?</mat-panel-title>
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">What types of clinical data does Kwalify™ support?</mat-panel-title>
                     <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
                         {{ faqpanel7.expanded ? 'arrow_upward' : 'arrow_downward' }}
                     </mat-icon>
                 </mat-expansion-panel-header>
                 <div class="py-4 border-t border-[#24293a]">
-                    <p class="text-sm font-semibold text-white mb-3">KWALIFY supports a wide range of structured clinical datasets used across the trial lifecycle, including:</p>
+                    <p class="text-sm font-semibold text-white mb-3">Kwalify™ supports a wide range of structured clinical datasets used across the trial lifecycle, including:</p>
                     <ul class="space-y-2 text-gray-300">
                         <li class="flex gap-3 items-start"><span style="color: #f5c36e; font-weight: 700;">•</span><span class="text-sm">Clinical trial analysis datasets (e.g., SDTM, ADaM)</span></li>
                         <li class="flex gap-3 items-start"><span style="color: #f5c36e; font-weight: 700;">•</span><span class="text-sm">Derived variables and statistical outputs</span></li>
@@ -871,15 +1187,15 @@
                 </div>
             </mat-expansion-panel>
 
-            <mat-expansion-panel #faqpanel8 hideToggle>
+            <mat-expansion-panel #faqpanel8 hideToggle class="kw-faq-panel kw-faq-panel--8">
                 <mat-expansion-panel-header class="!px-6 !py-4">
-                    <mat-panel-title class="text-sm font-bold" style="color: white;">How does KWALIFY™ fit into existing clinical workflows?</mat-panel-title>
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">How does Kwalify™ fit into existing clinical workflows?</mat-panel-title>
                     <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
                         {{ faqpanel8.expanded ? 'arrow_upward' : 'arrow_downward' }}
                     </mat-icon>
                 </mat-expansion-panel-header>
                 <p class="text-sm text-gray-300 leading-relaxed px-0 py-3 border-t border-[#24293a]">
-                    KWALIFY is designed to integrate seamlessly with existing clinical systems, including EDC
+                    Kwalify™ is designed to integrate seamlessly with existing clinical systems, including EDC
                     platforms, CDMS, and statistical programming environments.<br><br>
                     It works alongside current workflows — enhancing validation capabilities without requiring system
                     replacement or disruption.<br><br>

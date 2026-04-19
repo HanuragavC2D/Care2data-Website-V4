@@ -17,8 +17,8 @@
       <p class="hero-accent">CARE2DATA transforms fragmented clinical data into governed, connected knowledge
         systems—enabling organizations to ensure accuracy, traceability, and compliance at scale.</p>
       <div class="about-hero__actions">
-        <a routerLink="/contact-us" class="btn btn-primary">Request a Demo →</a>
-        <a routerLink="/contact-us" class="btn btn-outline">Talk to an Expert →</a>
+        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request a Demo →</a>
+        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-outline">Talk to an Expert →</a>
       </div>
     </div>
   </div>
@@ -414,9 +414,9 @@
           <text x="350" y="61" text-anchor="middle" class="og-node-sub">Study Definitions</text>
 
           <!-- ── CONNECTORS: INPUT → ONTOLOGY (with arrows) ── -->
-          <line x1="70"  y1="76" x2="66"  y2="112" stroke="rgba(56,189,248,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-blue)" class="og-dash"/>
+          <line x1="70"  y1="76" x2="70"  y2="112" stroke="rgba(56,189,248,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-blue)" class="og-dash"/>
           <line x1="210" y1="76" x2="210" y2="112" stroke="rgba(56,189,248,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-blue)" class="og-dash"/>
-          <line x1="350" y1="76" x2="354" y2="112" stroke="rgba(56,189,248,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-blue)" class="og-dash"/>
+          <line x1="350" y1="76" x2="350" y2="112" stroke="rgba(56,189,248,0.65)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-blue)" class="og-dash"/>
 
           <!-- ── ONTOLOGY FRAMEWORK ──────────────────── -->
           <rect x="10" y="116" width="400" height="194" rx="16"
@@ -629,7 +629,7 @@
 <!-- ═══════════════════════════════════════════════════════════
    LEADERSHIP
 ═══════════════════════════════════════════════════════════ -->
-<section class="about-section about-leadership">
+<section id="leadership" class="about-section about-leadership">
   <div class="about-section__inner">
     <div class="section-header">
       <p class="section-eyebrow">Our Team</p>
@@ -639,50 +639,32 @@
     <div class="about-leaders-grid">
 
       <!-- Giri -->
-      <div class="about-leader-card">
-        <div class="leader-header">
+      <a routerLink="/team/giri" class="leader-photo-card">
+        <div class="leader-photo-wrap">
           <img src="images/leaders/giri.jpg" alt="Giri Balasubramanian">
-          <div>
-            <h3>Giri Balasubramanian</h3>
-            <span class="leader-role">Founder</span>
+          <div class="leader-photo-overlay">
+            <span>View Profile →</span>
           </div>
         </div>
-        <p>Giri Balasubramanian is the Founder of CARE2DATA and a global leader in <strong>clinical data standards,
-            automation, and analytics.</strong> With more than two decades of experience in life sciences, he has
-          presented pioneering research at international forums including <strong>CDISC and PhUSE</strong> across the
-          United States, Europe, and Asia.<br><br>
-          His expertise spans <strong>SDTM standards, regulatory submissions, metadata-driven reporting, automation
-            frameworks, and machine learning applications in clinical research</strong>. In addition to his industry
-          contributions, he has delivered a widely recognized <strong>TEDx talk</strong>, reflecting his ability to
-          combine technical depth with visionary thinking to advance data integrity and innovation across the life
-          sciences ecosystem.</p>
-        <a href="https://www.linkedin.com/in/giri-balasubramanian-21a31013/" target="_blank"
-          class="leader-linkedin">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-      </div>
+        <div class="leader-photo-info">
+          <h3>Giri Balasubramanian</h3>
+          <span class="leader-role">Founder</span>
+        </div>
+      </a>
 
       <!-- Gopinath -->
-      <div class="about-leader-card">
-        <div class="leader-header">
+      <a routerLink="/team/gopinath" class="leader-photo-card">
+        <div class="leader-photo-wrap">
           <img src="images/leaders/gopinath.jpg" alt="Gopinath Viswanathan">
-          <div>
-            <h3>Gopinath Viswanathan</h3>
-            <span class="leader-role">Promoter &amp; Leadership</span>
+          <div class="leader-photo-overlay">
+            <span>View Profile →</span>
           </div>
         </div>
-        <p>Gopinath Viswanathan brings over two decades of experience across <strong>pharmaceutical, CRO, and life
-            sciences organizations</strong>, with deep expertise in global randomized clinical trials across Phases
-          I–IV.<br><br>
-          His background includes <strong>clinical operations, data management, biometrics, regulatory submissions,
-            pharmacovigilance, and clinical data standards such as SDTM and ADaM</strong>. He has led the development
-          of enterprise platforms leveraging <strong>knowledge graphs, semantic integration, and AI-driven validation
-            frameworks</strong> to improve data quality and regulatory compliance.</p>
-        <a href="https://www.linkedin.com/in/gopinath-viswanathan-1502607a/" target="_blank"
-          class="leader-linkedin">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-      </div>
+        <div class="leader-photo-info">
+          <h3>Gopinath Viswanathan</h3>
+          <span class="leader-role">Promoter &amp; Leadership</span>
+        </div>
+      </a>
 
     </div>
   </div>

@@ -667,21 +667,9 @@ $section-pad-sm: 2.5rem 1.25rem;
 .ks-validation-header {
   text-align: center;
   margin: 2.5rem 0 1.25rem;
-  position: relative;
-
-  &::before {
-    content: '';
-    display: block;
-    width: 3rem;
-    height: 2px;
-    background: $gold;
-    margin: 0 auto 1.5rem;
-    opacity: 0.5;
-    border-radius: 2px;
-  }
 
   h3 {
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-size: clamp(1.75rem, 2.5vw, 2.5rem);
     font-weight: 700;
     color: $gold;
     max-width: 720px;
@@ -849,12 +837,12 @@ $section-pad-sm: 2.5rem 1.25rem;
 }
 
 .ks-combine-footer {
-  font-size: 0.9rem;
-  color: $white-78;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(248,250,252,0.96);
   line-height: 1.8;
   margin: 0;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 // ── E2E card (full-width stacked layout) ────────────────────────
@@ -867,17 +855,35 @@ $section-pad-sm: 2.5rem 1.25rem;
 }
 
 .ks-e2e-note {
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   padding-top: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  color: $white-82;
-  font-size: 0.95rem;
-  line-height: 1.8;
+  color: rgba(248,250,252,0.96);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.85;
+  text-align: center;
 }
 
-// ── Standalone Measurable Outcomes box ──────────────────────────
-.ks-e2e-box {
-  .ks-e2e-subheader { text-align: left; }
+// ── Two-column layout inside E2E card ───────────────────────────
+.ks-e2e-twin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+.ks-e2e-col {
+  display: flex;
+  flex-direction: column;
+
+  .ks-e2e-subheader { text-align: left; margin-bottom: 0.875rem; }
+}
+
+.ks-bullet-grid--single {
+  grid-template-columns: 1fr;
 }
 
 .ks-e2e-grid {

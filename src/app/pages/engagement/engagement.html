@@ -48,7 +48,7 @@
         </div>
 
         <div class="text-center">
-            <button routerLink="/contact-us" class="btn btn-primary">
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Architect your Engagement'}" class="btn btn-primary">
                 Architect Your Engagement →
             </button>
         </div>
@@ -70,42 +70,42 @@
         <app-carousel [cards]="approach" [intervalMs]="10000" />
 
         <!-- How This Works -->
-        <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:0.5rem;">Methodology</p>
+        <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:0.5rem; margin-top:4rem;">Methodology</p>
         <h3 class="text-2xl md:text-3xl font-semibold text-center mb-8" style="color:white;">
             How This <span style="color:#f5c36e;">Works</span>
         </h3>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div class="eng-how-card">
+            <div class="eng-how-card eng-how-card--1">
                 <div class="flex items-center gap-3 mb-3">
                     <div class="eng-how-icon">
                         <img src="images/home/white/strategicalignment.png" alt="">
                     </div>
-                    <h3 class="text-lg font-semibold" style="color: #f5c36e;">Strategic Alignment</h3>
+                    <h3 class="text-lg font-semibold">Strategic Alignment</h3>
                 </div>
                 <p style="color: rgba(248,250,252,0.82);">
                     Define the right use cases and architecture aligned with regulatory and operational goals.
                 </p>
             </div>
 
-            <div class="eng-how-card">
+            <div class="eng-how-card eng-how-card--2">
                 <div class="flex items-center gap-3 mb-3">
                     <div class="eng-how-icon">
                         <img src="images/home/white/deployment.png" alt="">
                     </div>
-                    <h3 class="text-lg font-semibold" style="color: #f5c36e;">Deployment</h3>
+                    <h3 class="text-lg font-semibold">Deployment</h3>
                 </div>
                 <p style="color: rgba(248,250,252,0.82);">
                     Embed semantic intelligence, validation logic, and reasoning frameworks into existing ecosystems.
                 </p>
             </div>
 
-            <div class="eng-how-card">
+            <div class="eng-how-card eng-how-card--3">
                 <div class="flex items-center gap-3 mb-3">
                     <div class="eng-how-icon">
                         <img src="images/home/white/Enablement.png" alt="">
                     </div>
-                    <h3 class="text-lg font-semibold" style="color: #f5c36e;">Enablement</h3>
+                    <h3 class="text-lg font-semibold">Enablement</h3>
                 </div>
                 <p style="color: rgba(248,250,252,0.82);">
                     Equip teams to sustain and scale clinical data intelligence independently.
@@ -134,7 +134,12 @@
 
         <!-- Progression Cards -->
         <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:1rem;">Engagement Progression</p>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 eng-prog-grid mb-10">
+
+        <!-- Outer framework container -->
+        <div class="eng-framework-box mb-10">
+
+          <!-- 2×2 inner cards -->
+          <div class="eng-prog-grid">
 
             <div class="eng-prog-card">
                 <h4>Structural Clarity &amp; Alignment</h4>
@@ -160,11 +165,18 @@
                     regulatory alignment and long-term resilience.</p>
             </div>
 
-            <div class="eng-prog-card">
-                <h4>Capability Transfer &amp; Scale</h4>
-                <p>Enable teams through training and BOT models to independently operate, extend, and scale
-                    clinical data intelligence systems.</p>
+          </div>
+
+          <!-- Capability Transfer footer strip inside the big box -->
+          <div class="eng-capability-strip">
+            <div class="eng-capability-strip__inner">
+              <span class="eng-capability-strip__num">05</span>
+              <div>
+                <h4 class="eng-capability-strip__title">Capability Transfer &amp; Scale</h4>
+                <p class="eng-capability-strip__text">Enable teams through training and BOT models to independently operate, extend, and scale clinical data intelligence systems.</p>
+              </div>
             </div>
+          </div>
 
         </div>
 
@@ -194,46 +206,67 @@
                 <span class="eng-flow-pill">Defensible Submissions</span>
             </div>
 
-            <p class="text-xs font-semibold mb-4" style="color:rgba(248,250,252,0.45); text-transform:uppercase; letter-spacing:0.18em;">
-                Organizations gain:
-            </p>
+            <!-- Organizations gain — bento grid -->
+            <p class="eng-eyebrow" style="display:flex; justify-content:center; margin-bottom:1.5rem; margin-top:2rem;">Organizations gain:</p>
+            <div class="eng-bento">
 
-            <div class="eng-benefits-grid">
-                <div class="eng-benefit-item">
-                    <span class="eng-check">✓</span>
-                    <p>Consistent, submission-ready datasets</p>
-                </div>
-                <div class="eng-benefit-item">
-                    <span class="eng-check">✓</span>
-                    <p>Governed validation and verification processes</p>
-                </div>
-                <div class="eng-benefit-item">
-                    <span class="eng-check">✓</span>
-                    <p>Reduced dependency on manual intervention</p>
-                </div>
-                <div class="eng-benefit-item">
-                    <span class="eng-check">✓</span>
-                    <p>Scalable systems aligned with regulatory expectations</p>
-                </div>
+              <div class="eng-bento__card eng-bento__card--1 eng-bento__card--wide">
+                <span class="eng-bento__num">01</span>
+                <div class="eng-bento__icon">📋</div>
+                <h4 class="eng-bento__title">Submission-Ready Datasets</h4>
+                <p class="eng-bento__text">Consistent, governed clinical data ready for regulatory submission at every stage.</p>
+              </div>
+
+              <div class="eng-bento__card eng-bento__card--2">
+                <span class="eng-bento__num">02</span>
+                <div class="eng-bento__icon">🔒</div>
+                <h4 class="eng-bento__title">Governed Validation</h4>
+                <p class="eng-bento__text">Validation and verification as an intelligence-driven system of assurance.</p>
+              </div>
+
+              <div class="eng-bento__card eng-bento__card--3">
+                <span class="eng-bento__num">03</span>
+                <div class="eng-bento__icon">⚙️</div>
+                <h4 class="eng-bento__title">Reduced Manual Effort</h4>
+                <p class="eng-bento__text">Automated reasoning replaces repetitive manual intervention across workflows.</p>
+              </div>
+
+              <div class="eng-bento__card eng-bento__card--4 eng-bento__card--wide">
+                <span class="eng-bento__num">04</span>
+                <div class="eng-bento__icon">📈</div>
+                <h4 class="eng-bento__title">Scalable Regulatory Alignment</h4>
+                <p class="eng-bento__text">Systems built to scale with evolving regulatory expectations across clinical programs.</p>
+              </div>
+
             </div>
         </div>
 
     </div>
 </section>
 
-<!-- Final Conversion -->
+<!-- Final Statement -->
 <section class="text-white py-16" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 60%, #08112a 100%);">
     <div class="max-w-4xl mx-auto px-6">
 
-        <div class="eng-intro" style="margin-bottom:2.5rem;">
-            <p>Clinical data quality is not achieved at the point of submission. It is engineered across the lifecycle.</p>
-            <p>Care2Data enables organizations to move beyond validation as a task — <strong>toward validation and
-                verification as a governed, intelligence-driven system of assurance</strong>.</p>
+        <div class="eng-manifesto">
+          <div class="eng-manifesto__tag">The Care2Data Principle</div>
+
+          <div class="eng-manifesto__contrast">
+            <p class="eng-manifesto__faded">Clinical data quality is not achieved<br>at the point of submission.</p>
+            <p class="eng-manifesto__bold">It is engineered<br><span>across the lifecycle.</span></p>
+          </div>
+
+          <div class="eng-manifesto__card">
+            <div class="eng-manifesto__card-bar"></div>
+            <p>Care2Data enables organizations to move beyond validation as a task —
+              <strong>toward validation and verification as a governed,
+              intelligence-driven system of assurance.</strong>
+            </p>
+          </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
+        <div class="flex flex-col sm:flex-row justify-center gap-4 flex-wrap" style="margin-top:2.5rem;">
             <button routerLink="/contact-us" class="btn btn-primary">Architect Your Engagement →</button>
-            <button routerLink="/contact-us" class="btn btn-outline">Contact Us →</button>
         </div>
 
     </div>

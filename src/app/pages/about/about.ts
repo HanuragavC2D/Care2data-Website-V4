@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Carousel } from '../../shared/carousel/carousel';
 import { CarouselCard } from '../../shared/carousel/carousel.types';
-import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
+import { getCanonicalUrl } from '../../shared/site-config';
+import { NavTriggerService } from '../../shared/services/nav-trigger.service';
 
 @Component({
   selector: 'app-about',
@@ -13,7 +15,10 @@ import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
-export class About {
+export class About implements AfterViewInit, OnDestroy {
+  private fragSub!: Subscription;
+  private isPopstate = false;
+
   cards = [
     { img: 'images/partners/iiitd_logo.png' },
     { img: 'images/partners/iiitb_logo.png' },
@@ -47,40 +52,68 @@ export class About {
     }
   ];
 
-  constructor(private titleService: Title, private metaService: Meta) { }
+  constructor(
+    private titleService: Title,
+    private metaService: Meta,
+    private route: ActivatedRoute,
+    private navTrigger: NavTriggerService
+  ) { }
 
   ngOnInit(): void {
-    // Change Page Title
+    this.isPopstate = this.navTrigger.isPopstate();
+
     this.titleService.setTitle('About Us | Care2Data');
 
-    // Change Meta Description
     this.metaService.updateTag({
       name: 'og:description',
       content: 'Care2Data is a clinical data validation software company that provides intelligent clinical data verification solutions for clinical research.'
     });
 
-    // Change Meta url
     this.metaService.updateTag({
       name: 'og:url',
       content: getCanonicalUrl('about-us')
     });
 
-    // Change Keywords
     this.metaService.updateTag({
       name: 'keywords',
       content: 'About Care2Data, Clinical data validation software company, Intelligent clinical data verification solutions, Clinical research software provider, Clinical data integrity solutions, Clinical trial data validation experts, Regulatory-compliant clinical data validation, 21 CFR Part 11 compliant software, Clinical data quality assurance, Clinical research technology company'
     });
 
-    // Open Graph Title
     this.metaService.updateTag({
       property: 'og:title',
       content: 'About Us | Care2Data'
     });
 
-    // Open Graph Description
     this.metaService.updateTag({
       property: 'og:description',
       content: 'Care2Data is a clinical data validation software company that provides intelligent clinical data verification solutions for clinical research.'
     });
+  }
+
+  ngAfterViewInit(): void {
+    if (this.isPopstate) return;
+
+    const rawHash = window.location.hash;
+    const lastHashIdx = rawHash.lastIndexOf('#');
+    const initFrag = lastHashIdx > 0 ? rawHash.slice(lastHashIdx + 1) : '';
+    if (initFrag) {
+      setTimeout(() => {
+        const el = document.getElementById(initFrag);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 400);
+    }
+
+    this.fragSub = this.route.fragment.subscribe(frag => {
+      if (frag && frag !== initFrag) {
+        setTimeout(() => {
+          const el = document.getElementById(frag);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.fragSub?.unsubscribe();
   }
 }
