@@ -266,7 +266,8 @@
         </div>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 flex-wrap" style="margin-top:2.5rem;">
-            <button routerLink="/contact-us" class="btn btn-primary">Architect Your Engagement →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Architect your Engagement'}" class="btn btn-primary">Architect Your Engagement →</button>
+            <a href="/assets/engagement-brochure.pdf" target="_blank" class="btn btn-outline">Download Brochure →</a>
         </div>
 
     </div>

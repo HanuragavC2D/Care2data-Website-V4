@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, HostListener } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -8,6 +8,17 @@ import { Carousel } from '../../shared/carousel/carousel';
 import { CarouselCard } from '../../shared/carousel/carousel.types';
 import { getCanonicalUrl } from '../../shared/site-config';
 import { NavTriggerService } from '../../shared/services/nav-trigger.service';
+
+interface Leader {
+  id: string;
+  name: string;
+  role: string;
+  photo: string;
+  linkedin: string;
+  tagline: string;
+  bio: string[];
+  expertise: string[];
+}
 
 @Component({
   selector: 'app-about',
@@ -18,6 +29,37 @@ import { NavTriggerService } from '../../shared/services/nav-trigger.service';
 export class About implements AfterViewInit, OnDestroy {
   private fragSub!: Subscription;
   private isPopstate = false;
+
+  selectedLeader: Leader | null = null;
+
+  leaders: Leader[] = [
+    {
+      id: 'giri',
+      name: 'Giri Balasubramanian',
+      role: 'CEO & Co-Founder',
+      photo: 'images/leaders/giri.jpg',
+      linkedin: 'https://www.linkedin.com/in/giri-balasubramanian-21a31013/',
+      tagline: 'Global leader in clinical data standards, automation, and analytics.',
+      bio: [
+        'Giri Balasubramanian is an experienced innovative technology leader with over 25 years in product development, specializing in the CRO, Pharma, and Biopharma industries. An alumnus of Marquette University (Math, Stat, and Computer Science), he is recognized for rolling out a revolutionary product EXACT, a metadata-driven, regulatory-compliant system for SDTM datasets and TFL generations.',
+        'Currently, he is the CEO & Co-founder of CARE2DATA, focusing on AI-enabled Ontology driven data validation, verification, and clinical trial quality assurance.'
+      ],
+      expertise: ['Ontology-Driven Validation', 'Clinical Data Standards (SDTM/ADaM)', 'Metadata Architecture', 'AI & Knowledge Graphs', 'Regulatory Submissions', 'CDISC & PhUSE']
+    },
+    {
+      id: 'gopinath',
+      name: 'Gopinath Viswanathan',
+      role: 'CTO & Co-Founder',
+      photo: 'images/leaders/gopinath.jpg',
+      linkedin: 'https://www.linkedin.com/in/gopinath-viswanathan-1502607a/',
+      tagline: 'Two decades of expertise across pharmaceutical, CRO, and life sciences organizations.',
+      bio: [
+        'Gopinath Viswanathan is a technology-driven leader with over two decades of experience spanning pharmaceutical, CRO, and life sciences organizations. His career bridges deep clinical domain expertise with a forward-looking focus on intelligent platform design — positioning technology as the foundation for clinical data quality, regulatory defensibility, and operational scale.',
+        'As CTO & Co-Founder of CARE2DATA, Gopinath leads the architecture of KWALIFY™ — the company\'s ontology-driven clinical data validation engine — and the development of TrialGen™ for synthetic clinical data generation. With expertise across SDTM, ADaM, knowledge graphs, and explainable AI (XAI), he translates complex clinical data standards into scalable, AI-enabled technology solutions that deliver submission-ready, audit-traceable data intelligence at enterprise scale.'
+      ],
+      expertise: ['Ontology-Driven Knowledge Modelling', 'Semantic Intelligence & Reasoning', 'KWALIFY™ Platform Architecture', 'Explainable AI (XAI) in Clinical Data', 'Governance-First Platform Design', 'Regulatory Submission Workflows', 'Synthetic Data Generation (TrialGen™)', 'SDTM & ADaM Standards']
+    }
+  ];
 
   cards = [
     { img: 'images/partners/iiitd_logo.png' },
@@ -58,6 +100,21 @@ export class About implements AfterViewInit, OnDestroy {
     private route: ActivatedRoute,
     private navTrigger: NavTriggerService
   ) { }
+
+  openPanel(leader: Leader): void {
+    this.selectedLeader = leader;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closePanel(): void {
+    this.selectedLeader = null;
+    document.body.style.overflow = '';
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.selectedLeader) this.closePanel();
+  }
 
   ngOnInit(): void {
     this.isPopstate = this.navTrigger.isPopstate();
@@ -115,5 +172,6 @@ export class About implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.fragSub?.unsubscribe();
+    document.body.style.overflow = '';
   }
 }

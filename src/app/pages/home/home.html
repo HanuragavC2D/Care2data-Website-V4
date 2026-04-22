@@ -24,7 +24,7 @@
   <div class="home-hero__grid">
     <!-- Left: Copy -->
     <div class="home-hero__copy">
-      <span class="home-hero__eyebrow">Setting a New Benchmark for Clinical Data Integrity</span>
+      <span class="home-hero__eyebrow" style="margin-top: 2rem;">Setting a New Benchmark for Clinical Data Integrity</span>
       <h1>Empowering Clinical Submissions with
         <i>Semantic Intelligence</i>
       </h1>
@@ -35,204 +35,260 @@
       </p>
       <p>&nbsp;</p>
       <div class="home-hero__actions">
-        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request a Demo →</a>
-        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-outline">Talk to an Expert →</a>
+        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-primary">Request a Demo →</a>
+        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" target="_blank" class="btn btn-outline">Talk to an Expert →</a>
       </div>
     </div>
 
-    <!-- Right: Data Lineage Diagram -->
-    <div class="home-hero__panel glass-card">
+    <!-- Right: Hero Image -->
+    <div class="home-hero__image">
+      <img src="images/home.png" alt="Care2Data Platform" />
+    </div>
+
+    <!-- RIGHT PANEL (COMMENTED OUT — animated Data Lineage Diagram)
+    <div class="home-hero__panel glass-card" style="align-self: start; padding-top: 3.5rem;">
       <div class="dl-wrapper pb-0 my-2">
-        <svg class="w-full h-auto" width="100%" viewBox="0 0 680 600" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto" width="100%" viewBox="0 0 680 490" xmlns="http://www.w3.org/2000/svg">
 
           <defs>
-            <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
-              orient="auto-start-reverse">
-              <path d="M2 1L8 5L2 9" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+            <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </marker>
-            <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
-              orient="auto-start-reverse">
-              <path d="M2 1L8 5L2 9" fill="none" stroke="#c9862a" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+            <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="#c9862a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </marker>
-            <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
-              orient="auto-start-reverse">
-              <path d="M2 1L8 5L2 9" fill="none" stroke="#3a6fa8" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+            <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="#5a9fd4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </marker>
-          </defs>
+            <linearGradient id="kwGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0d1b3e"/>
+              <stop offset="100%" stop-color="#162944"/>
+            </linearGradient>
+            <linearGradient id="kgGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d4963a"/>
+              <stop offset="100%" stop-color="#a06018"/>
+            </linearGradient>
+          </defs>-->
 
-          <!-- Section dividers -->
-          <line x1="48" y1="62"  x2="640" y2="62"  stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
-          <line x1="48" y1="175" x2="640" y2="175" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
-          <line x1="48" y1="292" x2="640" y2="292" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
-          <line x1="48" y1="468" x2="640" y2="468" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
-          <line x1="48" y1="565" x2="640" y2="565" stroke="#ccc6bb" stroke-width="0.5" stroke-dasharray="4 4" />
-
-          <!-- STEP 1: Section labels -->
-          <text class="section-label fadein s1" x="28" y="122" transform="rotate(-90,28,122)">SOURCE</text>
-          <text class="section-label fadein s1" x="28" y="242" transform="rotate(-90,28,242)">INGEST</text>
-          <text class="section-label fadein s1" x="28" y="380" transform="rotate(-90,28,380)">REASON</text>
-          <text class="section-label fadein s1" x="28" y="516" transform="rotate(-90,28,516)">OUTPUT</text>
-
-          <!-- STEP 2: Source boxes -->
-          <g class="src-box fadein s2">
-            <rect x="64"  y="16" width="110" height="38" rx="6" />
-            <text x="119" y="40" text-anchor="middle">EDC / CDMS</text>
+          <!-- ── Lane backgrounds ── -->
+          <!-- SOURCE: chip row y=8–66 -->          
+          <!--<rect x="55" y="8"   width="617" height="58"  rx="5" fill="rgba(255,255,255,0.03)"/>
+          -->
+          <!-- SDTM: y=72–144 -->
+          <!--<rect x="55" y="72"  width="617" height="72"  rx="5" fill="rgba(58,111,168,0.1)"/>
+          -->
+          <!-- INGEST: y=150–228 -->
+          <!--<rect x="55" y="150" width="617" height="78"  rx="5" fill="rgba(13,27,62,0.35)"/>
+          -->
+          <!-- REASON: y=234–390 -->
+          <!--<rect x="55" y="234" width="617" height="156" rx="5" fill="rgba(201,134,42,0.07)"/>
+          -->
+          <!-- OUTPUT: y=396–462 -->
+          <!--<rect x="55" y="396" width="617" height="66"  rx="5" fill="rgba(40,100,60,0.1)"/>
+-->
+          <!-- ── Dividers ── -->
+          <!--<line x1="55" y1="66"  x2="672" y2="66"  stroke="rgba(255,255,255,0.1)" stroke-width="0.5" stroke-dasharray="4 4"/>
+          <line x1="55" y1="144" x2="672" y2="144" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" stroke-dasharray="4 4"/>
+          <line x1="55" y1="228" x2="672" y2="228" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" stroke-dasharray="4 4"/>
+          <line x1="55" y1="392" x2="672" y2="392" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" stroke-dasharray="4 4"/>
+          <line x1="55" y1="464" x2="672" y2="464" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" stroke-dasharray="4 4"/>
+-->
+          <!-- ── Lane labels (SOURCE aligned to chip row) ── -->
+          <!--<text class="section-label fadein s1" x="28" y="37"  transform="rotate(-90,28,37)">SOURCE</text>
+          <text class="section-label fadein s1" x="28" y="189" transform="rotate(-90,28,189)">INGEST</text>
+          <text class="section-label fadein s1" x="28" y="312" transform="rotate(-90,28,312)">REASON</text>
+          <text class="section-label fadein s1" x="28" y="429" transform="rotate(-90,28,429)">OUTPUT</text>
+-->
+          <!-- ── SOURCE: 4 pill chips, evenly distributed across x=62–670 (608px) ── -->
+          <!-- chip w=118, 4×118=472, gap=(608−472)/5=27.2≈27; start=62+27=89 -->
+          <!--<g class="src-box fadein s2">
+            <rect x="89"  y="21" width="118" height="34" rx="17"/>
+            <text x="148" y="43" text-anchor="middle">EDC / CDMS</text>
           </g>
           <g class="src-box fadein s2">
-            <rect x="202" y="16" width="98"  height="38" rx="6" />
-            <text x="251" y="40" text-anchor="middle">Lab Data</text>
+            <rect x="234" y="21" width="118" height="34" rx="17"/>
+            <text x="293" y="43" text-anchor="middle">Lab Data</text>
           </g>
           <g class="src-box fadein s2">
-            <rect x="326" y="16" width="98"  height="38" rx="6" />
-            <text x="375" y="40" text-anchor="middle">Safety DB</text>
+            <rect x="379" y="21" width="118" height="34" rx="17"/>
+            <text x="438" y="43" text-anchor="middle">Safety DB</text>
           </g>
           <g class="src-box fadein s2">
-            <rect x="450" y="16" width="98"  height="38" rx="6" />
-            <text x="499" y="40" text-anchor="middle">Protocol</text>
+            <rect x="524" y="21" width="118" height="34" rx="17"/>
+            <text x="583" y="43" text-anchor="middle">Protocol</text>
           </g>
-
-          <!-- STEP 3: SDTM box -->
-          <g class="sdtm-box fadein s3">
-            <rect x="214" y="88" width="252" height="54" rx="8" />
-            <text class="sdtm-title" x="340" y="112" text-anchor="middle">SDTM / SEND, ADaM, DEFINE, TFL</text>
-            <text class="sdtm-sub"   x="340" y="130" text-anchor="middle">Standardized Data Layer</text>
+-->
+          <!-- ── SOURCE → SDTM fan-in ── -->
+          <!-- SDTM box center x=363; fan points on SDTM top: 185, 300, 426, 543 -->
+          <!--<path class="draw d4a" d="M148 55 L185 78" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+          <path class="draw d4b" d="M293 55 L300 78" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+          <path class="draw d4c" d="M438 55 L426 78" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+          <path class="draw d4d" d="M583 55 L543 78" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+-->
+          <!-- ── SDTM box (x=120 w=486 center=363) ── -->
+          <!--<g class="sdtm-box fadein s3">
+            <rect x="120" y="78" width="486" height="58" rx="8"/>
+            <text class="sdtm-title" x="363" y="103" text-anchor="middle">SDTM · ADaM · DEFINE · SEND</text>
+            <text class="sdtm-sub"   x="363" y="122" text-anchor="middle">Standardized Clinical Data Layer</text>
           </g>
-
-          <!-- STEP 4: Dashed lines — sources → SDTM -->
-          <path class="draw d4a" d="M119 54 L288 88" fill="none" stroke="#ccc6bb" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
-          <path class="draw d4b" d="M251 54 L316 88" fill="none" stroke="#ccc6bb" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
-          <path class="draw d4c" d="M375 54 L364 88" fill="none" stroke="#ccc6bb" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
-          <path class="draw d4d" d="M499 54 L400 88" fill="none" stroke="#ccc6bb" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arrowGray)" />
-
-          <!-- STEP 4e: SDTM → KWALIFY (solid blue) -->
-          <line class="draw d4e" x1="340" y1="142" x2="340" y2="188" stroke="#3a6fa8" stroke-width="1.5" marker-end="url(#arrowBlue)" />
-
-          <!-- STEP 5: KWALIFY box -->
-          <g class="kwalify-box fadein s5">
-            <rect x="244" y="188" width="192" height="56" rx="8" />
-            <circle class="kw-dot" cx="292" cy="213" r="3.5" />
-            <text class="kwalify-title" x="340" y="213" text-anchor="middle">KWALIFY™</text>
-            <text class="kwalify-sub"   x="340" y="231" text-anchor="middle">Data Validation Engine</text>
+-->
+          <!-- ── SDTM → Kwalify ── -->
+          <!--<line class="draw d4e" x1="363" y1="136" x2="363" y2="154" stroke="#5a9fd4" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+-->
+          <!-- ── KWALIFY box (x=120 w=486 center=363) ── -->
+          <!--<g class="kwalify-box fadein s5">
+            <rect x="120" y="156" width="486" height="66" rx="10" fill="url(#kwGrad)"/>
+            <circle class="kw-dot" cx="168" cy="179" r="3.5"/>
+            <text class="kwalify-title" x="363" y="181" text-anchor="middle">KWALIFY™</text>
+            -->
+            <!-- 3 chips evenly: available inner 140–596=456px, chip w=104, gap=(456−312)/4=36; start=140+36=176 -->
+            <!--<rect x="176" y="194" width="104" height="20" rx="10" fill="rgba(245,195,110,0.18)" stroke="rgba(245,195,110,0.4)" stroke-width="1"/>
+            <text x="228" y="208" text-anchor="middle" font-size="9" font-weight="700" fill="#f5c36e" font-family="'Segoe UI',sans-serif">Rule Validation</text>
+            <rect x="316" y="194" width="104" height="20" rx="10" fill="rgba(245,195,110,0.18)" stroke="rgba(245,195,110,0.4)" stroke-width="1"/>
+            <text x="368" y="208" text-anchor="middle" font-size="9" font-weight="700" fill="#f5c36e" font-family="'Segoe UI',sans-serif">Cross-Domain</text>
+            <rect x="456" y="194" width="104" height="20" rx="10" fill="rgba(245,195,110,0.18)" stroke="rgba(245,195,110,0.4)" stroke-width="1"/>
+            <text x="508" y="208" text-anchor="middle" font-size="9" font-weight="700" fill="#f5c36e" font-family="'Segoe UI',sans-serif">Root Cause AI</text>
           </g>
+-->
+          <!-- ── Kwalify → KG ── -->
+          <!--<line class="draw d5e" x1="363" y1="222" x2="363" y2="244" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+-->
+          <!-- ── KNOWLEDGE GRAPH NETWORK (centre 363, 313) ── -->
+          <!-- Satellite centres (ellipse a=100 b=44):
+               right(463,313)  upper-right(413,274)  upper-left(313,274)
+               left(263,313)   lower-left(313,352)   lower-right(413,352)  -->
 
-          <!-- STEP 5e: KWALIFY → KG (amber) -->
-          <line class="draw d5e" x1="340" y1="244" x2="340" y2="305" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)" />
-
-          <!-- STEP 6: Knowledge Graph hub -->
-          <circle class="orbit-ring fadein s6" cx="340" cy="345" r="90" />
-          <circle class="kg-pulse  fadein s6" cx="340" cy="345" r="48" fill="none" stroke="#c9862a" stroke-width="1.5" />
-          <circle class="kg-circle fadein s6" cx="340" cy="345" r="40" />
-          <text class="kg-label fadein s6" x="340" y="341">KNOWLEDGE</text>
-          <text class="kg-label fadein s6" x="340" y="355">GRAPH</text>
-
-          <!-- STEP 7: Satellite nodes + connector lines -->
+          <!-- Ring connections -->
+          <!--<line class="draw d7f" x1="463" y1="313" x2="413" y2="274" stroke="rgba(255,255,255,0.14)" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <line class="draw d7f" x1="413" y1="274" x2="313" y2="274" stroke="rgba(255,255,255,0.14)" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <line class="draw d7f" x1="313" y1="274" x2="263" y2="313" stroke="rgba(255,255,255,0.14)" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <line class="draw d7e" x1="263" y1="313" x2="313" y2="352" stroke="rgba(255,255,255,0.14)" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <line class="draw d7e" x1="313" y1="352" x2="413" y2="352" stroke="rgba(255,255,255,0.14)" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <line class="draw d7d" x1="413" y1="352" x2="463" y2="313" stroke="rgba(255,255,255,0.14)" stroke-width="0.8" stroke-dasharray="4 3"/>
+-->
+          <!-- Hub spokes (centre → each satellite) -->
+          <!--<line class="draw d7a" x1="363" y1="313" x2="463" y2="313" stroke="rgba(255,255,255,0.18)" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <line class="draw d7a" x1="363" y1="313" x2="413" y2="274" stroke="rgba(255,255,255,0.18)" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <line class="draw d7a" x1="363" y1="313" x2="313" y2="274" stroke="rgba(255,255,255,0.18)" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <line class="draw d7b" x1="363" y1="313" x2="263" y2="313" stroke="#c9862a" stroke-width="1" marker-end="url(#arrowAmber)"/>
+          <line class="draw d7c" x1="363" y1="313" x2="313" y2="352" stroke="rgba(255,255,255,0.18)" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <line class="draw d7c" x1="363" y1="313" x2="413" y2="352" stroke="rgba(255,255,255,0.18)" stroke-width="0.8" stroke-dasharray="4 3"/>
+-->
+          <!-- KG hex + pulse -->
+          <!--
+          <circle class="orbit-ring fadein s6" cx="363" cy="313" r="82"/>
+          <circle class="kg-pulse  fadein s6" cx="363" cy="313" r="48" fill="none" stroke="#c9862a" stroke-width="1.2"/>
+          -->
+          <!-- pointy-top hex r=38: top(363,275) TR(396,294) BR(396,332) B(363,351) BL(330,332) TL(330,294) -->
+          <!--
+          <polygon class="kg-circle fadein s6" points="363,275 396,294 396,332 363,351 330,332 330,294" fill="url(#kgGrad)"/>
+          <text class="kg-label fadein s6" x="363" y="310">KNOWLEDGE</text>
+          <text class="kg-label fadein s6" x="363" y="326">GRAPH</text>
+-->
+          <!-- Satellite pill nodes -->
+          <!-- right: Regulatory Intent, centre=(463,313) -->
+          <!--
           <g class="satellite fadein s7">
-            <rect x="136" y="297" width="116" height="34" rx="16" />
-            <text x="194" y="318" text-anchor="middle">Cross-Domain</text>
-          </g>
-          <line class="draw d7a" x1="252" y1="314" x2="301" y2="333" stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3" />
+            <rect x="415" y="297" width="96" height="32" rx="16"/>
+            <text x="463" y="317" text-anchor="middle">Regulatory Intent</text>
+          </g>-->
+          <!-- upper-right: Root Cause AI, centre=(413,274) -->
+          <!--<g class="satellite fadein s7">
+            <rect x="365" y="258" width="96" height="32" rx="16"/>
+            <text x="413" y="278" text-anchor="middle">Root Cause AI</text>
+          </g>-->
+          <!-- upper-left: Cross-Domain, centre=(313,274) -->
+          <!--<g class="satellite fadein s7">
+            <rect x="265" y="258" width="96" height="32" rx="16"/>
+            <text x="313" y="278" text-anchor="middle">Cross-Domain</text>
+          </g>-->
+          <!-- left: Semantic Rules (amber accent), centre=(263,313) -->
+          <!--<g class="satellite accented fadein s7">
+            <rect x="206" y="297" width="114" height="32" rx="6"/>
+            <text x="263" y="317" text-anchor="middle" font-weight="700" fill="rgba(255,255,255,0.9)" font-family="'Segoe UI',sans-serif" font-size="11">Semantic Rules</text>
+          </g>-->
+          <!-- lower-left: Lineage Trace, centre=(313,352) -->
+          <!--<g class="satellite fadein s7">
+            <rect x="265" y="336" width="96" height="32" rx="16"/>
+            <text x="313" y="356" text-anchor="middle">Lineage Trace</text>
+          </g>-->
+          <!-- lower-right: Impact Map, centre=(413,352) -->
+          <!--<g class="satellite fadein s7">
+            <rect x="365" y="336" width="96" height="32" rx="16"/>
+            <text x="413" y="356" text-anchor="middle">Impact Map</text>
+          </g>-->
 
-          <g class="satellite fadein s7">
-            <rect x="432" y="297" width="104" height="34" rx="16" />
-            <text x="484" y="318" text-anchor="middle">Root Cause</text>
-          </g>
-          <line class="draw d7a" x1="432" y1="314" x2="381" y2="333" stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3" />
-
-          <g class="satellite accented fadein s7">
-            <rect x="62" y="340" width="132" height="34" rx="6" />
-            <text x="128" y="361" text-anchor="middle" font-weight="600" fill="#2b2b35" font-family="'Segoe UI',sans-serif" font-size="11">Semantic Rules</text>
-          </g>
-          <line class="draw d7b" x1="194" y1="347" x2="300" y2="345" stroke="#c9862a" stroke-width="1" marker-end="url(#arrowAmber)" />
-
-          <g class="satellite accented fadein s7">
-            <rect x="480" y="340" width="138" height="34" rx="6" />
-            <text x="549" y="361" text-anchor="middle" font-weight="600" fill="#2b2b35" font-family="'Segoe UI',sans-serif" font-size="11">Regulatory Intent</text>
-          </g>
-          <line class="draw d7b" x1="480" y1="347" x2="380" y2="345" stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3" />
-
-          <g class="satellite fadein s7">
-            <rect x="148" y="382" width="112" height="34" rx="16" />
-            <text x="204" y="403" text-anchor="middle">Lineage Trace</text>
-          </g>
-          <line class="draw d7c" x1="260" y1="399" x2="305" y2="373" stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3" />
-
-          <g class="satellite fadein s7">
-            <rect x="432" y="382" width="100" height="34" rx="16" />
-            <text x="482" y="403" text-anchor="middle">Impact Map</text>
-          </g>
-          <line class="draw d7c" x1="432" y1="399" x2="377" y2="373" stroke="#ccc6bb" stroke-width="0.8" stroke-dasharray="4 3" />
-
-          <!-- STEP 8: KG → output connectors -->
-          <path class="draw d8a" d="M318 384 L237 480" fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)" />
-          <!-- KG → XAI node -->
-          <path class="draw d8b" d="M363 384 L456 446" fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)" />
-          <!-- XAI node → Discrepancy -->
-          <path class="draw d8c" d="M520 460 L488 480" fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)" />
-
-          <!-- STEP 8x: Explainable AI node -->
-          <g class="satellite accented fadein s9">
-            <rect x="456" y="432" width="128" height="28" rx="6" />
-            <text x="520" y="450" text-anchor="middle" font-weight="700" fill="#2b2b35" font-family="'Segoe UI',sans-serif" font-size="10">Explainable AI (XAI)</text>
-          </g>
-
-          <!-- STEP 9: Output boxes -->
+          <!-- ── KG → 3 Outputs ── -->
+          <!-- Output centres: 166, 363, 560 -->
+          <!--<path class="draw d8a" d="M344 349 Q255 370 166 396" fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+          <path class="draw d8b" d="M363 351 L363 396"           fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+          <path class="draw d8c" d="M382 349 Q471 370 560 396"  fill="none" stroke="#c9862a" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+-->
+          <!-- ── Output boxes: 3 equal-width boxes, evenly distributed across x=62–670 ── -->
+          <!-- w=174, gap=24; box1 x=79, box2 x=277, box3 x=475 -->
+          <!--
           <g class="out-submission fadein s9">
-            <rect x="148" y="480" width="176" height="64" rx="8" />
-            <text class="out-title" x="236" y="505" text-anchor="middle">SUBMISSION</text>
-            <text class="out-sub"   x="236" y="526" text-anchor="middle">Audit-Ready Output</text>
+            <rect x="79"  y="402" width="174" height="54" rx="8"/>
+            <text class="out-title" x="166" y="426" text-anchor="middle">SUBMISSION</text>
+            <text class="out-sub"   x="166" y="445" text-anchor="middle">Audit-Ready Output</text>
+          </g>
+          <g class="out-xai fadein s9">
+            <rect x="277" y="402" width="174" height="54" rx="8"/>
+            <text class="out-xai-title" x="364" y="426" text-anchor="middle">EXPLAINABLE AI</text>
+            <text class="out-xai-sub"   x="364" y="445" text-anchor="middle">XAI · Insight Generation</text>
           </g>
           <g class="out-discrepancy fadein s9">
-            <rect x="360" y="480" width="176" height="64" rx="8" />
-            <text class="out-title" x="448" y="504" text-anchor="middle">DISCREPANCY</text>
-            <text class="out-sub"   x="448" y="526" text-anchor="middle">Root Cause Analysis</text>
-          </g>
+            <rect x="475" y="402" width="174" height="54" rx="8"/>
+            <text class="out-title" x="562" y="426" text-anchor="middle">DISCREPANCY</text>
+            <text class="out-sub"   x="562" y="445" text-anchor="middle">Root Cause Analysis</text>
+          </g>-->
 
-          <!-- STEP 10: Caption -->
-          <text class="caption fadein s10" x="340" y="585">DATA LINEAGE &amp; PROVENANCE MODEL</text>
-
-          <!-- FLOW DOTS -->
+          <!-- ── Caption ── -->
+          <!--<text class="caption fadein s10" x="363" y="482">DATA LINEAGE &amp; PROVENANCE MODEL</text>
+-->
+          <!-- ── Animated flow dots ── -->
+          <!--
           <circle class="flow-dot-blue" r="3">
-            <animateMotion dur="2s" repeatCount="indefinite" begin="1.9s"><mpath href="#fp-edc" /></animateMotion>
-            <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite" begin="1.9s" />
+            <animateMotion dur="2s" repeatCount="indefinite" begin="1.9s"><mpath href="#fp-edc"/></animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite" begin="1.9s"/>
           </circle>
-          <path id="fp-edc" d="M119 54 L288 88" fill="none" />
-
-          <circle class="flow-dot-blue" r="3">
-            <animateMotion dur="2.2s" repeatCount="indefinite" begin="2.3s"><mpath href="#fp-prot" /></animateMotion>
-            <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite" begin="2.3s" />
-          </circle>
-          <path id="fp-prot" d="M499 54 L400 88" fill="none" />
+          <path id="fp-edc" d="M148 55 L185 78" fill="none"/>
 
           <circle class="flow-dot-blue" r="3">
-            <animateMotion dur="1.3s" repeatCount="indefinite" begin="2.5s"><mpath href="#fp-sdtm-kw" /></animateMotion>
-            <animate attributeName="opacity" values="0;1;1;0" dur="1.3s" repeatCount="indefinite" begin="2.5s" />
+            <animateMotion dur="2.2s" repeatCount="indefinite" begin="2.3s"><mpath href="#fp-prot"/></animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite" begin="2.3s"/>
           </circle>
-          <path id="fp-sdtm-kw" d="M340 142 L340 188" fill="none" />
+          <path id="fp-prot" d="M583 55 L543 78" fill="none"/>
+
+          <circle class="flow-dot-blue" r="3">
+            <animateMotion dur="1.3s" repeatCount="indefinite" begin="2.5s"><mpath href="#fp-sdtm-kw"/></animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" dur="1.3s" repeatCount="indefinite" begin="2.5s"/>
+          </circle>
+          <path id="fp-sdtm-kw" d="M363 136 L363 154" fill="none"/>
 
           <circle class="flow-dot" r="3.5">
-            <animateMotion dur="1.5s" repeatCount="indefinite" begin="2.8s"><mpath href="#fp-kw-kg" /></animateMotion>
-            <animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite" begin="2.8s" />
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="2.8s"><mpath href="#fp-kw-kg"/></animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite" begin="2.8s"/>
           </circle>
-          <path id="fp-kw-kg" d="M340 244 L340 305" fill="none" />
+          <path id="fp-kw-kg" d="M363 222 L363 244" fill="none"/>
 
           <circle class="flow-dot" r="3.5">
-            <animateMotion dur="2s" repeatCount="indefinite" begin="3.7s"><mpath href="#fp-kg-sub" /></animateMotion>
-            <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite" begin="3.7s" />
+            <animateMotion dur="2s" repeatCount="indefinite" begin="3.7s"><mpath href="#fp-kg-sub"/></animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite" begin="3.7s"/>
           </circle>
-          <path id="fp-kg-sub" d="M318 384 L237 480" fill="none" />
+          <path id="fp-kg-sub" d="M344 349 Q255 370 166 396" fill="none"/>
 
           <circle class="flow-dot-green" r="3.5">
-            <animateMotion dur="2.1s" repeatCount="indefinite" begin="4.1s"><mpath href="#fp-kg-disc" /></animateMotion>
-            <animate attributeName="opacity" values="0;1;1;0" dur="2.1s" repeatCount="indefinite" begin="4.1s" />
+            <animateMotion dur="2.1s" repeatCount="indefinite" begin="4.1s"><mpath href="#fp-kg-disc"/></animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" dur="2.1s" repeatCount="indefinite" begin="4.1s"/>
           </circle>
-          <path id="fp-kg-disc" d="M363 384 L456 446 L520 446 L520 460 L488 480" fill="none" />
+          <path id="fp-kg-disc" d="M382 349 Q471 370 560 396" fill="none"/>
 
         </svg>
       </div>
     </div>
+    END COMMENTED OUT RIGHT PANEL -->
+
   </div>
 </section>
 

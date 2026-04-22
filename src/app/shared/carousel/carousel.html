@@ -30,19 +30,22 @@
 
         <!-- Default template (about, engagement) -->
         <ng-template #defaultCard>
-          <div class="carousel-icon">
-            {{ card.icon }}
+          <div class="flex flex-col h-full">
+            <div class="carousel-icon">
+              {{ card.icon }}
+            </div>
+            <h3 class="font-semibold mb-2">{{ card.title }}</h3>
+            <p class="leading-relaxed mb-2 flex-1" *ngIf="card.description">{{ card.description }}</p>
+            <a
+              *ngIf="card.link"
+              [routerLink]="[card.link]"
+              [fragment]="card.fragment"
+              target="_blank"
+              class="carousel-link mt-3 inline-block"
+            >
+              Read More →
+            </a>
           </div>
-          <h3 class="font-semibold mb-2">{{ card.title }}</h3>
-          <p class="leading-relaxed mb-2" *ngIf="card.description">{{ card.description }}</p>
-          <a
-            *ngIf="card.link"
-            [routerLink]="[card.link]"
-            [fragment]="card.fragment"
-            class="carousel-link mt-3 inline-block"
-          >
-            Read More →
-          </a>
         </ng-template>
       </div>
     </ng-container>

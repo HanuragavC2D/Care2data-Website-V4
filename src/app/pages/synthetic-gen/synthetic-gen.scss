@@ -38,6 +38,42 @@ $inner-width: 1200px;
   &:hover { background: $gold-dim; border-color: $gold; }
 }
 
+// ── Hero video panel ──────────────────────────────────────────
+.sg-video-frame {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(245, 195, 110, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 24px 64px rgba(0, 0, 0, 0.5);
+  background: #06101f;
+}
+
+.sg-video-ratio {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+}
+
+.sg-video-caption {
+  margin-top: 0.625rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 195, 110, 0.5);
+  text-align: center;
+}
+
 // ── Hero ───────────────────────────────────────────────────────
 .sg-hero {
   padding-top: 7rem;
@@ -45,15 +81,20 @@ $inner-width: 1200px;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   color: white;
+  overflow: hidden;
 }
 
 .sg-hero__inner {
   max-width: $inner-width;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
   gap: 3rem;
   align-items: center;
+
+  > * { min-width: 0; }
+  > *:first-child { overflow: visible; }
+  > *:last-child { overflow: hidden; }
 
   @media (max-width: 1024px) { grid-template-columns: 1fr; }
 }
@@ -212,29 +253,28 @@ $inner-width: 1200px;
     align-items: flex-start;
     gap: 0.875rem;
     padding: 0.875rem 1.125rem;
-    background: rgba(239,68,68,0.05);
-    border: 1px solid rgba(239,68,68,0.15);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
     border-radius: 0.875rem;
     color: $white-82;
     font-size: 0.925rem;
     line-height: 1.6;
     transition: background 0.2s;
 
-    &:hover { background: rgba(239,68,68,0.09); }
+    &:hover { background: rgba(255,255,255,0.07); }
 
-    mat-icon {
+    .sg-challenge-icon {
       flex-shrink: 0;
-      font-size: 1.5rem;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.375rem;
+      height: 1.375rem;
       margin-top: 0.05rem;
     }
 
     // Per-icon colors
-    &:nth-child(1) mat-icon { color: #f87171; }  // schedule — red
-    &:nth-child(2) mat-icon { color: #38bdf8; }  // dataset  — blue
-    &:nth-child(3) mat-icon { color: #fbbf24; }  // warning  — amber
-    &:nth-child(4) mat-icon { color: #34d399; }  // shield   — green
+    &:nth-child(1) .sg-challenge-icon { color: #fbbf24; }  // clock   — amber
+    &:nth-child(2) .sg-challenge-icon { color: #38bdf8; }  // data    — blue
+    &:nth-child(3) .sg-challenge-icon { color: #fb923c; }  // warning — orange
+    &:nth-child(4) .sg-challenge-icon { color: #c084fc; }  // lock    — purple
   }
 }
 

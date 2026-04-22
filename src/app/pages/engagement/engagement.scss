@@ -445,10 +445,12 @@ section:not(.eng-hero) {
   overflow: hidden;
   border-radius: 1.25rem;
   padding: 1.5rem 1.5rem 1.25rem;
-  border: 1px solid;
+  border: 0;
+  border-top: 3px solid;
+  background: #ffffff;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
-  &:hover { transform: translateY(-3px); }
+  &:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
 
   // Row 1: 01 wide (3) | 02 narrow (2)
   &--1 { grid-column: 1 / 4; grid-row: 1; }
@@ -458,36 +460,28 @@ section:not(.eng-hero) {
   &--4 { grid-column: 3 / 6; grid-row: 2; }
 
   &--1 {
-    background: linear-gradient(135deg, rgba(56,189,248,0.10) 0%, rgba(56,189,248,0.03) 100%);
-    border-color: rgba(56,189,248,0.25);
-    box-shadow: 0 0 0 1px rgba(56,189,248,0.08), 4px 6px 0 rgba(56,189,248,0.15);
-    .eng-bento__num  { color: rgba(56,189,248,0.15); }
-    .eng-bento__icon { color: #38bdf8; }
-    .eng-bento__title { color: #38bdf8; }
+    border-top-color: #38bdf8;
+    .eng-bento__num  { color: rgba(56,189,248,0.12); }
+    .eng-bento__icon { color: #0369a1; }
+    .eng-bento__title { color: #0369a1; }
   }
   &--2 {
-    background: linear-gradient(135deg, rgba(245,195,110,0.10) 0%, rgba(245,195,110,0.03) 100%);
-    border-color: rgba(245,195,110,0.25);
-    box-shadow: 0 0 0 1px rgba(245,195,110,0.08), 4px 6px 0 rgba(245,195,110,0.15);
+    border-top-color: #f5c36e;
     .eng-bento__num  { color: rgba(245,195,110,0.15); }
-    .eng-bento__icon { color: #f5c36e; }
-    .eng-bento__title { color: #f5c36e; }
+    .eng-bento__icon { color: #92400e; }
+    .eng-bento__title { color: #92400e; }
   }
   &--3 {
-    background: linear-gradient(135deg, rgba(52,211,153,0.10) 0%, rgba(52,211,153,0.03) 100%);
-    border-color: rgba(52,211,153,0.25);
-    box-shadow: 0 0 0 1px rgba(52,211,153,0.08), 4px 6px 0 rgba(52,211,153,0.15);
-    .eng-bento__num  { color: rgba(52,211,153,0.15); }
-    .eng-bento__icon { color: #34d399; }
-    .eng-bento__title { color: #34d399; }
+    border-top-color: #34d399;
+    .eng-bento__num  { color: rgba(52,211,153,0.12); }
+    .eng-bento__icon { color: #065f46; }
+    .eng-bento__title { color: #065f46; }
   }
   &--4 {
-    background: linear-gradient(135deg, rgba(192,132,252,0.10) 0%, rgba(192,132,252,0.03) 100%);
-    border-color: rgba(192,132,252,0.25);
-    box-shadow: 0 0 0 1px rgba(192,132,252,0.08), 4px 6px 0 rgba(192,132,252,0.15);
-    .eng-bento__num  { color: rgba(192,132,252,0.15); }
-    .eng-bento__icon { color: #c084fc; }
-    .eng-bento__title { color: #c084fc; }
+    border-top-color: #c084fc;
+    .eng-bento__num  { color: rgba(192,132,252,0.12); }
+    .eng-bento__icon { color: #6b21a8; }
+    .eng-bento__title { color: #6b21a8; }
   }
 }
 
@@ -517,7 +511,7 @@ section:not(.eng-hero) {
 
 .eng-bento__text {
   font-size: 0.85rem;
-  color: rgba(248,250,252,0.72);
+  color: #475569;
   line-height: 1.65;
   margin: 0;
 }
@@ -629,6 +623,40 @@ section:not(.eng-hero) {
 }
 
 .eng-flow-arrow { color: $gold; font-size: 1.1rem; font-weight: 700; }
+
+/* ── Large monitors (1440px+) ── */
+@media (min-width: 1440px) {
+  .eng-hero { padding-top: 9rem; padding-bottom: 5rem; }
+}
+
+/* ── Tablet landscape (1024px) ── */
+@media (max-width: 1024px) {
+  .eng-intro { max-width: 100%; }
+  .eng-benefits-grid { grid-template-columns: 1fr; }
+  .eng-prog-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── Tablet portrait (768px) ── */
+@media (max-width: 768px) {
+  .eng-hero { padding-top: 5.5rem; padding-bottom: 3rem; }
+  .eng-intro { padding: 1rem 1.25rem 1rem 1.25rem; border-left: none; border-top: 3px solid $gold; }
+  .eng-flow-row { gap: 0.5rem; }
+  .eng-manifesto__faded { font-size: 1.2rem; }
+  .eng-manifesto__bold { font-size: 1.65rem; }
+  .eng-bento { grid-template-columns: 1fr !important; }
+  .eng-bento__card--1,
+  .eng-bento__card--2,
+  .eng-bento__card--3,
+  .eng-bento__card--4 { grid-column: auto; grid-row: auto; }
+}
+
+/* ── Mobile (640px) ── */
+@media (max-width: 640px) {
+  .eng-hero { padding-top: 4rem; padding-bottom: 2.5rem; }
+  section:not(.eng-hero) { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+  .eng-benefits-grid { grid-template-columns: 1fr; }
+  .eng-prog-grid { grid-template-columns: 1fr !important; }
+}
 
 // Benefits checkmark grid
 .eng-benefits-grid {

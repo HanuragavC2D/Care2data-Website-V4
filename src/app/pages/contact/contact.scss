@@ -134,3 +134,26 @@ $card-border: rgba(255,255,255,0.12);
   .mat-mdc-select-value { color: white !important; }
   .mat-mdc-select-arrow { color: $gold !important; }
 }
+
+// ── Responsive ────────────────────────────────────────────────
+
+/* ── Large monitors (1440px+) ── */
+@media (min-width: 1440px) {
+  .contact-section { padding-top: 9rem; padding-bottom: 6rem; }
+  .contact-form-wrap { padding: 3rem 3.5rem; }
+}
+
+/* ── Tablet portrait (768px) ── */
+@media (max-width: 768px) {
+  .contact-section { padding-top: 5.5rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+  .contact-form-wrap { padding: 1.75rem 1.25rem; border-radius: 1rem; }
+  .contact-header h2 { font-size: 1.9rem; }
+}
+
+/* ── Mobile (640px) ── */
+@media (max-width: 640px) {
+  .contact-section { padding-top: 4rem; padding-bottom: 3rem; }
+  .contact-form-wrap { padding: 1.25rem 1rem; }
+  .contact-header h2 { font-size: 1.65rem; }
+  .contact-header { margin-bottom: 2rem; }
+}

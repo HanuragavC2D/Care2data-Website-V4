@@ -1,39 +1,58 @@
 <!-- ═══ HERO ═══ -->
 <section class="kw-hero kw-bg-1">
-    <div class="kw-hero__inner">
+    <div class="kw-hero__split">
 
-        <div class="flex justify-center mb-4">
+        <!-- LEFT: Copy -->
+        <div class="kw-hero__left">
+
             <span class="kw-hero-eyebrow">Clinical Data Intelligence Platform</span>
+
+            <h1 style="font-size: clamp(1.75rem, 3.2vw, 3rem); font-weight: 800; color: white; line-height: 1.1; margin: 0.75rem 0;">
+                Kwalify™ &nbsp;·&nbsp;
+                <span style="color: #f5c36e;">Semantic Intelligence Driven Validation</span>
+            </h1>
+
+            <div class="kw-graphai-ticker" style="margin-bottom: 1rem;">
+              <div class="kw-graphai-track">
+                <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+                <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+                <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+                <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+                <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+                <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
+              </div>
+            </div>
+
+            <p class="kw-hero-tagline">
+                Stop Checking Data.<br>
+                <span>Start Understanding It.</span>
+            </p>
+
+            <p style="color: rgba(248,250,252,0.82); font-size: 0.975rem; line-height: 1.85; margin-bottom: 1.25rem;">
+                Kwalify™ operationalizes Care2Data's knowledge-driven validation framework — embedding semantic
+                intelligence across linked clinical datasets to strengthen accuracy, traceability, and regulatory
+                readiness before submission.
+            </p>
+
         </div>
 
-        <h1 style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 0.75rem;">
-            Kwalify™ &nbsp;·&nbsp;
-            <span style="color: #f5c36e;">Semantic Intelligence Driven Validation</span>
-        </h1>
-
-        <div class="kw-graphai-ticker">
-          <div class="kw-graphai-track">
-            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
-            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
-            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
-            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
-            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
-            <span>Powered by Graph AI</span><span class="kw-graphai-sep">◆</span>
-          </div>
+        <!-- RIGHT: Animated Product Walkthrough -->
+        <div class="kw-hero__right">
+            <div class="kw-video-frame">
+                <div class="kw-video-ratio">
+                    <iframe src="/assets/kwalify-video.html"
+                            frameborder="0"
+                            scrolling="no"
+                            allow="autoplay"
+                            title="Kwalify™ Platform Walkthrough">
+                    </iframe>
+                </div>
+            </div>
+            <p class="kw-video-caption">Kwalify™ Platform · Problem → Solution → Outcomes</p>
         </div>
 
-        <p class="kw-hero-tagline">
-            Stop Checking Data.<br>
-            <span>Start Understanding It.</span>
-        </p>
-
-        <p style="color: rgba(248,250,252,0.82); font-size: 1rem; line-height: 1.85; max-width: 700px; margin: 0 auto 1.5rem;">
-            Kwalify™ operationalizes Care2Data's knowledge-driven validation framework — embedding semantic
-            intelligence across linked clinical datasets to strengthen accuracy, traceability, and regulatory
-            readiness before submission.
-        </p>
-
-        <div class="kw-outcomes-strip">
+        <!-- Full-width outcomes strip below both columns -->
+        <div class="kw-outcomes-strip kw-outcomes-strip--full">
             <div class="kw-outcome-item kw-outcome-item--blue">
                 <span class="kw-outcome-icon">↓</span>
                 <span class="kw-outcome-label">Fewer Queries</span>
@@ -50,14 +69,17 @@
             </div>
         </div>
 
-        <p style="font-size: clamp(1rem, 1.8vw, 1.25rem); font-weight: 600; margin: 1.5rem auto 2rem; max-width: 680px; color: white;">
-            Reduce manual debugging time across studies — where individual errors take
-            <span style="color: #f5c36e;">30 minutes to 2 hours</span>.
-        </p>
-
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request an Executive Demo →</button>
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore the Validation Framework'}" class="btn btn-outline">Explore the Validation Framework →</button>
+        <!-- Full-width footer row: debug note + CTAs -->
+        <div class="kw-hero__footer-row">
+            <p style="font-size: 1rem; font-weight: 600; color: white; margin: 0;">
+                Reduce manual debugging time — where individual errors take
+                <span style="color: #f5c36e;">30 minutes to 2 hours</span>.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.875rem;">
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request an Executive Demo →</button>
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore the Validation Framework'}" class="btn btn-outline">Explore the Validation Framework →</button>
+                <a href="/assets/kwalify-brochure.pdf" target="_blank" class="btn btn-outline">Download Brochure →</a>
+            </div>
         </div>
 
     </div>
@@ -68,23 +90,7 @@
     <div class="kw-inner">
         <div class="kw-reality-layout">
 
-            <!-- Left: 3 stacked key items (solution-card style) -->
-            <div class="kw-reality-cards">
-                <div class="kw-reality-card kw-reality-card--1">
-                    <h3>Purpose-Built Validation</h3>
-                    <p>Capabilities engineered specifically for complex clinical validation workflows — not repurposed from general analytics tools.</p>
-                </div>
-                <div class="kw-reality-card kw-reality-card--2">
-                    <h3>Seamless Integration</h3>
-                    <p>Embeds within existing clinical systems and workflows without requiring replacement or operational disruption.</p>
-                </div>
-                <div class="kw-reality-card kw-reality-card--3">
-                    <h3>Eliminate Hidden Inefficiencies</h3>
-                    <p>65% of teams spend 5+ hours per week resolving SDTM validation errors manually. Kwalify™ eliminates this hidden cost.</p>
-                </div>
-            </div>
-
-            <!-- Right: section header + check grid -->
+            <!-- Left: section header + check grid -->
             <div class="kw-reality-content">
                 <div class="kw-section-header" style="text-align: left; margin-bottom: 1.75rem;">
                     <span class="kw-eyebrow">The Reality</span>
@@ -97,7 +103,23 @@
                 <div class="kw-check-grid">
                     <div class="kw-check-item"><span>✔</span><p>Purpose-built capabilities for complex clinical validation workflows</p></div>
                     <div class="kw-check-item"><span>✔</span><p>Seamless integration with existing clinical systems</p></div>
-                    <div class="kw-check-item" style="grid-column: 1 / -1;"><span>✔</span><p>Elimination of hidden inefficiencies in SDTM validation — where 65% of teams spend 5+ hours per week resolving errors manually</p></div>
+                    <div class="kw-check-item" style="grid-column: 1 / -1;"><span>✔</span><p>Elimination of systemic SDTM data quality patterns — including missing reference ranges (93%), unit mismatches (79%), duplicate AE events (67%), and missing RFSTDTC (63%)</p></div>
+                </div>
+            </div>
+
+            <!-- Right: 3 stacked key items (solution-card style) -->
+            <div class="kw-reality-cards" style="align-self: end;">
+                <div class="kw-reality-card kw-reality-card--1">
+                    <h3>Purpose-Built Validation</h3>
+                    <p>Capabilities engineered specifically for complex clinical validation workflows — not repurposed from general analytics tools.</p>
+                </div>
+                <div class="kw-reality-card kw-reality-card--2">
+                    <h3>Seamless Integration</h3>
+                    <p>Embeds within existing clinical systems and workflows without requiring replacement or operational disruption.</p>
+                </div>
+                <div class="kw-reality-card kw-reality-card--3">
+                    <h3>Eliminate Hidden Inefficiencies</h3>
+                    <p>93% of surveyed datasets contain missing reference ranges in the LB domain alone — systemic patterns that Kwalify™ surfaces and resolves automatically.</p>
                 </div>
             </div>
 
@@ -453,7 +475,7 @@
         <div class="kw-section-header">
             <span class="kw-eyebrow">Real-Time Validation Intelligence</span>
             <h2>Operational Visibility <span>Across Studies</span></h2>
-            <p>Kwalify™ provides a centralized validation dashboard for monitoring study progress and compliance readiness — giving every team member instant, actionable insight.</p>
+            <p style="font-size: 1.15rem; font-weight: 700; color: #ffffff; line-height: 1.75;"><strong>Kwalify™ provides a centralized validation dashboard</strong> for monitoring study progress and compliance readiness — giving every team member instant, actionable insight.</p>
         </div>
 
         <!-- Intro label above the grid -->
@@ -800,7 +822,7 @@
             These gaps are consistently reflected in user feedback:
         </p>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2.5rem;">
             <div class="kw-stat-card">
                 <span class="kw-stat-num">41%</span>
                 <p>Vague error messages</p>
@@ -813,6 +835,51 @@
                 <span class="kw-stat-num">35%</span>
                 <p>Difficulty identifying affected records</p>
             </div>
+        </div>
+
+        <!-- ── SDTM survey metrics ── -->
+        <div class="kw-survey-grid">
+
+            <div class="kw-survey-card kw-survey-card--1">
+                <div class="kw-survey-card__header">
+                    <span class="kw-survey-pct">93%</span>
+                    <span class="kw-survey-domain">LB Domain</span>
+                </div>
+                <div class="kw-survey-bar"><div class="kw-survey-fill kw-survey-fill--1" style="width:93%"></div></div>
+                <h4 class="kw-survey-issue">Missing Reference Ranges</h4>
+                <p class="kw-survey-desc">The most frequent lab-domain issue — often impacting downstream interpretation of safety data and missed by standard rule checks.</p>
+            </div>
+
+            <div class="kw-survey-card kw-survey-card--2">
+                <div class="kw-survey-card__header">
+                    <span class="kw-survey-pct">79%</span>
+                    <span class="kw-survey-domain">Cross-Domain</span>
+                </div>
+                <div class="kw-survey-bar"><div class="kw-survey-fill kw-survey-fill--2" style="width:79%"></div></div>
+                <h4 class="kw-survey-issue">Unit Mismatches</h4>
+                <p class="kw-survey-desc">Inconsistent measurement units across records create hidden inconsistencies that static rule checks cannot fully contextualize or resolve.</p>
+            </div>
+
+            <div class="kw-survey-card kw-survey-card--3">
+                <div class="kw-survey-card__header">
+                    <span class="kw-survey-pct">67%</span>
+                    <span class="kw-survey-domain">AE Domain</span>
+                </div>
+                <div class="kw-survey-bar"><div class="kw-survey-fill kw-survey-fill--3" style="width:67%"></div></div>
+                <h4 class="kw-survey-issue">Duplicate AE Events</h4>
+                <p class="kw-survey-desc">Present in 67% of datasets — leading to inflated or misleading adverse event reporting if not correctly identified before submission.</p>
+            </div>
+
+            <div class="kw-survey-card kw-survey-card--4">
+                <div class="kw-survey-card__header">
+                    <span class="kw-survey-pct">63%</span>
+                    <span class="kw-survey-domain">DM Domain</span>
+                </div>
+                <div class="kw-survey-bar"><div class="kw-survey-fill kw-survey-fill--4" style="width:63%"></div></div>
+                <h4 class="kw-survey-issue">Missing RFSTDTC</h4>
+                <p class="kw-survey-desc">Affects subject timeline anchoring in DM domain records — breaking downstream ADaM derivations and regulatory traceability.</p>
+            </div>
+
         </div>
 
         <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 1rem; padding: 1.5rem 2rem; margin-bottom: 2rem;">
@@ -850,17 +917,12 @@
                 <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Learn About Compliance Architecture'}" class="btn btn-primary">Learn About Compliance Architecture →</button>
             </div>
 
-            <!-- Right: 5 solution-style cards -->
+            <!-- Right: 6 solution-style cards -->
             <div class="kw-ii-cards">
 
                 <div class="kw-ii-card kw-ii-card--1">
                     <h3>Knowledge-Driven Validation Framework</h3>
-                    <p>Operationalizes semantic reasoning to deliver User Expectation.</p>
-                    <ul>
-                        <li>RCA — Root Cause Analysis</li>
-                        <li>Downstream Impact Analysis</li>
-                        <li>Impact chain visibility</li>
-                    </ul>
+                    <p>Semantic reasoning with RCA, Downstream Impact Analysis &amp; impact chain visibility.</p>
                 </div>
 
                 <div class="kw-ii-card kw-ii-card--2">
@@ -881,6 +943,11 @@
                 <div class="kw-ii-card kw-ii-card--5">
                     <h3>Governance-Aligned Deployment</h3>
                     <p>Supports regulatory expectations including data integrity requirements and 21 CFR Part 11 alignment.</p>
+                </div>
+
+                <div class="kw-ii-card kw-ii-card--6">
+                    <h3>Issue Tracking &amp; Management</h3>
+                    <p>Centralised issue lifecycle management — from detection through remediation and sign-off.</p>
                 </div>
 
             </div>
@@ -968,9 +1035,8 @@
         <div class="kw-roadmap-track">
 
             <div class="kw-rm-step kw-rm-step--1">
-                <div class="kw-rm-node">
-                    <span class="kw-rm-num">01</span>
-                </div>
+                <span class="kw-rm-num">01</span>
+                <div class="kw-rm-node"></div>
                 <div class="kw-rm-body">
                     <h4>Derived Analysis Outputs</h4>
                     <p>ADaM datasets and analysis-ready derived variables supporting statistical endpoints.</p>
@@ -978,9 +1044,8 @@
             </div>
 
             <div class="kw-rm-step kw-rm-step--2">
-                <div class="kw-rm-node">
-                    <span class="kw-rm-num">02</span>
-                </div>
+                <span class="kw-rm-num">02</span>
+                <div class="kw-rm-node"></div>
                 <div class="kw-rm-body">
                     <h4>Statistical Analysis Datasets</h4>
                     <p>Validation of datasets used in statistical computing environments and TFL generation.</p>
@@ -988,9 +1053,8 @@
             </div>
 
             <div class="kw-rm-step kw-rm-step--3">
-                <div class="kw-rm-node">
-                    <span class="kw-rm-num">03</span>
-                </div>
+                <span class="kw-rm-num">03</span>
+                <div class="kw-rm-node"></div>
                 <div class="kw-rm-body">
                     <h4>Clinical Reporting Data</h4>
                     <p>End-to-end traceability from data collection through tables, figures, and listings.</p>
@@ -998,9 +1062,8 @@
             </div>
 
             <div class="kw-rm-step kw-rm-step--4">
-                <div class="kw-rm-node">
-                    <span class="kw-rm-num">04</span>
-                </div>
+                <span class="kw-rm-num">04</span>
+                <div class="kw-rm-node"></div>
                 <div class="kw-rm-body">
                     <h4>Cross-Stage Clinical Data Integrity</h4>
                     <p>Unified validation intelligence spanning every lifecycle stage — from collection to submission.</p>

@@ -1,5 +1,5 @@
-<!-- ═══ HERO ═══ -->
 <section class="sg-hero" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);">
+    <!-- ═══ HERO ═══ -->
     <div class="sg-hero__inner">
 
         <!-- LEFT CONTENT -->
@@ -28,12 +28,16 @@
             </div>
         </div>
 
-        <!-- RIGHT — VIDEO -->
-        <div style="border-radius: 1.5rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 24px 64px rgba(0,0,0,0.4);">
-            <video #videoRef class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata">
-                <source src="videos/home.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+        <!-- RIGHT — ANIMATED PRESENTATION -->
+        <div class="sg-video-frame" style="align-self: start; margin-top: 3.25rem;">
+            <div class="sg-video-ratio">
+                <iframe src="/assets/trialgen-video.html"
+                        frameborder="0"
+                        scrolling="no"
+                        allow="autoplay">
+                </iframe>
+            </div>
+            <p class="sg-video-caption">TrialGen™ Platform · Challenge → Solution → Outcomes</p>
         </div>
 
     </div>
@@ -59,19 +63,27 @@
                 </p>
                 <ul class="sg-bottleneck-list">
                     <li>
-                        <mat-icon>schedule</mat-icon>
+                        <svg class="sg-challenge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                        </svg>
                         <span>Validation workflows are delayed due to lack of usable datasets</span>
                     </li>
                     <li>
-                        <mat-icon>dataset</mat-icon>
+                        <svg class="sg-challenge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="12" y1="12" x2="12" y2="12.01"/>
+                        </svg>
                         <span>Testing is performed on limited or non-representative data</span>
                     </li>
                     <li>
-                        <mat-icon>warning</mat-icon>
+                        <svg class="sg-challenge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
                         <span>Edge cases and anomalies remain untested until late stages</span>
                     </li>
                     <li>
-                        <mat-icon>shield</mat-icon>
+                        <svg class="sg-challenge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+                        </svg>
                         <span>Privacy and compliance risks restrict data usage across teams</span>
                     </li>
                 </ul>
@@ -185,6 +197,7 @@
 
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
                 <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request a Demo →</button>
+                <a href="/assets/trialgen-brochure.pdf" target="_blank" class="btn btn-outline">Download Brochure →</a>
             </div>
         </div>
 

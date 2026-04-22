@@ -119,8 +119,8 @@ $section-pad-sm: 2.5rem 1.25rem;
   align-items: flex-start;
   overflow: hidden;
   background:
-    radial-gradient(circle at top left, rgba(245, 195, 110, 0.14), transparent 24%),
-    linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);
+    radial-gradient(circle at top left, rgba(245, 195, 110, 0.10), transparent 24%),
+    linear-gradient(180deg, #050c18 0%, #091530 42%, #050c18 100%);
   color: #f8fafc;
   padding: 7rem 0 5rem;
 
@@ -135,9 +135,9 @@ $section-pad-sm: 2.5rem 1.25rem;
 
 .ks-hero__bg {
   position: absolute;
-  top: 2.5rem;
+  top: 64px;
+  bottom: 0;
   right: 0;
-  height: 100%;
   width: 60%;
   z-index: 0;
 }
@@ -147,13 +147,21 @@ $section-pad-sm: 2.5rem 1.25rem;
   height: 100%;
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: cover;
+  background-size: contain;
+  -webkit-mask-image:
+    linear-gradient(to right,  transparent 0%, black 30%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 8%,  black 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right,  transparent 0%, black 30%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 8%,  black 92%, transparent 100%);
+  mask-composite: intersect;
 }
 
 .ks-hero__bg-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to left, transparent, rgba(14, 31, 68, 0.65), #090f21);
+  background: linear-gradient(to right, #090f21 0%, rgba(9,15,33,0.7) 30%, transparent 70%);
 }
 
 .ks-hero__content {
@@ -868,8 +876,8 @@ $section-pad-sm: 2.5rem 1.25rem;
 // ── Two-column layout inside E2E card ───────────────────────────
 .ks-e2e-twin-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 0;
   margin-top: 1.5rem;
 
   @media (max-width: 768px) { grid-template-columns: 1fr; }
@@ -878,6 +886,20 @@ $section-pad-sm: 2.5rem 1.25rem;
 .ks-e2e-col {
   display: flex;
   flex-direction: column;
+  padding: 0 2rem;
+
+  &:first-child {
+    border-right: 1px solid rgba(245, 195, 110, 0.22);
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+
+    .ks-check-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 
   .ks-e2e-subheader { text-align: left; margin-bottom: 0.875rem; }
 }
@@ -926,17 +948,34 @@ $section-pad-sm: 2.5rem 1.25rem;
    RESPONSIVE
 ═══════════════════════════════════════════════════════════════ */
 
+/* ── Large monitors (1440px+) ── */
+@media (min-width: 1440px) {
+  .ks-hero { padding: 8rem 0 6rem; }
+  .ks-hero__bg { width: 55%; top: 72px; }
+}
+
+/* ── Tablet landscape (1024px) ── */
 @media (max-width: 1024px) {
   .ks-hero__copy { width: 65%; }
-
+  .ks-hero__bg { width: 55%; }
   .ks-check-grid { grid-template-columns: 1fr; }
 }
 
+/* ── Tablet portrait (768px) ── */
+@media (max-width: 768px) {
+  .ks-hero { padding: 5.5rem 0 3.5rem; }
+  .ks-hero__copy { width: 80%; }
+  .ks-hero__bg { width: 100%; top: 64px; }
+  .ks-hero__bg-img { opacity: 0.2; background-position: center top; }
+}
+
+/* ── Mobile (640px) ── */
 @media (max-width: 640px) {
   .ks-section { padding: $section-pad-sm; }
   .ks-hero { padding: 3.5rem 0 2.5rem; }
   .ks-hero__copy { width: 100%; }
-  .ks-hero__bg { width: 100%; opacity: 0.2; top: 0; }
+  .ks-hero__bg { width: 100%; top: 0; }
+  .ks-hero__bg-img { opacity: 0.12; }
   .ks-hero__actions .btn { width: 100%; justify-content: center; }
 
   .ks-feature-list,

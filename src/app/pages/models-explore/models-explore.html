@@ -1,409 +1,502 @@
-<!-- ═══ SECTION 1: Solution Consulting ═══ -->
-<section id="solution-consulting" class="me-section me-section--first" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);">
-  <div class="me-inner">
+<div class="me-layout">
 
-    <div class="section-header">
-      <p class="section-eyebrow">Engagement 01</p>
-      <h2><span>Solution</span> Consulting</h2>
+  <!-- ── Sticky horizontal tab nav ──────────────────────────── -->
+  <nav class="me-tabnav">
+    <div class="me-tabnav__inner">
+      <a *ngFor="let item of navItems"
+         class="me-tab-item"
+         [ngClass]="{ active: activeSection === item.id }"
+         (click)="scrollToSection(item.id)">
+        <span class="me-tab-num">{{ item.num }}</span>
+        <span class="me-tab-label">{{ item.label }}</span>
+      </a>
     </div>
+  </nav>
 
-    <div class="me-tagline">Strategy Before Systems</div>
+  <!-- ── Main scrollable content ────────────────────────────── -->
+  <div class="me-main">
 
-    <div class="me-prose">
-      <p>Many clinical data challenges originate long before submission. Traditional consulting often accelerates system development. Care2Data focuses first on structural clarity.</p>
-    </div>
+    <!-- ═══ SECTION 1: Solution Consulting ═══ -->
+    <section id="solution-consulting" class="me-section me-section--first" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);">
+      <div class="me-inner">
+        <span class="me-bg-num" aria-hidden="true">01</span>
 
-    <div class="me-accent-quote">
-      <i>Unclear assumptions &nbsp;·&nbsp; Inconsistent standards alignment &nbsp;·&nbsp; Undefined expectations of "submission-ready" data</i>
-    </div>
-
-    <h3 class="me-subhead me-subhead--center">Our Solution Consulting Includes</h3>
-    <div class="me-card-grid--4">
-      <div class="me-card me-card--1"><p>Knowledge modelling</p></div>
-      <div class="me-card me-card--2"><p>Repository architecture design</p></div>
-      <div class="me-card me-card--3"><p>Clinical discovery framework design</p></div>
-      <div class="me-card me-card--4"><p>Governance and lifecycle design</p></div>
-    </div>
-
-    <div class="me-prose">
-      <p>We analyse how clinical data flows across EDC systems, laboratories, safety platforms, and transformation pipelines.</p>
-    </div>
-
-    <span class="me-label">This enables organisations to clearly define:</span>
-    <div class="me-check-grid me-check-grid--3">
-      <div class="me-check-item"><span class="me-check">→</span><p>What matters most for regulatory submission</p></div>
-      <div class="me-check-item"><span class="me-check">→</span><p>What must remain traceable across systems</p></div>
-      <div class="me-check-item"><span class="me-check">→</span><p>What must be defensible during regulatory review</p></div>
-    </div>
-
-    <div class="me-closing-note">
-      <p>The result is not simply documentation. It is a structured, executable intelligence blueprint aligned to regulatory expectations.</p>
-    </div>
-
-    <h3 class="me-subhead me-subhead--center" style="margin-top:2.5rem;">Use Case — Defining Submission-Ready Data Strategy</h3>
-    <div class="me-use-case">
-      <p class="me-use-case__intro">Consider a clinical program approaching submission, where datasets across SDTM, analysis outputs, and supporting documentation have been developed independently.</p>
-      <div class="me-use-case__grid">
-        <div class="me-use-case__col">
-          <span class="me-use-case__label">While individual components appear complete, inconsistencies begin to emerge:</span>
-          <ul>
-            <li>Traceability gaps between SDTM and ADaM datasets</li>
-            <li>Unclear alignment between validation rules and study intent</li>
-            <li>Ambiguity around what qualifies as "submission-ready" data</li>
-          </ul>
+        <div class="section-header">
+          <p class="section-eyebrow">Engagement 01</p>
+          <h2><span>Solution</span> Consulting</h2>
         </div>
-        <div class="me-use-case__col">
-          <span class="me-use-case__label">Through a structured consulting approach, Care2Data would:</span>
-          <ul>
-            <li>Analyse data flows across systems and transformation pipelines</li>
-            <li>Establish semantic models to define relationships across datasets</li>
-            <li>Align validation and verification logic with regulatory expectations</li>
-            <li>Define clear, governed criteria for submission readiness</li>
-          </ul>
+
+        <div class="me-tagline">Strategy Before Systems</div>
+
+        <div class="me-prose">
+          <p>Many clinical data challenges originate long before submission. Traditional consulting often accelerates system development. Care2Data focuses first on structural clarity.</p>
         </div>
-      </div>
-      <div class="me-use-case__outcome">
-        <p>This transforms a fragmented data landscape into a coherent, defensible framework — enabling teams to approach submission with clarity, consistency, and confidence.</p>
-      </div>
-    </div>
 
-    <div class="me-cta">
-      <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary">Begin with Strategic Intelligence Consulting →</button>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══ SECTION 2: Proof of Concepts ═══ -->
-<section id="poc-section" class="me-section" style="background: linear-gradient(180deg, #07102a 0%, #0b1836 100%);">
-  <div class="me-inner">
-
-    <div class="section-header">
-      <p class="section-eyebrow">Engagement 02</p>
-      <h2>Proof of <span>Concepts (PoCs)</span></h2>
-    </div>
-
-    <div class="me-tagline">Validate Structural Assumptions Before They Become Risk</div>
-
-    <div class="me-prose">
-      <p>Most Proof of Concepts demonstrate features. Care2Data PoCs evaluate structural resilience.</p>
-      <p>Our PoCs are not designed to prove success. They are designed to identify structural weaknesses early — when they are still manageable.</p>
-    </div>
-
-    <span class="me-label">Using real clinical datasets, we validate:</span>
-    <div class="me-check-grid me-check-grid--2">
-      <div class="me-check-item"><span class="me-check">✓</span><p>Whether validation logic performs under real data variability</p></div>
-      <div class="me-check-item"><span class="me-check">✓</span><p>Whether transformations scale while maintaining traceability</p></div>
-      <div class="me-check-item"><span class="me-check">✓</span><p>Whether lineage remains inspection-ready</p></div>
-      <div class="me-check-item"><span class="me-check">✓</span><p>Whether semantic gaps introduce hidden risk</p></div>
-    </div>
-
-    <div class="me-closing-note">
-      <p>This allows organisations to address systemic risks before they impact submission timelines or regulatory review.</p>
-    </div>
-
-    <h3 class="me-subhead me-subhead--center" style="margin-top:2.5rem;">Use Case — Stress Testing Validation &amp; Traceability</h3>
-    <div class="me-use-case">
-      <p class="me-use-case__intro">Consider a clinical program where validation rules and data transformations have been developed and appear to function correctly in controlled environments.</p>
-      <div class="me-use-case__grid">
-        <div class="me-use-case__col">
-          <span class="me-use-case__label">However, when exposed to real-world variability across datasets:</span>
-          <ul>
-            <li>Inconsistencies emerge across domains and timepoints</li>
-            <li>Traceability between source data and derived outputs becomes unclear</li>
-            <li>Validation rules fail to capture contextual dependencies</li>
-            <li>Lineage breaks under scale and cross-study comparisons</li>
-          </ul>
+        <div class="me-accent-quote">
+          <i>Unclear assumptions &nbsp;·&nbsp; Inconsistent standards alignment &nbsp;·&nbsp; Undefined expectations of "submission-ready" data</i>
         </div>
-        <div class="me-use-case__col">
-          <span class="me-use-case__label">Through a structured PoC, Care2Data would:</span>
-          <ul>
-            <li>Apply validation and verification logic on real clinical datasets using <strong>KWALIFY's intelligence layer</strong></li>
-            <li>Simulate variability across subjects, domains, and study conditions</li>
-            <li>Evaluate traceability and lineage across transformation pipelines</li>
-            <li>Identify semantic gaps through <strong>semantic reasoning and anomaly detection</strong></li>
-          </ul>
+
+        <!-- What This Enables — ticker -->
+        <div class="me-block">
+          <p class="me-block-label">Capabilities</p>
+          <h3 class="me-block-heading">This enables organisations to <span>clearly define:</span></h3>
+          <div class="me-enables-ticker">
+            <div class="me-enables-track">
+              <div class="me-enables-item"><span class="me-check-icon">→</span><p>What matters most for regulatory submission</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">→</span><p>What must remain traceable across systems</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">→</span><p>What must be defensible during regulatory review</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">→</span><p>How clinical data flows across EDC, lab, safety, and transformation pipelines</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">→</span><p>Which structural assumptions are aligned with regulatory expectations</p></div>
+              <!-- duplicates for seamless loop -->
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">→</span><p>What matters most for regulatory submission</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">→</span><p>What must remain traceable across systems</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">→</span><p>What must be defensible during regulatory review</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">→</span><p>How clinical data flows across EDC, lab, safety, and transformation pipelines</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">→</span><p>Which structural assumptions are aligned with regulatory expectations</p></div>
+            </div>
+          </div>
         </div>
+
+        <!-- How We Execute -->
+        <div class="me-block">
+          <p class="me-block-label">Methodology</p>
+          <h3 class="me-block-heading">How We <span>Execute</span></h3>
+          <div class="me-steps-wrap">
+            <button class="me-steps-arrow" (click)="sc1.scrollBy({left: -(sc1.offsetWidth), behavior: 'smooth'})" aria-label="Previous">&#8592;</button>
+            <div class="me-steps-scroll" #sc1>
+              <div class="me-step-card"><h4>Knowledge Modelling</h4><p>Design semantic models that formalise clinical entities, relationships, and regulatory context across datasets and workflows.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Repository Architecture Design</h4><p>Architect scalable, governed knowledge infrastructure to serve as the enterprise source of truth for clinical data systems.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Clinical Discovery Framework Design</h4><p>Build frameworks enabling context-aware search, discovery, and reasoning across structured and unstructured clinical datasets.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Governance &amp; Lifecycle Design</h4><p>Define governance structures, lifecycle controls, and version management aligned with regulatory expectations.</p></div>
+            </div>
+            <button class="me-steps-arrow" (click)="sc1.scrollBy({left: sc1.offsetWidth, behavior: 'smooth'})" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
+
+        <div class="me-use-case">
+          <p class="me-use-case__intro">Consider a clinical program approaching submission, where datasets across SDTM, analysis outputs, and supporting documentation have been developed independently.</p>
+          <div class="me-use-case__grid">
+            <div class="me-use-case__col">
+              <span class="me-use-case__label">While individual components appear complete, inconsistencies begin to emerge:</span>
+              <ul>
+                <li>Traceability gaps between SDTM and ADaM datasets</li>
+                <li>Unclear alignment between validation rules and study intent</li>
+                <li>Ambiguity around what qualifies as "submission-ready" data</li>
+              </ul>
+            </div>
+            <div class="me-use-case__col">
+              <span class="me-use-case__label">Through a structured consulting approach, Care2Data would:</span>
+              <ul>
+                <li>Analyse data flows across systems and transformation pipelines</li>
+                <li>Establish semantic models to define relationships across datasets</li>
+                <li>Align validation and verification logic with regulatory expectations</li>
+                <li>Define clear, governed criteria for submission readiness</li>
+              </ul>
+            </div>
+          </div>
+          <div class="me-use-case__outcome">
+            <p>This transforms a fragmented data landscape into a coherent, defensible framework — enabling teams to approach submission with clarity, consistency, and confidence.</p>
+          </div>
+        </div>
+
+        <div class="me-cta">
+          <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary">Begin with Strategic Intelligence Consulting →</button>
+        </div>
+
       </div>
-      <p class="me-use-case__mid">By leveraging KWALIFY, validation moves beyond rule execution to <strong>context-aware, explainable analysis</strong>, enabling deeper insight into how data behaves under real conditions.</p>
-      <div class="me-use-case__outcome">
-        <p>This enables teams to uncover <strong>structural risks early</strong> — before they translate into regulatory issues, rework, or submission delays.</p>
+    </section>
+
+    <!-- ═══ SECTION 2: Proof of Concepts ═══ -->
+    <section id="poc-section" class="me-section" style="background: linear-gradient(180deg, #07102a 0%, #0b1836 100%);">
+      <div class="me-inner">
+        <span class="me-bg-num" aria-hidden="true">02</span>
+
+        <div class="section-header">
+          <p class="section-eyebrow">Engagement 02</p>
+          <h2>Proof of <span>Concepts (PoCs)</span></h2>
+        </div>
+
+        <div class="me-tagline">Validate Structural Assumptions Before They Become Risk</div>
+
+        <div class="me-prose">
+          <p>Most Proof of Concepts demonstrate features. Care2Data PoCs evaluate structural resilience.</p>
+          <p>Our PoCs are not designed to prove success. They are designed to identify structural weaknesses early — when they are still manageable.</p>
+        </div>
+
+        <!-- What This Enables — ticker -->
+        <div class="me-block">
+          <p class="me-block-label">Capabilities</p>
+          <h3 class="me-block-heading">Using real clinical datasets, we <span>validate:</span></h3>
+          <div class="me-enables-ticker">
+            <div class="me-enables-track">
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Whether validation logic performs under real data variability</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Whether transformations scale while maintaining traceability</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Whether lineage remains inspection-ready</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Whether semantic gaps introduce hidden risk</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Whether cross-domain reasoning surfaces structural inconsistencies early</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Whether validation logic performs under real data variability</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Whether transformations scale while maintaining traceability</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Whether lineage remains inspection-ready</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Whether semantic gaps introduce hidden risk</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Whether cross-domain reasoning surfaces structural inconsistencies early</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How We Execute -->
+        <div class="me-block">
+          <p class="me-block-label">Methodology</p>
+          <h3 class="me-block-heading">How We <span>Execute</span></h3>
+          <div class="me-steps-wrap">
+            <button class="me-steps-arrow" (click)="sc2.scrollBy({left: -(sc2.offsetWidth), behavior: 'smooth'})" aria-label="Previous">&#8592;</button>
+            <div class="me-steps-scroll" #sc2>
+              <div class="me-step-card"><h4>Real Dataset Testing</h4><p>Apply validation and verification logic on real clinical datasets using Kwalify™'s intelligence layer — exposing hidden structural weaknesses.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Structural Assumption Validation</h4><p>Simulate variability across subjects, domains, and study conditions to stress-test assumptions under realistic operating conditions.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Traceability &amp; Lineage Evaluation</h4><p>Evaluate end-to-end lineage across transformation pipelines — ensuring inspection-ready traceability at every stage.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Semantic Gap Analysis</h4><p>Identify semantic gaps through semantic reasoning and anomaly detection — moving beyond rule execution to contextual analysis.</p></div>
+            </div>
+            <button class="me-steps-arrow" (click)="sc2.scrollBy({left: sc2.offsetWidth, behavior: 'smooth'})" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
+
+        <div class="me-use-case">
+          <p class="me-use-case__intro">Consider a clinical program where validation rules and data transformations have been developed and appear to function correctly in controlled environments.</p>
+          <div class="me-use-case__grid">
+            <div class="me-use-case__col">
+              <span class="me-use-case__label">However, when exposed to real-world variability across datasets:</span>
+              <ul>
+                <li>Inconsistencies emerge across domains and timepoints</li>
+                <li>Traceability between source data and derived outputs becomes unclear</li>
+                <li>Validation rules fail to capture contextual dependencies</li>
+                <li>Lineage breaks under scale and cross-study comparisons</li>
+              </ul>
+            </div>
+            <div class="me-use-case__col">
+              <span class="me-use-case__label">Through a structured PoC, Care2Data would:</span>
+              <ul>
+                <li>Apply validation and verification logic on real clinical datasets using <strong>Kwalify™'s intelligence layer</strong></li>
+                <li>Simulate variability across subjects, domains, and study conditions</li>
+                <li>Evaluate traceability and lineage across transformation pipelines</li>
+                <li>Identify semantic gaps through <strong>semantic reasoning and anomaly detection</strong></li>
+              </ul>
+            </div>
+          </div>
+          <p class="me-use-case__mid">By leveraging Kwalify™, validation moves beyond rule execution to <strong>context-aware, explainable analysis</strong>, enabling deeper insight into how data behaves under real conditions.</p>
+          <div class="me-use-case__outcome">
+            <p>This enables teams to uncover <strong>structural risks early</strong> — before they translate into regulatory issues, rework, or submission delays.</p>
+          </div>
+        </div>
+
+        <div class="me-cta">
+          <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary">Run a Structural PoC →</button>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <div class="me-cta">
-      <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary">Run a Structural PoC →</button>
-    </div>
+    <!-- ═══ SECTION 3: Design & Development ═══ -->
+    <section id="design-development" class="me-section" style="background: linear-gradient(180deg, #08132a 0%, #071022 100%);">
+      <div class="me-inner">
+        <span class="me-bg-num" aria-hidden="true">03</span>
 
-  </div>
-</section>
+        <div class="section-header">
+          <p class="section-eyebrow">Engagement 03</p>
+          <h2>Design &amp; <span>Development</span></h2>
+        </div>
 
-<!-- ═══ SECTION 3: Design & Development ═══ -->
-<section id="design-development" class="me-section" style="background: linear-gradient(180deg, #08132a 0%, #071022 100%);">
-  <div class="me-inner">
+        <div class="me-tagline">Built for Scrutiny — Not Just Functionality</div>
 
-    <div class="section-header">
-      <p class="section-eyebrow">Engagement 03</p>
-      <h2>Design &amp; <span>Development</span></h2>
-    </div>
+        <div class="me-prose">
+          <p>Care2Data delivers <strong>design and development of clinical data systems</strong> as part of outsourced product and application development — built with one fundamental assumption:</p>
+        </div>
 
-    <div class="me-tagline">Built for Scrutiny — Not Just Functionality</div>
+        <div class="me-accent-quote">
+          <i>clinical data will always be reviewed.</i>
+        </div>
 
-    <div class="me-prose">
-      <p>Care2Data delivers <strong>design and development of clinical data systems</strong> as part of outsourced product and application development — built with one fundamental assumption:</p>
-    </div>
+        <div class="me-prose">
+          <p>Unlike traditional system development focused on functionality alone, Care2Data engineers <strong>regulatory-grade data architectures</strong> designed for inspection readiness, traceability, and long-term reliability.</p>
+        </div>
 
-    <div class="me-accent-quote">
-      <i>clinical data will always be reviewed.</i>
-    </div>
+        <!-- What This Enables — ticker -->
+        <div class="me-block">
+          <p class="me-block-label">Capabilities</p>
+          <h3 class="me-block-heading">Our systems are designed to <span>support:</span></h3>
+          <div class="me-enables-ticker">
+            <div class="me-enables-track">
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Reliable ingestion from complex clinical data sources (EDC, labs, safety systems, external data)</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Standardisation into CDISC-compliant formats such as SDTM and ADaM</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Embedded validation and verification controls — built into workflows, not applied post-processing</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Version-controlled transformation pipelines ensuring reproducibility and auditability</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>End-to-end traceability across the clinical data lifecycle</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Reliable ingestion from complex clinical data sources (EDC, labs, safety systems, external data)</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Standardisation into CDISC-compliant formats such as SDTM and ADaM</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Embedded validation and verification controls — built into workflows, not applied post-processing</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Version-controlled transformation pipelines ensuring reproducibility and auditability</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>End-to-end traceability across the clinical data lifecycle</p></div>
+            </div>
+          </div>
+        </div>
 
-    <div class="me-prose">
-      <p>Unlike traditional system development focused on functionality alone, Care2Data engineers <strong>regulatory-grade data architectures</strong> designed for inspection readiness, traceability, and long-term reliability.</p>
-    </div>
+        <!-- How We Execute -->
+        <div class="me-block">
+          <p class="me-block-label">Methodology</p>
+          <h3 class="me-block-heading">How We <span>Execute</span></h3>
+          <div class="me-steps-wrap">
+            <button class="me-steps-arrow" (click)="sc3.scrollBy({left: -(sc3.offsetWidth), behavior: 'smooth'})" aria-label="Previous">&#8592;</button>
+            <div class="me-steps-scroll" #sc3>
+              <div class="me-step-card"><h4>Regulatory-Grade Architecture Design</h4><p>Architect systems aligned with regulatory expectations and data integrity principles — built for inspection readiness from the ground up.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Semantic Model &amp; Validation Embedding</h4><p>Embed semantic models and validation logic directly within system design — ensuring knowledge drives how data is processed and interpreted.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>CDISC-Compliant Standardisation</h4><p>Design pipelines for reliable ingestion and standardisation of clinical data into SDTM and ADaM formats aligned with submission requirements.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Scalable &amp; Integration-Ready Engineering</h4><p>Ensure scalability across studies, programs, and therapeutic areas — integrating seamlessly with existing enterprise systems and workflows.</p></div>
+            </div>
+            <button class="me-steps-arrow" (click)="sc3.scrollBy({left: sc3.offsetWidth, behavior: 'smooth'})" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
 
-    <div class="me-two-col-card">
-      <div class="me-two-col-card__col">
-        <p class="me-two-col-card__label">Our systems are designed to support:</p>
-        <ul>
-          <li>Reliable ingestion from complex clinical data sources (EDC, labs, safety systems, external data)</li>
-          <li>Standardisation into CDISC-compliant formats such as SDTM and ADaM</li>
-          <li>Embedded validation and verification controls — built into workflows, not applied post-processing</li>
-          <li>Version-controlled transformation pipelines ensuring reproducibility and auditability</li>
-          <li>End-to-end traceability across the clinical data lifecycle</li>
-        </ul>
+        <div class="me-outcome-block">
+          <h3 class="me-outcome-title">Outcome</h3>
+          <p>Every component is designed to support inspection readiness, auditability, and operational durability — ensuring systems remain reliable under regulatory scrutiny and scalable for long-term use.</p>
+          <p style="margin-top:0.75rem;">This is not simply system configuration. It is regulatory-grade data architecture engineered for validation and verification at scale.</p>
+        </div>
+
       </div>
-      <div class="me-two-col-card__col">
-        <p class="me-two-col-card__label">Care2Data approaches system design as a knowledge-driven engineering problem:</p>
-        <ul>
-          <li>Architecting systems aligned with regulatory expectations and data integrity principles</li>
-          <li>Embedding semantic models and validation logic within system design</li>
-          <li>Ensuring scalability across studies, programs, and therapeutic areas</li>
-          <li>Integrating seamlessly with existing enterprise systems and workflows</li>
-        </ul>
+    </section>
+
+    <!-- ═══ SECTION 4: Data Quality ═══ -->
+    <section id="data-quality" class="me-section" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 60%, #08112a 100%);">
+      <div class="me-inner">
+        <span class="me-bg-num" aria-hidden="true">04</span>
+
+        <div class="section-header">
+          <p class="section-eyebrow">Engagement 04</p>
+          <h2>Data Quality Checking &amp; <span>What Happens Next</span></h2>
+        </div>
+
+        <div class="me-tagline">Validation Is Governance in Motion</div>
+
+        <div class="me-prose">
+          <p>Identifying discrepancies alone does not improve data quality. Governance requires structured resolution, traceability, and documented evidence.</p>
+          <p>Care2Data delivers <strong>Validation &amp; Verification of clinical trial data</strong> as a core service — enabled through the <strong>Kwalify™ intelligence platform</strong> — ensuring data quality, integrity, consistency, and conformance across the entire clinical trial lifecycle.</p>
+        </div>
+
+        <!-- What This Enables — ticker -->
+        <div class="me-block">
+          <p class="me-block-label">Capabilities</p>
+          <h3 class="me-block-heading">From Detection to <span>Defensibility</span></h3>
+          <p class="me-block-lead">Care2Data transforms data quality checking into a governed, end-to-end assurance process, enabling:</p>
+          <div class="me-enables-ticker">
+            <div class="me-enables-track">
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Faster issue resolution across clinical datasets</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Reduced rework and submission delays</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Stronger regulatory compliance and audit readiness</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Consistent, defensible clinical data across studies</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Explainable root-cause analysis with cross-domain impact assessment</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Faster issue resolution across clinical datasets</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Reduced rework and submission delays</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Stronger regulatory compliance and audit readiness</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Consistent, defensible clinical data across studies</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Explainable root-cause analysis with cross-domain impact assessment</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How We Execute -->
+        <div class="me-block">
+          <p class="me-block-label">Methodology</p>
+          <h3 class="me-block-heading">How We <span>Execute</span></h3>
+          <div class="me-steps-wrap">
+            <button class="me-steps-arrow" (click)="sc4.scrollBy({left: -(sc4.offsetWidth), behavior: 'smooth'})" aria-label="Previous">&#8592;</button>
+            <div class="me-steps-scroll" #sc4>
+              <div class="me-step-card"><h4>Detection</h4><p>Identify discrepancies, inconsistencies, and anomalies across clinical datasets using rule-based and semantic validation powered by Kwalify™.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Classification</h4><p>Contextualise issues by domain, severity, and regulatory relevance — prioritising what matters most for submission readiness.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Root-Cause Resolution</h4><p>Leverage semantic reasoning and cross-dataset analysis to diagnose underlying causes — not just surface errors.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Evidence Documentation</h4><p>Generate traceable, audit-ready records of validation outcomes, decisions, and corrective actions.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Submission Readiness Validation</h4><p>Ensure datasets meet standards for quality, traceability, and regulatory defensibility prior to submission.</p></div>
+            </div>
+            <button class="me-steps-arrow" (click)="sc4.scrollBy({left: sc4.offsetWidth, behavior: 'smooth'})" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
+
+        <div class="me-two-col-card">
+          <div class="me-two-col-card__col">
+            <p class="me-two-col-card__label">Care2Data delivers this capability through Kwalify™'s validation and verification engine, which:</p>
+            <ul>
+              <li>Applies semantic, context-aware validation across linked datasets</li>
+              <li>Enables explainable root-cause analysis and impact assessment</li>
+              <li>Verifies data integrity through anomaly detection and cross-domain reasoning</li>
+              <li>Provides traceability, lineage, and audit-ready validation outputs</li>
+              <li>Integrates seamlessly with existing clinical systems and workflows</li>
+            </ul>
+          </div>
+          <div class="me-two-col-card__col">
+            <p class="me-two-col-card__label">This service can be delivered as:</p>
+            <ul>
+              <li>Validation &amp; Verification as a Service across ongoing clinical programs</li>
+              <li>Pre-submission readiness assessment and validation</li>
+              <li>Continuous data quality monitoring and governance implementation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="me-closing-note me-closing-note--center">
+          <p>Validation is not a checkpoint.<br>It is a governed process of assurance.</p>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <div class="me-outcome-block">
-      <h3 class="me-outcome-title">Outcome</h3>
-      <p>Every component is designed to support inspection readiness, auditability, and operational durability — ensuring systems remain reliable under regulatory scrutiny and scalable for long-term use.</p>
-      <p style="margin-top:0.75rem;">This is not simply system configuration. It is regulatory-grade data architecture engineered for validation and verification at scale.</p>
-    </div>
+    <!-- ═══ SECTION 5: Knowledge Model ═══ -->
+    <section id="knowledge-model" class="me-section" style="background: linear-gradient(180deg, #07102a 0%, #0b1836 100%);">
+      <div class="me-inner">
+        <span class="me-bg-num" aria-hidden="true">05</span>
 
-  </div>
-</section>
+        <div class="section-header">
+          <p class="section-eyebrow">Engagement 05</p>
+          <h2><span>Knowledge</span> Model</h2>
+        </div>
 
-<!-- ═══ SECTION 4: Data Quality ═══ -->
-<section id="data-quality" class="me-section" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 60%, #08112a 100%);">
-  <div class="me-inner">
+        <div class="me-tagline">Knowledge Must Become Infrastructure</div>
 
-    <div class="section-header">
-      <p class="section-eyebrow">Engagement 04</p>
-      <h2>Data Quality Checking &amp; <span>What Happens Next</span></h2>
-    </div>
+        <div class="me-prose">
+          <p>Clinical definitions, mapping logic, derivations, and regulatory interpretations cannot remain distributed across documents or individual expertise.</p>
+          <p>Care2Data engineers knowledge as a <strong>core architectural layer</strong> within clinical data systems — ensuring that definitions, relationships, and validation logic are embedded directly into how data is structured, processed, and interpreted.</p>
+          <p>This shifts knowledge from static documentation to <strong>active, system-driven intelligence</strong>.</p>
+        </div>
 
-    <div class="me-tagline">Validation Is Governance in Motion</div>
+        <!-- What This Enables — ticker -->
+        <div class="me-block">
+          <p class="me-block-label">Capabilities</p>
+          <h3 class="me-block-heading">Through embedded knowledge models, <span>organisations can:</span></h3>
+          <div class="me-enables-ticker">
+            <div class="me-enables-track">
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Ensure consistent interpretation of clinical data across studies and teams</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Reduce reliance on manual interpretation and individual expertise</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Enable context-aware validation and verification processes</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Maintain traceability across source, transformation, and submission layers</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Support scalable, repeatable clinical data operations</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Ensure consistent interpretation of clinical data across studies and teams</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Reduce reliance on manual interpretation and individual expertise</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Enable context-aware validation and verification processes</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Maintain traceability across source, transformation, and submission layers</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Support scalable, repeatable clinical data operations</p></div>
+            </div>
+          </div>
+        </div>
 
-    <div class="me-prose">
-      <p>Identifying discrepancies alone does not improve data quality. Governance requires structured resolution, traceability, and documented evidence.</p>
-      <p>Care2Data delivers <strong>Validation &amp; Verification of clinical trial data</strong> as a core service — enabled through the <strong>KWALIFY intelligence platform</strong> — ensuring data quality, integrity, consistency, and conformance across the entire clinical trial lifecycle.</p>
-    </div>
+        <!-- How We Execute -->
+        <div class="me-block">
+          <p class="me-block-label">Methodology</p>
+          <h3 class="me-block-heading">How We Engineer <span>Knowledge Models</span></h3>
+          <div class="me-steps-wrap">
+            <button class="me-steps-arrow" (click)="sc5.scrollBy({left: -(sc5.offsetWidth), behavior: 'smooth'})" aria-label="Previous">&#8592;</button>
+            <div class="me-steps-scroll" #sc5>
+              <div class="me-step-card"><h4>Standardised Entity Definitions</h4><p>Develop formal ontology and taxonomy frameworks that define clinical entities, relationships, and regulatory context across datasets and workflows.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Mapping Logic Embedding</h4><p>Embed SDTM and ADaM mapping logic directly within transformation pipelines — ensuring consistency and traceability at every stage.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Validation Rule Integration</h4><p>Integrate validation and derivation rules into system workflows — operationalising knowledge as active, system-driven intelligence.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Metadata &amp; Provenance Frameworks</h4><p>Build metadata frameworks with lineage, provenance, and traceability context — supporting auditability and regulatory defensibility.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Regulatory Interpretation Models</h4><p>Align knowledge models with submission expectations through regulatory interpretation frameworks embedded in system architecture.</p></div>
+            </div>
+            <button class="me-steps-arrow" (click)="sc5.scrollBy({left: sc5.offsetWidth, behavior: 'smooth'})" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
 
-    <h3 class="me-subhead me-subhead--center">From Detection to Defensibility</h3>
-    <span class="me-label">Care2Data transforms data quality checking from a reactive activity into a governed, end-to-end assurance process:</span>
+        <div class="me-outcome-block">
+          <h3 class="me-outcome-title">Outcome</h3>
+          <p>Knowledge becomes an integral part of the system — driving how data is validated, interpreted, and governed. Clinical data transitions from fragmented information to structured, reasoning-enabled intelligence, strengthening consistency, defensibility, and long-term operational scalability.</p>
+        </div>
 
-    <div class="me-card-grid--3">
-      <div class="me-card me-card--1">
-        <h4>Detection</h4>
-        <p>Identify discrepancies, inconsistencies, and anomalies across clinical datasets using rule-based and semantic validation.</p>
+        <div class="me-closing-note me-closing-note--center" style="margin-top:2rem;">
+          <p>Knowledge is no longer external to the system.<br>It is engineered into it.<br>Institutional knowledge becomes <strong>operational infrastructure</strong>.</p>
+        </div>
+
       </div>
-      <div class="me-card me-card--2">
-        <h4>Classification</h4>
-        <p>Contextualise issues by domain, severity, and regulatory relevance — prioritising what matters most for submission.</p>
+    </section>
+
+    <!-- ═══ SECTION 6: Training & Handover ═══ -->
+    <section id="training-handover" class="me-section" style="background: linear-gradient(180deg, #08132a 0%, #071022 100%);">
+      <div class="me-inner">
+        <span class="me-bg-num" aria-hidden="true">06</span>
+
+        <div class="section-header">
+          <p class="section-eyebrow">Engagement 06</p>
+          <h2>Training &amp; <span>Handover</span></h2>
+        </div>
+
+        <div class="me-tagline">Ownership Is the Final Deliverable</div>
+
+        <div class="me-prose">
+          <p>Systems that cannot be understood cannot be sustained or defended.</p>
+          <p>Care2Data delivers structured training and enablement services to ensure client teams can confidently operate, manage, and extend clinical data intelligence systems independently.</p>
+          <p>Our approach focuses on building capability — not dependency.</p>
+        </div>
+
+        <!-- What This Enables — ticker -->
+        <div class="me-block">
+          <p class="me-block-label">Capabilities</p>
+          <h3 class="me-block-heading">Teams are equipped <span>to:</span></h3>
+          <div class="me-enables-ticker">
+            <div class="me-enables-track">
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Operate clinical data intelligence systems independently</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Defend validation decisions with confidence and traceability</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Scale clinical data intelligence across programs and therapeutic areas</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Maintain and evolve ontologies, taxonomies, and governance frameworks</p></div>
+              <div class="me-enables-item"><span class="me-check-icon">✓</span><p>Prepare for regulatory queries with traceable, defensible evidence</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Operate clinical data intelligence systems independently</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Defend validation decisions with confidence and traceability</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Scale clinical data intelligence across programs and therapeutic areas</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Maintain and evolve ontologies, taxonomies, and governance frameworks</p></div>
+              <div class="me-enables-item" aria-hidden="true"><span class="me-check-icon">✓</span><p>Prepare for regulatory queries with traceable, defensible evidence</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How We Execute -->
+        <div class="me-block">
+          <p class="me-block-label">Methodology</p>
+          <h3 class="me-block-heading">How We <span>Execute</span></h3>
+          <div class="me-steps-wrap">
+            <button class="me-steps-arrow" (click)="sc6.scrollBy({left: -(sc6.offsetWidth), behavior: 'smooth'})" aria-label="Previous">&#8592;</button>
+            <div class="me-steps-scroll" #sc6>
+              <div class="me-step-card"><h4>Clinical Data Flow &amp; Architecture</h4><p>Understand end-to-end data movement across EDC systems, transformation pipelines, and submission datasets.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Validation &amp; Verification Logic</h4><p>Interpret validation rules, reasoning outputs, and anomaly detection results — ensuring clarity in how data is assessed.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Knowledge Models &amp; Semantic Systems</h4><p>Work with ontology frameworks, knowledge graphs, and interlinked data models embedded within clinical systems.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Governance &amp; Lifecycle Management</h4><p>Manage rule evolution, version control, and traceability in alignment with regulatory expectations.</p></div>
+              <div class="me-step-connector">&#8594;</div>
+              <div class="me-step-card"><h4>Kwalify™ Platform Enablement &amp; BOT Model</h4><p>Guide teams through phased capability transfer — from Build and Operate to full independent ownership through the BOT model.</p></div>
+            </div>
+            <button class="me-steps-arrow" (click)="sc6.scrollBy({left: sc6.offsetWidth, behavior: 'smooth'})" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
+
+        <div class="me-highlight-phrase">Operate &nbsp;·&nbsp; Defend &nbsp;·&nbsp; Scale.</div>
+
+        <div class="me-cta">
+          <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary">Schedule a Strategic Consultation →</button>
+        </div>
+
       </div>
-      <div class="me-card me-card--3">
-        <h4>Root-Cause Resolution</h4>
-        <p>Leverage semantic reasoning and cross-dataset analysis to diagnose underlying causes — not just surface errors.</p>
-      </div>
-      <div class="me-card me-card--4">
-        <h4>Evidence Documentation</h4>
-        <p>Generate traceable, audit-ready records of validation outcomes, decisions, and corrective actions.</p>
-      </div>
-      <div class="me-card me-card--1">
-        <h4>Submission Readiness Validation</h4>
-        <p>Ensure datasets meet standards for quality, traceability, and regulatory defensibility prior to submission.</p>
-      </div>
-    </div>
+    </section>
 
-    <div class="me-two-col-card">
-      <div class="me-two-col-card__col">
-        <p class="me-two-col-card__label">Care2Data delivers this capability through KWALIFY's validation and verification engine, which:</p>
-        <ul>
-          <li>Applies semantic, context-aware validation across linked datasets</li>
-          <li>Enables explainable root-cause analysis and impact assessment</li>
-          <li>Verifies data integrity through anomaly detection and cross-domain reasoning</li>
-          <li>Provides traceability, lineage, and audit-ready validation outputs</li>
-          <li>Integrates seamlessly with existing clinical systems and workflows</li>
-        </ul>
-      </div>
-      <div class="me-two-col-card__col">
-        <p class="me-two-col-card__label">This service can be delivered as:</p>
-        <ul>
-          <li>Validation &amp; Verification as a Service across ongoing clinical programs</li>
-          <li>Pre-submission readiness assessment and validation</li>
-          <li>Continuous data quality monitoring and governance implementation</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="me-outcome-block">
-      <h3 class="me-outcome-title">Outcome</h3>
-      <p>Data quality management evolves from reactive reporting to <strong>continuous, governed assurance</strong> — enabling:</p>
-      <div class="me-check-grid me-check-grid--2" style="margin-top:1rem; max-width:100%;">
-        <div class="me-check-item"><span class="me-check">✓</span><p>Faster issue resolution</p></div>
-        <div class="me-check-item"><span class="me-check">✓</span><p>Reduced rework and submission delays</p></div>
-        <div class="me-check-item"><span class="me-check">✓</span><p>Stronger regulatory compliance and audit readiness</p></div>
-        <div class="me-check-item"><span class="me-check">✓</span><p>Consistent, defensible clinical data across studies</p></div>
-      </div>
-    </div>
-
-    <div class="me-closing-note me-closing-note--center" style="margin-top:2rem;">
-      <p>Validation is not a checkpoint.<br>It is a governed process of assurance.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══ SECTION 5: Knowledge Model ═══ -->
-<section id="knowledge-model" class="me-section" style="background: linear-gradient(180deg, #07102a 0%, #0b1836 100%);">
-  <div class="me-inner">
-
-    <div class="section-header">
-      <p class="section-eyebrow">Engagement 05</p>
-      <h2><span>Knowledge</span> Model</h2>
-    </div>
-
-    <div class="me-tagline">Knowledge Must Become Infrastructure</div>
-
-    <div class="me-prose">
-      <p>Clinical definitions, mapping logic, derivations, and regulatory interpretations cannot remain distributed across documents or individual expertise.</p>
-      <p>Care2Data engineers knowledge as a <strong>core architectural layer</strong> within clinical data systems — ensuring that definitions, relationships, and validation logic are embedded directly into how data is structured, processed, and interpreted.</p>
-      <p>This shifts knowledge from static documentation to <strong>active, system-driven intelligence</strong>.</p>
-    </div>
-
-    <h3 class="me-subhead">How We Engineer Knowledge Models</h3>
-    <div class="me-prose">
-      <p>Care2Data develops <strong>ontology and taxonomy frameworks</strong> that formalise clinical concepts, relationships, and regulatory context across datasets and workflows. These models are embedded into system architecture using semantic technologies — ensuring that knowledge is not referenced externally, but <strong>operationalised within the data lifecycle itself</strong>.</p>
-    </div>
-
-    <div class="me-two-col-card">
-      <div class="me-two-col-card__col">
-        <p class="me-two-col-card__label">Knowledge models are designed to incorporate:</p>
-        <ul>
-          <li>Standardised clinical entity definitions</li>
-          <li>SDTM and ADaM mapping logic embedded within transformation pipelines</li>
-          <li>Validation and derivation rules integrated into workflows</li>
-          <li>Metadata frameworks with lineage, provenance, and traceability context</li>
-          <li>Regulatory interpretation models aligned with submission expectations</li>
-        </ul>
-      </div>
-      <div class="me-two-col-card__col">
-        <p class="me-two-col-card__label">Through embedded knowledge models, organizations can:</p>
-        <ul>
-          <li>Ensure consistent interpretation of clinical data across studies and teams</li>
-          <li>Reduce reliance on manual interpretation and individual expertise</li>
-          <li>Enable context-aware validation and verification processes</li>
-          <li>Maintain traceability across source, transformation, and submission layers</li>
-          <li>Support scalable, repeatable clinical data operations</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="me-outcome-block">
-      <h3 class="me-outcome-title">Outcome</h3>
-      <p>Knowledge becomes an integral part of the system — driving how data is validated, interpreted, and governed. Clinical data transitions from fragmented information to structured, reasoning-enabled intelligence, strengthening consistency, defensibility, and long-term operational scalability.</p>
-    </div>
-
-    <div class="me-closing-note me-closing-note--center" style="margin-top:2rem;">
-      <p>Knowledge is no longer external to the system.<br>It is engineered into it.<br>Institutional knowledge becomes <strong>operational infrastructure</strong>.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══ SECTION 6: Training & Handover ═══ -->
-<section id="training-handover" class="me-section" style="background: linear-gradient(180deg, #08132a 0%, #071022 100%);">
-  <div class="me-inner">
-
-    <div class="section-header">
-      <p class="section-eyebrow">Engagement 06</p>
-      <h2>Training &amp; <span>Handover</span></h2>
-    </div>
-
-    <div class="me-tagline">Ownership Is the Final Deliverable</div>
-
-    <div class="me-prose">
-      <p>Systems that cannot be understood cannot be sustained or defended.</p>
-      <p>Care2Data delivers structured training and enablement services to ensure client teams can confidently operate, manage, and extend clinical data intelligence systems independently.</p>
-      <p>Our approach focuses on building capability — not dependency.</p>
-    </div>
-
-    <h3 class="me-subhead me-subhead--center">Training Areas</h3>
-    <span class="me-label">Care2Data provides role-specific training across key areas:</span>
-
-    <div class="me-card-grid--3">
-      <div class="me-card me-card--1">
-        <h4>Clinical Data Flow &amp; Architecture</h4>
-        <p>Understand end-to-end data movement across EDC systems, transformation pipelines, and submission datasets.</p>
-      </div>
-      <div class="me-card me-card--2">
-        <h4>Validation &amp; Verification Logic</h4>
-        <p>Interpret validation rules, reasoning outputs, and anomaly detection results — ensuring clarity in how data is assessed.</p>
-      </div>
-      <div class="me-card me-card--3">
-        <h4>Knowledge Models &amp; Semantic Systems</h4>
-        <p>Work with ontology frameworks, knowledge graphs, and interlinked data models embedded within systems.</p>
-      </div>
-      <div class="me-card me-card--4">
-        <h4>Governance &amp; Lifecycle Management</h4>
-        <p>Manage rule evolution, version control, and traceability in alignment with regulatory expectations.</p>
-      </div>
-      <div class="me-card me-card--1">
-        <h4>KWALIFY Platform Enablement</h4>
-        <p>Operate validation workflows, investigate issues, and generate audit-ready outputs using the KWALIFY platform.</p>
-      </div>
-      <div class="me-card me-card--2">
-        <h4>Regulatory Readiness &amp; Inspection Response</h4>
-        <p>Prepare teams to confidently respond to regulatory queries with traceable, defensible evidence.</p>
-      </div>
-    </div>
-
-    <h3 class="me-subhead me-subhead--center">How It Is Delivered</h3>
-    <div class="me-two-col-card">
-      <div class="me-two-col-card__col me-two-col-card__col--full">
-        <ul>
-          <li>Role-based training programs aligned with clinical, data, and regulatory functions</li>
-          <li>Hands-on enablement using real datasets and workflows</li>
-          <li>Phased <strong>Build–Operate–Transfer (BOT)</strong> approach for capability transition</li>
-          <li>Continuous support during handover and early adoption stages</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="me-outcome-block">
-      <h3 class="me-outcome-title">Outcome</h3>
-      <p>Teams are equipped to:</p>
-      <div class="me-check-grid me-check-grid--3" style="margin-top:1rem; max-width:100%;">
-        <div class="me-check-item"><span class="me-check">✓</span><p>Operate systems independently</p></div>
-        <div class="me-check-item"><span class="me-check">✓</span><p>Defend validation decisions with confidence</p></div>
-        <div class="me-check-item"><span class="me-check">✓</span><p>Scale clinical data intelligence across programs</p></div>
-      </div>
-    </div>
-
-    <div class="me-highlight-phrase">Operate &nbsp;·&nbsp; Defend &nbsp;·&nbsp; Scale.</div>
-
-    <div class="me-cta">
-      <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary">Schedule a Strategic Consultation →</button>
-    </div>
-
-  </div>
-</section>
+  </div><!-- /me-main -->
+</div><!-- /me-layout -->

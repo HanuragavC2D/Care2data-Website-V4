@@ -28,7 +28,7 @@ export class TeamProfile implements OnInit {
     {
       id: 'giri',
       name: 'Giri Balasubramanian',
-      role: 'Founder',
+      role: 'Co-Founder',
       photo: 'images/leaders/giri.jpg',
       linkedin: 'https://www.linkedin.com/in/giri-balasubramanian-21a31013/',
       tagline: 'Global leader in clinical data standards, automation, and analytics.',
@@ -41,14 +41,13 @@ export class TeamProfile implements OnInit {
     {
       id: 'gopinath',
       name: 'Gopinath Viswanathan',
-      role: 'Promoter & Leadership',
+      role: 'CTO & Co-Founder',
       photo: 'images/leaders/gopinath.jpg',
       linkedin: 'https://www.linkedin.com/in/gopinath-viswanathan-1502607a/',
       tagline: 'Two decades of expertise across pharmaceutical, CRO, and life sciences organizations.',
       bio: [
         'Gopinath Viswanathan is a technology-driven leader with over two decades of experience spanning pharmaceutical, CRO, and life sciences organizations. His career bridges deep clinical domain expertise with a forward-looking focus on intelligent platform design — positioning technology as the foundation for clinical data quality, regulatory defensibility, and operational scale.',
-        'At CARE2DATA, Gopinath champions the vision behind the platform\'s core capabilities: ontology-driven knowledge modelling, semantic intelligence, and reasoning-driven validation. He has been instrumental in shaping the architecture of KWALIFY™ — the company\'s clinical data validation engine — and in driving the development of TrialGen™ for synthetic clinical data generation. His leadership ensures that governance-first design principles are embedded across the full clinical data lifecycle, from structured validation frameworks to integrated verification models.',
-        'With expertise across SDTM, ADaM, knowledge graphs, explainable AI (XAI), and regulatory submission workflows, Gopinath brings a unique ability to translate complex clinical data standards into scalable, AI-enabled technology solutions. He is committed to building platforms that are not only technically robust but operationally integrated — enabling life sciences organizations to achieve submission-ready, audit-traceable data intelligence at enterprise scale.'
+        'As CTO & Co-Founder of CARE2DATA, Gopinath leads the architecture of KWALIFY™ — the company\'s ontology-driven clinical data validation engine — and the development of TrialGen™ for synthetic clinical data generation. With expertise across SDTM, ADaM, knowledge graphs, and explainable AI (XAI), he translates complex clinical data standards into scalable, AI-enabled technology solutions that deliver submission-ready, audit-traceable data intelligence at enterprise scale.'
       ],
       expertise: ['Ontology-Driven Knowledge Modelling', 'Semantic Intelligence & Reasoning', 'KWALIFY™ Platform Architecture', 'Explainable AI (XAI) in Clinical Data', 'Governance-First Platform Design', 'Regulatory Submission Workflows', 'Synthetic Data Generation (TrialGen™)', 'SDTM & ADaM Standards']
     }

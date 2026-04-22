@@ -1,12 +1,14 @@
-// V3 Design Tokens
+// ── Design Tokens ─────────────────────────────────────────────
 $gold:        #f5c36e;
 $gold-dim:    rgba(245,195,110,0.18);
 $gold-border: rgba(245,195,110,0.22);
 $white-82:    rgba(248,250,252,0.82);
+$white-55:    rgba(248,250,252,0.55);
 $card-bg:     rgba(255,255,255,0.05);
-$card-hover:  rgba(255,255,255,0.09);
-$card-border: rgba(255,255,255,0.12);
+$card-hover:  rgba(255,255,255,0.08);
+$card-border: rgba(255,255,255,0.10);
 
+// ── Buttons ───────────────────────────────────────────────────
 .btn {
   display: inline-flex;
   align-items: center;
@@ -21,19 +23,15 @@ $card-border: rgba(255,255,255,0.12);
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
+  text-decoration: none;
 
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
 }
-
 .btn-primary {
   background: $gold;
   color: #111827;
   &:hover:not(:disabled) { background: #e9a83a; transform: translateY(-1px); }
 }
-
 .btn-outline {
   background: transparent;
   color: $gold;
@@ -41,44 +39,243 @@ $card-border: rgba(255,255,255,0.12);
   &:hover { background: $gold-dim; border-color: $gold; }
 }
 
-// "Why Work" section divider
-.cr-divider {
-  width: 5rem;
-  height: 4px;
-  background: $gold;
-  border-radius: 999px;
+// ── Backgrounds ───────────────────────────────────────────────
+.cr-bg-1 { background: linear-gradient(180deg, #060c1e 0%, #090f21 100%); }
+.cr-bg-2 { background: linear-gradient(180deg, #090f21 0%, #0e1f44 50%, #08112a 100%); }
+.cr-bg-3 { background: linear-gradient(180deg, #07102a 0%, #0b1836 100%); }
+
+// ── Hero ──────────────────────────────────────────────────────
+.cr-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  padding-top: 64px;
+  background: linear-gradient(180deg, #060c1e 0%, #090f21 60%, #07102a 100%);
 }
 
-// Job row
-.cr-job-row {
+
+.cr-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  width: 100%;
+}
+
+.cr-hero__copy {
+  max-width: 620px;
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin: 0.875rem 0 1.25rem;
+    span { color: $gold; }
+  }
+
+  > p {
+    color: $white-82;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.cr-hero__ctas {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+// ── Eyebrow ───────────────────────────────────────────────────
+.cr-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $gold;
+  margin-bottom: 0.75rem;
+}
+
+// ── Section shell ─────────────────────────────────────────────
+.cr-section {
+  padding: 1.5rem 1.5rem 3rem;
+  color: white;
+}
+
+.cr-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &--narrow { max-width: 720px; }
+}
+
+// ── Section header ────────────────────────────────────────────
+.cr-section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+    margin: 0.5rem 0 1rem;
+    span { color: $gold; }
+  }
+
+  > p {
+    color: $white-82;
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  &--left {
+    text-align: left;
+    > p { margin-left: 0; }
+  }
+}
+
+// ── Why Work cards ────────────────────────────────────────────
+.cr-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 640px)  { grid-template-columns: 1fr; }
+}
+
+.cr-why-card {
   background: $card-bg;
   border: 1px solid $card-border;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  transition: all 0.3s ease;
-  margin-bottom: 0.5rem;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+  border-top: 3px solid;
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
     background: $card-hover;
+    transform: translateY(-3px);
   }
 
-  h3 { color: $gold; }
+  &--1 { border-top-color: #38bdf8; .cr-why-icon { background: rgba(56,189,248,0.12); border-color: rgba(56,189,248,0.3); color: #38bdf8; } h3 { color: #38bdf8; } }
+  &--2 { border-top-color: $gold;   .cr-why-icon { background: rgba(245,195,110,0.12); border-color: $gold-border; color: $gold; } h3 { color: $gold; } }
+  &--3 { border-top-color: #34d399; .cr-why-icon { background: rgba(52,211,153,0.12); border-color: rgba(52,211,153,0.3); color: #34d399; } h3 { color: #34d399; } }
+  &--4 { border-top-color: #c084fc; .cr-why-icon { background: rgba(192,132,252,0.12); border-color: rgba(192,132,252,0.3); color: #c084fc; } h3 { color: #c084fc; } }
+  &--5 { border-top-color: #fb923c; .cr-why-icon { background: rgba(251,146,60,0.12); border-color: rgba(251,146,60,0.3); color: #fb923c; } h3 { color: #fb923c; } }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 1rem 0 0.625rem;
+    line-height: 1.3;
+  }
+
+  p {
+    color: $white-82;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    margin: 0;
+  }
 }
 
-// Pagination
+.cr-why-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke: currentColor;
+  }
+}
+
+// ── Job rows ──────────────────────────────────────────────────
+.cr-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.cr-job-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 1rem;
+  padding: 1.375rem 1.625rem;
+  transition: background 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    background: $card-hover;
+    border-color: rgba(245,195,110,0.22);
+  }
+
+  @media (max-width: 640px) { flex-direction: column; align-items: flex-start; }
+}
+
+.cr-job-info {
+  flex: 1;
+  min-width: 0;
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $gold;
+    margin: 0 0 0.375rem;
+  }
+
+  p {
+    color: $white-82;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0 0 0.625rem;
+  }
+}
+
+.cr-job-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: $white-55;
+}
+
+.cr-job-dot {
+  color: rgba(255,255,255,0.25);
+}
+
+// ── Pagination ────────────────────────────────────────────────
+.cr-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
 .page-btn {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.15);
   color: $gold;
   background: transparent;
   cursor: pointer;
@@ -86,20 +283,126 @@ $card-border: rgba(255,255,255,0.12);
   font-size: 0.875rem;
   font-weight: 500;
 
-  &:hover:not(:disabled) {
-    background: $gold;
-    color: #111827;
-    border-color: $gold;
-  }
+  &:hover:not(:disabled) { background: $gold; color: #111827; border-color: $gold; }
+  &.active { background: $gold; color: #111827; border-color: $gold; }
+  &:disabled { opacity: 0.35; cursor: not-allowed; }
+}
 
-  &.active {
-    background: $gold;
-    color: #111827;
-    border-color: $gold;
-  }
+// ── Application form ──────────────────────────────────────────
+.cr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
-  &:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
+.cr-form__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.25rem;
+}
+
+.cr-form__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.cr-form__optional {
+  font-weight: 400;
+  color: $white-55;
+  font-size: 0.8rem;
+}
+
+.cr-form__error {
+  color: #f87171;
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0;
+}
+
+// ── File upload ───────────────────────────────────────────────
+.cr-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.cr-upload__input {
+  display: block;
+  width: 100%;
+  font-size: 0.875rem;
+  color: $white-82;
+
+  &::file-selector-button {
+    margin-right: 0.75rem;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: rgba(245,195,110,0.15);
+    color: $gold;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover { background: rgba(245,195,110,0.28); }
   }
+}
+
+.cr-upload__hint {
+  font-size: 0.75rem;
+  color: $white-55;
+}
+
+// ── Submit row ────────────────────────────────────────────────
+.cr-form__submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+
+/* ── Large monitors (1440px+) ── */
+@media (min-width: 1440px) {
+  .cr-hero { padding-top: 80px; }
+  .cr-hero__content { padding: 3rem 2rem 4rem; }
+  .cr-section { padding: 2rem 2rem 4rem; }
+}
+
+/* ── Tablet landscape (1024px) ── */
+@media (max-width: 1024px) {
+  .cr-why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Tablet portrait (768px) ── */
+@media (max-width: 768px) {
+  .cr-hero__content { padding: 1.5rem 1.25rem 2.5rem; }
+  .cr-hero__copy h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+  .cr-hero__ctas { flex-direction: column; }
+  .cr-hero__ctas .btn { width: 100%; justify-content: center; }
+  .cr-section { padding: 1.25rem 1.25rem 2.5rem; }
+  .cr-why-grid { grid-template-columns: 1fr; }
+  .cr-job-row { flex-direction: column; align-items: flex-start; }
+  .cr-inner--narrow { padding: 0 1.25rem; }
+}
+
+/* ── Mobile (640px) ── */
+@media (max-width: 640px) {
+  .cr-section-header h2 { font-size: 1.75rem; }
+  .cr-form-wrap { padding: 0 0.5rem; }
+}
+
+// ── Angular Material form field theming (dark) ────────────────
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-outline-color: rgba(255,255,255,0.18);
+  --mdc-outlined-text-field-hover-outline-color: #{$gold};
+  --mdc-outlined-text-field-focus-outline-color: #{$gold};
+  --mdc-outlined-text-field-input-text-color: #{$white-82};
+  --mdc-outlined-text-field-label-text-color: #{$white-55};
+  --mdc-outlined-text-field-focus-label-text-color: #{$gold};
+  --mat-select-trigger-text-color: #{$white-82};
+
+  // remove the reserved space for hint/error line below each field
+  .mat-mdc-form-field-subscript-wrapper { display: none; }
 }

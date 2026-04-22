@@ -37,18 +37,18 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 2px;
-  fill: #b0a898;
+  fill: rgba(255, 255, 255, 0.35);
 }
 
 .src-box rect {
-  fill: #ffffff;
-  stroke: #ccc6bb;
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(255, 255, 255, 0.2);
   stroke-width: 1;
 }
 
 .src-box text {
   font-size: 12px;
-  fill: #2b2b35;
+  fill: rgba(255, 255, 255, 0.85);
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .sdtm-box rect {
-  fill: #eef3fa;
+  fill: rgba(58, 111, 168, 0.15);
   stroke: #3a6fa8;
   stroke-width: 1.5;
 }
@@ -65,18 +65,18 @@
 .sdtm-title {
   font-size: 12px;
   font-weight: 700;
-  fill: #1c2d4a;
+  fill: #7db8e8;
   font-family: 'Segoe UI', sans-serif;
 }
 
 .sdtm-sub {
   font-size: 10px;
-  fill: #5a7aaa;
+  fill: rgba(255, 255, 255, 0.55);
   font-family: 'Segoe UI', sans-serif;
 }
 
 .kwalify-box rect {
-  fill: #1c2d4a;
+  fill: url(#kwGrad);
   stroke: #c9962a;
   stroke-width: 2;
 }
@@ -91,7 +91,7 @@
 
 .kwalify-sub {
   font-size: 11px;
-  fill: #9aabcc;
+  fill: rgba(255, 255, 255, 0.6);
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -100,13 +100,13 @@
 }
 
 .kg-circle {
-  fill: #c9862a;
+  fill: url(#kgGrad);
 }
 
 .kg-label {
   font-size: 10px;
   font-weight: 700;
-  fill: #1c2d4a;
+  fill: #ffffff;
   text-anchor: middle;
   font-family: 'Segoe UI', sans-serif;
   pointer-events: none;
@@ -118,34 +118,35 @@
   stroke-width: 0.5;
   stroke-dasharray: 4 4;
   opacity: 0.2;
-  transform-origin: 340px 345px;
+  transform-origin: 363px 313px;
   animation: spinOrbit 18s linear infinite 2.2s;
 }
 
 .kg-pulse {
-  transform-origin: 340px 345px;
+  transform-origin: 340px 320px;
   animation: kgPulse 2.5s ease-in-out infinite 2.2s;
 }
 
 .satellite rect {
-  fill: #ffffff;
-  stroke: #ccc6bb;
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(255, 255, 255, 0.18);
   stroke-width: 1;
 }
 
 .satellite text {
   font-size: 11px;
-  fill: #3a3a3a;
+  fill: rgba(255, 255, 255, 0.8);
   font-family: 'Segoe UI', sans-serif;
 }
 
 .satellite.accented rect {
+  fill: rgba(201, 134, 42, 0.18);
   stroke: #c9862a;
   stroke-width: 2;
 }
 
 .out-submission rect {
-  fill: #fff9ed;
+  fill: rgba(201, 134, 42, 0.12);
   stroke: #c9862a;
   stroke-width: 2;
 }
@@ -153,39 +154,58 @@
 .out-submission .out-title {
   font-size: 12px;
   font-weight: 700;
-  fill: #b07820;
+  fill: #e8b84b;
   font-family: 'Segoe UI', sans-serif;
 }
 
 .out-submission .out-sub {
   font-size: 11px;
-  fill: #7a6040;
+  fill: rgba(255, 255, 255, 0.55);
   font-family: 'Segoe UI', sans-serif;
 }
 
 .out-discrepancy rect {
-  fill: #ffffff;
-  stroke: #ccc6bb;
+  fill: rgba(255, 255, 255, 0.05);
+  stroke: rgba(255, 255, 255, 0.18);
   stroke-width: 1;
 }
 
 .out-discrepancy .out-title {
   font-size: 12px;
   font-weight: 700;
-  fill: #2b2b35;
+  fill: rgba(255, 255, 255, 0.85);
   font-family: 'Segoe UI', sans-serif;
 }
 
 .out-discrepancy .out-sub {
   font-size: 11px;
-  fill: #6a6a6a;
+  fill: rgba(255, 255, 255, 0.5);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.out-xai rect {
+  fill: rgba(58, 111, 168, 0.15);
+  stroke: #5a9fd4;
+  stroke-width: 2;
+}
+
+.out-xai-title {
+  font-size: 12px;
+  font-weight: 700;
+  fill: #7db8e8;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.out-xai-sub {
+  font-size: 11px;
+  fill: rgba(255, 255, 255, 0.55);
   font-family: 'Segoe UI', sans-serif;
 }
 
 .caption {
   font-size: 10px;
   letter-spacing: 2px;
-  fill: #b0a898;
+  fill: rgba(255, 255, 255, 0.3);
   text-anchor: middle;
   font-family: 'Segoe UI', sans-serif;
 }
@@ -421,12 +441,12 @@ $section-pad-sm: 2.5rem 1.25rem;
   position: relative;
   z-index: 1;
   display: grid;
-  align-items: start;
+  align-items: stretch;
   gap: 2.5rem;
   max-width: 75rem;
   margin: 0 auto;
   padding: 0 1.5rem;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
 }
 
 .home-hero__copy {
@@ -461,6 +481,28 @@ $section-pad-sm: 2.5rem 1.25rem;
   gap: 0.875rem;
 }
 
+.home-hero__image {
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    -webkit-mask-image:
+      linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, black 6%,  black 94%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, black 6%,  black 94%, transparent 100%);
+    mask-composite: intersect;
+  }
+}
+
 .home-hero__panel {
   display: flex;
   flex-direction: column;
@@ -468,6 +510,7 @@ $section-pad-sm: 2.5rem 1.25rem;
   padding: 1.25rem;
   overflow: hidden;
   width: 100%;
+  height: 100%;
 
   h2 {
     font-size: clamp(1.25rem, 2vw, 1.65rem);
@@ -1416,6 +1459,30 @@ $section-pad-sm: 2.5rem 1.25rem;
 /* ═══════════════════════════════════════════════════════════════
    RESPONSIVE — Tablet (≤1024px)
 ═══════════════════════════════════════════════════════════════ */
+
+/* ── Large monitors (1440px+) ── */
+@media (min-width: 1440px) {
+  .home-hero { padding: 9rem 0 7rem; }
+  .home-hero__copy h1 { font-size: 4rem; }
+}
+
+/* ── Tablet portrait (768px) ── */
+@media (max-width: 768px) {
+  .home-hero { padding: 5.5rem 0 3.5rem; }
+  .home-hero__copy h1 { font-size: 2.5rem; }
+  .home-hero__actions { flex-direction: column; }
+  .home-hero__actions .btn { width: 100%; justify-content: center; }
+
+  .pillars-grid,
+  .highlights-grid,
+  .kwalify-grid,
+  .engagement-grid,
+  .outcomes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2 { font-size: 1.9rem; }
+}
 
 @media (max-width: 1024px) {
   .home-hero__grid,
