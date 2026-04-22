@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TrialGen™</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:#06101f;font-family:'Segoe UI',system-ui,sans-serif}
+
+#pres{
+  position:absolute;
+  width:720px;height:405px;
+  transform-origin:top left;
+  overflow:hidden;
+  background:#06101f;
+}
+
+.bg-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(245,195,110,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(245,195,110,.03) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+
+#progressBar{
+  position:absolute;bottom:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,#c9862a,#f5c36e);
+  z-index:60;transition:width .12s linear;
+}
+#replayBtn{
+  position:absolute;bottom:7px;right:10px;
+  padding:3px 10px;border-radius:999px;
+  background:rgba(245,195,110,.12);border:1px solid rgba(245,195,110,.3);
+  color:#f5c36e;font-size:9.5px;font-weight:700;letter-spacing:.06em;
+  cursor:pointer;z-index:60;display:none;font-family:inherit;
+}
+
+/* ── Scene base ── */
+.scene{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:22px 48px;
+  opacity:0;pointer-events:none;
+  background:linear-gradient(158deg,#060f22 0%,#091830 55%,#060f22 100%);
+  transition:opacity .6s ease;
+}
+.scene.active{opacity:1;pointer-events:auto}
+
+/* ── Badge ── */
+.badge{
+  display:inline-flex;align-items:center;
+  padding:3px 11px;border-radius:999px;
+  background:rgba(245,195,110,.1);border:1px solid rgba(245,195,110,.28);
+  color:#f5c36e;font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  margin-bottom:14px;flex-shrink:0;
+}
+
+/* ── Entrances ── */
+.eu{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.ef{opacity:0;transition:opacity .55s ease}
+.el{opacity:0;transform:translateX(-22px);transition:opacity .5s ease,transform .5s ease}
+.es{opacity:0;transform:scale(.88);transition:opacity .6s ease,transform .6s ease}
+.eu.s,.ef.s,.el.s,.es.s{opacity:1;transform:none}
+
+/* ════ S0 — CHALLENGE ════ */
+#s0{background:linear-gradient(155deg,#070c1a 0%,#0c1022 55%,#060f22 100%)}
+.prob-head{font-size:19px;font-weight:800;color:#fff;text-align:center;line-height:1.25;margin-bottom:18px}
+.prob-head em{color:#f5c36e;font-style:normal}
+.prob-cards{display:flex;gap:10px;width:100%;max-width:640px}
+.prob-card{
+  flex:1;padding:13px 14px;border-radius:10px;
+  background:rgba(245,195,110,.06);
+  border:1px solid rgba(245,195,110,.18);border-left:3px solid #f5c36e;
+}
+.prob-card .ic{font-size:18px;margin-bottom:6px}
+.prob-card h4{color:#fcd97a;font-size:11px;font-weight:700;margin-bottom:4px}
+.prob-card p{color:rgba(255,255,255,.55);font-size:10.5px;line-height:1.6}
+
+/* ════ S1 — PLATFORM ════ */
+#s1{background:linear-gradient(155deg,#06101f 0%,#0d1b3e 58%,#06101f 100%)}
+.sol-brand{font-size:46px;font-weight:900;color:#f5c36e;letter-spacing:-.02em;text-align:center}
+.sol-tag{font-size:14px;font-weight:600;color:#fff;text-align:center;margin-top:8px}
+.sol-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.sol-pill{
+  padding:4px 13px;border-radius:999px;
+  background:rgba(245,195,110,.1);border:1px solid rgba(245,195,110,.24);
+  color:#f5c36e;font-size:10.5px;font-weight:600;
+}
+.sol-desc{margin-top:14px;color:rgba(255,255,255,.54);font-size:11px;max-width:460px;text-align:center;line-height:1.75}
+
+/* ════ SECTION BREAKS ════ */
+.sb{background:linear-gradient(135deg,#06101f 0%,#0d1a36 100%)}
+.sb-icon{font-size:30px;margin-bottom:10px}
+.sb-title{font-size:22px;font-weight:800;color:#fff;text-align:center}
+.sb-sub{font-size:11.5px;color:rgba(255,255,255,.48);margin-top:7px;text-align:center;max-width:400px}
+
+/* ════ SCREENSHOT SCENES ════ */
+.ss-scene{padding:0;justify-content:flex-start}
+.ss-bg{position:absolute;inset:0;overflow:hidden}
+.ss-bg img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transform:scale(1);transform-origin:50% 30%}
+
+@keyframes zoomTL  { from{transform:scale(1.0)} to{transform:scale(1.55) translate( -6%, -4%)} }
+@keyframes zoomTC  { from{transform:scale(1.0)} to{transform:scale(1.5)  translate(  0%, -6%)} }
+@keyframes zoomC   { from{transform:scale(1.0)} to{transform:scale(1.45) translate(  0%,  0%)} }
+@keyframes zoomBL  { from{transform:scale(1.0)} to{transform:scale(1.5)  translate( -8%,  6%)} }
+@keyframes zoomTR  { from{transform:scale(1.0)} to{transform:scale(1.5)  translate(  8%, -5%)} }
+
+.ss-bg.zoom-tl img { animation:zoomTL var(--zd,4s) ease-out forwards }
+.ss-bg.zoom-tc img { animation:zoomTC var(--zd,4s) ease-out forwards }
+.ss-bg.zoom-c  img { animation:zoomC  var(--zd,4s) ease-out forwards }
+.ss-bg.zoom-bl img { animation:zoomBL var(--zd,4s) ease-out forwards }
+.ss-bg.zoom-tr img { animation:zoomTR var(--zd,4s) ease-out forwards }
+
+.ss-vignette{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(to bottom, rgba(6,16,31,.55) 0%, transparent 28%, transparent 70%, rgba(6,16,31,.7) 100%),
+    linear-gradient(to right,  rgba(6,16,31,.25) 0%, transparent 20%, transparent 80%, rgba(6,16,31,.25) 100%);
+}
+.ss-overlay{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:12px 16px;pointer-events:none;
+}
+.ss-badge-row{display:flex;align-items:center;gap:10px}
+.ss-badge-row .badge{margin:0}
+.ss-scene-lbl{color:rgba(255,255,255,.45);font-size:9.5px;font-weight:600;letter-spacing:.06em}
+.ss-cap{
+  align-self:stretch;
+  background:rgba(6,16,31,.78);backdrop-filter:blur(6px);border-radius:6px;
+  padding:6px 12px;color:rgba(245,195,110,.85);font-size:10px;line-height:1.5;text-align:center;
+}
+
+/* ════ OUTCOMES ════ */
+#s15{background:linear-gradient(155deg,#06101f 0%,#071508 60%,#06101f 100%)}
+.out-head{font-size:18px;font-weight:800;color:#fff;text-align:center;margin-bottom:16px}
+.out-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:580px}
+.out-card{padding:14px 18px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(245,195,110,.18)}
+.out-num{font-size:28px;font-weight:900;color:#f5c36e;line-height:1}
+.out-lbl{font-size:11px;color:rgba(255,255,255,.68);margin-top:4px;line-height:1.45}
+.out-cta{
+  margin-top:18px;padding:9px 28px;border-radius:999px;
+  background:#f5c36e;color:#111;font-weight:700;font-size:12px;
+  border:none;cursor:pointer;font-family:inherit;
+}
+</style>
+</head>
+<body>
+<div id="pres">
+  <div class="bg-grid"></div>
+  <div id="progressBar"></div>
+  <button id="replayBtn" onclick="start()">↺ Replay</button>
+
+  <!-- S0: CHALLENGE -->
+  <div class="scene" id="s0">
+    <div class="badge">⚠ The Challenge</div>
+    <h2 class="prob-head eu" id="s0h">Clinical validation is limited by <em>data access.</em></h2>
+    <div class="prob-cards">
+      <div class="prob-card eu" id="s0c1" style="transition-delay:.07s">
+        <div class="ic">⏱</div>
+        <h4>Validation Delays</h4>
+        <p>Workflows stall when real datasets are unavailable, restricted, or incomplete at critical stages.</p>
+      </div>
+      <div class="prob-card eu" id="s0c2" style="transition-delay:.18s">
+        <div class="ic">📉</div>
+        <h4>Insufficient Test Coverage</h4>
+        <p>Testing on limited data leaves edge cases and anomalies undetected until late in the trial.</p>
+      </div>
+      <div class="prob-card eu" id="s0c3" style="transition-delay:.29s">
+        <div class="ic">🔒</div>
+        <h4>Privacy Constraints</h4>
+        <p>Compliance and patient-privacy rules prevent data from being shared freely across teams.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- S1: PLATFORM -->
+  <div class="scene" id="s1">
+    <div class="badge ef" id="s1b">✦ The Platform</div>
+    <div class="sol-brand es"  id="s1br">TrialGen™</div>
+    <div class="sol-tag  ef"  id="s1t" style="transition-delay:.35s">Synthetic Clinical Data Generation</div>
+    <div class="sol-pills eu" id="s1p" style="transition-delay:.6s">
+      <span class="sol-pill">CDISC-Aligned</span>
+      <span class="sol-pill">Privacy-Safe</span>
+      <span class="sol-pill">Statistically Consistent</span>
+      <span class="sol-pill">Regulation-Aware</span>
+    </div>
+    <p class="sol-desc ef" id="s1d" style="transition-delay:.9s">
+      Generate realistic synthetic clinical datasets on demand — enabling teams to test, validate, and refine workflows without exposure to real patient data.
+    </p>
+  </div>
+
+  <!-- S2: BREAK — Select & Configure -->
+  <div class="scene sb" id="s2">
+    <div class="badge">01 · Select &amp; Configure</div>
+    <div class="sb-icon es" id="s2i">🗂️</div>
+    <div class="sb-title el" id="s2t">Choose Data Type &amp; Protocol</div>
+    <div class="sb-sub  ef" id="s2s" style="transition-delay:.3s">Select SDTM or ADaM, choose a clinical protocol and configure generation settings.</div>
+  </div>
+
+  <!-- S3: Slide 1 — Home / Select Type -->
+  <div class="scene ss-scene" id="s3">
+    <div class="ss-bg" id="s3bg"><img src="tg-slides/slide1.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s3h">
+        <span class="badge" style="margin:0">Select Type</span>
+        <span class="ss-scene-lbl">Synthetic Data Generation · Home</span>
+      </div>
+      <div class="ss-cap ef" id="s3c" style="transition-delay:.4s">Choose between Clinical Study Data (SDTM) or Analysis Datasets (ADaM) — CDISC-aligned from the first step.</div>
+    </div>
+  </div>
+
+  <!-- S4: Slide 2 — Configure Dataset -->
+  <div class="scene ss-scene" id="s4">
+    <div class="ss-bg" id="s4bg"><img src="tg-slides/slide2.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s4h">
+        <span class="badge" style="margin:0">Configure</span>
+        <span class="ss-scene-lbl">Protocol Selection &amp; Generation Settings</span>
+      </div>
+      <div class="ss-cap ef" id="s4c" style="transition-delay:.4s">Select a clinical protocol — indication, phase, and site details auto-populate. Set subject count and target domains to generate.</div>
+    </div>
+  </div>
+
+  <!-- S5: BREAK — Generate -->
+  <div class="scene sb" id="s5" style="background:linear-gradient(135deg,#06101f 0%,#0a1828 100%)">
+    <div class="badge">02 · Generate</div>
+    <div class="sb-icon es" id="s5i">⚡</div>
+    <div class="sb-title el" id="s5t">Dataset Generation in Seconds</div>
+    <div class="sb-sub  ef" id="s5s" style="transition-delay:.3s">Statistically consistent, rule-compliant synthetic data generated on demand.</div>
+  </div>
+
+  <!-- S6: Slide 3 — Generation Progress -->
+  <div class="scene ss-scene" id="s6">
+    <div class="ss-bg" id="s6bg"><img src="tg-slides/slide3.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s6h">
+        <span class="badge" style="margin:0">Generating</span>
+        <span class="ss-scene-lbl">Dataset Generation Progress</span>
+      </div>
+      <div class="ss-cap ef" id="s6c" style="transition-delay:.4s">Real-time generation progress — 100% complete in 6 seconds at 51.5 records/s. No waiting, no manual data handling.</div>
+    </div>
+  </div>
+
+  <!-- S7: Slide 4 — Results -->
+  <div class="scene ss-scene" id="s7">
+    <div class="ss-bg" id="s7bg"><img src="tg-slides/slide4.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s7h">
+        <span class="badge" style="margin:0">Results · Validation Passed</span>
+        <span class="ss-scene-lbl">4,648 Rows · 26 Domains · 0 Errors</span>
+      </div>
+      <div class="ss-cap ef" id="s7c" style="transition-delay:.4s">Validation passed — domain data table with per-domain row counts and downloadable CSV files. Derive analysis datasets coming soon.</div>
+    </div>
+  </div>
+
+  <!-- S8: BREAK — Reports -->
+  <div class="scene sb" id="s8" style="background:linear-gradient(135deg,#06101f 0%,#091520 100%)">
+    <div class="badge">03 · Reports</div>
+    <div class="sb-icon es" id="s8i">📊</div>
+    <div class="sb-title el" id="s8t">Trial Metadata · Data Quality · Protocol Adherence</div>
+    <div class="sb-sub  ef" id="s8s" style="transition-delay:.3s">Comprehensive reporting across conformance, adherence, and subject profiles.</div>
+  </div>
+
+  <!-- S9: Slide 5 — Trial Metadata -->
+  <div class="scene ss-scene" id="s9">
+    <div class="ss-bg" id="s9bg"><img src="tg-slides/slide5.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s9h">
+        <span class="badge" style="margin:0">Reports · Trial Metadata</span>
+        <span class="ss-scene-lbl">Protocol · Generator Version · SDTM IC</span>
+      </div>
+      <div class="ss-cap ef" id="s9c" style="transition-delay:.4s">Full trial metadata — study ID, protocol, generator version, SDTM IC version, treatment arms, sites and subject-level summary.</div>
+    </div>
+  </div>
+
+  <!-- S10: Slide 6 — Data Quality -->
+  <div class="scene ss-scene" id="s10">
+    <div class="ss-bg" id="s10bg"><img src="tg-slides/slide6.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s10h">
+        <span class="badge" style="margin:0">Reports · Data Quality</span>
+        <span class="ss-scene-lbl">Conformance by Category · Quality Checks</span>
+      </div>
+      <div class="ss-cap ef" id="s10c" style="transition-delay:.4s">Structural, temporal, terminology, coherence and derived checks — FDA submission rules and domain structure validation side by side.</div>
+    </div>
+  </div>
+
+  <!-- S11: Slide 7 — Protocol Adherence -->
+  <div class="scene ss-scene" id="s11">
+    <div class="ss-bg" id="s11bg"><img src="tg-slides/slide7.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s11h">
+        <span class="badge" style="margin:0">Reports · Protocol Adherence</span>
+        <span class="ss-scene-lbl">Visit Compliance · Deviations · Dose Compliance</span>
+      </div>
+      <div class="ss-cap ef" id="s11c" style="transition-delay:.4s">76.7% visit compliance, 37.2% dose compliance — deviations categorised by type, visit and treatment arm for full protocol review.</div>
+    </div>
+  </div>
+
+  <!-- S12: BREAK — Subject Profiles -->
+  <div class="scene sb" id="s12" style="background:linear-gradient(135deg,#06101f 0%,#0a1520 100%)">
+    <div class="badge">04 · Subject Profiles</div>
+    <div class="sb-icon es" id="s12i">👤</div>
+    <div class="sb-title el" id="s12t">Per-Subject Demographics, Timeline &amp; Events</div>
+    <div class="sb-sub  ef" id="s12s" style="transition-delay:.3s">Drill into any synthetic subject — exposure, adverse events, deviations, and full visit timeline.</div>
+  </div>
+
+  <!-- S13: Slide 8 — Subject List -->
+  <div class="scene ss-scene" id="s13">
+    <div class="ss-bg" id="s13bg"><img src="tg-slides/slide8.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s13h">
+        <span class="badge" style="margin:0">Subject Profiles · List</span>
+        <span class="ss-scene-lbl">30 Synthetic Subjects · Searchable</span>
+      </div>
+      <div class="ss-cap ef" id="s13c" style="transition-delay:.4s">30 searchable synthetic subjects across sites — click any to drill into full demographics, timeline, and clinical events.</div>
+    </div>
+  </div>
+
+  <!-- S14: Slide 9 — Subject Demographics & Timeline -->
+  <div class="scene ss-scene" id="s14">
+    <div class="ss-bg" id="s14bg"><img src="tg-slides/slide9.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s14h">
+        <span class="badge" style="margin:0">Subject · Demographics &amp; Timeline</span>
+        <span class="ss-scene-lbl">Site · Arm · Consent → Randomisation → Dosing</span>
+      </div>
+      <div class="ss-cap ef" id="s14c" style="transition-delay:.4s">Full subject record — demographics, randomisation arm, consent date and a chronological event timeline from screening to follow-up.</div>
+    </div>
+  </div>
+
+  <!-- S15: Slide 10 — Exposure & Adverse Events -->
+  <div class="scene ss-scene" id="s15">
+    <div class="ss-bg" id="s15bg"><img src="tg-slides/slide10.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s15h">
+        <span class="badge" style="margin:0">Subject · Exposure &amp; Adverse Events</span>
+        <span class="ss-scene-lbl">Dosing Schedule · AE Severity · Causality</span>
+      </div>
+      <div class="ss-cap ef" id="s15c" style="transition-delay:.4s">Treatment exposure schedule and adverse events with severity, causality, and outcome — realistic data for end-to-end safety testing.</div>
+    </div>
+  </div>
+
+  <!-- S16: OUTCOMES -->
+  <div class="scene" id="s16">
+    <div class="badge ef" id="s16b">✓ The Outcomes</div>
+    <div class="out-head eu" id="s16h" style="transition-delay:.15s">What Teams Achieve with TrialGen™</div>
+    <div class="out-grid">
+      <div class="out-card eu" id="s16c1" style="transition-delay:.3s"><div class="out-num">100%</div><div class="out-lbl">Privacy-safe testing — zero patient data exposure</div></div>
+      <div class="out-card eu" id="s16c2" style="transition-delay:.45s"><div class="out-num">&lt;10s</div><div class="out-lbl">Dataset generation — 4,648 rows across 26 domains</div></div>
+      <div class="out-card eu" id="s16c3" style="transition-delay:.6s"><div class="out-num">Earlier</div><div class="out-lbl">Edge case and AE detection before live data arrives</div></div>
+      <div class="out-card eu" id="s16c4" style="transition-delay:.75s"><div class="out-num">Faster</div><div class="out-lbl">Validation cycles — proactive, not reactive</div></div>
+    </div>
+    <button class="out-cta eu" id="s16cta" style="transition-delay:1.1s">Request an Executive Demo →</button>
+  </div>
+
+</div><!-- /#pres -->
+
+<script>
+const BASE_W=720, BASE_H=405, pres=document.getElementById('pres');
+function scale(){
+  const s=Math.min(window.innerWidth/BASE_W, window.innerHeight/BASE_H);
+  pres.style.transform=`scale(${s})`;
+  pres.style.left=Math.max(0,(window.innerWidth -BASE_W*s)/2)+'px';
+  pres.style.top =Math.max(0,(window.innerHeight-BASE_H*s)/2)+'px';
+}
+window.addEventListener('resize',scale); scale();
+
+const ZOOM={
+  s3:['zoom-tc','4s'], s4:['zoom-tl','4.5s'],
+  s6:['zoom-c', '3s'], s7:['zoom-tl','4.5s'],
+  s9:['zoom-tc','4s'], s10:['zoom-tl','4s'],
+  s11:['zoom-tc','4s'],s13:['zoom-c', '3.5s'],
+  s14:['zoom-tl','4.5s'],s15:['zoom-bl','4.5s'],
+};
+
+const SCENES=[
+  ['s0',  5500, ['s0h','s0c1','s0c2','s0c3']],
+  ['s1',  4000, ['s1b','s1br','s1t','s1p','s1d']],
+  ['s2',  1800, ['s2i','s2t','s2s']],
+  ['s3',  3500, ['s3h','s3c']],
+  ['s4',  4000, ['s4h','s4c']],
+  ['s5',  1800, ['s5i','s5t','s5s']],
+  ['s6',  3000, ['s6h','s6c']],
+  ['s7',  4000, ['s7h','s7c']],
+  ['s8',  1800, ['s8i','s8t','s8s']],
+  ['s9',  3500, ['s9h','s9c']],
+  ['s10', 4000, ['s10h','s10c']],
+  ['s11', 4000, ['s11h','s11c']],
+  ['s12', 1800, ['s12i','s12t','s12s']],
+  ['s13', 3500, ['s13h','s13c']],
+  ['s14', 4500, ['s14h','s14c']],
+  ['s15', 4500, ['s15h','s15c']],
+  ['s16', 9999, ['s16b','s16h','s16c1','s16c2','s16c3','s16c4','s16cta']],
+];
+
+const TOTAL=SCENES.reduce((a,s)=>a+(s[1]<9000?s[1]:0),0);
+let timers=[];
+const $=id=>document.getElementById(id);
+const add=(id,c)=>{const e=$(id);if(e)e.classList.add(c)};
+const rem=(id,c)=>{const e=$(id);if(e)e.classList.remove(c)};
+
+function resetAll(){
+  timers.forEach(clearTimeout);timers=[];
+  SCENES.forEach(s=>{
+    rem(s[0],'active');
+    s[2].forEach(id=>rem(id,'s'));
+    const bg=$(s[0]+'bg');
+    if(bg){bg.className='ss-bg';bg.style.removeProperty('--zd');}
+  });
+  $('progressBar').style.width='0%';
+  $('replayBtn').style.display='none';
+}
+
+function start(){
+  resetAll();
+  const t0=Date.now();
+  (function tick(){
+    const p=Math.min(100,(Date.now()-t0)/TOTAL*100);
+    $('progressBar').style.width=p+'%';
+    if(p<100)requestAnimationFrame(tick);
+  })();
+
+  let delay=0;
+  SCENES.forEach((s,i)=>{
+    const[id,dur,ids]=s;
+    timers.push(setTimeout(()=>{
+      if(i>0)rem(SCENES[i-1][0],'active');
+      add(id,'active');
+      const bg=$(id+'bg');
+      if(bg&&ZOOM[id]){
+        const[cls,d]=ZOOM[id];
+        bg.style.setProperty('--zd',d);
+        setTimeout(()=>bg.classList.add(cls),60);
+      }
+      timers.push(setTimeout(()=>ids.forEach(id=>add(id,'s')),80));
+    },delay));
+    if(dur<9000)delay+=dur;
+  });
+  timers.push(setTimeout(()=>{$('replayBtn').style.display='block';},delay+2000));
+}
+
+window.addEventListener('load',()=>setTimeout(start,400));
+</script>
+</body>
+</html>

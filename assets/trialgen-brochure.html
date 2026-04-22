@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Care2Data — TrialGen™ Brochure</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    color: #1a1a2e;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+
+  /* ── Print: two A4 pages ── */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html, body { margin: 0; padding: 0; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    break-after: page;
+    page-break-after: always;
+  }
+  .page:last-child {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  @media screen {
+    body { background: #e5e7eb; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .page { box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+  }
+
+  /* ── Colours ── */
+  :root {
+    --navy:      #060c1e;
+    --navy2:     #0d1b3e;
+    --gold:      #f5c36e;
+    --gold-bdr:  rgba(245,195,110,0.35);
+    --text:      #1a1a2e;
+    --muted:     #4b5563;
+    --light:     #f8f9fb;
+    --border:    #e2e8f0;
+  }
+
+  /* ════════════════════════════════════════════
+     PAGE 1
+  ════════════════════════════════════════════ */
+
+  /* ── Header band ── */
+  .p1-header {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-bottom: 1px solid var(--gold-bdr);
+    padding: 12mm 18mm 10mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .p1-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -20px; right: -20px;
+    height: 80px;
+    background: #fff;
+    transform: rotate(-2deg);
+  }
+
+  .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .brand-logo {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+  .brand-separator {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.4);
+    margin: 0 2px;
+  }
+  .product-name {
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .p1-title {
+    font-size: 26pt;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    max-width: 145mm;
+  }
+  .p1-title span { color: var(--gold); }
+
+  .p1-tagline {
+    font-size: 9.5pt;
+    color: rgba(255,255,255,0.82);
+    max-width: 130mm;
+    line-height: 1.7;
+    margin-top: 8px;
+  }
+
+  .p1-badge {
+    position: absolute;
+    top: 18mm; right: 18mm;
+    background: rgba(245,195,110,0.12);
+    border: 1.5px solid rgba(245,195,110,0.4);
+    border-radius: 50%;
+    width: 36mm; height: 36mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--gold);
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .p1-badge strong { font-size: 13pt; display: block; letter-spacing: 0; }
+
+  /* ── Intro block ── */
+  .p1-intro {
+    padding: 8mm 18mm 4mm;
+  }
+  .p1-intro p {
+    font-size: 9.5pt;
+    color: #4b5563;
+    line-height: 1.7;
+    text-align: justify;
+  }
+  .p1-intro strong { color: #1a1a2e; }
+
+  /* ── Problem callout ── */
+  .p1-problem {
+    margin: 0 18mm 5mm;
+    background: #fdf9f0;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 3mm 3mm 0;
+    padding: 4mm 6mm;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4mm;
+    align-items: start;
+  }
+  .p1-problem-label {
+    font-size: 7pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #d4963a;
+    white-space: nowrap;
+    padding-top: 1px;
+  }
+  .p1-problem-body {
+    font-size: 8.5pt;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  .p1-problem-body strong { color: #1a1a2e; }
+
+  /* ── Capability cards 2×2 ── */
+  .p1-cap-label {
+    padding: 0 18mm 2mm;
+    font-size: 7.5pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #d4963a;
+  }
+
+  .p1-capabilities {
+    padding: 0 18mm 6mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+  }
+
+  .cap-card {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 4mm;
+    padding: 5mm 6mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .cap-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .cap-card.c1::before { background: #38bdf8; }
+  .cap-card.c2::before { background: var(--gold); }
+  .cap-card.c3::before { background: #34d399; }
+  .cap-card.c4::before { background: #c084fc; }
+
+  .cap-card-num {
+    font-size: 6.5pt;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .c1 .cap-card-num { color: #38bdf8; }
+  .c2 .cap-card-num { color: #d4963a; }
+  .c3 .cap-card-num { color: #34d399; }
+  .c4 .cap-card-num { color: #c084fc; }
+
+  .cap-card-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 3px;
+    line-height: 1.25;
+  }
+  .cap-card-desc {
+    font-size: 8.5pt;
+    color: #4b5563;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  /* ── Footer strip page 1 ── */
+  .p1-footer {
+    background: #f8f9fb;
+    border-top: 1px solid #e2e8f0;
+    padding: 4mm 18mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+  .p1-footer-text {
+    font-size: 7.5pt;
+    color: #4b5563;
+  }
+  .p1-footer-url {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: #0f2a5c;
+  }
+
+  /* ════════════════════════════════════════════
+     PAGE 2
+  ════════════════════════════════════════════ */
+
+  .p2-topbar {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-bottom: 1px solid var(--gold-bdr);
+    padding: 6mm 18mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .p2-topbar-brand {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .p2-topbar-title {
+    font-size: 8pt;
+    color: rgba(255,255,255,0.82);
+  }
+
+  .p2-body {
+    padding: 8mm 18mm 8mm;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .p2-section-title {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 5mm;
+    padding-bottom: 2.5mm;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  /* ── Workflow pipeline ── */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0 0 7mm;
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-radius: 4mm;
+    overflow: hidden;
+  }
+  .pipeline-step {
+    flex: 1;
+    text-align: center;
+    padding: 4mm 2mm;
+    font-size: 8pt;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    position: relative;
+  }
+  .pipeline-step::after {
+    content: '→';
+    position: absolute;
+    right: -4px;
+    top: 50%; transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 10pt;
+    z-index: 1;
+  }
+  .pipeline-step:last-child::after { display: none; }
+  .pipeline-step span {
+    display: block;
+    font-size: 5.5pt;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    margin-top: 1mm;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── Capability detail table ── */
+  .cap-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 7mm;
+  }
+  .cap-table th {
+    background: linear-gradient(135deg, #0d1b3e 0%, #102c50 100%);
+    color: #fff;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3mm 4mm;
+    text-align: left;
+    border-bottom: 2px solid var(--gold);
+  }
+  .cap-table td {
+    font-size: 8.5pt;
+    color: #1a1a2e;
+    padding: 2.5mm 4mm;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+  .cap-table tr:nth-child(even) td { background: #f8f9fb; }
+  .cap-table .cap-name {
+    font-weight: 700;
+    white-space: nowrap;
+    width: 46mm;
+    color: #1a1a2e;
+  }
+  .cap-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  /* ── Two-column outcomes ── */
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm;
+    margin-bottom: 7mm;
+  }
+
+  .outcomes-col h4 {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 3mm;
+    padding-bottom: 2mm;
+    border-bottom: 1.5px solid var(--gold);
+  }
+
+  .outcomes-list {
+    list-style: none;
+    padding: 0;
+  }
+  .outcomes-list li {
+    font-size: 8.5pt;
+    color: #4b5563;
+    padding: 1.5mm 0 1.5mm 5mm;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+    line-height: 1.5;
+  }
+  .outcomes-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 7pt;
+    top: 2mm;
+  }
+
+  /* ── Closing note ── */
+  .closing-note {
+    background: #fdf9f0;
+    border-left: 4px solid var(--gold);
+    padding: 4mm 6mm;
+    font-size: 9pt;
+    color: #1a1a2e;
+    line-height: 1.7;
+    border-radius: 0 3mm 3mm 0;
+    margin-bottom: 7mm;
+    text-align: justify;
+  }
+  .closing-note strong { color: #0f2a5c; }
+
+  /* ── CTA box ── */
+  .cta-box {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border: 1px solid var(--gold-bdr);
+    border-radius: 4mm;
+    padding: 6mm 8mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cta-box-text h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 2mm;
+  }
+  .cta-box-text p {
+    font-size: 8pt;
+    color: rgba(255,255,255,0.6);
+  }
+  .cta-box-contact {
+    text-align: right;
+  }
+  .cta-box-contact p {
+    font-size: 8.5pt;
+    color: var(--gold);
+    font-weight: 600;
+    line-height: 1.8;
+  }
+
+  /* ── Print button (screen only) ── */
+  .print-btn {
+    position: fixed;
+    top: 16px; right: 16px;
+    background: #060c1e;
+    color: #f5c36e;
+    border: 1.5px solid #f5c36e;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 999;
+    letter-spacing: 0.05em;
+  }
+  .print-btn:hover { background: rgba(245,195,110,0.1); }
+
+  @media print {
+    .print-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">&#x2B07; Save as PDF</button>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 — Product Overview & Capabilities
+══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- Header -->
+  <div class="p1-header">
+    <div class="brand-line">
+      <img src="logo.png" alt="Care2Data" class="brand-logo" />
+      <span class="brand-separator">|</span>
+      <span class="product-name">TrialGen&#8482;</span>
+    </div>
+    <div class="p1-title">Simulate Clinical Data.<br><span>Validate Without Risk.</span></div>
+    <p class="p1-tagline">
+      TrialGen&#8482; enables the generation of statistically consistent, regulation-aware synthetic
+      clinical datasets — allowing teams to test, validate, and refine workflows without exposure
+      to sensitive patient data.
+    </p>
+    <div class="p1-badge">
+      <strong>4</strong>
+      Key<br>Capabilities
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="p1-intro">
+    <p>
+      Clinical data teams often face a fundamental constraint — <strong>real data is either unavailable,
+      restricted, or incomplete</strong> when it is needed most. TrialGen&#8482; removes this dependency
+      by enabling teams to simulate <strong>realistic, CDISC-aligned clinical datasets on demand</strong>
+      and validate systems before real data is available. Built to support clinical trial simulations,
+      system testing, and validation workflows across the full clinical data lifecycle.
+    </p>
+  </div>
+
+  <!-- Problem callout -->
+  <div class="p1-problem">
+    <span class="p1-problem-label">The Challenge</span>
+    <div class="p1-problem-body">
+      Without accessible synthetic data, validation workflows are delayed, testing relies on
+      limited or non-representative datasets, edge cases remain untested until late stages,
+      and privacy constraints restrict data usage across teams — resulting in systems validated
+      <strong>reactively, not proactively</strong>.
+    </div>
+  </div>
+
+  <!-- Capabilities label -->
+  <div class="p1-cap-label">Key Capabilities</div>
+
+  <!-- 4 Capability Cards (2×2) -->
+  <div class="p1-capabilities">
+
+    <div class="cap-card c1">
+      <div class="cap-card-num">Capability 01</div>
+      <div class="cap-card-title">Realistic Data Simulation</div>
+      <div class="cap-card-desc">
+        Generate synthetic datasets aligned with clinical standards — including CDISC structures,
+        domains, and relationships — that faithfully replicate the statistical behaviour of
+        real clinical trial data without compromising privacy or compliance.
+      </div>
+    </div>
+
+    <div class="cap-card c2">
+      <div class="cap-card-num">Capability 02</div>
+      <div class="cap-card-title">Validation Readiness</div>
+      <div class="cap-card-desc">
+        Test validation rules, workflows, and data pipelines under fully simulated trial
+        conditions — ensuring systems perform as expected before live deployment and
+        enabling proactive, not reactive, quality assurance.
+      </div>
+    </div>
+
+    <div class="cap-card c3">
+      <div class="cap-card-num">Capability 03</div>
+      <div class="cap-card-title">Privacy-Safe Data Environments</div>
+      <div class="cap-card-desc">
+        Eliminate dependency on sensitive or restricted datasets during development, testing,
+        and training. TrialGen&#8482; provides compliant, privacy-safe synthetic data that
+        can be shared freely across teams and environments.
+      </div>
+    </div>
+
+    <div class="cap-card c4">
+      <div class="cap-card-num">Capability 04</div>
+      <div class="cap-card-title">Scenario-Based Testing</div>
+      <div class="cap-card-desc">
+        Simulate edge cases, data anomalies, and complex domain interactions for robust system
+        validation. Configure specific study designs, subject profiles, and visit schedules
+        to match exact testing requirements.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="p1-footer">
+    <span class="p1-footer-text">CARE2DATA &nbsp;|&nbsp; TrialGen&#8482; &nbsp;|&nbsp; Confidential</span>
+    <span class="p1-footer-url">www.care2data.com &nbsp; · &nbsp; admin@care2data.com</span>
+  </div>
+
+</div><!-- /page 1 -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 — Workflow, Use Cases & Outcomes
+══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- Top bar -->
+  <div class="p2-topbar">
+    <span class="p2-topbar-brand">Care2Data &nbsp;·&nbsp; TrialGen&#8482;</span>
+    <span class="p2-topbar-title">Synthetic Clinical Data Generation — Workflow &amp; Outcomes</span>
+  </div>
+
+  <div class="p2-body">
+
+    <!-- Workflow pipeline -->
+    <p class="p2-section-title">TrialGen&#8482; Workflow</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">Select<span>Protocol &amp; Study Design</span></div>
+      <div class="pipeline-step">Configure<span>Domains &amp; Parameters</span></div>
+      <div class="pipeline-step">Generate<span>CDISC-Aligned Datasets</span></div>
+      <div class="pipeline-step">Validate<span>Rules &amp; Workflows</span></div>
+      <div class="pipeline-step">Report<span>Results &amp; Export</span></div>
+    </div>
+
+    <!-- Capability detail table -->
+    <p class="p2-section-title" style="margin-top:5mm;">Capability Detail</p>
+
+    <table class="cap-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>What It Delivers</th>
+          <th>Key Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#38bdf8"></span>Realistic Data Simulation</td>
+          <td>CDISC-structured synthetic datasets · Statistical consistency · Domain relationships</td>
+          <td>Representative test data on demand</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#f5c36e"></span>Validation Readiness</td>
+          <td>Rule testing · Pipeline validation · Workflow simulation · Kwalify&#8482; integration</td>
+          <td>Proactive validation before go-live</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#34d399"></span>Privacy-Safe Environments</td>
+          <td>No real patient data · Compliant across teams · Shareable across environments</td>
+          <td>Compliance without data restrictions</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#c084fc"></span>Scenario-Based Testing</td>
+          <td>Edge case simulation · Anomaly injection · Custom visit schedules &amp; subject profiles</td>
+          <td>Robust, comprehensive test coverage</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Two-column outcomes -->
+    <div class="outcomes-grid">
+      <div class="outcomes-col">
+        <h4>Use Cases</h4>
+        <ul class="outcomes-list">
+          <li>Clinical trial simulation before study execution</li>
+          <li>System and pipeline testing (EDC, SDTM, downstream workflows)</li>
+          <li>Validation framework testing (including Kwalify&#8482;)</li>
+          <li>Training and sandbox environments</li>
+        </ul>
+      </div>
+      <div class="outcomes-col">
+        <h4>Business Value</h4>
+        <ul class="outcomes-list">
+          <li>Accelerates development and validation cycles</li>
+          <li>Improves confidence in data and system behaviour</li>
+          <li>Enables proactive, not reactive, validation</li>
+          <li>Scales across studies, domains, and complexity levels</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Closing note -->
+    <div class="closing-note">
+      TrialGen&#8482; transforms synthetic data from a workaround into a
+      <strong>strategic validation layer</strong> — enabling life sciences organizations to move beyond
+      reactive testing toward <strong>proactive, governed, and inspection-ready clinical data
+      validation</strong> across the full trial lifecycle.
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <div class="cta-box-text">
+        <h4>Ready to Validate Without Risk?</h4>
+        <p>Talk to our team about how TrialGen&#8482; can accelerate your clinical data validation workflows.</p>
+      </div>
+      <div class="cta-box-contact">
+        <p>www.care2data.com</p>
+        <p>admin@care2data.com</p>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /page 2 -->
+
+</body>
+</html>
