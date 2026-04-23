@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(gh api:*)",
-      "Bash(MSYS_NO_PATHCONV=1 npx ng deploy --base-href=/Care2data-Website-V4/ --repo=https://github.com/HanuragavC2D/Care2data-Website-V4.git)"
-    ]
-  }
-}
