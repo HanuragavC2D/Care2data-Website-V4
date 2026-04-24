@@ -139,7 +139,7 @@ $card-border: rgba(255,255,255,0.12);
 
 /* ── Large monitors (1440px+) ── */
 @media (min-width: 1440px) {
-  .contact-section { padding-top: 9rem; padding-bottom: 6rem; }
+  .contact-section { padding-top: 8rem; padding-bottom: 5rem; }
   .contact-form-wrap { padding: 3rem 3.5rem; }
 }
 
@@ -152,7 +152,7 @@ $card-border: rgba(255,255,255,0.12);
 
 /* ── Mobile (640px) ── */
 @media (max-width: 640px) {
-  .contact-section { padding-top: 4rem; padding-bottom: 3rem; }
+  .contact-section { padding-top: 5rem; padding-bottom: 3rem; }
   .contact-form-wrap { padding: 1.25rem 1rem; }
   .contact-header h2 { font-size: 1.65rem; }
   .contact-header { margin-bottom: 2rem; }

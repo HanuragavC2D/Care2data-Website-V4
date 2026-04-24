@@ -933,7 +933,8 @@ $inner-width: 1200px;
   border-radius: 0.875rem;
 
   p {
-    font-size: 0.9rem;
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    font-weight: 700;
     color: $gold;
     line-height: 1.75;
     margin: 0;
@@ -1885,7 +1886,7 @@ mat-expansion-panel-header {
 
 /* ── Large monitors (1440px+) ── */
 @media (min-width: 1440px) {
-  .kw-hero { padding-top: 9rem; padding-bottom: 5rem; }
+  .kw-hero { padding-top: 8rem; padding-bottom: 5rem; }
   .kw-hero__split { gap: 5rem; }
 }
 
@@ -1895,14 +1896,18 @@ mat-expansion-panel-header {
 }
 
 @media (max-width: 768px) {
-  .kw-hero { padding-top: 6rem; padding-bottom: 3rem; }
+  .kw-hero { padding-top: 5.5rem; padding-bottom: 3rem; }
   .kw-check-grid { grid-template-columns: 1fr; }
   .kw-limit-grid { grid-template-columns: 1fr; }
 }
 
 /* ── Mobile (640px) ── */
 @media (max-width: 640px) {
-  .kw-hero { padding-top: 4.5rem; padding-bottom: 2.5rem; }
+  .kw-hero { padding-top: 5rem; padding-bottom: 2.5rem; }
   .kw-outcomes-strip { flex-wrap: wrap; justify-content: center; }
   .kw-hero__footer-row { padding: 0 1rem; }
+  .kw-caps-grid { grid-template-columns: 1fr !important; }
+  .kw-dm-tiles { grid-template-columns: 1fr !important; }
+  .kw-ii-cards { grid-template-columns: 1fr; }
+  .kw-role-card, .kw-cap-item { grid-column: span 1 !important; }
 }

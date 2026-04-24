@@ -7,7 +7,7 @@
 // ── Sticky horizontal tab bar ─────────────────────────────────
 .se-tabnav {
   position: fixed;
-  top: 64px; // sits just below the main navbar
+  top: 68px; // sits just below the main navbar with slight gap
   left: 0;
   right: 0;
   z-index: 50;

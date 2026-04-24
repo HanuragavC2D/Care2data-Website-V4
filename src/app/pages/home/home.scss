@@ -406,7 +406,7 @@ $section-pad-sm: 2.5rem 1.25rem;
     radial-gradient(circle at top left, rgba(245, 195, 110, 0.14), transparent 24%),
     linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);
   color: #f8fafc;
-  padding: 5rem 0 3.5rem;
+  padding: 7rem 0 2.5rem;
 
   &::before {
     content: '';
@@ -450,6 +450,9 @@ $section-pad-sm: 2.5rem 1.25rem;
 }
 
 .home-hero__copy {
+  display: flex;
+  flex-direction: column;
+
   h1 {
     font-size: clamp(2.5rem, 4vw, 4.5rem);
     line-height: 1.03;
@@ -475,7 +478,8 @@ $section-pad-sm: 2.5rem 1.25rem;
 }
 
 .home-hero__actions {
-  margin-top: 2rem;
+  margin-top: auto;
+  padding-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.875rem;
@@ -819,7 +823,18 @@ $section-pad-sm: 2.5rem 1.25rem;
   max-width: $inner-width;
   margin: 0 auto;
   grid-template-columns: 1.2fr 0.9fr;
-  align-items: start;
+  align-items: stretch;
+}
+
+.solution-copy {
+  display: flex;
+  flex-direction: column;
+
+  .section-cta {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    justify-content: flex-start;
+  }
 }
 
 .solution-cards {
@@ -1216,14 +1231,16 @@ $section-pad-sm: 2.5rem 1.25rem;
 }
 
 .kw-arch-tags {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
   gap: 0.4rem;
 }
 
 .kw-tag {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 0.2rem 0.65rem;
   border-radius: 999px;
   font-size: 0.75rem;
@@ -1462,13 +1479,13 @@ $section-pad-sm: 2.5rem 1.25rem;
 
 /* ── Large monitors (1440px+) ── */
 @media (min-width: 1440px) {
-  .home-hero { padding: 9rem 0 7rem; }
+  .home-hero { padding: 8rem 0 5rem; }
   .home-hero__copy h1 { font-size: 4rem; }
 }
 
 /* ── Tablet portrait (768px) ── */
 @media (max-width: 768px) {
-  .home-hero { padding: 5.5rem 0 3.5rem; }
+  .home-hero { padding: 5rem 0 3rem; }
   .home-hero__copy h1 { font-size: 2.5rem; }
   .home-hero__actions { flex-direction: column; }
   .home-hero__actions .btn { width: 100%; justify-content: center; }
@@ -1545,7 +1562,7 @@ $section-pad-sm: 2.5rem 1.25rem;
 
 @media (max-width: 640px) {
   .home-hero {
-    padding: 3.5rem 0 2.5rem;
+    padding: 4rem 0 2.5rem;
   }
 
   .home-hero__copy h1 {
@@ -1576,6 +1593,7 @@ $section-pad-sm: 2.5rem 1.25rem;
   .highlights-grid,
   .kwalify-grid,
   .engagement-grid,
+  .positioning-grid,
   .outcomes-grid {
     grid-template-columns: 1fr;
   }

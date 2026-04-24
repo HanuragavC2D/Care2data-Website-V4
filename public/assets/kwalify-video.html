@@ -199,7 +199,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#06101f;font-family:
   <!-- ── S0: CHALLENGE ── -->
   <div class="scene" id="s0">
     <div class="badge">⚠ The Challenge</div>
-    <h2 class="prob-head eu" id="s0h">Clinical data validation is <em>broken by design.</em></h2>
+    <h2 class="prob-head eu" id="s0h">Clinical data validation is <em>reactive, not intelligent.</em></h2>
     <div class="prob-cards">
       <div class="prob-card eu" id="s0c1" style="transition-delay:.07s">
         <div class="ic">🔍</div>
@@ -345,7 +345,6 @@ html,body{width:100%;height:100%;overflow:hidden;background:#06101f;font-family:
       <div class="out-card eu" id="s12c3" style="transition-delay:.6s"><div class="out-num">&lt;5s</div><div class="out-lbl">Root cause identified vs. hours of manual work</div></div>
       <div class="out-card eu" id="s12c4" style="transition-delay:.75s"><div class="out-num">1st</div><div class="out-lbl">Submission readiness — no rework cycles</div></div>
     </div>
-    <button class="out-cta eu" id="s12cta" style="transition-delay:1.1s">Request an Executive Demo →</button>
   </div>
 
 </div><!-- /#pres -->
@@ -383,7 +382,7 @@ const SCENES=[
   ['s9', 1900,['s9i','s9t','s9s']],
   ['s10',4000,['s10h','s10c']],
   ['s11',3500,['s11h','s11c']],
-  ['s12',9999,['s12b','s12h','s12c1','s12c2','s12c3','s12c4','s12cta']],
+  ['s12',9999,['s12b','s12h','s12c1','s12c2','s12c3','s12c4']],
 ];
 const TOTAL=SCENES.reduce((a,s)=>a+(s[1]<9000?s[1]:0),0);
 let timers=[];

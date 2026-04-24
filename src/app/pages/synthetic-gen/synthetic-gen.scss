@@ -404,7 +404,22 @@ $inner-width: 1200px;
 }
 
 // ── Responsive ─────────────────────────────────────────────────
-@media (max-width: 768px) {
+@media (min-width: 1440px) {
+  .sg-hero { padding-top: 8rem; }
+}
+
+@media (max-width: 1024px) {
   .sg-hero { padding-top: 6rem; }
+}
+
+@media (max-width: 768px) {
+  .sg-hero { padding-top: 5.5rem; }
   .sg-section { padding: 3rem 1.25rem; }
+}
+
+@media (max-width: 640px) {
+  .sg-hero { padding-top: 5rem; }
+  .sg-problem-grid { grid-template-columns: 1fr; }
+  .sg-hero__inner { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
 }
