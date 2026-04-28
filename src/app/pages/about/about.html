@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════════════════════ -->
 <section class="about-hero">
   <div class="about-hero__bg">
-    <div class="about-hero__bg-img" style="background-image:url('images/about-us.png')"></div>
+    <div class="about-hero__bg-img" style="background-image:url('images/about-us.webp')"></div>
     <div class="about-hero__bg-overlay"></div>
   </div>
   <div class="about-hero__content">
@@ -258,7 +258,7 @@
     </div>
 
     <div class="section-cta">
-      <a routerLink="/knowledge-services" class="btn btn-primary">Learn More About Our Validation Approach →</a>
+      <a routerLink="/knowledge-services" target="_blank" class="btn btn-primary">Learn More About Our Validation Approach →</a>
     </div>
   </div>
 </section>
@@ -270,7 +270,7 @@
   <div class="about-section__inner">
     <div class="section-header" style="max-width:100%;">
       <p class="section-eyebrow">Knowledge Management</p>
-      <h2 style="white-space:nowrap;">From Information Silos to <span style="color:#f5c36e">Decision-Ready Systems</span></h2>
+      <h2>From Information Silos to <span style="color:#f5c36e">Decision-Ready Systems</span></h2>
     </div>
 
     <div class="about-prose" style="margin-bottom: 1.5rem;">
@@ -322,14 +322,16 @@
 ═══════════════════════════════════════════════════════════ -->
 <section class="about-section about-ontology">
   <div class="about-section__inner">
-    <div class="section-header">
+
+    <!-- Full-width eyebrow + heading above both columns -->
+    <div class="onto-section-header">
       <p class="section-eyebrow">Semantic Architecture</p>
-      <h2 style="white-space:nowrap;">Ontology: <span style="color:#f5c36e">The Foundation of Scalable Intelligence</span></h2>
+      <h2 class="onto-heading">Ontology: <span style="color:#f5c36e">The Foundation of Scalable Intelligence</span></h2>
     </div>
 
     <div class="onto-layout">
 
-      <!-- Left: content -->
+      <!-- Left: prose + subheader + cards -->
       <div class="onto-content">
         <div class="about-prose" style="margin-bottom: 1.5rem;">
           <p>Ontology provides the semantic backbone that connects data, rules, and standards.</p>
@@ -341,7 +343,7 @@
 
         <p class="about-subheader" style="text-align:left;margin-left:0;">Through ontology-driven systems, organizations can:</p>
 
-        <div class="about-items-grid">
+        <div class="about-items-grid onto-items-grid">
           <div class="about-item">
             <div class="research-icon"><img src="images/about/white/harmonize.png" alt=""></div>
             <h3>Harmonize data across diverse sources</h3>
@@ -768,6 +770,6 @@
       By combining life sciences expertise with semantic modeling, validation frameworks and AI RAG systems, we enable
       organizations to strengthen compliance, accelerate insight, and operate with greater confidence across clinical
       research.</p>
-    <a routerLink="/contact-us" class="btn btn-primary">Contact Us →</a>
+    <a routerLink="/contact-us" target="_blank" class="btn btn-primary">Contact Us →</a>
   </div>
 </section>

@@ -1512,7 +1512,6 @@ $section-pad-sm: 2.5rem 1.25rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .onto-layout,
   .connected-layout {
     grid-template-columns: 1fr;
   }
@@ -1538,7 +1537,7 @@ $section-pad-sm: 2.5rem 1.25rem;
 
 /* ── Tablet portrait (768px) ── */
 @media (max-width: 768px) {
-  .about-hero { padding: 5rem 0 3rem; }
+  .about-hero { padding: 6rem 0 3rem; }
   .about-hero__copy { width: 80%; }
   .about-hero__bg-img { opacity: 0.3; }
   .about-hero__actions .btn { width: 100%; justify-content: center; }
@@ -1546,7 +1545,6 @@ $section-pad-sm: 2.5rem 1.25rem;
   .founding-cards,
   .purpose-pillars,
   .who-cards,
-  .about-items-grid,
   .about-research-list {
     grid-template-columns: 1fr;
   }
@@ -1559,7 +1557,7 @@ $section-pad-sm: 2.5rem 1.25rem;
 @media (max-width: 640px) {
   .about-section { padding: $section-pad-sm; }
 
-  .about-hero { padding: 5rem 0 2.5rem; }
+  .about-hero { padding: 6rem 0 2.5rem; }
 
   .about-hero__copy { width: 100%; }
 
@@ -1586,6 +1584,7 @@ $section-pad-sm: 2.5rem 1.25rem;
   }
 
   .section-header h2 { font-size: 1.75rem; }
+
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1847,16 +1846,35 @@ $section-pad-sm: 2.5rem 1.25rem;
 ═══════════════════════════════════════════════════════════════ */
 
 // ── Two-column layout for Semantic Architecture ───────────────
+.onto-section-header {
+  margin-bottom: 2rem;
+}
+
+.onto-heading {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: white;
+  margin: 0.25rem 0 0;
+  line-height: 1.3;
+}
+
 .onto-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .onto-content {
   .about-prose { max-width: 100%; margin-left: 0; margin-right: 0; }
   .about-feature-list { max-width: 100%; margin-left: 0; margin-right: 0; }
+}
+
+// 4 cards inside left column: 2×2 grid
+.onto-items-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  max-width: 100%;
+  margin: 0;
 }
 
 .onto-full-highlight {
@@ -1868,14 +1886,12 @@ $section-pad-sm: 2.5rem 1.25rem;
 .onto-diagram-wrap {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
-  transform: translateY(-7%);
+  align-items: flex-start;
 }
 
 .onto-diagram-svg {
-  width: auto;
-  height: 90%;
+  width: 100%;
+  height: auto;
   max-width: 100%;
   overflow: visible;
 }
@@ -1942,6 +1958,40 @@ $section-pad-sm: 2.5rem 1.25rem;
 @keyframes ogDash {
   from { stroke-dashoffset: 0; }
   to   { stroke-dashoffset: -36; }
+}
+
+// ── onto-layout responsive overrides (must come AFTER base styles) ──
+@media (max-width: 1024px) {
+  .onto-layout { gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .onto-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .onto-heading { font-size: 1.5rem; }
+
+  .onto-diagram-wrap { padding-top: 0; }
+
+  .onto-diagram-svg {
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .onto-items-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .onto-heading { font-size: 1.35rem; }
+
+  .onto-diagram-svg { max-width: 100%; }
 }
 
 /* ═══════════════════════════════════════════════════════════════

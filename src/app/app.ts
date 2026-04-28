@@ -40,6 +40,20 @@ export class App implements OnInit {
   }
 
   ngOnInit() {
+    window.addEventListener('keydown', (e: KeyboardEvent) => {
+      const tag = (document.activeElement?.tagName ?? '').toLowerCase();
+      if (['input', 'textarea', 'select'].includes(tag)) return;
+      const amount = window.innerHeight * 0.85;
+      if (e.key === 'PageDown') {
+        e.preventDefault();
+        document.documentElement.scrollTop += amount;
+        document.body.scrollTop += amount;
+      } else if (e.key === 'PageUp') {
+        e.preventDefault();
+        document.documentElement.scrollTop -= amount;
+        document.body.scrollTop -= amount;
+      }
+    }, { capture: true });
 
     const consent = localStorage.getItem('cookieConsent');
 

@@ -403,6 +403,29 @@ $inner-width: 1200px;
   border-radius: 1rem;
 }
 
+// ── Hero CTA row ───────────────────────────────────────────────
+.sg-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+// ── Key Capabilities grid ──────────────────────────────────────
+.sg-cap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+// ── "Where It Fits" list cards grid ───────────────────────────
+.sg-fit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 // ── Responsive ─────────────────────────────────────────────────
 @media (min-width: 1440px) {
   .sg-hero { padding-top: 8rem; }
@@ -410,16 +433,20 @@ $inner-width: 1200px;
 
 @media (max-width: 1024px) {
   .sg-hero { padding-top: 6rem; }
+  .sg-cap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
   .sg-hero { padding-top: 5.5rem; }
   .sg-section { padding: 3rem 1.25rem; }
+  .sg-fit-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
-  .sg-hero { padding-top: 5rem; }
+  .sg-hero { padding-top: 6rem; }
   .sg-problem-grid { grid-template-columns: 1fr; }
   .sg-hero__inner { grid-template-columns: 1fr; }
-  .btn { width: 100%; justify-content: center; }
+  .sg-cap-grid { grid-template-columns: 1fr; }
+  .sg-hero-actions { flex-direction: column; }
+  .sg-hero-actions .btn { width: 100%; justify-content: center; }
 }

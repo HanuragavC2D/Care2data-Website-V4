@@ -177,14 +177,23 @@ export class Careers implements OnInit {
 
   goToPage(page: number) {
     this.currentPage = page;
+    this.scrollToJobs();
   }
 
   nextPage() {
-    if (this.currentPage < 5) this.currentPage++;
+    if (this.currentPage < this.totalPages) this.currentPage++;
+    this.scrollToJobs();
   }
 
   prevPage() {
     if (this.currentPage > 1) this.currentPage--;
+    this.scrollToJobs();
+  }
+
+  private scrollToJobs() {
+    setTimeout(() => {
+      document.getElementById('openPositions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
   }
 
   onFileSelected(event: Event): void {

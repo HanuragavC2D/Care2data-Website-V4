@@ -1,13 +1,13 @@
 <!-- Scroll Progress Bar (fixed, top of viewport) -->
 <div class="scroll-progress-bar" [style.width.%]="scrollProgress"></div>
 
-<nav class="fixed top-0 left-0 right-0 z-[100] bg-[#0B1020] border-b border-white/10 shadow-lg" role="navigation" aria-label="Main navigation">
+<nav class="fixed top-0 left-0 z-[100] bg-[#0B1020] border-b border-white/10 shadow-lg" style="right:var(--scrollbar-w,0px);" role="navigation" aria-label="Main navigation">
 
     <div class="w-full px-4 sm:px-6 xl:px-8 py-4 flex justify-between items-center">
 
         <!-- Logo -->
-        <div class="flex-shrink-0 w-32 sm:w-40">
-            <img src="assets/logo.png" routerLink="/" alt="Care2Data logo" width="128" height="26" class="w-full h-auto cursor-pointer">
+        <div class="flex-shrink-0">
+            <img src="assets/logo.png" routerLink="/" alt="Care2Data logo" class="cursor-pointer" style="height:52px;width:auto;display:block;">
         </div>
 
         <div class="flex items-center gap-2 md:gap-4 xl:gap-6">
@@ -83,7 +83,7 @@
                 </a>
                 -->
 
-                <a routerLink="/contact-us" class="text-sm text-[#E0E0E0] font-semibold px-2 xl:px-3 py-2 rounded-lg
+                <a routerLink="/contact-us" target="_blank" class="text-sm text-[#E0E0E0] font-semibold px-2 xl:px-3 py-2 rounded-lg
                 hover:bg-white/10 hover:text-[#417ae3]
                 transition-all duration-300">
                     Contact Us
@@ -92,7 +92,7 @@
             </div>
 
             <!-- CTA -->
-            <button routerLink="/contact-us"
+            <button routerLink="/contact-us" target="_blank"
                 class="navbar-cta-btn hidden lg:inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-3 xl:px-6 py-3 cursor-pointer font-semibold uppercase rounded-md">
                 Request a Demo →
             </button>
@@ -171,12 +171,12 @@ transition-all duration-500 ease-in-out"
             </a>
             -->
 
-            <a routerLink="/contact-us" (click)="onMobileLinkClick()" class="text-base text-[#E0E0E0] font-semibold px-4 py-3 rounded-lg
+            <a routerLink="/contact-us" target="_blank" (click)="onMobileLinkClick()" class="text-base text-[#E0E0E0] font-semibold px-4 py-3 rounded-lg
         hover:bg-white/10 hover:text-[#417ae3] transition">
                 Contact Us
             </a>
 
-            <button routerLink="/contact-us" (click)="onMobileLinkClick()"
+            <button routerLink="/contact-us" target="_blank" (click)="onMobileLinkClick()"
                 class="navbar-cta-btn inline-flex items-center justify-center gap-2 text-xs rounded-xl md:text-sm px-6 py-3 cursor-pointer font-semibold uppercase rounded-md">
                 Request a Demo →
             </button>

@@ -22,9 +22,9 @@
                 clinical data lifecycle.
             </p>
 
-            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore our Services'}" class="btn btn-primary">Explore TrialGen™ →</button>
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-outline">Request a Demo →</button>
+            <div class="sg-hero-actions">
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore our Services'}" target="_blank" class="btn btn-primary">Explore TrialGen™ →</button>
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-outline">Request a Demo →</button>
             </div>
         </div>
 
@@ -94,7 +94,7 @@
                 <span class="sg-shift-label">The Shift</span>
                 <h3>TrialGen™ removes this dependency — enabling teams to simulate realistic clinical datasets on
                     demand and validate systems before real data is available.</h3>
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore our Services'}" class="btn btn-primary">Understand the Approach →</button>
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore our Services'}" target="_blank" class="btn btn-primary">Understand the Approach →</button>
             </div>
 
         </div>
@@ -124,7 +124,7 @@
             Key Capabilities:
         </p>
 
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+        <div class="sg-cap-grid">
 
             <div class="sg-cap-card sg-cap-card--1">
                 <div class="sg-cap-icon"><mat-icon>biotech</mat-icon></div>
@@ -153,7 +153,7 @@
         </div>
 
         <div style="text-align: center;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'See How it Works'}" class="btn btn-primary">See How It Works →</button>
+            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'See How it Works'}" target="_blank" class="btn btn-primary">See How It Works →</button>
         </div>
 
     </div>
@@ -170,7 +170,7 @@
                 and system readiness across the lifecycle.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+        <div class="sg-fit-grid">
 
             <ul class="sg-list-card sg-list-card--blue">
                 <h3>Use Cases</h3>
@@ -196,7 +196,7 @@
             </p>
 
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request a Demo →</button>
+                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-primary">Request a Demo →</button>
                 <a href="assets/trialgen-brochure.pdf" target="_blank" class="btn btn-outline">Download Brochure →</a>
             </div>
         </div>

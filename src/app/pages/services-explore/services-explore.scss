@@ -7,7 +7,7 @@
 // ── Sticky horizontal tab bar ─────────────────────────────────
 .se-tabnav {
   position: fixed;
-  top: 68px; // sits just below the main navbar with slight gap
+  top: 84px;
   left: 0;
   right: 0;
   z-index: 50;
@@ -144,7 +144,7 @@ section[id] {
   overflow: hidden;
   padding-top: 2.5rem !important;
   padding-bottom: 1.5rem !important;
-  scroll-margin-top: 116px; // navbar (64px) + tab bar (~48px) + 4px buffer
+  scroll-margin-top: 136px; // navbar (~84px) + tab bar (~48px) + 4px buffer
 }
 
 // ── Decorative background number ──────────────────────────────
@@ -354,6 +354,7 @@ section[id] {
   border-radius: 1rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   counter-increment: step-counter;
+  min-height: 160px;
 
   &::before {
     content: "0" counter(step-counter);
@@ -580,12 +581,23 @@ section[id] {
 @media (max-width: 768px) {
   .se-usecase__grid { grid-template-columns: 1fr; }
   .se-section { padding: 3rem 1.25rem; }
+  .se-steps-scroll .se-step-card { flex: 0 0 calc(80% - 0.75rem); }
+  .se-usecase { padding: 1.25rem 1.25rem; }
 }
 
 @media (max-width: 640px) {
   .se-enables-grid { grid-template-columns: 1fr; }
   .se-intro { padding: 1rem 1.25rem 1rem 1.25rem; }
   .se-outcome { padding: 1.25rem 1.375rem; }
-  .se-steps-scroll .se-step-card { flex: 0 0 85%; }
+  .se-steps-scroll .se-step-card {
+    flex: 0 0 88%;
+    p { text-align: left; }
+  }
   .se-steps-wrap { gap: 0.5rem; }
+  .se-steps-arrow {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  .se-step-connector { display: none; }
+  .se-step-card { min-height: 140px; }
 }

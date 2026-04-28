@@ -44,7 +44,7 @@
             Email is required
           </p>
           <p class="contact-field-error"
-            *ngIf="(submitted || contactForm.get('email')?.touched) && contactForm.get('email')?.errors?.['email']">
+            *ngIf="(submitted || contactForm.get('email')?.touched) && contactForm.get('email')?.errors?.['pattern']">
             Please enter a valid email address
           </p>
         </div>

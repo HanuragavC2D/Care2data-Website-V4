@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
-export class Navbar implements OnInit, OnDestroy {
+export class Navbar implements OnInit, AfterViewInit, OnDestroy {
   isMenuOpen = false;
   solutionsDropdownOpen = false;
   productDropdownOpen = false;
@@ -27,6 +27,14 @@ export class Navbar implements OnInit, OnDestroy {
     this.scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
   }
 
+  @HostListener('window:resize')
+  onResize() { this.setScrollbarOffset(); }
+
+private setScrollbarOffset() {
+    const w = window.innerWidth - document.body.clientWidth;
+    document.documentElement.style.setProperty('--scrollbar-w', `${w}px`);
+  }
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -37,6 +45,11 @@ export class Navbar implements OnInit, OnDestroy {
       }
     });
 
+  }
+
+  ngAfterViewInit() {
+    // Measure after content is rendered so scrollbar is present
+    setTimeout(() => this.setScrollbarOffset(), 0);
   }
 
   ngOnDestroy(): void {

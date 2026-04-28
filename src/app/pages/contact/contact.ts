@@ -81,7 +81,7 @@ export class Contact {
         '',
         [
           Validators.required,
-          Validators.email
+          Validators.pattern('^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$')
         ]
       ],
       organization: [''],
@@ -111,6 +111,12 @@ export class Contact {
         next: () => {
           this.toastr.success('Message sent successfully!');
           this.contactForm.reset();
+          this.contactForm.markAsPristine();
+          this.contactForm.markAsUntouched();
+          Object.keys(this.contactForm.controls).forEach(k =>
+            this.contactForm.get(k)?.setErrors(null)
+          );
+          this.submitted = false;
           this.isLoading = false;
         },
         error: () => {

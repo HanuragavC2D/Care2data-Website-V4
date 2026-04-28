@@ -655,7 +655,7 @@ section:not(.eng-hero) {
 
 /* ── Mobile (640px) ── */
 @media (max-width: 640px) {
-  .eng-hero { padding-top: 5rem; padding-bottom: 2.5rem; }
+  .eng-hero { padding-top: 6rem; padding-bottom: 2.5rem; }
   section:not(.eng-hero) { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
   .eng-benefits-grid { grid-template-columns: 1fr; }
   .eng-prog-grid { grid-template-columns: 1fr !important; }

@@ -7,7 +7,7 @@
 // ── Sticky horizontal tab bar ─────────────────────────────────
 .me-tabnav {
   position: fixed;
-  top: 68px;
+  top: 84px;
   left: 0;
   right: 0;
   z-index: 60;
@@ -393,7 +393,7 @@ $inner-width: 1200px;
   overflow: hidden;
   padding: 4rem 1.5rem;
   color: white;
-  scroll-margin-top: 116px; // main navbar (64px) + tabnav (~48px) + 4px buffer
+  scroll-margin-top: 136px; // main navbar (~84px) + tabnav (~48px) + 4px buffer
 }
 
 .me-section--first {

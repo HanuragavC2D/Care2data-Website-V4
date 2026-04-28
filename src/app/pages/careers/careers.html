@@ -102,17 +102,17 @@
             <span>Full Time</span>
           </div>
         </div>
-        <button class="btn btn-primary" (click)="applyJobs(job)">Apply →</button>
+        <button type="button" class="btn btn-primary" (click)="applyJobs(job)">Apply →</button>
       </div>
     </div>
 
     <div *ngIf="openingRoles.length > pageSize" class="cr-pagination">
-      <button class="page-btn" (click)="prevPage()" [disabled]="currentPage === 1">‹</button>
-      <button class="page-btn"
+      <button type="button" class="page-btn" (click)="prevPage()" [disabled]="currentPage === 1">‹</button>
+      <button type="button" class="page-btn"
         *ngFor="let page of [].constructor(totalPages); let i = index"
         (click)="goToPage(i + 1)"
         [ngClass]="{ active: currentPage === i + 1 }">{{ i + 1 }}</button>
-      <button class="page-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">›</button>
+      <button type="button" class="page-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">›</button>
     </div>
 
   </div>

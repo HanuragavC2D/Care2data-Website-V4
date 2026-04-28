@@ -123,7 +123,7 @@ $inner-width: 1200px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(245, 195, 110, 0.5);
+  color: #f0ca33;
   text-align: center;
 }
 
@@ -248,19 +248,13 @@ $inner-width: 1200px;
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
     white-space: nowrap;
   }
 
   .kw-graphai-sep {
     font-size: 0.6rem;
-    background: linear-gradient(135deg, #38bdf8, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -1903,7 +1897,7 @@ mat-expansion-panel-header {
 
 /* ── Mobile (640px) ── */
 @media (max-width: 640px) {
-  .kw-hero { padding-top: 5rem; padding-bottom: 2.5rem; }
+  .kw-hero { padding-top: 6rem; padding-bottom: 2.5rem; }
   .kw-outcomes-strip { flex-wrap: wrap; justify-content: center; }
   .kw-hero__footer-row { padding: 0 1rem; }
   .kw-caps-grid { grid-template-columns: 1fr !important; }

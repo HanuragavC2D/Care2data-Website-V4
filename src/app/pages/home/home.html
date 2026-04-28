@@ -42,7 +42,7 @@
 
     <!-- Right: Hero Image -->
     <div class="home-hero__image">
-      <img src="images/home.png" alt="Care2Data Platform" />
+      <img src="images/home.webp" alt="Care2Data Platform" fetchpriority="high" />
     </div>
 
     <!-- RIGHT PANEL (COMMENTED OUT — animated Data Lineage Diagram)
@@ -447,10 +447,19 @@
       <p>Equip teams to sustain and scale intelligence independently.</p>
     </div>
 
+    <!-- Governance -->
+    <div class="engagement-card">
+      <div class="card-icon">
+        <img src="images/home/white/knowledgemanagement.png" alt="" width="28" height="28">
+      </div>
+      <h3>Governance</h3>
+      <p>Maintain structured oversight, traceability, and continuous alignment with evolving regulatory standards.</p>
+    </div>
+
   </div>
 
   <div class="section-cta">
-    <a routerLink="/engagement-models" class="btn btn-primary">Explore our Services →</a>
+    <a routerLink="/engagement-models" target="_blank" class="btn btn-primary">Explore our Services →</a>
   </div>
 </section>
 
@@ -469,7 +478,7 @@
       <p>Validation doesn't need more rules. It needs understanding.
         This is how intelligence becomes operational.</p>
       <div class="section-cta">
-        <a routerLink="/knowledge-services" class="btn btn-secondary">Explore our Solutions →</a>
+        <a routerLink="/knowledge-services" target="_blank" class="btn btn-secondary">Explore our Solutions →</a>
       </div>
     </div>
 
@@ -624,7 +633,7 @@
   </div>
 
   <div class="section-cta">
-    <a routerLink="/kwalify" class="btn btn-primary">Learn More →</a>
+    <a routerLink="/kwalify" target="_blank" class="btn btn-primary">Learn More →</a>
   </div>
 </section>
 
@@ -728,7 +737,7 @@
         Quality, Integrity, Conformance, and Plausibility <span style="color:#f5c36e;">by design.</span></p>
     </div>
     <div class="cta-actions">
-      <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary">Request a Demo →</a>
+      <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-primary">Request a Demo →</a>
     </div>
   </div>
 </section>

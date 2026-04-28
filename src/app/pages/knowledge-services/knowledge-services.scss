@@ -313,7 +313,7 @@ $section-pad-sm: 2.5rem 1.25rem;
 
 .ks-industry-layout {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: minmax(0, 340px) 1fr;
   gap: 3rem;
   align-items: center;
   margin-bottom: 2.5rem;
@@ -331,7 +331,7 @@ $section-pad-sm: 2.5rem 1.25rem;
 }
 
 .ks-blockquote {
-  max-width: 720px;
+  width: 100%;
   margin: 0;
   padding: 1.5rem 2rem 1.5rem 1rem;
   border-left: 4px solid #38bdf8;
@@ -975,6 +975,10 @@ $section-pad-sm: 2.5rem 1.25rem;
   .ks-hero__copy { width: 65%; }
   .ks-hero__bg { width: 55%; }
   .ks-check-grid { grid-template-columns: 1fr; }
+  .ks-industry-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /* ── Tablet portrait (768px) ── */
@@ -988,7 +992,7 @@ $section-pad-sm: 2.5rem 1.25rem;
 /* ── Mobile (640px) ── */
 @media (max-width: 640px) {
   .ks-section { padding: $section-pad-sm; }
-  .ks-hero { padding: 5rem 1.25rem 3rem; }
+  .ks-hero { padding: 6rem 1.25rem 3rem; }
   .ks-hero__content { padding: 0; }
   .ks-hero__copy { width: 100%; }
   .ks-hero__bg { width: 100%; top: 0; }
@@ -1001,6 +1005,10 @@ $section-pad-sm: 2.5rem 1.25rem;
   .ks-bullet-grid,
   .ks-cta-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ks-prose {
+    p { text-align: left; }
   }
 
   .section-header h2 { font-size: 1.75rem; }
