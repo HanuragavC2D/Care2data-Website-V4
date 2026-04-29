@@ -33,5 +33,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/kwalify-website/browser
           publish_branch: deploy-prod
-          force_orphan: true
+          keep_files: false
           commit_message: "Deploy production build"
