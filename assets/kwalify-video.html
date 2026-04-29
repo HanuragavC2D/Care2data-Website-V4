@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kwalify™</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:#06101f;font-family:'Segoe UI',system-ui,sans-serif}
+
+/* ── Scale wrapper — 720×405 (16:9), JS scales to fit any iframe ── */
+#pres{
+  position:absolute;
+  width:720px;height:405px;
+  transform-origin:top left;
+  overflow:hidden;
+  background:#06101f;
+}
+
+.bg-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(245,195,110,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(245,195,110,.03) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+
+#progressBar{
+  position:absolute;bottom:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,#c9862a,#f5c36e);
+  z-index:60;transition:width .12s linear;
+}
+#replayBtn{
+  position:absolute;bottom:7px;right:10px;
+  padding:3px 10px;border-radius:999px;
+  background:rgba(245,195,110,.12);border:1px solid rgba(245,195,110,.3);
+  color:#f5c36e;font-size:9.5px;font-weight:700;letter-spacing:.06em;
+  cursor:pointer;z-index:60;display:none;font-family:inherit;
+}
+
+/* ── Scene ── */
+.scene{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:22px 48px;
+  opacity:0;pointer-events:none;
+  background:linear-gradient(158deg,#060f22 0%,#091830 55%,#060f22 100%);
+  transition:opacity .6s ease;
+}
+.scene.active{opacity:1;pointer-events:auto}
+
+/* ── Badge ── */
+.badge{
+  display:inline-flex;align-items:center;
+  padding:3px 11px;border-radius:999px;
+  background:rgba(245,195,110,.1);border:1px solid rgba(245,195,110,.28);
+  color:#f5c36e;font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  margin-bottom:14px;flex-shrink:0;
+}
+
+/* ── Entrances ── */
+.eu{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.ef{opacity:0;transition:opacity .55s ease}
+.el{opacity:0;transform:translateX(-22px);transition:opacity .5s ease,transform .5s ease}
+.es{opacity:0;transform:scale(.88);transition:opacity .6s ease,transform .6s ease}
+.eu.s,.ef.s,.el.s,.es.s{opacity:1;transform:none}
+
+/* ════════════════════════════
+   S0 — CHALLENGE
+════════════════════════════ */
+#s0{background:linear-gradient(155deg,#070919 0%,#100818 55%,#060f22 100%)}
+
+.prob-head{
+  font-size:20px;font-weight:800;color:#fff;
+  text-align:center;line-height:1.25;margin-bottom:18px;
+}
+.prob-head em{color:#f87171;font-style:normal}
+
+.prob-cards{display:flex;gap:10px;width:100%;max-width:640px}
+.prob-card{
+  flex:1;padding:13px 14px;border-radius:10px;
+  background:rgba(248,113,113,.06);
+  border:1px solid rgba(248,113,113,.18);border-left:3px solid #f87171;
+}
+.prob-card .ic{font-size:16px;margin-bottom:6px}
+.prob-card h4{color:#fca5a5;font-size:11px;font-weight:700;margin-bottom:4px}
+.prob-card p{color:rgba(255,255,255,.55);font-size:10.5px;line-height:1.6}
+
+/* ════════════════════════════
+   S1 — PLATFORM
+════════════════════════════ */
+#s1{background:linear-gradient(155deg,#06101f 0%,#0d1b3e 58%,#06101f 100%)}
+
+.sol-brand{font-size:46px;font-weight:900;color:#f5c36e;letter-spacing:-.02em;text-align:center}
+.sol-tag{font-size:15px;font-weight:600;color:#fff;text-align:center;margin-top:8px}
+.sol-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.sol-pill{
+  padding:4px 13px;border-radius:999px;
+  background:rgba(245,195,110,.1);border:1px solid rgba(245,195,110,.24);
+  color:#f5c36e;font-size:10.5px;font-weight:600;
+}
+.sol-desc{
+  margin-top:14px;color:rgba(255,255,255,.54);
+  font-size:11px;max-width:460px;text-align:center;line-height:1.75;
+}
+
+/* ════════════════════════════
+   SECTION BREAKS
+════════════════════════════ */
+.sb{background:linear-gradient(135deg,#06101f 0%,#0d1a36 100%)}
+.sb-icon{font-size:30px;margin-bottom:10px}
+.sb-title{font-size:22px;font-weight:800;color:#fff;text-align:center}
+.sb-sub{font-size:11.5px;color:rgba(255,255,255,.48);margin-top:7px;text-align:center;max-width:400px}
+
+/* ════════════════════════════
+   SCREENSHOT SCENES
+   Image fills entire scene as background; badge + caption overlaid
+════════════════════════════ */
+.ss-scene{padding:0;justify-content:flex-start}
+
+/* The image fills the whole scene */
+.ss-bg{
+  position:absolute;inset:0;
+  overflow:hidden;
+}
+.ss-bg img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  transform:scale(1);
+  transform-origin:50% 30%;   /* default origin — overridden per scene */
+}
+
+/* Zoom animations with different crop focuses */
+@keyframes zoomTL  { from{transform:scale(1.0)} to{transform:scale(1.55) translate( -6%, -4%)} }
+@keyframes zoomTC  { from{transform:scale(1.0)} to{transform:scale(1.5)  translate(  0%, -6%)} }
+@keyframes zoomC   { from{transform:scale(1.0)} to{transform:scale(1.45) translate(  0%,  0%)} }
+@keyframes zoomBL  { from{transform:scale(1.0)} to{transform:scale(1.5)  translate( -8%,  6%)} }
+
+.ss-bg.zoom-tl img { animation:zoomTL  var(--zd,4s) ease-out forwards }
+.ss-bg.zoom-tc img { animation:zoomTC  var(--zd,4s) ease-out forwards }
+.ss-bg.zoom-c  img { animation:zoomC   var(--zd,4s) ease-out forwards }
+.ss-bg.zoom-bl img { animation:zoomBL  var(--zd,4s) ease-out forwards }
+
+/* Dark vignette so overlays are readable */
+.ss-vignette{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(to bottom, rgba(6,16,31,.55) 0%, transparent 28%, transparent 70%, rgba(6,16,31,.7) 100%),
+    linear-gradient(to right,  rgba(6,16,31,.25) 0%, transparent 20%, transparent 80%, rgba(6,16,31,.25) 100%);
+}
+
+.ss-overlay{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:12px 16px;pointer-events:none;
+}
+.ss-badge-row{display:flex;align-items:center;gap:10px}
+.ss-badge-row .badge{margin:0}
+.ss-scene-lbl{color:rgba(255,255,255,.45);font-size:9.5px;font-weight:600;letter-spacing:.06em}
+
+.ss-cap{
+  align-self:stretch;
+  background:rgba(6,16,31,.78);
+  backdrop-filter:blur(6px);
+  border-radius:6px;
+  padding:6px 12px;
+  color:rgba(245,195,110,.85);
+  font-size:10px;line-height:1.5;
+  text-align:center;
+}
+
+/* ════════════════════════════
+   S12 — OUTCOMES
+════════════════════════════ */
+#s12{background:linear-gradient(155deg,#06101f 0%,#071508 60%,#06101f 100%)}
+
+.out-head{font-size:18px;font-weight:800;color:#fff;text-align:center;margin-bottom:16px}
+.out-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:580px}
+.out-card{
+  padding:14px 18px;border-radius:12px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(245,195,110,.18);
+}
+.out-num{font-size:28px;font-weight:900;color:#f5c36e;line-height:1}
+.out-lbl{font-size:11px;color:rgba(255,255,255,.68);margin-top:4px;line-height:1.45}
+.out-cta{
+  margin-top:18px;padding:9px 28px;border-radius:999px;
+  background:#f5c36e;color:#111;font-weight:700;font-size:12px;
+  border:none;cursor:pointer;font-family:inherit;
+}
+</style>
+</head>
+<body>
+<div id="pres">
+  <div class="bg-grid"></div>
+  <div id="progressBar"></div>
+  <button id="replayBtn" onclick="start()">↺ Replay</button>
+
+  <!-- ── S0: CHALLENGE ── -->
+  <div class="scene" id="s0">
+    <div class="badge">⚠ The Challenge</div>
+    <h2 class="prob-head eu" id="s0h">Clinical data validation is <em>reactive, not intelligent.</em></h2>
+    <div class="prob-cards">
+      <div class="prob-card eu" id="s0c1" style="transition-delay:.07s">
+        <div class="ic">🔍</div>
+        <h4>Errors Hidden Across Domains</h4>
+        <p>Rule-based checks operate in silos — cross-domain inconsistencies stay invisible until submission.</p>
+      </div>
+      <div class="prob-card eu" id="s0c2" style="transition-delay:.18s">
+        <div class="ic">⏱</div>
+        <h4>Root Cause Takes Hours</h4>
+        <p>Each issue demands manual investigation — 30 min to 2 hours per error, study after study.</p>
+      </div>
+      <div class="prob-card eu" id="s0c3" style="transition-delay:.29s">
+        <div class="ic">📋</div>
+        <h4>Queries Pile Up at Submission</h4>
+        <p>Late-stage rework delays timelines and erodes regulatory confidence in data quality.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── S1: PLATFORM ── -->
+  <div class="scene" id="s1">
+    <div class="badge ef" id="s1b">✦ The Platform</div>
+    <div class="sol-brand es"  id="s1br">Kwalify™</div>
+    <div class="sol-tag  ef"  id="s1t" style="transition-delay:.35s">Semantic Intelligence Driven Validation</div>
+    <div class="sol-pills eu" id="s1p" style="transition-delay:.6s">
+      <span class="sol-pill">Knowledge Graph</span>
+      <span class="sol-pill">Explainable AI</span>
+      <span class="sol-pill">GNN Anomaly Detection</span>
+      <span class="sol-pill">Cross-Domain Reasoning</span>
+    </div>
+    <p class="sol-desc ef" id="s1d" style="transition-delay:.9s">
+      Stop checking data. Start understanding it — root cause AI that explains every error, every time, in seconds.
+    </p>
+  </div>
+
+  <!-- ── S2: DASHBOARD BREAK ── -->
+  <div class="scene sb" id="s2">
+    <div class="badge">01 · Validation Dashboard</div>
+    <div class="sb-icon es" id="s2i">📊</div>
+    <div class="sb-title el" id="s2t">SDTM Validation Dashboard</div>
+    <div class="sb-sub  ef" id="s2s" style="transition-delay:.3s">Clean validation — zero noise. Instant clarity across all domains.</div>
+  </div>
+
+  <!-- ── S3: Dashboard slide 1 (zoom top-left → metrics) ── -->
+  <div class="scene ss-scene" id="s3">
+    <div class="ss-bg" id="s3bg"><img src="kw-slides/slide1.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s3h">
+        <span class="badge" style="margin:0">Dashboard · Overview</span>
+        <span class="ss-scene-lbl">SDTM Validation Dashboard</span>
+      </div>
+      <div class="ss-cap ef" id="s3c" style="transition-delay:.4s">Real-time validation status across all SDTM domains — issue counts, severity and conformance score at a glance.</div>
+    </div>
+  </div>
+
+  <!-- ── S4: Dashboard slide 2 (zoom top-center) ── -->
+  <div class="scene ss-scene" id="s4">
+    <div class="ss-bg" id="s4bg"><img src="kw-slides/slide2.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s4h"><span class="badge" style="margin:0">Dashboard · Domain View</span></div>
+      <div class="ss-cap ef" id="s4c" style="transition-delay:.4s">Domain-level issue tracking with severity classification — pinpoint exactly where attention is needed.</div>
+    </div>
+  </div>
+
+  <!-- ── S5: Dashboard slide 3 (zoom center) ── -->
+  <div class="scene ss-scene" id="s5">
+    <div class="ss-bg" id="s5bg"><img src="kw-slides/slide3.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s5h"><span class="badge" style="margin:0">Dashboard · Conformance</span></div>
+      <div class="ss-cap ef" id="s5c" style="transition-delay:.4s">Protocol-to-dataset conformance checking — semantic rules enforced across the full data lifecycle.</div>
+    </div>
+  </div>
+
+  <!-- ── S6: Dashboard slide 4 (zoom bottom-left → summary table) ── -->
+  <div class="scene ss-scene" id="s6">
+    <div class="ss-bg" id="s6bg"><img src="kw-slides/slide4.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s6h"><span class="badge" style="margin:0">Dashboard · Summary</span></div>
+      <div class="ss-cap ef" id="s6c" style="transition-delay:.4s">Clean, actionable validation output — structured for regulatory submission readiness.</div>
+    </div>
+  </div>
+
+  <!-- ── S7: XAI BREAK ── -->
+  <div class="scene sb" id="s7" style="background:linear-gradient(135deg,#06101f 0%,#0a1828 100%)">
+    <div class="badge">02 · Explainable AI</div>
+    <div class="sb-icon es" id="s7i">🧠</div>
+    <div class="sb-title el" id="s7t">Issue Drill-Down &amp; Root Cause AI</div>
+    <div class="sb-sub  ef" id="s7s" style="transition-delay:.3s">Every error explained. Every fix suggested. Root cause in one click.</div>
+  </div>
+
+  <!-- ── S8: XAI slide 5 (zoom center → drill-down panel) ── -->
+  <div class="scene ss-scene" id="s8">
+    <div class="ss-bg" id="s8bg"><img src="kw-slides/slide5.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s8h">
+        <span class="badge" style="margin:0">XAI · Root Cause Analysis</span>
+        <span class="ss-scene-lbl">Study Validation Issue Drill-Down</span>
+      </div>
+      <div class="ss-cap ef" id="s8c" style="transition-delay:.4s">Explainable AI surfaces the causal pathway behind every discrepancy — investigation reduced from hours to seconds.</div>
+    </div>
+  </div>
+
+  <!-- ── S9: GNN BREAK ── -->
+  <div class="scene sb" id="s9" style="background:linear-gradient(135deg,#06101f 0%,#150f04 100%)">
+    <div class="badge">03 · Anomaly Detection</div>
+    <div class="sb-icon es" id="s9i">🔬</div>
+    <div class="sb-title el" id="s9t">GNN Anomaly Verification</div>
+    <div class="sb-sub  ef" id="s9s" style="transition-delay:.3s">Graph Neural Networks detect hidden patterns invisible to rule-based systems.</div>
+  </div>
+
+  <!-- ── S10: GNN slide 6 (zoom top-center → graph) ── -->
+  <div class="scene ss-scene" id="s10">
+    <div class="ss-bg" id="s10bg"><img src="kw-slides/slide6.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s10h"><span class="badge" style="margin:0">GNN · Anomaly Map</span></div>
+      <div class="ss-cap ef" id="s10c" style="transition-delay:.4s">Graph Neural Network identifies structural anomalies across data relationships — catching what rules cannot.</div>
+    </div>
+  </div>
+
+  <!-- ── S11: GNN slide 7 (zoom center → verification table) ── -->
+  <div class="scene ss-scene" id="s11">
+    <div class="ss-bg" id="s11bg"><img src="kw-slides/slide7.png" alt=""/></div>
+    <div class="ss-vignette"></div>
+    <div class="ss-overlay">
+      <div class="ss-badge-row eu" id="s11h"><span class="badge" style="margin:0">GNN · Verification Report</span></div>
+      <div class="ss-cap ef" id="s11c" style="transition-delay:.4s">Verified anomaly findings with confidence scoring — audit-ready evidence for every flagged record.</div>
+    </div>
+  </div>
+
+  <!-- ── S12: OUTCOMES ── -->
+  <div class="scene" id="s12">
+    <div class="badge ef" id="s12b">✓ The Outcomes</div>
+    <div class="out-head eu" id="s12h" style="transition-delay:.15s">What Teams Achieve with Kwalify™</div>
+    <div class="out-grid">
+      <div class="out-card eu" id="s12c1" style="transition-delay:.3s"><div class="out-num">93%</div><div class="out-lbl">Reduction in manual debug time per study</div></div>
+      <div class="out-card eu" id="s12c2" style="transition-delay:.45s"><div class="out-num">Zero</div><div class="out-lbl">Submission rejections for conformance issues</div></div>
+      <div class="out-card eu" id="s12c3" style="transition-delay:.6s"><div class="out-num">&lt;5s</div><div class="out-lbl">Root cause identified vs. hours of manual work</div></div>
+      <div class="out-card eu" id="s12c4" style="transition-delay:.75s"><div class="out-num">1st</div><div class="out-lbl">Submission readiness — no rework cycles</div></div>
+    </div>
+  </div>
+
+</div><!-- /#pres -->
+
+<script>
+// ── Proportional scale to any viewport ──────────────────
+const BASE_W=720, BASE_H=405, pres=document.getElementById('pres');
+function scale(){
+  const s=Math.min(window.innerWidth/BASE_W, window.innerHeight/BASE_H);
+  pres.style.transform=`scale(${s})`;
+  pres.style.left=Math.max(0,(window.innerWidth -BASE_W*s)/2)+'px';
+  pres.style.top =Math.max(0,(window.innerHeight-BASE_H*s)/2)+'px';
+}
+window.addEventListener('resize',scale); scale();
+
+// ── Zoom class + duration per screenshot scene ──────────
+const ZOOM={
+  s3:['zoom-tl','4s'], s4:['zoom-tc','3.5s'],
+  s5:['zoom-c', '3.5s'], s6:['zoom-bl','3.5s'],
+  s8:['zoom-c', '5.5s'],
+  s10:['zoom-tc','4s'], s11:['zoom-c','3.5s'],
+};
+
+// ── Timeline ─────────────────────────────────────────────
+const SCENES=[
+  ['s0', 5500,['s0h','s0c1','s0c2','s0c3']],
+  ['s1', 4500,['s1b','s1br','s1t','s1p','s1d']],
+  ['s2', 1900,['s2i','s2t','s2s']],
+  ['s3', 4000,['s3h','s3c']],
+  ['s4', 3500,['s4h','s4c']],
+  ['s5', 3500,['s5h','s5c']],
+  ['s6', 3500,['s6h','s6c']],
+  ['s7', 1900,['s7i','s7t','s7s']],
+  ['s8', 5500,['s8h','s8c']],
+  ['s9', 1900,['s9i','s9t','s9s']],
+  ['s10',4000,['s10h','s10c']],
+  ['s11',3500,['s11h','s11c']],
+  ['s12',9999,['s12b','s12h','s12c1','s12c2','s12c3','s12c4']],
+];
+const TOTAL=SCENES.reduce((a,s)=>a+(s[1]<9000?s[1]:0),0);
+let timers=[];
+const $=id=>document.getElementById(id);
+const add=(id,c)=>{const e=$(id);if(e)e.classList.add(c)};
+const rem=(id,c)=>{const e=$(id);if(e)e.classList.remove(c)};
+
+function resetAll(){
+  timers.forEach(clearTimeout);timers=[];
+  SCENES.forEach(s=>{
+    rem(s[0],'active');
+    s[2].forEach(id=>rem(id,'s'));
+    // clear zoom classes
+    const bg=$(s[0]+'bg');
+    if(bg){bg.className='ss-bg';bg.style.removeProperty('--zd');}
+  });
+  $('progressBar').style.width='0%';
+  $('replayBtn').style.display='none';
+}
+
+function start(){
+  resetAll();
+  const t0=Date.now();
+  (function tick(){
+    const p=Math.min(100,(Date.now()-t0)/TOTAL*100);
+    $('progressBar').style.width=p+'%';
+    if(p<100)requestAnimationFrame(tick);
+  })();
+
+  let delay=0;
+  SCENES.forEach((s,i)=>{
+    const[id,dur,ids]=s;
+    timers.push(setTimeout(()=>{
+      if(i>0)rem(SCENES[i-1][0],'active');
+      add(id,'active');
+      // trigger zoom on screenshot scenes
+      const bg=$(id+'bg');
+      if(bg&&ZOOM[id]){
+        const[cls,d]=ZOOM[id];
+        bg.style.setProperty('--zd',d);
+        setTimeout(()=>bg.classList.add(cls),60);
+      }
+      timers.push(setTimeout(()=>ids.forEach(id=>add(id,'s')),80));
+    },delay));
+    if(dur<9000)delay+=dur;
+  });
+  timers.push(setTimeout(()=>{$('replayBtn').style.display='block';},delay+2000));
+}
+
+window.addEventListener("load",()=>start());
+</script>
+</body>
+</html>

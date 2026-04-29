@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Care2Data — Kwalify™ Brochure</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    color: #1a1a2e;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  html, body { margin: 0; padding: 0; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    break-after: page;
+    page-break-after: always;
+  }
+  .page:last-child {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  @media screen {
+    body { background: #e5e7eb; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .page { box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+  }
+
+  :root {
+    --navy:      #060c1e;
+    --navy2:     #0d1b3e;
+    --gold:      #f5c36e;
+    --gold-bdr:  rgba(245,195,110,0.35);
+    --text:      #1a1a2e;
+    --muted:     #4b5563;
+    --light:     #f8f9fb;
+    --border:    #e2e8f0;
+  }
+
+  /* ════════════════════════════════════════════
+     PAGE 1
+  ════════════════════════════════════════════ */
+
+  .p1-header {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-bottom: 1px solid var(--gold-bdr);
+    padding: 11mm 18mm 10mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .p1-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -20px; right: -20px;
+    height: 80px;
+    background: #fff;
+    transform: rotate(-2deg);
+  }
+
+  .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+  }
+  .brand-logo { height: 26px; width: auto; display: block; }
+  .brand-separator { font-size: 9pt; color: rgba(255,255,255,0.35); margin: 0 2px; }
+  .product-name {
+    font-size: 11pt; font-weight: 700; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.9);
+  }
+  .product-tag {
+    font-size: 7pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold);
+    background: rgba(245,195,110,0.12);
+    border: 1px solid rgba(245,195,110,0.3);
+    border-radius: 20px; padding: 1px 7px;
+  }
+
+  .p1-title {
+    font-size: 24pt; font-weight: 800; color: #fff;
+    line-height: 1.1; margin-bottom: 8px; max-width: 145mm;
+  }
+  .p1-title span { color: var(--gold); }
+
+  .p1-tagline {
+    font-size: 9pt; color: rgba(255,255,255,0.78);
+    max-width: 130mm; line-height: 1.65; margin-top: 7px;
+  }
+
+  .p1-badge {
+    position: absolute; top: 16mm; right: 18mm;
+    background: rgba(245,195,110,0.12);
+    border: 1.5px solid rgba(245,195,110,0.4);
+    border-radius: 50%; width: 34mm; height: 34mm;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; color: var(--gold);
+    font-size: 6pt; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.4;
+  }
+  .p1-badge strong { font-size: 13pt; display: block; letter-spacing: 0; }
+
+  /* ── Intro ── */
+  .p1-intro { padding: 8mm 18mm 4mm; }
+  .p1-intro p { font-size: 9pt; color: #4b5563; line-height: 1.7; text-align: justify; }
+  .p1-intro strong { color: #1a1a2e; }
+
+  /* ── Comparison 2-col ── */
+  .p1-compare {
+    padding: 0 18mm 4mm;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5mm;
+  }
+
+  .cmp-card {
+    border-radius: 4mm; padding: 4.5mm 5.5mm;
+    position: relative; overflow: hidden;
+  }
+  .cmp-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+  }
+  .cmp-card--legacy {
+    background: #fdf8f8;
+    border: 1.5px solid #fde8e8;
+  }
+  .cmp-card--legacy::before { background: #ef4444; }
+  .cmp-card--kwalify {
+    background: #f0fdf8;
+    border: 1.5px solid #bbf7e0;
+  }
+  .cmp-card--kwalify::before { background: #22c55e; }
+
+  .cmp-label {
+    font-size: 6.5pt; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.14em; margin-bottom: 3px;
+  }
+  .cmp-card--legacy .cmp-label { color: #dc2626; }
+  .cmp-card--kwalify .cmp-label { color: #16a34a; }
+
+  .cmp-title {
+    font-size: 9pt; font-weight: 700; color: #1a1a2e;
+    margin-bottom: 3.5mm; line-height: 1.2;
+  }
+
+  .cmp-list { list-style: none; padding: 0; }
+  .cmp-list li {
+    font-size: 8pt; color: #4b5563;
+    padding: 1mm 0 1mm 5mm;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    position: relative; line-height: 1.5;
+  }
+  .cmp-list li::before {
+    content: attr(data-bullet);
+    position: absolute; left: 0;
+    font-size: 7.5pt; top: 1.5mm;
+  }
+  .cmp-card--legacy .cmp-list li::before { color: #ef4444; }
+  .cmp-card--kwalify .cmp-list li::before { color: #22c55e; }
+
+  /* ── Intelligence box ── */
+  .p1-intel {
+    margin: 0 18mm 4mm;
+    background: #fdf9f0;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 3mm 3mm 0;
+    padding: 4mm 6mm;
+  }
+  .p1-intel-label {
+    font-size: 6.5pt; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.14em; color: #d4963a; margin-bottom: 2mm;
+  }
+  .p1-intel p {
+    font-size: 8.5pt; color: #4b5563; line-height: 1.6;
+    text-align: justify;
+  }
+  .p1-intel strong { color: #1a1a2e; }
+
+  /* ── 4 Outcome cards ── */
+  .p1-outcomes-label {
+    padding: 0 18mm 2mm;
+    font-size: 7.5pt; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.14em; color: #d4963a;
+  }
+  .p1-outcomes {
+    padding: 0 18mm 5mm;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm;
+  }
+  .out-card {
+    background: #fff; border: 1.5px solid #e2e8f0;
+    border-radius: 4mm; padding: 4mm 4.5mm;
+    position: relative; overflow: hidden;
+  }
+  .out-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+  }
+  .out-card.o1::before { background: #38bdf8; }
+  .out-card.o2::before { background: var(--gold); }
+  .out-card.o3::before { background: #34d399; }
+  .out-card.o4::before { background: #c084fc; }
+
+  .out-title {
+    font-size: 8.5pt; font-weight: 700; color: #1a1a2e;
+    margin-bottom: 2.5mm; line-height: 1.2;
+  }
+  .out-desc { font-size: 7.5pt; color: #4b5563; line-height: 1.55; }
+
+  /* ── Footer page 1 ── */
+  .p1-footer {
+    background: #f8f9fb; border-top: 1px solid #e2e8f0;
+    padding: 4mm 18mm;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: auto; flex-shrink: 0;
+  }
+  .p1-footer-text { font-size: 7.5pt; color: #4b5563; }
+  .p1-footer-url { font-size: 7.5pt; font-weight: 700; color: #0f2a5c; }
+
+  /* ════════════════════════════════════════════
+     PAGE 2
+  ════════════════════════════════════════════ */
+
+  .p2-topbar {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-bottom: 1px solid var(--gold-bdr);
+    padding: 6mm 18mm;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .p2-topbar-brand { font-size: 9pt; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  .p2-topbar-title { font-size: 8pt; color: rgba(255,255,255,0.82); }
+
+  .p2-body { padding: 7mm 18mm 7mm; flex: 1; overflow: hidden; }
+
+  .p2-section-title {
+    font-size: 12pt; font-weight: 800; color: #1a1a2e;
+    margin-bottom: 4mm; padding-bottom: 2.5mm;
+    border-bottom: 2px solid var(--gold); display: inline-block;
+  }
+
+  /* ── 5-step pipeline ── */
+  .pipeline {
+    display: flex; align-items: stretch; gap: 0;
+    margin: 0 0 6mm;
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-radius: 4mm; overflow: hidden;
+  }
+  .pipeline-step {
+    flex: 1; text-align: center; padding: 3.5mm 2mm;
+    font-size: 7.5pt; font-weight: 700;
+    color: rgba(255,255,255,0.9); position: relative;
+  }
+  .pipeline-step::after {
+    content: '→'; position: absolute; right: -5px;
+    top: 50%; transform: translateY(-50%);
+    color: var(--gold); font-size: 10pt; z-index: 1;
+  }
+  .pipeline-step:last-child::after { display: none; }
+  .pipeline-step span {
+    display: block; font-size: 5.5pt; font-weight: 400;
+    color: rgba(255,255,255,0.6); margin-top: 1mm;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  /* ── Capability table ── */
+  .cap-table {
+    width: 100%; border-collapse: collapse; margin-bottom: 6mm;
+  }
+  .cap-table th {
+    background: linear-gradient(135deg, #0d1b3e 0%, #102c50 100%);
+    color: #fff; font-size: 7.5pt; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 2.5mm 4mm; text-align: left;
+    border-bottom: 2px solid var(--gold);
+  }
+  .cap-table td {
+    font-size: 8pt; color: #1a1a2e;
+    padding: 2mm 4mm; border-bottom: 1px solid #e2e8f0; vertical-align: top;
+  }
+  .cap-table tr:nth-child(even) td { background: #f8f9fb; }
+  .cap-table .cap-name {
+    font-weight: 700; white-space: nowrap; width: 44mm; color: #1a1a2e;
+  }
+  .cap-dot {
+    display: inline-block; width: 7px; height: 7px;
+    border-radius: 50%; margin-right: 5px; vertical-align: middle;
+  }
+
+  /* ── 2-col outcomes ── */
+  .outcomes-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5mm; margin-bottom: 6mm;
+  }
+  .outcomes-col h4 {
+    font-size: 9pt; font-weight: 700; color: #1a1a2e;
+    margin-bottom: 2.5mm; padding-bottom: 2mm;
+    border-bottom: 1.5px solid var(--gold);
+  }
+  .outcomes-list { list-style: none; padding: 0; }
+  .outcomes-list li {
+    font-size: 8pt; color: #4b5563;
+    padding: 1.5mm 0 1.5mm 5mm;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative; line-height: 1.5;
+  }
+  .outcomes-list li::before {
+    content: '✔'; position: absolute; left: 0;
+    color: var(--gold); font-size: 7pt; top: 2mm;
+  }
+
+  /* ── SDTM metrics strip ── */
+  .sdtm-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 4mm; margin-bottom: 6mm;
+  }
+  .sdtm-card {
+    background: #fff; border: 1.5px solid #e2e8f0;
+    border-radius: 4mm; padding: 4mm 3mm;
+    position: relative; overflow: visible;
+    text-align: center;
+  }
+  .sdtm-card::before {
+    content: ''; position: absolute;
+    top: -1.5px; left: -1.5px; right: -1.5px; height: 4px;
+    border-radius: 4mm 4mm 0 0;
+  }
+  .sdtm-card.s1::before { background: #f5c36e; }
+  .sdtm-card.s2::before { background: #3b82f6; }
+  .sdtm-card.s3::before { background: #f97316; }
+  .sdtm-card.s4::before { background: #a78bfa; }
+
+  .sdtm-pct { font-size: 18pt; font-weight: 800; line-height: 1; margin-bottom: 1mm; }
+  .s1 .sdtm-pct { color: #d4963a; }
+  .s2 .sdtm-pct { color: #2563eb; }
+  .s3 .sdtm-pct { color: #ea6c00; }
+  .s4 .sdtm-pct { color: #7c3aed; }
+
+  .sdtm-domain {
+    font-size: 6pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #9ca3af; margin-bottom: 2mm;
+  }
+  .sdtm-issue { font-size: 8pt; font-weight: 700; color: #1a1a2e; line-height: 1.3; word-break: break-word; overflow-wrap: break-word; }
+
+  /* ── Closing note ── */
+  .closing-note {
+    background: #fdf9f0; border-left: 4px solid var(--gold);
+    padding: 4mm 6mm; font-size: 8.5pt; color: #1a1a2e;
+    line-height: 1.7; border-radius: 0 3mm 3mm 0;
+    margin-bottom: 6mm; text-align: justify;
+  }
+  .closing-note strong { color: #0f2a5c; }
+
+  /* ── CTA box ── */
+  .cta-box {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border: 1px solid var(--gold-bdr); border-radius: 4mm;
+    padding: 5.5mm 8mm; display: flex;
+    align-items: center; justify-content: space-between;
+  }
+  .cta-box-text h4 { font-size: 11pt; font-weight: 800; color: #fff; margin-bottom: 2mm; }
+  .cta-box-text p { font-size: 8pt; color: rgba(255,255,255,0.6); }
+  .cta-box-contact { text-align: right; }
+  .cta-box-contact p { font-size: 8.5pt; color: var(--gold); font-weight: 600; line-height: 1.8; }
+
+  /* ── Print button ── */
+  .print-btn {
+    position: fixed; top: 16px; right: 16px;
+    background: #060c1e; color: #f5c36e;
+    border: 1.5px solid #f5c36e; border-radius: 6px;
+    padding: 8px 18px; font-size: 13px; font-weight: 700;
+    cursor: pointer; z-index: 999; letter-spacing: 0.05em;
+  }
+  .print-btn:hover { background: rgba(245,195,110,0.1); }
+  @media print { .print-btn { display: none; } }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">&#x2B07; Save as PDF</button>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 — Overview, Challenge & Outcomes
+══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- Header -->
+  <div class="p1-header">
+    <div class="brand-line">
+      <img src="logo.png" alt="Care2Data" class="brand-logo" />
+      <span class="brand-separator">|</span>
+      <span class="product-name">Kwalify&#8482;</span>
+      <span class="product-tag">Clinical Data Intelligence Platform</span>
+    </div>
+    <div class="p1-title">Stop Checking Data.<br><span>Start Understanding It.</span></div>
+    <p class="p1-tagline">
+      Kwalify&#8482; operationalizes CARE2DATA&#8217;s knowledge-driven validation framework — embedding
+      semantic intelligence across linked clinical datasets to strengthen accuracy, traceability,
+      and regulatory readiness before submission.
+    </p>
+    <div class="p1-badge">
+      <strong>5</strong>
+      Platform<br>Capabilities
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="p1-intro">
+    <p>
+      Clinical trials generate deeply interconnected datasets across subjects, treatments, outcomes, and safety
+      signals. Validation tools that rely on <strong>static rule execution are no longer sufficient</strong>.
+      Kwalify&#8482; introduces a <strong>semantic intelligence layer</strong> — combining contextual reasoning,
+      anomaly verification, and explainable AI to deliver knowledge-driven assurance, not just rule compliance.
+      It reduces manual debugging time where individual errors take <strong>30 minutes to 2 hours</strong> to resolve.
+    </p>
+  </div>
+
+  <!-- Comparison -->
+  <div class="p1-compare">
+
+    <div class="cmp-card cmp-card--legacy">
+      <div class="cmp-label">Traditional Validation</div>
+      <div class="cmp-title">Most tools available today:</div>
+      <ul class="cmp-list">
+        <li data-bullet="✕">Execute static rule libraries</li>
+        <li data-bullet="✕">Return pass/fail flags only</li>
+        <li data-bullet="✕">Escalate investigation to humans</li>
+        <li data-bullet="✕">Provide limited cross-dataset reasoning</li>
+      </ul>
+      <p style="font-size:7.5pt; color:#dc2626; font-weight:600; margin-top:3mm;">They detect symptoms. They do not diagnose causes.</p>
+    </div>
+
+    <div class="cmp-card cmp-card--kwalify">
+      <div class="cmp-label">Kwalify&#8482; Intelligence</div>
+      <div class="cmp-title">Kwalify&#8482; delivers:</div>
+      <ul class="cmp-list">
+        <li data-bullet="✔">Semantic, context-aware validation across linked datasets</li>
+        <li data-bullet="✔">Explainable insights — not just pass/fail outcomes</li>
+        <li data-bullet="✔">Automated root cause analysis with AI-assisted reasoning</li>
+        <li data-bullet="✔">Cross-domain intelligence and impact-aware validation</li>
+      </ul>
+      <p style="font-size:7.5pt; color:#16a34a; font-weight:600; margin-top:3mm;">It connects signals. It diagnoses causes.</p>
+    </div>
+
+  </div>
+
+  <!-- Intelligence Difference -->
+  <div class="p1-intel">
+    <div class="p1-intel-label">The Intelligence Difference</div>
+    <p>
+      By combining <strong>semantic reasoning</strong>, anomaly verification, and contextual validation across
+      linked datasets, Kwalify&#8482; transforms validation from checklist execution into
+      <strong>knowledge-driven assurance</strong> — enabling teams to understand the cause, impact, and
+      resolution of data inconsistencies before submission.
+    </p>
+  </div>
+
+  <!-- Enterprise Outcomes -->
+  <div class="p1-outcomes-label">Enterprise Impact</div>
+  <div class="p1-outcomes">
+
+    <div class="out-card o1">
+      <div class="out-title">Strengthened Data Integrity</div>
+      <div class="out-desc">Identify discrepancies at origin — before QA or regulatory review.</div>
+    </div>
+
+    <div class="out-card o2">
+      <div class="out-title">Faster Validation Cycles</div>
+      <div class="out-desc">AI-assisted investigation reduces manual debugging and accelerates resolution.</div>
+    </div>
+
+    <div class="out-card o3">
+      <div class="out-title">Reduced Regulatory Queries</div>
+      <div class="out-desc">Explainable AI validation outputs improve submission clarity and traceability.</div>
+    </div>
+
+    <div class="out-card o4">
+      <div class="out-title">Enterprise Scalability</div>
+      <div class="out-desc">Scales across therapeutic areas, studies, and global programs without added complexity.</div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="p1-footer">
+    <span class="p1-footer-text">CARE2DATA &nbsp;|&nbsp; Kwalify&#8482; &nbsp;|&nbsp; Confidential</span>
+    <span class="p1-footer-url">www.care2data.com &nbsp; · &nbsp; admin@care2data.com</span>
+  </div>
+
+</div><!-- /page 1 -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 — Workflow, Capabilities & Outcomes
+══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- Top bar -->
+  <div class="p2-topbar">
+    <span class="p2-topbar-brand">Care2Data &nbsp;·&nbsp; Kwalify&#8482;</span>
+    <span class="p2-topbar-title">Semantic Intelligence Driven Validation — Workflow &amp; Capabilities</span>
+  </div>
+
+  <div class="p2-body">
+
+    <!-- 5-step Workflow -->
+    <p class="p2-section-title">How Kwalify&#8482; Operates</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">Ingestion<span>Dataset Upload</span></div>
+      <div class="pipeline-step">Rule Validation<span>FDA &amp; CDISC</span></div>
+      <div class="pipeline-step">Cross-Domain<span>Contextual Check</span></div>
+      <div class="pipeline-step">Root Cause AI<span>Explainable Insight</span></div>
+      <div class="pipeline-step">Anomaly Detection<span>Data Verification</span></div>
+    </div>
+
+    <!-- Capability table -->
+    <p class="p2-section-title" style="margin-top:5mm;">Platform Capabilities</p>
+
+    <table class="cap-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>What It Delivers</th>
+          <th>Key Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#38bdf8"></span>Regulatory Rule Validation</td>
+          <td>FDA &amp; CDISC rule libraries · Conformance checks · Standard format support (SAS, CSV)</td>
+          <td>Submission-compliant datasets</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#f5c36e"></span>Cross-Domain Validation</td>
+          <td>AE · Subject lifecycle · Treatment exposure · Safety signals &amp; endpoints</td>
+          <td>Context-aware data integrity</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#34d399"></span>AI Root Cause Analysis</td>
+          <td>Issue summary · Root cause · Regulatory impact · Step-by-step remediation</td>
+          <td>Faster investigation &amp; resolution</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#c084fc"></span>Anomaly Detection</td>
+          <td>Temporal inconsistencies · Lifecycle contradictions · Sequence conflicts</td>
+          <td>True data integrity beyond rules</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#fb923c"></span>Validation Dashboard</td>
+          <td>Study progress · Domain violations · Compliance status · Trend analysis</td>
+          <td>Centralized operational visibility</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Two-column outcomes -->
+    <div class="outcomes-grid">
+      <div class="outcomes-col">
+        <h4>Designed For</h4>
+        <ul class="outcomes-list">
+          <li>CRO Leadership — scale validation across sponsors</li>
+          <li>Pharmaceutical &amp; Biotech Sponsors — global submission confidence</li>
+          <li>Clinical Data Managers &amp; SAS Programmers — faster issue identification</li>
+          <li>QA &amp; Regulatory Teams — defensible, traceable validation outputs</li>
+        </ul>
+      </div>
+      <div class="outcomes-col">
+        <h4>High-Frequency SDTM Issues Resolved</h4>
+        <div class="sdtm-strip" style="margin-bottom:0; gap:3mm;">
+          <div class="sdtm-card s1">
+            <div class="sdtm-pct">93%</div>
+            <div class="sdtm-domain">LB Domain</div>
+            <div class="sdtm-issue">Missing Reference Ranges</div>
+          </div>
+          <div class="sdtm-card s2">
+            <div class="sdtm-pct">79%</div>
+            <div class="sdtm-domain">Cross-Domain</div>
+            <div class="sdtm-issue">Unit Mismatches</div>
+          </div>
+          <div class="sdtm-card s3">
+            <div class="sdtm-pct">67%</div>
+            <div class="sdtm-domain">AE Domain</div>
+            <div class="sdtm-issue">Duplicate AE Events</div>
+          </div>
+          <div class="sdtm-card s4">
+            <div class="sdtm-pct">63%</div>
+            <div class="sdtm-domain">DM Domain</div>
+            <div class="sdtm-issue">Missing RFSTDTC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing note -->
+    <div class="closing-note">
+      Kwalify&#8482; transforms clinical data validation from binary rule checking into
+      <strong>enterprise-grade, knowledge-driven quality assurance</strong> — eliminating the systemic
+      inefficiencies that slow clinical validation teams today and enabling organizations to submit
+      with <strong>greater accuracy, consistency, and regulatory defensibility</strong>.
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <div class="cta-box-text">
+        <h4>Ready to Experience Intelligent Validation?</h4>
+        <p>Request an executive demonstration or schedule a technical deep dive with our team.</p>
+      </div>
+      <div class="cta-box-contact">
+        <p>www.care2data.com</p>
+        <p>admin@care2data.com</p>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /page 2 -->
+
+</body>
+</html>

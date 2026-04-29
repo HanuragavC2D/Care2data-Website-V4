@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Care2Data — Engagement Models Brochure</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    color: #1a1a2e;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  html, body { margin: 0; padding: 0; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    break-after: page;
+    page-break-after: always;
+  }
+  .page:last-child {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  @media screen {
+    body { background: #e5e7eb; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .page { box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+  }
+
+  :root {
+    --navy:      #060c1e;
+    --navy2:     #0d1b3e;
+    --gold:      #f5c36e;
+    --gold-bdr:  rgba(245,195,110,0.35);
+    --text:      #1a1a2e;
+    --muted:     #4b5563;
+    --light:     #f8f9fb;
+    --border:    #e2e8f0;
+  }
+
+  /* ════════════════════════════════════════════
+     PAGE 1
+  ════════════════════════════════════════════ */
+
+  .p1-header {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-bottom: 1px solid var(--gold-bdr);
+    padding: 11mm 18mm 10mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .p1-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -20px; right: -20px;
+    height: 80px;
+    background: #fff;
+    transform: rotate(-2deg);
+  }
+
+  .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+  }
+  .brand-logo { height: 26px; width: auto; display: block; }
+  .brand-separator { font-size: 9pt; color: rgba(255,255,255,0.35); margin: 0 2px; }
+  .product-name {
+    font-size: 11pt; font-weight: 700; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.9);
+  }
+  .product-tag {
+    font-size: 7pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold);
+    background: rgba(245,195,110,0.12);
+    border: 1px solid rgba(245,195,110,0.3);
+    border-radius: 20px; padding: 1px 7px;
+  }
+
+  .p1-title {
+    font-size: 24pt; font-weight: 800; color: #fff;
+    line-height: 1.1; margin-bottom: 8px; max-width: 145mm;
+  }
+  .p1-title span { color: var(--gold); }
+
+  .p1-tagline {
+    font-size: 9pt; color: rgba(255,255,255,0.78);
+    max-width: 130mm; line-height: 1.65; margin-top: 7px;
+  }
+
+  .p1-badge {
+    position: absolute; top: 16mm; right: 18mm;
+    background: rgba(245,195,110,0.12);
+    border: 1.5px solid rgba(245,195,110,0.4);
+    border-radius: 50%; width: 34mm; height: 34mm;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; color: var(--gold);
+    font-size: 6pt; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.4;
+  }
+  .p1-badge strong { font-size: 13pt; display: block; letter-spacing: 0; }
+
+  /* ── Intro ── */
+  .p1-intro { padding: 8mm 18mm 4mm; }
+  .p1-intro p { font-size: 9pt; color: #4b5563; line-height: 1.7; text-align: justify; }
+  .p1-intro strong { color: #1a1a2e; }
+
+  /* ── Problem callout ── */
+  .p1-problem {
+    margin: 0 18mm 5mm;
+    background: #fdf9f0;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 3mm 3mm 0;
+    padding: 4mm 6mm;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4mm;
+    align-items: start;
+  }
+  .p1-problem-label {
+    font-size: 7pt; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.14em; color: #d4963a;
+    white-space: nowrap; padding-top: 1px;
+  }
+  .p1-problem-body { font-size: 8.5pt; color: #4b5563; line-height: 1.6; }
+  .p1-problem-body strong { color: #1a1a2e; }
+
+  /* ── 6 engagement cards ── */
+  .p1-eng-label {
+    padding: 0 18mm 2.5mm;
+    font-size: 7.5pt; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.14em; color: #d4963a;
+  }
+  .p1-engagements {
+    padding: 0 18mm 5mm;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+  }
+
+  .eng-card {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 4mm;
+    padding: 4mm 4.5mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .eng-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .eng-card.e1::before { background: #38bdf8; }
+  .eng-card.e2::before { background: var(--gold); }
+  .eng-card.e3::before { background: #34d399; }
+  .eng-card.e4::before { background: #c084fc; }
+  .eng-card.e5::before { background: #fb923c; }
+  .eng-card.e6::before { background: #f472b6; }
+
+  .eng-card-num {
+    font-size: 6pt; font-weight: 800; letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 1px;
+  }
+  .e1 .eng-card-num { color: #38bdf8; }
+  .e2 .eng-card-num { color: #d4963a; }
+  .e3 .eng-card-num { color: #34d399; }
+  .e4 .eng-card-num { color: #c084fc; }
+  .e5 .eng-card-num { color: #ea6c00; }
+  .e6 .eng-card-num { color: #db2777; }
+
+  .eng-card-title {
+    font-size: 8.5pt; font-weight: 700; color: #1a1a2e;
+    margin-bottom: 2px; line-height: 1.25;
+  }
+  .eng-card-tag {
+    font-size: 7pt; color: #4b5563;
+    font-style: italic; margin-bottom: 2.5mm; line-height: 1.3;
+  }
+  .eng-card-desc {
+    font-size: 7.5pt; color: #4b5563;
+    line-height: 1.55; text-align: justify;
+  }
+
+  /* ── Footer page 1 ── */
+  .p1-footer {
+    background: #f8f9fb; border-top: 1px solid #e2e8f0;
+    padding: 4mm 18mm;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: auto; flex-shrink: 0;
+  }
+  .p1-footer-text { font-size: 7.5pt; color: #4b5563; }
+  .p1-footer-url { font-size: 7.5pt; font-weight: 700; color: #0f2a5c; }
+
+  /* ════════════════════════════════════════════
+     PAGE 2
+  ════════════════════════════════════════════ */
+
+  .p2-topbar {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-bottom: 1px solid var(--gold-bdr);
+    padding: 6mm 18mm;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .p2-topbar-brand { font-size: 9pt; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  .p2-topbar-title { font-size: 8pt; color: rgba(255,255,255,0.82); }
+
+  .p2-body { padding: 6mm 18mm 6mm; flex: 1; overflow: hidden; }
+
+  .p2-section-title {
+    font-size: 12pt; font-weight: 800; color: #1a1a2e;
+    margin-bottom: 4mm; padding-bottom: 2.5mm;
+    border-bottom: 2px solid var(--gold); display: inline-block;
+  }
+
+  /* ── Engagement journey ── */
+  .pipeline {
+    display: flex; align-items: stretch; gap: 0;
+    margin: 0 0 6mm;
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border-radius: 4mm; overflow: hidden;
+  }
+  .pipeline-step {
+    flex: 1; text-align: center; padding: 3.5mm 1.5mm;
+    font-size: 7pt; font-weight: 700;
+    color: rgba(255,255,255,0.9); position: relative;
+  }
+  .pipeline-step::after {
+    content: '→'; position: absolute; right: -5px;
+    top: 50%; transform: translateY(-50%);
+    color: var(--gold); font-size: 10pt; z-index: 1;
+  }
+  .pipeline-step:last-child::after { display: none; }
+  .pipeline-step span {
+    display: block; font-size: 5.5pt; font-weight: 400;
+    color: rgba(255,255,255,0.6); margin-top: 1mm;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  /* ── Engagement detail table ── */
+  .cap-table {
+    width: 100%; border-collapse: collapse; margin-bottom: 6mm;
+  }
+  .cap-table th {
+    background: linear-gradient(135deg, #0d1b3e 0%, #102c50 100%);
+    color: #fff; font-size: 7pt; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 2.5mm 4mm; text-align: left;
+    border-bottom: 2px solid var(--gold);
+  }
+  .cap-table td {
+    font-size: 7.5pt; color: #1a1a2e;
+    padding: 2mm 4mm; border-bottom: 1px solid #e2e8f0; vertical-align: top;
+  }
+  .cap-table tr:nth-child(even) td { background: #f8f9fb; }
+  .cap-table .cap-name {
+    font-weight: 700; white-space: nowrap; width: 40mm; color: #1a1a2e;
+  }
+  .cap-dot {
+    display: inline-block; width: 7px; height: 7px;
+    border-radius: 50%; margin-right: 5px; vertical-align: middle;
+  }
+
+  /* ── Two-column outcomes ── */
+  .outcomes-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5mm; margin-bottom: 5mm;
+  }
+  .outcomes-col h4 {
+    font-size: 9pt; font-weight: 700; color: #1a1a2e;
+    margin-bottom: 2.5mm; padding-bottom: 2mm;
+    border-bottom: 1.5px solid var(--gold);
+  }
+  .outcomes-list { list-style: none; padding: 0; }
+  .outcomes-list li {
+    font-size: 7.5pt; color: #4b5563;
+    padding: 1.5mm 0 1.5mm 5mm;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative; line-height: 1.5;
+  }
+  .outcomes-list li::before {
+    content: '✔'; position: absolute; left: 0;
+    color: var(--gold); font-size: 7pt; top: 2mm;
+  }
+
+  /* ── Closing note ── */
+  .closing-note {
+    background: #fdf9f0; border-left: 4px solid var(--gold);
+    padding: 4mm 6mm; font-size: 8.5pt; color: #1a1a2e;
+    line-height: 1.7; border-radius: 0 3mm 3mm 0;
+    margin-bottom: 5mm; text-align: justify;
+  }
+  .closing-note strong { color: #0f2a5c; }
+
+  /* ── CTA box ── */
+  .cta-box {
+    background: linear-gradient(135deg, #102c50 0%, #0d1b3e 100%);
+    border: 1px solid var(--gold-bdr); border-radius: 4mm;
+    padding: 5.5mm 8mm; display: flex;
+    align-items: center; justify-content: space-between;
+  }
+  .cta-box-text h4 { font-size: 11pt; font-weight: 800; color: #fff; margin-bottom: 2mm; }
+  .cta-box-text p { font-size: 8pt; color: rgba(255,255,255,0.6); }
+  .cta-box-contact { text-align: right; }
+  .cta-box-contact p { font-size: 8.5pt; color: var(--gold); font-weight: 600; line-height: 1.8; }
+
+  /* ── Print button ── */
+  .print-btn {
+    position: fixed; top: 16px; right: 16px;
+    background: #060c1e; color: #f5c36e;
+    border: 1.5px solid #f5c36e; border-radius: 6px;
+    padding: 8px 18px; font-size: 13px; font-weight: 700;
+    cursor: pointer; z-index: 999; letter-spacing: 0.05em;
+  }
+  .print-btn:hover { background: rgba(245,195,110,0.1); }
+  @media print { .print-btn { display: none; } }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">&#x2B07; Save as PDF</button>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 — Overview & Engagement Models
+══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- Header -->
+  <div class="p1-header">
+    <div class="brand-line">
+      <img src="logo.png" alt="Care2Data" class="brand-logo" />
+      <span class="brand-separator">|</span>
+      <span class="product-name">Engagement Models</span>
+      <span class="product-tag">Clinical Data Intelligence Services</span>
+    </div>
+    <div class="p1-title">Strategy Before Systems.<br><span>Intelligence at Every Stage.</span></div>
+    <p class="p1-tagline">
+      Care2Data delivers six structured engagement models — from initial strategic consulting through
+      knowledge model implementation, data quality governance, and full team enablement — designed
+      to operationalise clinical data intelligence across the entire trial lifecycle.
+    </p>
+    <div class="p1-badge">
+      <strong>6</strong>
+      Engagement<br>Models
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="p1-intro">
+    <p>
+      Clinical data challenges rarely originate at submission. They accumulate across planning, design,
+      execution, and integration — driven by <strong>unclear assumptions, inconsistent standards alignment,
+      and undefined criteria for submission readiness</strong>. Care2Data's engagement framework addresses
+      each phase with structured, knowledge-driven services that build on each other — ensuring
+      every deliverable strengthens long-term data integrity, traceability, and regulatory defensibility.
+    </p>
+  </div>
+
+  <!-- Problem callout -->
+  <div class="p1-problem">
+    <span class="p1-problem-label">The Challenge</span>
+    <div class="p1-problem-body">
+      Most organisations address clinical data quality reactively — identifying issues at QA or submission
+      review when correction costs are highest. Care2Data's engagement approach shifts this pattern:
+      structural clarity is established early, validated under real conditions, and embedded as
+      <strong>operational intelligence</strong> — reducing rework, regulatory queries, and submission delays.
+    </div>
+  </div>
+
+  <!-- Engagement cards label -->
+  <div class="p1-eng-label">Six Engagement Models</div>
+
+  <!-- 6 cards (3 × 2) -->
+  <div class="p1-engagements">
+
+    <div class="eng-card e1">
+      <div class="eng-card-num">Engagement 01</div>
+      <div class="eng-card-title">Solution Consulting</div>
+      <div class="eng-card-tag">Strategy Before Systems</div>
+      <div class="eng-card-desc">Establish structural clarity before system build begins. Care2Data maps clinical data flows, aligns assumptions with regulatory expectations, and defines defensible submission-readiness criteria.</div>
+    </div>
+
+    <div class="eng-card e2">
+      <div class="eng-card-num">Engagement 02</div>
+      <div class="eng-card-title">Proof of Concepts</div>
+      <div class="eng-card-tag">Validate Assumptions Early</div>
+      <div class="eng-card-desc">PoCs are designed to expose structural weaknesses — not demonstrate features. Real clinical datasets are used to stress-test validation logic, traceability, and cross-domain consistency.</div>
+    </div>
+
+    <div class="eng-card e3">
+      <div class="eng-card-num">Engagement 03</div>
+      <div class="eng-card-title">Design &amp; Development</div>
+      <div class="eng-card-tag">Built for Scrutiny</div>
+      <div class="eng-card-desc">Regulatory-grade clinical data architecture engineered for inspection readiness — with embedded validation controls, CDISC-compliant pipelines, and end-to-end traceability from the ground up.</div>
+    </div>
+
+    <div class="eng-card e4">
+      <div class="eng-card-num">Engagement 04</div>
+      <div class="eng-card-title">Data Quality Checking</div>
+      <div class="eng-card-tag">Validation Is Governance</div>
+      <div class="eng-card-desc">V&amp;V of clinical trial data delivered through Kwalify™ — detection, classification, root-cause analysis, and audit-ready evidence documentation across the clinical trial lifecycle.</div>
+    </div>
+
+    <div class="eng-card e5">
+      <div class="eng-card-num">Engagement 05</div>
+      <div class="eng-card-title">Knowledge Model</div>
+      <div class="eng-card-tag">Knowledge as Infrastructure</div>
+      <div class="eng-card-desc">Clinical definitions, mapping logic, and regulatory interpretations engineered as an active architectural layer — driving consistent interpretation, validation, and governance across systems.</div>
+    </div>
+
+    <div class="eng-card e6">
+      <div class="eng-card-num">Engagement 06</div>
+      <div class="eng-card-title">Training &amp; Handover</div>
+      <div class="eng-card-tag">Ownership Is the Deliverable</div>
+      <div class="eng-card-desc">Structured enablement through Care2Data's Build-Operate-Transfer (BOT) model — equipping teams to independently operate, defend, and scale clinical data intelligence systems.</div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="p1-footer">
+    <span class="p1-footer-text">CARE2DATA &nbsp;|&nbsp; Engagement Models &nbsp;|&nbsp; Confidential</span>
+    <span class="p1-footer-url">www.care2data.com &nbsp; · &nbsp; admin@care2data.com</span>
+  </div>
+
+</div><!-- /page 1 -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 — Methodology, Capabilities & Outcomes
+══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- Top bar -->
+  <div class="p2-topbar">
+    <span class="p2-topbar-brand">Care2Data &nbsp;·&nbsp; Engagement Models</span>
+    <span class="p2-topbar-title">Clinical Data Intelligence Services — Methodology &amp; Outcomes</span>
+  </div>
+
+  <div class="p2-body">
+
+    <!-- Engagement journey pipeline -->
+    <p class="p2-section-title">Engagement Journey</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">Consulting<span>Strategy &amp; Clarity</span></div>
+      <div class="pipeline-step">PoC<span>Validate Assumptions</span></div>
+      <div class="pipeline-step">Design &amp; Build<span>Reg-Grade Systems</span></div>
+      <div class="pipeline-step">Data Quality<span>V&amp;V &amp; Governance</span></div>
+      <div class="pipeline-step">Knowledge Model<span>Embedded Intelligence</span></div>
+      <div class="pipeline-step">Training &amp; BOT<span>Full Ownership</span></div>
+    </div>
+
+    <!-- Engagement capability table -->
+    <p class="p2-section-title" style="margin-top:4mm;">Capability Overview</p>
+
+    <table class="cap-table">
+      <thead>
+        <tr>
+          <th>Engagement</th>
+          <th>What It Delivers</th>
+          <th>Key Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#38bdf8"></span>Solution Consulting</td>
+          <td>Data flow mapping · Regulatory alignment · Submission-readiness criteria · Semantic modelling</td>
+          <td>Structural clarity before build</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#f5c36e"></span>Proof of Concepts</td>
+          <td>Real dataset testing · Assumption stress-testing · Traceability &amp; lineage evaluation · Semantic gap analysis</td>
+          <td>Risk identified before go-live</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#34d399"></span>Design &amp; Development</td>
+          <td>Reg-grade architecture · Embedded V&amp;V controls · CDISC-compliant pipelines · Audit-ready traceability</td>
+          <td>Systems built for inspection</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#c084fc"></span>Data Quality Checking</td>
+          <td>Kwalify™-powered V&amp;V · Root-cause analysis · Issue lifecycle management · Submission readiness validation</td>
+          <td>Governed, defensible data quality</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#fb923c"></span>Knowledge Model</td>
+          <td>Ontology &amp; taxonomy design · Mapping logic embedding · Validation rule integration · Metadata provenance</td>
+          <td>Knowledge as active intelligence</td>
+        </tr>
+        <tr>
+          <td class="cap-name"><span class="cap-dot" style="background:#f472b6"></span>Training &amp; Handover</td>
+          <td>Clinical data flow training · Kwalify™ enablement · Governance &amp; lifecycle management · BOT model transfer</td>
+          <td>Full team independence</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Two-column outcomes -->
+    <div class="outcomes-grid">
+      <div class="outcomes-col">
+        <h4>Designed For</h4>
+        <ul class="outcomes-list">
+          <li>Pharmaceutical &amp; Biotech Sponsors — end-to-end clinical data governance</li>
+          <li>CRO Leadership — scalable delivery across multiple sponsors and studies</li>
+          <li>Clinical Data Managers — structured V&amp;V with traceable outcomes</li>
+          <li>Regulatory &amp; QA Teams — defensible, audit-ready data at every stage</li>
+          <li>IT &amp; Data Architecture Teams — reg-grade system design and integration</li>
+        </ul>
+      </div>
+      <div class="outcomes-col">
+        <h4>Enterprise Value</h4>
+        <ul class="outcomes-list">
+          <li>Structural clarity established before system build — reducing rework cycles</li>
+          <li>Risk identified through PoCs before it becomes regulatory exposure</li>
+          <li>Knowledge embedded as infrastructure — not locked in documents or individuals</li>
+          <li>Submission-ready data quality with full traceability and audit evidence</li>
+          <li>Teams enabled to independently operate and scale clinical intelligence systems</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Closing note -->
+    <div class="closing-note">
+      Care2Data's engagement framework transforms clinical data operations from <strong>reactive quality
+      management into proactive, knowledge-driven governance</strong> — ensuring that structural integrity,
+      regulatory defensibility, and operational scalability are embedded from the earliest stage of
+      every clinical program through to <strong>full team ownership and independent capability</strong>.
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <div class="cta-box-text">
+        <h4>Ready to Engage?</h4>
+        <p>Speak to our team to identify which engagement model fits your current clinical data challenge.</p>
+      </div>
+      <div class="cta-box-contact">
+        <p>www.care2data.com</p>
+        <p>admin@care2data.com</p>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /page 2 -->
+
+</body>
+</html>
