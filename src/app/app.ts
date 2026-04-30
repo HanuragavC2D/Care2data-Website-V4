@@ -36,6 +36,14 @@ export class App implements OnInit {
           document.documentElement.scrollTop = 0;
           document.body.scrollTop = 0;
         }
+
+        // Fire GA4 page_view on every SPA navigation
+        if (this.analyticsEnabled && (window as any).gtag) {
+          (window as any).gtag('event', 'page_view', {
+            page_path: e.urlAfterRedirects,
+            page_title: document.title
+          });
+        }
       });
   }
 
@@ -55,82 +63,84 @@ export class App implements OnInit {
       }
     }, { capture: true });
 
-    const consent = localStorage.getItem('cookieConsent');
-
-    if (!consent) {
+    // Restore saved consent and update GTM consent state
+    const stored = localStorage.getItem('cookieConsent');
+    if (!stored) {
       this.showBanner = true;
       return;
     }
 
     try {
-      const data = JSON.parse(consent);
-      this.analyticsEnabled = data.analytics;
+      const data = JSON.parse(stored);
+      this.analyticsEnabled   = data.analytics   ?? false;
+      this.targetingEnabled   = data.targeting   ?? false;
+      this.performanceEnabled = data.performance ?? false;
+      this.functionalEnabled  = data.functional  ?? false;
+      this.updateConsent();
     } catch {
       localStorage.removeItem('cookieConsent');
       this.showBanner = true;
     }
-
   }
 
-  acceptAll() {
+  // ── Push consent update to GTM dataLayer ──────────────────────
+  private updateConsent(): void {
+    const gtag = (window as any).gtag;
+    if (!gtag) return;
 
-    const consent = {
-      analytics: true
-    };
+    gtag('consent', 'update', {
+      analytics_storage:       this.analyticsEnabled   ? 'granted' : 'denied',
+      ad_storage:              this.targetingEnabled   ? 'granted' : 'denied',
+      ad_user_data:            this.targetingEnabled   ? 'granted' : 'denied',
+      ad_personalization:      this.targetingEnabled   ? 'granted' : 'denied',
+      functionality_storage:   this.functionalEnabled  ? 'granted' : 'denied',
+      personalization_storage: this.functionalEnabled  ? 'granted' : 'denied',
+      security_storage:        'granted'
+    });
 
-    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    // Also push to dataLayer for GTM custom triggers
+    (window as any).dataLayer?.push({
+      event: 'consent_update',
+      analytics_storage:       this.analyticsEnabled   ? 'granted' : 'denied',
+      ad_storage:              this.targetingEnabled   ? 'granted' : 'denied',
+      functionality_storage:   this.functionalEnabled  ? 'granted' : 'denied',
+    });
+  }
 
-    this.analyticsEnabled = true;
+  // ── Save helpers ────────────────────────────────────────────────
+  private saveConsent(): void {
+    localStorage.setItem('cookieConsent', JSON.stringify({
+      analytics:   this.analyticsEnabled,
+      targeting:   this.targetingEnabled,
+      performance: this.performanceEnabled,
+      functional:  this.functionalEnabled
+    }));
+    this.updateConsent();
+  }
+
+  // ── Public actions ──────────────────────────────────────────────
+  acceptAll(): void {
+    this.analyticsEnabled = this.targetingEnabled =
+    this.performanceEnabled = this.functionalEnabled = true;
     this.showBanner = false;
-
-    this.loadAnalytics();
+    this.saveConsent();
   }
 
-  rejectAll() {
-
-    const consent = {
-      analytics: false
-    };
-
-    localStorage.setItem('cookieConsent', JSON.stringify(consent));
-
-    this.analyticsEnabled = false;
+  rejectAll(): void {
+    this.analyticsEnabled = this.targetingEnabled =
+    this.performanceEnabled = this.functionalEnabled = false;
     this.showBanner = false;
+    this.saveConsent();
   }
 
-  openSettings() {
+  openSettings(): void {
     this.showSettings = true;
   }
 
-  savePreferences() {
-    const consent = {
-      analytics: this.analyticsEnabled,
-      targeting: this.targetingEnabled,
-      performance: this.performanceEnabled,
-      functional: this.functionalEnabled
-    };
-    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+  savePreferences(): void {
+    this.analyticsEnabled = this.performanceEnabled; // performance toggle drives analytics
     this.showSettings = false;
-    this.showBanner = false;
-
-    if (this.analyticsEnabled) this.loadAnalytics();
-  }
-
-  loadAnalytics() {
-
-    const script = document.createElement('script');
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-7T4BBVXE8K";
-    script.async = true;
-    document.head.appendChild(script);
-
-    (window as any).dataLayer = (window as any).dataLayer || [];
-
-    function gtag(...args: any[]) {
-      (window as any).dataLayer.push(args);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'G-7T4BBVXE8K');
-
+    this.showBanner  = false;
+    this.saveConsent();
   }
 }

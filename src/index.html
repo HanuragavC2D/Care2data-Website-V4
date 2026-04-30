@@ -25,11 +25,11 @@
 
   <!-- Open Graph (LinkedIn / WhatsApp / Facebook) -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gokulgovindharaj.github.io/Care2Data-Website-V4/">
+  <meta property="og:url" content="https://care2data.com/">
   <meta property="og:title" content="Care2Data | Home">
   <meta property="og:description"
     content="Care2Data delivers intelligent clinical data validation software through KWALIFY™, enabling regulatory-compliant, audit-ready and submission-ready clinical trial datasets.">
-  <meta property="og:image" content="https://gokulgovindharaj.github.io/Care2Data-Website-V4/assets/Care2data.jpg">
+  <meta property="og:image" content="https://care2data.com/assets/Care2data.jpg">
   <meta property="og:site_name" content="KWALIFY™ by Care2Data">
 
   <!-- Twitter Card -->
@@ -37,7 +37,7 @@
   <meta name="twitter:title" content="Care2Data | Home">
   <meta name="twitter:description"
     content="Care2Data delivers intelligent clinical data validation software through KWALIFY™, enabling regulatory-compliant, audit-ready and submission-ready clinical trial datasets.">
-  <meta name="twitter:image" content="https://gokulgovindharaj.github.io/Care2Data-Website-V4/assets/Care2data.jpg">
+  <meta name="twitter:image" content="https://care2data.com/assets/Care2data.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -59,19 +59,37 @@
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7T4BBVXE8K"></script>
+
+  <!-- Consent Mode v2 defaults — MUST execute before GTM loads -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-7T4BBVXE8K');
+    gtag('consent', 'default', {
+      analytics_storage:       'denied',
+      ad_storage:              'denied',
+      ad_user_data:            'denied',
+      ad_personalization:      'denied',
+      functionality_storage:   'denied',
+      personalization_storage: 'denied',
+      security_storage:        'granted',
+      wait_for_update:         500
+    });
   </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T7RX44NV');</script>
 
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript fallback) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7RX44NV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <app-root></app-root>
 </body>
 

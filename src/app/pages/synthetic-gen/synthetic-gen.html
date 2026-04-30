@@ -1,9 +1,10 @@
 <section class="sg-hero" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);">
     <!-- ═══ HERO ═══ -->
-    <div class="sg-hero__inner">
+    <div class="sg-hero__split">
 
-        <!-- LEFT CONTENT -->
-        <div>
+        <!-- LEFT: Copy -->
+        <div class="sg-hero__left">
+
             <div class="sg-hero-badge">Synthetic Clinical Data Generation</div>
 
             <h1 style="font-size: clamp(2rem, 3.5vw, 3.25rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 1.25rem;">
@@ -26,16 +27,20 @@
                 <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore our Services'}" target="_blank" class="btn btn-primary">Explore TrialGen™ →</button>
                 <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-outline">Request a Demo →</button>
             </div>
+
         </div>
 
-        <!-- RIGHT — ANIMATED PRESENTATION -->
-        <div class="sg-video-frame" style="align-self: start; margin-top: 3.25rem;">
-            <div class="sg-video-ratio">
-                <iframe src="assets/trialgen-video.html"
-                        frameborder="0"
-                        scrolling="no"
-                        allow="autoplay">
-                </iframe>
+        <!-- RIGHT: Animated Product Walkthrough -->
+        <div class="sg-hero__right">
+            <div class="sg-video-frame">
+                <div class="sg-video-ratio">
+                    <iframe src="assets/trialgen-video.html"
+                            frameborder="0"
+                            scrolling="no"
+                            allow="autoplay"
+                            title="TrialGen™ Platform Walkthrough">
+                    </iframe>
+                </div>
             </div>
             <p class="sg-video-caption">TrialGen™ Platform · Challenge → Solution → Outcomes</p>
         </div>

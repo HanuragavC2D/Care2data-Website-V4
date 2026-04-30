@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option A – Live Validation Dashboard</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: linear-gradient(180deg, #090f21 0%, #0e1f44 55%, #08112a 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    gap: 1rem;
+  }
+  .page-label {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── Card ── */
+  .card {
+    width: 540px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 28px 70px rgba(0,0,0,0.55);
+  }
+
+  /* Chrome */
+  .chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.7rem 1.2rem;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .cd { width: 10px; height: 10px; border-radius: 50%; }
+  .cd-r{background:#ff5f57;} .cd-y{background:#febc2e;} .cd-g{background:#28c840;}
+  .chrome-url { margin-left:0.6rem; font-size:0.68rem; color:rgba(255,255,255,0.28); }
+  .live-badge {
+    margin-left:auto; display:flex; align-items:center; gap:0.3rem;
+    font-size:0.65rem; font-weight:700; color:#22c55e; letter-spacing:0.05em;
+  }
+  .live-dot {
+    width:6px; height:6px; border-radius:50%; background:#22c55e;
+    animation: blink 1.4s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+  /* Topbar */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.4rem 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .topbar-title { font-size:0.78rem; font-weight:700; color:rgba(255,255,255,0.55); letter-spacing:0.05em; }
+  .topbar-brand { font-size:0.9rem; font-weight:800; color:#f5c36e; letter-spacing:0.04em; }
+
+  /* Stat tiles */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .stat-tile {
+    padding: 0.9rem 1rem;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+  }
+  .stat-tile:last-child { border-right: none; }
+  .stat-num {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-lbl { font-size: 0.65rem; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; text-transform: uppercase; }
+  .tile-default .stat-num { color: rgba(255,255,255,0.85); }
+  .tile-gold    .stat-num { color: #f5c36e; }
+  .tile-blue    .stat-num { color: #60aadf; }
+  .tile-green   .stat-num { color: #4ade80; }
+
+  /* Table header */
+  .tbl-head {
+    display: grid;
+    grid-template-columns: 1.2fr 1.6fr 1.4fr 1fr;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Domain rows */
+  .domain-rows { padding: 0.25rem 0; }
+  .drow {
+    display: grid;
+    grid-template-columns: 1.2fr 1.6fr 1.4fr 1fr;
+    align-items: center;
+    padding: 0.55rem 1.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    opacity: 0;
+    animation: rowIn 0.4s ease forwards;
+  }
+  .drow:last-child { border-bottom: none; }
+  .drow:nth-child(1){animation-delay:0.3s}
+  .drow:nth-child(2){animation-delay:0.6s}
+  .drow:nth-child(3){animation-delay:0.9s}
+  .drow:nth-child(4){animation-delay:1.2s}
+  .drow:nth-child(5){animation-delay:1.5s}
+  @keyframes rowIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+
+  .drow-domain {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .domain-av {
+    width: 28px; height: 28px; border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.68rem; font-weight: 800; color: white;
+    flex-shrink: 0;
+  }
+  .domain-name { font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.85); }
+  .domain-sub  { font-size: 0.62rem; color: rgba(255,255,255,0.35); }
+
+  /* Status chip */
+  .status-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+  }
+  .chip-pass { background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.35); color:#4ade80; }
+  .chip-warn { background:rgba(239,68,68,0.12);  border:1px solid rgba(239,68,68,0.35);  color:#f87171; }
+  .chip-run  { background:rgba(96,170,223,0.12); border:1px solid rgba(96,170,223,0.35); color:#60aadf; }
+
+  /* Progress bar */
+  .prog-wrap { display:flex; align-items:center; gap:0.5rem; }
+  .prog-bg {
+    flex:1; height:5px; border-radius:999px;
+    background:rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+  .prog-fill {
+    height:100%; border-radius:999px;
+    width: 0%;
+    animation: fillProg 1s ease forwards;
+  }
+  .prog-lbl { font-size:0.68rem; color:rgba(255,255,255,0.5); white-space:nowrap; }
+  .fill-green { background: linear-gradient(90deg,#22c55e,#4ade80); animation-delay:0.8s; }
+  .fill-blue  { background: linear-gradient(90deg,#3b82f6,#60aadf); animation-delay:1.1s; }
+  .fill-amber { background: linear-gradient(90deg,#f59e0b,#fbbf24); animation-delay:1.4s; }
+  .fill-red   { background: linear-gradient(90deg,#ef4444,#f87171); animation-delay:1.7s; }
+  @keyframes fillProg { to { width: var(--w); } }
+
+  /* Compliance badge */
+  .comp-badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+  }
+  .badge-good { background:rgba(34,197,94,0.15);  color:#4ade80; }
+  .badge-fair { background:rgba(245,158,11,0.15); color:#fbbf24; }
+  .badge-poor { background:rgba(239,68,68,0.15);  color:#f87171; }
+
+  /* Bottom bar - submission ready */
+  .sub-ready {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.4rem;
+    background: rgba(34,197,94,0.06);
+    border-top: 1px solid rgba(34,197,94,0.2);
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+    animation-delay: 2.4s;
+  }
+  @keyframes fadeIn { to { opacity:1; } }
+  .sub-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #4ade80;
+  }
+  .sub-icon {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(34,197,94,0.25);
+    border: 1.5px solid rgba(34,197,94,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+  }
+  .sub-meta { font-size:0.65rem; color:rgba(255,255,255,0.35); }
+</style>
+</head>
+<body>
+
+<span class="page-label">Option A — Live Validation Dashboard Card</span>
+
+<div class="card">
+
+  <!-- Chrome -->
+  <div class="chrome">
+    <div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div>
+    <span class="chrome-url">kwalify.care2data.com / dashboard / study BD-P1</span>
+    <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+  </div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <span class="topbar-title">SDTM Validation Dashboard</span>
+    <span class="topbar-brand">Kwalify™</span>
+  </div>
+
+  <!-- Stat tiles -->
+  <div class="stat-row">
+    <div class="stat-tile tile-gold">
+      <span class="stat-num" id="score">0</span>
+      <span class="stat-lbl">Compliance</span>
+    </div>
+    <div class="stat-tile tile-blue">
+      <span class="stat-num">12</span>
+      <span class="stat-lbl">Domains</span>
+    </div>
+    <div class="stat-tile tile-default">
+      <span class="stat-num">3</span>
+      <span class="stat-lbl">Issues</span>
+    </div>
+    <div class="stat-tile tile-green">
+      <span class="stat-num">9</span>
+      <span class="stat-lbl">Studies</span>
+    </div>
+  </div>
+
+  <!-- Table header -->
+  <div class="tbl-head">
+    <span>Domain</span><span>Status</span><span>Progress</span><span>Compliance</span>
+  </div>
+
+  <!-- Domain rows -->
+  <div class="domain-rows">
+
+    <div class="drow">
+      <div class="drow-domain">
+        <div class="domain-av" style="background:rgba(34,197,94,0.25);color:#4ade80;">DM</div>
+        <div><div class="domain-name">DM</div><div class="domain-sub">Demographics</div></div>
+      </div>
+      <span class="status-chip chip-pass">✓ Validated</span>
+      <div class="prog-wrap">
+        <div class="prog-bg"><div class="prog-fill fill-green" style="--w:97%"></div></div>
+        <span class="prog-lbl">97%</span>
+      </div>
+      <span class="comp-badge badge-good">97.2%</span>
+    </div>
+
+    <div class="drow">
+      <div class="drow-domain">
+        <div class="domain-av" style="background:rgba(96,170,223,0.25);color:#60aadf;">EX</div>
+        <div><div class="domain-name">EX</div><div class="domain-sub">Exposure</div></div>
+      </div>
+      <span class="status-chip chip-pass">✓ Validated</span>
+      <div class="prog-wrap">
+        <div class="prog-bg"><div class="prog-fill fill-blue" style="--w:100%"></div></div>
+        <span class="prog-lbl">100%</span>
+      </div>
+      <span class="comp-badge badge-good">94.1%</span>
+    </div>
+
+    <div class="drow">
+      <div class="drow-domain">
+        <div class="domain-av" style="background:rgba(245,158,11,0.25);color:#fbbf24;">LB</div>
+        <div><div class="domain-name">LB</div><div class="domain-sub">Laboratory</div></div>
+      </div>
+      <span class="status-chip chip-warn">✕ 8 violations</span>
+      <div class="prog-wrap">
+        <div class="prog-bg"><div class="prog-fill fill-amber" style="--w:74%"></div></div>
+        <span class="prog-lbl">74%</span>
+      </div>
+      <span class="comp-badge badge-fair">78.6%</span>
+    </div>
+
+    <div class="drow">
+      <div class="drow-domain">
+        <div class="domain-av" style="background:rgba(239,68,68,0.25);color:#f87171;">AE</div>
+        <div><div class="domain-name">AE</div><div class="domain-sub">Adverse Events</div></div>
+      </div>
+      <span class="status-chip chip-warn">✕ 15 violations</span>
+      <div class="prog-wrap">
+        <div class="prog-bg"><div class="prog-fill fill-red" style="--w:48%"></div></div>
+        <span class="prog-lbl">48%</span>
+      </div>
+      <span class="comp-badge badge-poor">68.9%</span>
+    </div>
+
+    <div class="drow">
+      <div class="drow-domain">
+        <div class="domain-av" style="background:rgba(34,197,94,0.25);color:#4ade80;">VS</div>
+        <div><div class="domain-name">VS</div><div class="domain-sub">Vital Signs</div></div>
+      </div>
+      <span class="status-chip chip-pass">✓ Validated</span>
+      <div class="prog-wrap">
+        <div class="prog-bg"><div class="prog-fill fill-green" style="--w:100%"></div></div>
+        <span class="prog-lbl">100%</span>
+      </div>
+      <span class="comp-badge badge-good">98.3%</span>
+    </div>
+
+  </div>
+
+  <!-- Submission ready footer -->
+  <div class="sub-ready">
+    <div class="sub-text">
+      <div class="sub-icon">✓</div>
+      Submission Ready — 3 / 5 domains fully validated
+    </div>
+    <span class="sub-meta">Last run: 2 min ago</span>
+  </div>
+
+</div>
+
+<span class="page-label">Real product dashboard feel · progress bars animate · compliance score counts up</span>
+
+<script>
+  // Animate compliance score counter
+  const el = document.getElementById('score');
+  const target = 94.7;
+  const duration = 2000;
+  const start = performance.now();
+  function tick(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = (target * ease).toFixed(1) + '%';
+    if (t < 1) requestAnimationFrame(tick);
+  }
+  setTimeout(() => requestAnimationFrame(tick), 600);
+</script>
+</body>
+</html>

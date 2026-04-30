@@ -108,7 +108,7 @@
             </div>
 
             <!-- Right: 3 stacked key items (solution-card style) -->
-            <div class="kw-reality-cards" style="align-self: end;">
+            <div class="kw-reality-cards">
                 <div class="kw-reality-card kw-reality-card--1">
                     <h3>Purpose-Built Validation</h3>
                     <p>Capabilities engineered specifically for complex clinical validation workflows — not repurposed from general analytics tools.</p>
@@ -734,7 +734,7 @@
             <p>Submission-ready, defensible clinical data — without late-stage rework, without validation bottlenecks, without replacing existing systems.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+        <div class="kw-outcome-grid">
 
             <div class="kw-outcome-card kw-outcome-card--1">
                 <div class="kw-icon">
@@ -822,7 +822,7 @@
             These gaps are consistently reflected in user feedback:
         </p>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="kw-stat-grid">
             <div class="kw-stat-card">
                 <span class="kw-stat-num">41%</span>
                 <p>Vague error messages</p>
@@ -966,7 +966,7 @@
             <h2>Designed for Teams <span>Responsible for Submission Integrity</span></h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+        <div class="kw-role-grid">
 
             <div class="kw-role-card kw-role-card--1">
                 <div class="kw-role-card__header">
@@ -1264,6 +1264,73 @@
                     replacement or disruption.<br><br>
                     This ensures teams can adopt intelligence-driven validation while maintaining operational continuity.
                 </p>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel #faqpanel9 hideToggle class="kw-faq-panel kw-faq-panel--9">
+                <mat-expansion-panel-header class="!px-6 !py-4">
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">What measurable impact does Kwalify™ deliver?</mat-panel-title>
+                    <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
+                        {{ faqpanel9.expanded ? 'arrow_upward' : 'arrow_downward' }}
+                    </mat-icon>
+                </mat-expansion-panel-header>
+                <div class="py-4 border-t border-[#24293a]">
+                    <p class="text-sm font-semibold text-white mb-3">Kwalify™ delivers measurable improvements across the clinical validation lifecycle:</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+                        <div style="background: rgba(56,189,248,0.07); border: 1px solid rgba(56,189,248,0.25); border-radius: 0.75rem; padding: 0.875rem 1rem;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #38bdf8; line-height: 1;">93%</div>
+                            <div style="font-size: 0.7rem; color: rgba(248,250,252,0.6); margin-top: 0.25rem;">of datasets had missing reference ranges in LB domain — surfaced and resolved automatically</div>
+                        </div>
+                        <div style="background: rgba(245,195,110,0.07); border: 1px solid rgba(245,195,110,0.25); border-radius: 0.75rem; padding: 0.875rem 1rem;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #f5c36e; line-height: 1;">79%</div>
+                            <div style="font-size: 0.7rem; color: rgba(248,250,252,0.6); margin-top: 0.25rem;">of cross-domain datasets contained unit mismatches — identified through semantic reasoning</div>
+                        </div>
+                        <div style="background: rgba(52,211,153,0.07); border: 1px solid rgba(52,211,153,0.25); border-radius: 0.75rem; padding: 0.875rem 1rem;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #34d399; line-height: 1;">67%</div>
+                            <div style="font-size: 0.7rem; color: rgba(248,250,252,0.6); margin-top: 0.25rem;">of AE domain datasets had duplicate events — detected before submission</div>
+                        </div>
+                        <div style="background: rgba(192,132,252,0.07); border: 1px solid rgba(192,132,252,0.25); border-radius: 0.75rem; padding: 0.875rem 1rem;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #c084fc; line-height: 1;">63%</div>
+                            <div style="font-size: 0.7rem; color: rgba(248,250,252,0.6); margin-top: 0.25rem;">of DM domain records had missing RFSTDTC — traced and remediated via cross-domain AI</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 leading-relaxed">Additionally, individual validation errors that typically require <strong style="color: white;">30 minutes to 2 hours</strong> of manual debugging are resolved with AI-assisted root cause analysis — reducing investigation time and accelerating submission readiness.</p>
+                </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel #faqpanel10 hideToggle class="kw-faq-panel kw-faq-panel--10">
+                <mat-expansion-panel-header class="!px-6 !py-4">
+                    <mat-panel-title class="text-sm font-normal" style="color: white; font-weight: 500; font-size: 0.95rem;">What are the most common challenges in clinical data validation today?</mat-panel-title>
+                    <mat-icon class="ml-auto border border-[#3a3f4a] rounded-full p-1" style="color: #f5c36e;">
+                        {{ faqpanel10.expanded ? 'arrow_upward' : 'arrow_downward' }}
+                    </mat-icon>
+                </mat-expansion-panel-header>
+                <div class="py-4 border-t border-[#24293a]">
+                    <p class="text-sm font-semibold text-white mb-3">Based on Care2Data's survey of clinical data professionals, the most frequently cited limitations of traditional validation tools are:</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.625rem; margin-bottom: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <span style="font-size: 1.1rem; font-weight: 800; color: #f5c36e; min-width: 3rem;">47%</span>
+                            <div style="flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden;">
+                                <div style="width: 47%; height: 100%; background: linear-gradient(90deg, #f5c36e, #fde68a); border-radius: 999px;"></div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: rgba(248,250,252,0.7); min-width: 14rem;">No error prioritisation</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <span style="font-size: 1.1rem; font-weight: 800; color: #38bdf8; min-width: 3rem;">41%</span>
+                            <div style="flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden;">
+                                <div style="width: 41%; height: 100%; background: linear-gradient(90deg, #38bdf8, #7dd3fc); border-radius: 999px;"></div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: rgba(248,250,252,0.7); min-width: 14rem;">Vague error messages</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <span style="font-size: 1.1rem; font-weight: 800; color: #34d399; min-width: 3rem;">35%</span>
+                            <div style="flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden;">
+                                <div style="width: 35%; height: 100%; background: linear-gradient(90deg, #34d399, #6ee7b7); border-radius: 999px;"></div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: rgba(248,250,252,0.7); min-width: 14rem;">Difficulty identifying affected records</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 leading-relaxed">These gaps reflect a systemic reliance on static rule execution — tools that detect symptoms without diagnosing causes. Kwalify™ addresses each of these directly through explainable AI outputs, intelligent error prioritisation, and cross-domain impact tracing.</p>
+                </div>
             </mat-expansion-panel>
 
         </mat-accordion>

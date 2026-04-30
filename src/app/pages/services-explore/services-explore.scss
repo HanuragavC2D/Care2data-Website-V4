@@ -9,7 +9,7 @@
   position: fixed;
   top: 84px;
   left: 0;
-  right: 0;
+  right: var(--scrollbar-w, 0px);
   z-index: 50;
   background: rgba(6, 12, 30, 0.96);
   backdrop-filter: blur(12px);
