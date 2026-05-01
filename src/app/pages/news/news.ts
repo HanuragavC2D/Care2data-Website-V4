@@ -141,6 +141,49 @@ export class News {
 
     this.metaService.updateTag({ name: 'twitter:title', content: 'News & Insights | Care2Data' });
     this.metaService.updateTag({ name: 'twitter:description', content: 'Latest news and research insights from Care2Data on clinical data intelligence, CDISC validation, and life sciences innovation.' });
+
+    this.injectSchema('news-page-schema', {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://care2data.com' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'News & Insights', 'item': 'https://care2data.com/news' }
+          ]
+        },
+        {
+          '@type': 'CollectionPage',
+          '@id': 'https://care2data.com/news',
+          'url': 'https://care2data.com/news',
+          'name': 'News & Insights | Care2Data',
+          'description': 'Latest news, research insights, and perspectives from Care2Data on clinical data intelligence and life sciences.',
+          'isPartOf': { '@id': 'https://care2data.com/#website' },
+          'publisher': { '@id': 'https://care2data.com/#org' }
+        },
+        ...this.articles.map(a => ({
+          '@type': 'Article',
+          'headline': a.title,
+          'description': a.description,
+          'datePublished': a.date,
+          'url': a.link,
+          'image': a.image,
+          'author': { '@id': 'https://care2data.com/#org' },
+          'publisher': { '@id': 'https://care2data.com/#org' },
+          'articleSection': a.category
+        }))
+      ]
+    });
+  }
+
+  private injectSchema(id: string, schema: object): void {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+    const s = document.createElement('script');
+    s.id = id;
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify(schema);
+    document.head.appendChild(s);
   }
 
   pageSize = 5;

@@ -113,6 +113,46 @@ export class KnowledgeServices implements OnInit, OnDestroy {
     this.metaService.updateTag({ name: 'twitter:title', content: 'Knowledge Services | Care2Data' });
     this.metaService.updateTag({ name: 'twitter:description', content: 'Care2Data knowledge services: ontology modelling, semantic repositories, knowledge discovery, reasoning, and governance for clinical data intelligence.' });
 
+    this.injectSchema('ks-page-schema', {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://care2data.com' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Knowledge Services', 'item': 'https://care2data.com/knowledge-services' }
+          ]
+        },
+        {
+          '@type': 'WebPage',
+          '@id': 'https://care2data.com/knowledge-services',
+          'url': 'https://care2data.com/knowledge-services',
+          'name': 'Knowledge Services | Care2Data',
+          'description': 'Ontology modelling, semantic repositories, knowledge discovery, reasoning, and governance for clinical data intelligence.',
+          'isPartOf': { '@id': 'https://care2data.com/#website' },
+          'about': { '@id': 'https://care2data.com/#org' }
+        },
+        {
+          '@type': 'Service',
+          'provider': { '@id': 'https://care2data.com/#org' },
+          'name': 'Clinical Knowledge Services',
+          'serviceType': 'Clinical Data Intelligence Consulting',
+          'description': 'Care2Data provides knowledge modelling, semantic repository creation, knowledge discovery, governance lifecycle management, and BOT-model training for life sciences organizations.',
+          'hasOfferCatalog': {
+            '@type': 'OfferCatalog',
+            'name': 'Knowledge Service Offerings',
+            'itemListElement': [
+              { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Knowledge Modelling' } },
+              { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Knowledge Repository Creation & Setup' } },
+              { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Knowledge Discovery & Reasoning' } },
+              { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Governance & Lifecycle Management' } },
+              { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Training & Capability Transfer (BOT Model)' } }
+            ]
+          }
+        }
+      ]
+    });
+
     this.checkDevice();
     fromEvent(window, 'resize')
       .pipe(debounceTime(200))
@@ -200,6 +240,16 @@ export class KnowledgeServices implements OnInit, OnDestroy {
     bc.close();
     // Open or focus the named tab
     window.open(url, 'care2data-services');
+  }
+
+  private injectSchema(id: string, schema: object): void {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+    const s = document.createElement('script');
+    s.id = id;
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify(schema);
+    document.head.appendChild(s);
   }
 
   trackByIndex(i: number) { return i; }

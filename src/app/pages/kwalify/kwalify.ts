@@ -152,6 +152,42 @@ export class Kwalify implements OnInit, OnDestroy {
     });
     document.head.appendChild(faqSchema);
 
+    // HowTo schema — "How Kwalify™ Operates" 5-step workflow
+    this.injectSchema('kw-howto-schema', {
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      'name': 'How Kwalify™ Validates Clinical Trial Data',
+      'description': 'A 5-step process for ontology-driven clinical data validation using Kwalify™ by Care2Data.',
+      'tool': { '@type': 'HowToTool', 'name': 'KWALIFY™ by Care2Data' },
+      'step': [
+        {
+          '@type': 'HowToStep', 'position': 1,
+          'name': 'Submission Dataset Ingestion',
+          'text': 'Clinical datasets from EDC systems are uploaded into Kwalify™ in standard formats (SAS, CSV) representing submission-ready data structures.'
+        },
+        {
+          '@type': 'HowToStep', 'position': 2,
+          'name': 'Regulatory Rule Validation',
+          'text': 'Datasets are validated against FDA and CDISC rule libraries, ensuring conformance with regulatory data submission expectations.'
+        },
+        {
+          '@type': 'HowToStep', 'position': 3,
+          'name': 'Cross-Domain Contextual Validation',
+          'text': 'Kwalify™ evaluates relationships across domains, variables, and study logic — moving beyond isolated rule checks to context-aware validation.'
+        },
+        {
+          '@type': 'HowToStep', 'position': 4,
+          'name': 'AI-Assisted Root Cause Analysis',
+          'text': 'Explainable AI pinpoints the root cause of each validation finding, reducing manual debugging time from hours to minutes.'
+        },
+        {
+          '@type': 'HowToStep', 'position': 5,
+          'name': 'Verification Through Anomaly Detection',
+          'text': 'Knowledge graph reasoning detects hidden inconsistencies and anomalies across datasets, confirming data integrity beyond rule compliance.'
+        }
+      ]
+    });
+
     this.checkDevice();
     this.resizeSubscription = fromEvent(window, 'resize')
       .pipe(debounceTime(200))
@@ -355,6 +391,16 @@ export class Kwalify implements OnInit, OnDestroy {
   resetTimer() {
     clearInterval(this.timer);
     this.startAutoSlide();
+  }
+
+  private injectSchema(id: string, schema: object): void {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+    const s = document.createElement('script');
+    s.id = id;
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify(schema);
+    document.head.appendChild(s);
   }
 
   trackByIndex(i: number) { return i; }

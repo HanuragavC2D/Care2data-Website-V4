@@ -151,6 +151,58 @@ export class About implements OnInit, AfterViewInit, OnDestroy {
 
     this.metaService.updateTag({ name: 'twitter:title', content: 'About Us | Care2Data' });
     this.metaService.updateTag({ name: 'twitter:description', content: 'Care2Data builds knowledge-driven clinical data intelligence systems using ontology frameworks, knowledge graphs, and semantic reasoning for life sciences.' });
+
+    this.injectSchema('about-page-schema', {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://care2data.com' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'About Us', 'item': 'https://care2data.com/about-us' }
+          ]
+        },
+        {
+          '@type': 'AboutPage',
+          '@id': 'https://care2data.com/about-us',
+          'url': 'https://care2data.com/about-us',
+          'name': 'About Care2Data — Life Sciences Clinical Data Intelligence Company',
+          'description': 'Care2Data builds knowledge-driven clinical data intelligence using ontology frameworks, knowledge graphs, and semantic reasoning.',
+          'isPartOf': { '@id': 'https://care2data.com/#website' },
+          'about': { '@id': 'https://care2data.com/#org' }
+        },
+        {
+          '@type': 'Person',
+          '@id': 'https://care2data.com/about-us#giri',
+          'name': 'Giri Balasubramanian',
+          'jobTitle': 'CEO & Co-Founder',
+          'worksFor': { '@id': 'https://care2data.com/#org' },
+          'url': 'https://www.linkedin.com/in/giri-balasubramanian-21a31013/',
+          'sameAs': ['https://www.linkedin.com/in/giri-balasubramanian-21a31013/'],
+          'knowsAbout': ['Ontology-Driven Validation', 'Clinical Data Standards', 'SDTM', 'ADaM', 'AI Knowledge Graphs', 'Regulatory Submissions', 'CDISC']
+        },
+        {
+          '@type': 'Person',
+          '@id': 'https://care2data.com/about-us#gopinath',
+          'name': 'Gopinath Viswanathan',
+          'jobTitle': 'CTO & Co-Founder',
+          'worksFor': { '@id': 'https://care2data.com/#org' },
+          'url': 'https://www.linkedin.com/in/gopinath-viswanathan-1502607a/',
+          'sameAs': ['https://www.linkedin.com/in/gopinath-viswanathan-1502607a/'],
+          'knowsAbout': ['Ontology-Driven Knowledge Modelling', 'Semantic Intelligence', 'KWALIFY Architecture', 'Explainable AI', 'Synthetic Data Generation', 'SDTM', 'ADaM']
+        }
+      ]
+    });
+  }
+
+  private injectSchema(id: string, schema: object): void {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+    const s = document.createElement('script');
+    s.id = id;
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify(schema);
+    document.head.appendChild(s);
   }
 
   ngAfterViewInit(): void {
