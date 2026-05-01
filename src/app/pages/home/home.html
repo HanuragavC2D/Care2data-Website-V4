@@ -1,4 +1,4 @@
-<!-- ═══════════════════════════════════════════════════════════
+﻿<!-- ═══════════════════════════════════════════════════════════
    HERO SECTION
 ═══════════════════════════════════════════════════════════ -->
 <section class="home-hero">
@@ -34,14 +34,14 @@
         withstand regulatory scrutiny.
       </p>
       <div class="home-hero__actions">
-        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-primary">Request a Demo →</a>
-        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" target="_blank" class="btn btn-outline">Talk to an Expert →</a>
+        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary" target="_blank">Request a Demo →</a>
+        <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-outline" target="_blank">Talk to an Expert →</a>
       </div>
     </div>
 
     <!-- Right: Hero Image -->
     <div class="home-hero__image">
-      <img src="images/home.webp" alt="Care2Data Platform" fetchpriority="high" />
+      <img loading="eager" src="images/home.webp" alt="Care2Data Platform" fetchpriority="high" />
     </div>
 
     <!-- RIGHT PANEL (COMMENTED OUT — animated Data Lineage Diagram)
@@ -422,7 +422,7 @@
     <!-- Strategic Alignment -->
     <div class="engagement-card">
       <div class="card-icon">
-        <img src="images/home/white/strategicalignment.png" alt="" width="28" height="28">
+        <img loading="lazy" src="images/home/white/strategicalignment.png" alt="" width="28" height="28">
       </div>
       <h3>Strategic Alignment</h3>
       <p>Define high-impact knowledge use cases tied to regulatory defensibility.</p>
@@ -431,7 +431,7 @@
     <!-- Deployment -->
     <div class="engagement-card">
       <div class="card-icon">
-        <img src="images/home/white/deployment.png" alt="" width="28" height="28">
+        <img loading="lazy" src="images/home/white/deployment.png" alt="" width="28" height="28">
       </div>
       <h3>Deployment</h3>
       <p>Embed knowledge models and reasoning into your existing ecosystem.</p>
@@ -440,7 +440,7 @@
     <!-- Enablement -->
     <div class="engagement-card">
       <div class="card-icon">
-        <img src="images/home/white/Enablement.png" alt="" width="28" height="28">
+        <img loading="lazy" src="images/home/white/Enablement.png" alt="" width="28" height="28">
       </div>
       <h3>Enablement</h3>
       <p>Equip teams to sustain and scale intelligence independently.</p>
@@ -449,7 +449,7 @@
     <!-- Governance -->
     <div class="engagement-card">
       <div class="card-icon">
-        <img src="images/home/white/knowledgemanagement.png" alt="" width="28" height="28">
+        <img loading="lazy" src="images/home/white/knowledgemanagement.png" alt="" width="28" height="28">
       </div>
       <h3>Governance</h3>
       <p>Maintain structured oversight, traceability, and continuous alignment with evolving regulatory standards.</p>
@@ -458,7 +458,7 @@
   </div>
 
   <div class="section-cta">
-    <a routerLink="/engagement-models" target="_blank" class="btn btn-primary">Explore our Services →</a>
+    <a routerLink="/engagement-models" class="btn btn-primary" target="_blank">Explore our Services →</a>
   </div>
 </section>
 
@@ -477,7 +477,7 @@
       <p>Validation doesn't need more rules. It needs understanding.
         This is how intelligence becomes operational.</p>
       <div class="section-cta">
-        <a routerLink="/knowledge-services" target="_blank" class="btn btn-secondary">Explore our Solutions →</a>
+        <a routerLink="/knowledge-services" class="btn btn-secondary" target="_blank">Explore our Solutions →</a>
       </div>
     </div>
 
@@ -594,7 +594,7 @@
 
       <div class="kwalify-card">
         <div class="card-icon">
-          <img src="images/home/white/clinicalvalidation.png" alt="" width="28" height="28">
+          <img loading="lazy" src="images/home/white/clinicalvalidation.png" alt="" width="28" height="28">
         </div>
         <h3>Built for clinical validation</h3>
         <p>Engineered specifically for clinical data validation, regulatory compliance, and submission
@@ -603,7 +603,7 @@
 
       <div class="kwalify-card">
         <div class="card-icon">
-          <img src="images/home/white/context-aware.png" alt="" width="28" height="28">
+          <img loading="lazy" src="images/home/white/context-aware.png" alt="" width="28" height="28">
         </div>
         <h3>Context-aware &amp; reasoning-enabled</h3>
         <p>Moves beyond static rule execution by embedding semantic intelligence, cross-dataset reasoning, and
@@ -612,7 +612,7 @@
 
       <div class="kwalify-card">
         <div class="card-icon">
-          <img src="images/home/white/traceable.png" alt="" width="28" height="28">
+          <img loading="lazy" src="images/home/white/traceable.png" alt="" width="28" height="28">
         </div>
         <h3>Traceable by design</h3>
         <p>Validation logic, lineage, and investigation trails are fully transparent—supported by explainable
@@ -621,7 +621,7 @@
 
       <div class="kwalify-card">
         <div class="card-icon">
-          <img src="images/home/white/ecosystem.png" alt="" width="28" height="28">
+          <img loading="lazy" src="images/home/white/ecosystem.png" alt="" width="28" height="28">
         </div>
         <h3>Works within your ecosystem</h3>
         <p>Seamlessly integrates with existing clinical systems.
@@ -632,7 +632,7 @@
   </div>
 
   <div class="section-cta">
-    <a routerLink="/kwalify" target="_blank" class="btn btn-primary">Learn More →</a>
+    <a routerLink="/kwalify" class="btn btn-primary" target="_blank">Learn More →</a>
   </div>
 </section>
 
@@ -736,7 +736,7 @@
         Quality, Integrity, Conformance, and Plausibility <span style="color:#f5c36e;">by design.</span></p>
     </div>
     <div class="cta-actions">
-      <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-primary">Request a Demo →</a>
+      <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary" target="_blank">Request a Demo →</a>
     </div>
   </div>
 </section>

@@ -7,6 +7,7 @@ import { interval, Subscription } from 'rxjs';
 import { Carousel } from '../../shared/carousel/carousel';
 import { CarouselCard } from '../../shared/carousel/carousel.types';
 import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
+import { CanonicalService } from '../../shared/services/canonical.service';
 
 @Component({
   selector: 'app-engagement',
@@ -68,9 +69,10 @@ export class Engagement {
     { index: 1 }
   ];
 
-  constructor(private titleService: Title, private metaService: Meta) { }
+  constructor(private titleService: Title, private metaService: Meta, private canonicalService: CanonicalService) { }
 
   ngOnInit(): void {
+    this.canonicalService.setCanonical(getCanonicalUrl('engagement-models'));
     this.titleService.setTitle('Engagement Architecture | Care2Data');
 
     this.metaService.updateTag({

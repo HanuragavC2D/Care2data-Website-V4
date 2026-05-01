@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { MatChipsModule } from '@angular/material/chips';
@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NewsArticle } from '../../shared/types/content.types';
 import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
+import { CanonicalService } from '../../shared/services/canonical.service';
 
 @Component({
   selector: 'app-news',
@@ -97,9 +98,11 @@ export class News {
       "image": "https://images.unsplash.com/photo-1579154204601-01588f351e67"
     }
   ]
-  constructor(private titleService: Title, private metaService: Meta) { }
+  constructor(private titleService: Title, private metaService: Meta, private canonicalService: CanonicalService) { }
 
   ngOnInit(): void {
+
+    this.canonicalService.setCanonical(getCanonicalUrl('news'));
 
     // Change Page Title
     this.titleService.setTitle(
@@ -136,6 +139,8 @@ export class News {
       content: 'Stay updated with the latest news, research insights, and perspectives from Care2Data on clinical data intelligence and healthcare innovation.'
     });
 
+    this.metaService.updateTag({ name: 'twitter:title', content: 'News & Insights | Care2Data' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Latest news and research insights from Care2Data on clinical data intelligence, CDISC validation, and life sciences innovation.' });
   }
 
   pageSize = 5;
@@ -166,4 +171,6 @@ export class News {
   prevPage() {
     if (this.currentPage > 1) this.currentPage--;
   }
+
+  trackByIndex(i: number) { return i; }
 }

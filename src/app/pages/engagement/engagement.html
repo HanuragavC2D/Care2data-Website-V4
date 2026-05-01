@@ -1,4 +1,4 @@
-<!-- Hero Section -->
+﻿<!-- Hero Section -->
 <section class="eng-hero text-white px-6 relative overflow-hidden" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);">
     <div class="max-w-7xl mx-auto">
 
@@ -48,9 +48,9 @@
         </div>
 
         <div class="text-center">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Architect your Engagement'}" target="_blank" class="btn btn-primary">
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Architect your Engagement'}" class="btn btn-primary" target="_blank">
                 Architect Your Engagement →
-            </button>
+            </a>
         </div>
 
     </div>
@@ -79,7 +79,7 @@
             <div class="eng-how-card eng-how-card--1">
                 <div class="flex items-center gap-3 mb-3">
                     <div class="eng-how-icon">
-                        <img src="images/home/white/strategicalignment.png" alt="">
+                        <img loading="lazy" src="images/home/white/strategicalignment.png" alt="">
                     </div>
                     <h3 class="text-lg font-semibold">Strategic Alignment</h3>
                 </div>
@@ -91,7 +91,7 @@
             <div class="eng-how-card eng-how-card--2">
                 <div class="flex items-center gap-3 mb-3">
                     <div class="eng-how-icon">
-                        <img src="images/home/white/deployment.png" alt="">
+                        <img loading="lazy" src="images/home/white/deployment.png" alt="">
                     </div>
                     <h3 class="text-lg font-semibold">Deployment</h3>
                 </div>
@@ -103,7 +103,7 @@
             <div class="eng-how-card eng-how-card--3">
                 <div class="flex items-center gap-3 mb-3">
                     <div class="eng-how-icon">
-                        <img src="images/home/white/Enablement.png" alt="">
+                        <img loading="lazy" src="images/home/white/Enablement.png" alt="">
                     </div>
                     <h3 class="text-lg font-semibold">Enablement</h3>
                 </div>
@@ -266,8 +266,8 @@
         </div>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 flex-wrap" style="margin-top:2.5rem;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Architect your Engagement'}" target="_blank" class="btn btn-primary">Architect Your Engagement →</button>
-            <a href="assets/engagement-brochure.pdf" target="_blank" class="btn btn-outline">Download Brochure →</a>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Architect your Engagement'}" class="btn btn-primary" target="_blank">Architect Your Engagement →</a>
+            <a href="assets/engagement-brochure.pdf" target="_blank" class="btn btn-outline" rel="noopener noreferrer">Download Brochure →</a>
         </div>
 
     </div>

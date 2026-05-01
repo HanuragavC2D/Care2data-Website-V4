@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnDestroy } from '@angular/core';
+﻿import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -7,6 +7,7 @@ import { debounceTime, fromEvent, Subscription } from 'rxjs';
 import { CarouselPosition, CarouselPositionKey } from '../../shared/carousel/carousel.types';
 import { KnowledgeServiceCard } from '../../shared/types/content.types';
 import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
+import { CanonicalService } from '../../shared/services/canonical.service';
 
 @Component({
   selector: 'app-knowledge-services',
@@ -14,7 +15,7 @@ import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
   templateUrl: './knowledge-services.html',
   styleUrl: './knowledge-services.scss',
 })
-export class KnowledgeServices {
+export class KnowledgeServices implements OnInit, OnDestroy {
 
   cards: KnowledgeServiceCard[] = [
     {
@@ -68,9 +69,11 @@ export class KnowledgeServices {
   groupedCards: KnowledgeServiceCard[][] = [];
   currentIndex = 0;
 
-  constructor(private titleService: Title, private metaService: Meta) { }
+  constructor(private titleService: Title, private metaService: Meta, private canonicalService: CanonicalService) { }
 
   ngOnInit(): void {
+
+    this.canonicalService.setCanonical(getCanonicalUrl('knowledge-services'));
 
     // Change Page Title
     this.titleService.setTitle(
@@ -92,7 +95,7 @@ export class KnowledgeServices {
     // Change Keywords
     this.metaService.updateTag({
       name: 'keywords',
-      content: 'Knowledge services, Knowledge modelling, Semantic knowledge, Knowledge repository, Data governance, Knowledge discovery, AI reasoning, Clinical knowledge systems, Healthcare ontologies'
+      content: 'clinical knowledge services, knowledge modelling clinical data, clinical ontology design, CDISC knowledge repository, semantic clinical data, knowledge graph life sciences, clinical data governance, knowledge discovery clinical trials, AI reasoning clinical data, explainable AI validation, data lifecycle management clinical, BOT model clinical systems, clinical data traceability, regulatory knowledge framework, ontology-driven clinical intelligence, Care2Data knowledge solutions'
     });
 
     // Open Graph Title
@@ -106,6 +109,9 @@ export class KnowledgeServices {
       property: 'og:description',
       content: 'Explore Care2Data knowledge services including knowledge modelling, repository creation, discovery, reasoning, and governance for clinical data intelligence.'
     });
+
+    this.metaService.updateTag({ name: 'twitter:title', content: 'Knowledge Services | Care2Data' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Care2Data knowledge services: ontology modelling, semantic repositories, knowledge discovery, reasoning, and governance for clinical data intelligence.' });
 
     this.checkDevice();
     fromEvent(window, 'resize')
@@ -187,8 +193,7 @@ export class KnowledgeServices {
   }
 
   openService(link: string, fragment: string) {
-    const base = window.location.href.split('#')[0];
-    const url = `${base}#/${link}#${fragment}`;
+    const url = `${window.location.origin}/${link}${fragment ? '#' + fragment : ''}`;
     // Signal any already-open services-explore tab to scroll to the section
     const bc = new BroadcastChannel('se-navigate');
     bc.postMessage({ fragment });
@@ -196,4 +201,6 @@ export class KnowledgeServices {
     // Open or focus the named tab
     window.open(url, 'care2data-services');
   }
+
+  trackByIndex(i: number) { return i; }
 }

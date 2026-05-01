@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ContactFormService } from '../../shared/services/contact-form.service';
 import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
+import { CanonicalService } from '../../shared/services/canonical.service';
 
 @Component({
   selector: 'app-contact',
@@ -18,7 +19,7 @@ import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class Contact {
+export class Contact implements OnInit {
   contactForm!: FormGroup;
   submitted = false;
   isLoading = false;
@@ -30,9 +31,12 @@ export class Contact {
     private contactService: ContactFormService,
     private toastr: ToastrService,
     private route: ActivatedRoute,
+    private canonicalService: CanonicalService
   ) { }
 
   ngOnInit() {
+
+    this.canonicalService.setCanonical(getCanonicalUrl('contact-us'));
 
     // Change Page Title
     this.titleService.setTitle(
@@ -41,7 +45,7 @@ export class Contact {
 
     // Change Meta Description
     this.metaService.updateTag({
-      name: 'og:description',
+      name: 'description',
       content: 'Contact Care2Data for inquiries about clinical data validation software, KWALIFY™ support, and more.'
     });
 

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+﻿import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,6 +11,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { JobOpening } from '../../shared/types/content.types';
 import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
+import { CanonicalService } from '../../shared/services/canonical.service';
 
 @Component({
   selector: 'app-careers',
@@ -64,10 +65,12 @@ export class Careers implements OnInit {
   submitted = false;
   isLoading = false;
   constructor(private fb: FormBuilder, private titleService: Title, private metaService: Meta,
-    private http: HttpClient, private toastr: ToastrService
+    private http: HttpClient, private toastr: ToastrService, private canonicalService: CanonicalService
   ) { }
 
   ngOnInit() {
+
+    this.canonicalService.setCanonical(getCanonicalUrl('careers'));
 
     // Change Page Title
     this.titleService.setTitle(
@@ -103,6 +106,9 @@ export class Careers implements OnInit {
       property: 'og:description',
       content: 'Join Care2Data and build the future of clinical data intelligence. Explore career opportunities in data engineering, regulatory affairs, and knowledge systems.'
     });
+
+    this.metaService.updateTag({ name: 'twitter:title', content: 'Careers | Care2Data' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Join Care2Data — build the future of clinical data intelligence. Roles in data engineering, regulatory affairs, and knowledge systems.' });
 
     this.contactForm = this.fb.group({
       name: [
@@ -260,9 +266,8 @@ export class Careers implements OnInit {
         this.isLoading = false;
 
       },
-      error: (err) => {
+      error: () => {
 
-        console.error(err);   // check real error
         this.toastr.error('Something went wrong!');
         this.isLoading = false;
 
@@ -277,4 +282,6 @@ export class Careers implements OnInit {
     el.scrollIntoView({ behavior: 'smooth' });
   }
 }
+
+  trackByIndex(i: number) { return i; }
 }

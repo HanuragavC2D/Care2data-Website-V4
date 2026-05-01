@@ -1,9 +1,9 @@
-<div class="se-layout">
+﻿<div class="se-layout">
 
   <!-- ── Sticky horizontal tab nav ──────────────────────────── -->
   <nav class="se-tabnav">
     <div class="se-tabnav__inner">
-      <a *ngFor="let item of navItems"
+      <a *ngFor="let item of navItems; trackBy: trackByIndex"
          class="se-tab-item"
          [ngClass]="{ active: activeSection === item.id }"
          (click)="scrollToSection(item.id)">

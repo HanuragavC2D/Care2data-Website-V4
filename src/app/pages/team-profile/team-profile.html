@@ -1,4 +1,4 @@
-<div *ngIf="leader" class="tp-page">
+﻿<div *ngIf="leader" class="tp-page">
 
   <!-- ── Hero ── -->
   <section class="tp-hero">
@@ -6,11 +6,11 @@
     <div class="tp-hero__overlay"></div>
 
     <div class="tp-hero__content">
-      <a routerLink="/about-us" fragment="leadership" class="tp-back">← Back to Leadership</a>
+      <a routerLink="/about-us" fragment="leadership" class="tp-back" target="_blank">← Back to Leadership</a>
 
       <div class="tp-hero__card">
         <div class="tp-hero__photo-wrap">
-          <img [src]="leader.photo" [alt]="leader.name" class="tp-hero__photo">
+          <img loading="lazy" [src]="leader.photo" [alt]="leader.name" class="tp-hero__photo">
           <div class="tp-hero__photo-ring"></div>
         </div>
         <div class="tp-hero__info">
@@ -34,7 +34,7 @@
     <div class="tp-inner">
       <div class="tp-section-label">Profile Overview</div>
       <div class="tp-bio__paragraphs">
-        <p *ngFor="let para of leader.bio">{{ para }}</p>
+        <p *ngFor="let para of leader.bio; trackBy: trackByIndex">{{ para }}</p>
       </div>
     </div>
   </section>
@@ -44,7 +44,7 @@
     <div class="tp-inner">
       <div class="tp-section-label">Areas of Expertise</div>
       <div class="tp-expertise__grid">
-        <div *ngFor="let item of leader.expertise; let i = index"
+        <div *ngFor="let item of leader.expertise; let i = index; trackBy: trackByIndex"
              class="tp-expertise__tag"
              [ngClass]="'tp-expertise__tag--' + ((i % 4) + 1)">
           {{ item }}
@@ -58,5 +58,5 @@
 <!-- Not found -->
 <div *ngIf="!leader" class="tp-notfound">
   <p>Profile not found.</p>
-  <a routerLink="/about-us" class="btn btn-primary">← Back to About</a>
+  <a routerLink="/about-us" class="btn btn-primary" target="_blank">← Back to About</a>
 </div>

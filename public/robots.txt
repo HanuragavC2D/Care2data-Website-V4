@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /assets/
+Disallow: /*.json$
+
+Sitemap: https://care2data.com/sitemap.xml

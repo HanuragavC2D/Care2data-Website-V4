@@ -1,10 +1,11 @@
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, signal, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import { Footer } from './shared/footer/footer';
 import { Navbar } from './shared/navbar/navbar';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -12,13 +13,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Navbar, Footer, CommonModule,
-    MatSlideToggleModule, ReactiveFormsModule,
-    FormsModule, MatExpansionModule, MatIconModule],
+    MatSlideToggleModule, FormsModule, MatExpansionModule, MatIconModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App implements OnInit {
+export class App implements OnInit, OnDestroy {
   protected readonly title = signal('kwalify-website');
+  private readonly destroy$ = new Subject<void>();
   activePanel: 'essential' | 'targeting' | 'performance' | 'functional' | null = null;
   showBanner = false;
   showSettings = false;
@@ -29,7 +30,7 @@ export class App implements OnInit {
 
   constructor(private router: Router) {
     this.router.events
-      .pipe(filter(e => e instanceof NavigationEnd))
+      .pipe(filter(e => e instanceof NavigationEnd), takeUntil(this.destroy$))
       .subscribe((e: any) => {
         // Don't reset scroll when navigating to a fragment anchor
         if (!e.urlAfterRedirects?.includes('#')) {
@@ -142,5 +143,10 @@ export class App implements OnInit {
     this.showSettings = false;
     this.showBanner  = false;
     this.saveConsent();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

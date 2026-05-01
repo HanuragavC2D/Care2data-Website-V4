@@ -1,9 +1,9 @@
-<div class="me-layout">
+﻿<div class="me-layout">
 
   <!-- ── Sticky horizontal tab nav ──────────────────────────── -->
   <nav class="me-tabnav">
     <div class="me-tabnav__inner">
-      <a *ngFor="let item of navItems"
+      <a *ngFor="let item of navItems; trackBy: trackByIndex"
          class="me-tab-item"
          [ngClass]="{ active: activeSection === item.id }"
          (click)="scrollToSection(item.id)">
@@ -103,7 +103,7 @@
         </div>
 
         <div class="me-cta">
-          <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" target="_blank" class="btn btn-primary">Begin with Strategic Intelligence Consulting →</button>
+          <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary" target="_blank">Begin with Strategic Intelligence Consulting →</a>
         </div>
 
       </div>
@@ -194,7 +194,7 @@
         </div>
 
         <div class="me-cta">
-          <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" target="_blank" class="btn btn-primary">Run a Structural PoC →</button>
+          <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary" target="_blank">Run a Structural PoC →</a>
         </div>
 
       </div>
@@ -492,7 +492,7 @@
         <div class="me-highlight-phrase">Operate &nbsp;·&nbsp; Defend &nbsp;·&nbsp; Scale.</div>
 
         <div class="me-cta">
-          <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" target="_blank" class="btn btn-primary">Schedule a Strategic Consultation →</button>
+          <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary" target="_blank">Schedule a Strategic Consultation →</a>
         </div>
 
       </div>

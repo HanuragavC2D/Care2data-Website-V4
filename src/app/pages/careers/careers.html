@@ -1,4 +1,4 @@
-<!-- ═══ HERO ═══ -->
+﻿<!-- ═══ HERO ═══ -->
 <section class="cr-hero">
   <div class="cr-hero__content">
     <div class="cr-hero__copy">
@@ -90,7 +90,7 @@
     </div>
 
     <div class="cr-jobs">
-      <div class="cr-job-row" *ngFor="let job of paginatedArticles">
+      <div class="cr-job-row" *ngFor="let job of paginatedArticles; trackBy: trackByIndex">
         <div class="cr-job-info">
           <h3>{{ job.jobtitle }}</h3>
           <p>{{ job.description }}</p>
@@ -109,7 +109,7 @@
     <div *ngIf="openingRoles.length > pageSize" class="cr-pagination">
       <button type="button" class="page-btn" (click)="prevPage()" [disabled]="currentPage === 1">‹</button>
       <button type="button" class="page-btn"
-        *ngFor="let page of [].constructor(totalPages); let i = index"
+        *ngFor="let page of [].constructor(totalPages); let i = index; trackBy: trackByIndex"
         (click)="goToPage(i + 1)"
         [ngClass]="{ active: currentPage === i + 1 }">{{ i + 1 }}</button>
       <button type="button" class="page-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">›</button>
@@ -170,7 +170,7 @@
         <label class="cr-form__label">Position Applied For *</label>
         <mat-form-field appearance="outline" class="w-full">
           <mat-select formControlName="interest" placeholder="Select a position">
-            <mat-option *ngFor="let job of openingRoles" [value]="job.jobtitle">{{ job.jobtitle }}</mat-option>
+            <mat-option *ngFor="let job of openingRoles; trackBy: trackByIndex" [value]="job.jobtitle">{{ job.jobtitle }}</mat-option>
           </mat-select>
         </mat-form-field>
         <p class="cr-form__error" *ngIf="(submitted || contactForm.get('interest')?.touched) && contactForm.get('interest')?.errors?.['required']">Please select a position</p>

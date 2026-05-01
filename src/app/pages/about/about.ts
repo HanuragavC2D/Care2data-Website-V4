@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit, OnDestroy, HostListener } from '@angular/core';
+﻿import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { Carousel } from '../../shared/carousel/carousel';
 import { CarouselCard } from '../../shared/carousel/carousel.types';
 import { getCanonicalUrl } from '../../shared/site-config';
+import { CanonicalService } from '../../shared/services/canonical.service';
 import { NavTriggerService } from '../../shared/services/nav-trigger.service';
 
 interface Leader {
@@ -26,7 +27,7 @@ interface Leader {
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
-export class About implements AfterViewInit, OnDestroy {
+export class About implements OnInit, AfterViewInit, OnDestroy {
   private fragSub!: Subscription;
   private isPopstate = false;
 
@@ -98,7 +99,8 @@ export class About implements AfterViewInit, OnDestroy {
     private titleService: Title,
     private metaService: Meta,
     private route: ActivatedRoute,
-    private navTrigger: NavTriggerService
+    private navTrigger: NavTriggerService,
+    private canonicalService: CanonicalService
   ) { }
 
   openPanel(leader: Leader): void {
@@ -119,11 +121,12 @@ export class About implements AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.isPopstate = this.navTrigger.isPopstate();
 
+    this.canonicalService.setCanonical(getCanonicalUrl('about-us'));
     this.titleService.setTitle('About Us | Care2Data');
 
     this.metaService.updateTag({
-      name: 'og:description',
-      content: 'Care2Data is a clinical data validation software company that provides intelligent clinical data verification solutions for clinical research.'
+      name: 'description',
+      content: 'Care2Data is a life sciences technology company building knowledge-driven clinical data intelligence systems. Using ontology frameworks, knowledge graphs, and semantic reasoning, we transform fragmented clinical datasets into governed, audit-ready, submission-confident knowledge systems.'
     });
 
     this.metaService.updateTag({
@@ -133,7 +136,7 @@ export class About implements AfterViewInit, OnDestroy {
 
     this.metaService.updateTag({
       name: 'keywords',
-      content: 'About Care2Data, Clinical data validation software company, Intelligent clinical data verification solutions, Clinical research software provider, Clinical data integrity solutions, Clinical trial data validation experts, Regulatory-compliant clinical data validation, 21 CFR Part 11 compliant software, Clinical data quality assurance, Clinical research technology company'
+      content: 'About Care2Data, life sciences technology company, clinical data intelligence, ontology-based clinical validation, knowledge graph clinical data, semantic reasoning clinical research, clinical data governance, clinical data traceability, CDISC experts, clinical data validation company, explainable AI life sciences, regulatory submission software company, clinical data integrity solutions, 21 CFR Part 11 compliant software, clinical research technology'
     });
 
     this.metaService.updateTag({
@@ -143,8 +146,11 @@ export class About implements AfterViewInit, OnDestroy {
 
     this.metaService.updateTag({
       property: 'og:description',
-      content: 'Care2Data is a clinical data validation software company that provides intelligent clinical data verification solutions for clinical research.'
+      content: 'Care2Data is a life sciences technology company building knowledge-driven clinical data intelligence systems using ontology frameworks, knowledge graphs, and semantic reasoning.'
     });
+
+    this.metaService.updateTag({ name: 'twitter:title', content: 'About Us | Care2Data' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Care2Data builds knowledge-driven clinical data intelligence systems using ontology frameworks, knowledge graphs, and semantic reasoning for life sciences.' });
   }
 
   ngAfterViewInit(): void {
@@ -174,4 +180,6 @@ export class About implements AfterViewInit, OnDestroy {
     this.fragSub?.unsubscribe();
     document.body.style.overflow = '';
   }
+
+  trackByIndex(i: number) { return i; }
 }

@@ -1,4 +1,4 @@
-<!-- ═══ HERO ═══ -->
+﻿<!-- ═══ HERO ═══ -->
 <section class="kw-hero kw-bg-1">
     <div class="kw-hero__split">
 
@@ -76,9 +76,9 @@
                 <span style="color: #f5c36e;">30 minutes to 2 hours</span>.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.875rem;">
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-primary">Request an Executive Demo →</button>
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore the Validation Framework'}" target="_blank" class="btn btn-outline">Explore the Validation Framework →</button>
-                <a href="assets/kwalify-brochure.pdf" target="_blank" class="btn btn-outline">Download Brochure →</a>
+                <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary" target="_blank">Request an Executive Demo →</a>
+                <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore the Validation Framework'}" class="btn btn-outline" target="_blank">Explore the Validation Framework →</a>
+                <a href="assets/kwalify-brochure.pdf" target="_blank" class="btn btn-outline" rel="noopener noreferrer">Download Brochure →</a>
             </div>
         </div>
 
@@ -183,7 +183,7 @@
                     <strong>cause, impact, and resolution</strong> of data inconsistencies before submission.</p>
             </div>
             <div style="text-align: center; margin-top: 1.75rem;">
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'See How Intelligent Validation Works'}" target="_blank" class="btn btn-primary">See How Intelligent Validation Works →</button>
+                <a [routerLink]="['/contact-us']" [queryParams]="{interest:'See How Intelligent Validation Works'}" class="btn btn-primary" target="_blank">See How Intelligent Validation Works →</a>
             </div>
         </div>
 
@@ -202,22 +202,22 @@
 
         <!-- 5-card static grid (3 + 2 centred) -->
         <div class="kw-caps-grid">
-            <div *ngFor="let card of cards; let i = index" class="kw-cap-card">
+            <div *ngFor="let card of cards; let i = index; trackBy: trackByIndex" class="kw-cap-card">
                 <div class="kw-cap-icon-wrap">
-                    <img [src]="card.icon" alt="" class="kw-cap-icon-img">
+                    <img loading="lazy" [src]="card.icon" [attr.alt]="card.title" class="kw-cap-icon-img">
                 </div>
                 <h3>{{ card.title }}</h3>
                 <p *ngIf="card.subtitle">{{ card.subtitle }}</p>
                 <p *ngIf="card.description1">{{ card.description1 }}</p>
                 <ul *ngIf="card.list?.length">
-                    <li *ngFor="let item of card.list">{{ item }}</li>
+                    <li *ngFor="let item of card.list; trackBy: trackByIndex">{{ item }}</li>
                 </ul>
                 <p *ngIf="card.footer" class="kw-cap-footer">{{ card.footer }}</p>
             </div>
         </div>
 
         <div style="text-align: center; margin-top: 2rem;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore Platform Capabilities'}" target="_blank" class="btn btn-primary">Explore Platform Capabilities →</button>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore Platform Capabilities'}" class="btn btn-primary" target="_blank">Explore Platform Capabilities →</a>
         </div>
 
     </div>
@@ -242,7 +242,7 @@
                 <div class="kw-osf-step">
                     <div class="kw-osf-top">
                         <div class="kw-osf-circle kw-osf-circle--1">
-                            <img src="images/kwalify/black/storage.png" alt="">
+                            <img loading="lazy" src="images/kwalify/black/storage.png" alt="">
                         </div>
                         <span class="kw-osf-num">01</span>
                     </div>
@@ -256,7 +256,7 @@
                 <div class="kw-osf-step">
                     <div class="kw-osf-top">
                         <div class="kw-osf-circle kw-osf-circle--2">
-                            <img src="images/kwalify/black/qa.png" alt="">
+                            <img loading="lazy" src="images/kwalify/black/qa.png" alt="">
                         </div>
                         <span class="kw-osf-num">02</span>
                     </div>
@@ -270,7 +270,7 @@
                 <div class="kw-osf-step">
                     <div class="kw-osf-top">
                         <div class="kw-osf-circle kw-osf-circle--3">
-                            <img src="images/kwalify/black/knowledgemodeling.png" alt="">
+                            <img loading="lazy" src="images/kwalify/black/knowledgemodeling.png" alt="">
                         </div>
                         <span class="kw-osf-num">03</span>
                     </div>
@@ -290,7 +290,7 @@
                 <div class="kw-osf-step">
                     <div class="kw-osf-top">
                         <div class="kw-osf-circle kw-osf-circle--4">
-                            <img src="images/kwalify/black/datasetsubmission.png" alt="">
+                            <img loading="lazy" src="images/kwalify/black/datasetsubmission.png" alt="">
                         </div>
                         <span class="kw-osf-num">04</span>
                     </div>
@@ -310,7 +310,7 @@
                 <div class="kw-osf-step">
                     <div class="kw-osf-top">
                         <div class="kw-osf-circle kw-osf-circle--5">
-                            <img src="images/kwalify/white/anomoliesdetect.png" alt="">
+                            <img loading="lazy" src="images/kwalify/white/anomoliesdetect.png" alt="Clinical data anomaly detection">
                         </div>
                         <span class="kw-osf-num">05</span>
                     </div>
@@ -462,7 +462,7 @@
             </svg></div>
 
         <div style="text-align: center; margin-top: 2.5rem;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request a Technical Walkthrough'}" target="_blank" class="btn btn-primary">Request a Technical Walkthrough →</button>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request a Technical Walkthrough'}" class="btn btn-primary" target="_blank">Request a Technical Walkthrough →</a>
         </div>
 
     </div>
@@ -488,7 +488,7 @@
             <div class="kw-dash-feature-list">
                 <div class="kw-dash-feat">
                     <div class="kw-dash-feat__icon">
-                        <img src="images/kwalify/white/undervalidation.png" alt="">
+                        <img loading="lazy" src="images/kwalify/white/undervalidation.png" alt="">
                     </div>
                     <div class="kw-dash-feat__text">
                         <h4>Active Studies Under Validation</h4>
@@ -497,7 +497,7 @@
                 </div>
                 <div class="kw-dash-feat">
                     <div class="kw-dash-feat__icon">
-                        <img src="images/kwalify/white/compliancestatus.png" alt="">
+                        <img loading="lazy" src="images/kwalify/white/compliancestatus.png" alt="">
                     </div>
                     <div class="kw-dash-feat__text">
                         <h4>Rule Compliance Status</h4>
@@ -506,7 +506,7 @@
                 </div>
                 <div class="kw-dash-feat">
                     <div class="kw-dash-feat__icon">
-                        <img src="images/kwalify/white/validationprogress.png" alt="">
+                        <img loading="lazy" src="images/kwalify/white/validationprogress.png" alt="">
                     </div>
                     <div class="kw-dash-feat__text">
                         <h4>Validation Progress Milestones</h4>
@@ -515,7 +515,7 @@
                 </div>
                 <div class="kw-dash-feat">
                     <div class="kw-dash-feat__icon">
-                        <img src="images/kwalify/white/domainlevelviolation.png" alt="">
+                        <img loading="lazy" src="images/kwalify/white/domainlevelviolation.png" alt="">
                     </div>
                     <div class="kw-dash-feat__text">
                         <h4>Domain-Level Violation Summaries</h4>
@@ -524,7 +524,7 @@
                 </div>
                 <div class="kw-dash-feat">
                     <div class="kw-dash-feat__icon">
-                        <img src="images/kwalify/white/validationtrend.png" alt="">
+                        <img loading="lazy" src="images/kwalify/white/validationtrend.png" alt="">
                     </div>
                     <div class="kw-dash-feat__text">
                         <h4>Validation Trend Analysis</h4>
@@ -718,7 +718,7 @@
         </div>
 
         <div style="margin-top: 1.75rem;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-primary">Request a Dashboard Demo →</button>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary" target="_blank">Request a Dashboard Demo →</a>
         </div>
 
     </div>
@@ -738,7 +738,7 @@
 
             <div class="kw-outcome-card kw-outcome-card--1">
                 <div class="kw-icon">
-                    <img src="images/kwalify/white/strengtheneddataintegrity.png" alt="">
+                    <img loading="lazy" src="images/kwalify/white/strengtheneddataintegrity.png" alt="Strengthened clinical data integrity">
                 </div>
                 <h3>Strengthened Data Integrity</h3>
                 <p>Identify discrepancies at their origin — ensuring data accuracy before QA or regulatory review.</p>
@@ -746,7 +746,7 @@
 
             <div class="kw-outcome-card kw-outcome-card--2">
                 <div class="kw-icon">
-                    <img src="images/kwalify/white/fastervalidation.png" alt="">
+                    <img loading="lazy" src="images/kwalify/white/fastervalidation.png" alt="Faster clinical data validation cycles">
                 </div>
                 <h3>Faster Validation Cycles</h3>
                 <p>AI-assisted investigation using LLM models reduces manual debugging and accelerates issue resolution.</p>
@@ -754,7 +754,7 @@
 
             <div class="kw-outcome-card kw-outcome-card--3">
                 <div class="kw-icon">
-                    <img src="images/kwalify/white/xai.png" alt="">
+                    <img loading="lazy" src="images/kwalify/white/xai.png" alt="Explainable AI validation outputs">
                 </div>
                 <h3>Reduced Regulatory Queries</h3>
                 <p>Explainable AI validation outputs improve clarity and traceability in submissions.</p>
@@ -762,7 +762,7 @@
 
             <div class="kw-outcome-card kw-outcome-card--4">
                 <div class="kw-icon">
-                    <img src="images/kwalify/white/scalability.png" alt="">
+                    <img loading="lazy" src="images/kwalify/white/scalability.png" alt="Scalable clinical data validation infrastructure">
                 </div>
                 <h3>Enterprise Scalability</h3>
                 <p>Kwalify™ scales across therapeutic areas, studies, and global trial programs without increasing validation complexity.</p>
@@ -771,7 +771,7 @@
         </div>
 
         <div style="text-align: center;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" target="_blank" class="btn btn-primary">See Enterprise Use Cases →</button>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Talk to an Expert'}" class="btn btn-primary" target="_blank">See Enterprise Use Cases →</a>
         </div>
 
     </div>
@@ -794,25 +794,25 @@
         <div class="kw-limit-grid">
             <div class="kw-limit-item">
                 <div class="kw-icon">
-                    <img src="images/kwalify/white/crossdataset.png" alt="">
+                    <img loading="lazy" src="images/kwalify/white/crossdataset.png" alt="Cross-dataset clinical data validation">
                 </div>
                 <p>Limited cross-dataset reasoning</p>
             </div>
             <div class="kw-limit-item">
                 <div class="kw-icon">
-                    <img src="images/kwalify/white/knowledgegraph.png" alt="">
+                    <img loading="lazy" src="images/kwalify/white/knowledgegraph.png" alt="Knowledge graph reasoning for clinical data">
                 </div>
                 <p>Lack of contextual validation logic</p>
             </div>
             <div class="kw-limit-item">
                 <div class="kw-icon">
-                    <img src="images/kwalify/white/issueresolution.png" alt="">
+                    <img loading="lazy" src="images/kwalify/white/issueresolution.png" alt="Clinical validation issue resolution">
                 </div>
                 <p>Minimal guidance for issue resolution</p>
             </div>
             <div class="kw-limit-item">
                 <div class="kw-icon">
-                    <img src="images/kwalify/white/fragmentedvisibility.png" alt="">
+                    <img loading="lazy" src="images/kwalify/white/fragmentedvisibility.png" alt="Fragmented clinical data visibility problem">
                 </div>
                 <p>Fragmented visibility across studies</p>
             </div>
@@ -893,7 +893,7 @@
         </div>
 
         <div style="text-align: center;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Discover the Kwalify Advantage'}" target="_blank" class="btn btn-primary">Discover the Kwalify™ Advantage →</button>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Discover the Kwalify Advantage'}" class="btn btn-primary" target="_blank">Discover the Kwalify™ Advantage →</a>
         </div>
 
     </div>
@@ -914,7 +914,7 @@
                 <p style="color: rgba(248,250,252,0.78); font-size: 1rem; line-height: 1.85; margin-bottom: 2rem;">
                     Kwalify™ is engineered as a long-term clinical validation infrastructure — combining semantic reasoning, linked data models, and audit-ready architecture to deliver enterprise-grade data quality at every stage of the trial lifecycle.
                 </p>
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Learn About Compliance Architecture'}" target="_blank" class="btn btn-primary">Learn About Compliance Architecture →</button>
+                <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Learn About Compliance Architecture'}" class="btn btn-primary" target="_blank">Learn About Compliance Architecture →</a>
             </div>
 
             <!-- Right: 6 solution-style cards -->
@@ -970,7 +970,7 @@
 
             <div class="kw-role-card kw-role-card--1">
                 <div class="kw-role-card__header">
-                    <div class="kw-icon"><img src="images/kwalify/white/croleadership.png" alt=""></div>
+                    <div class="kw-icon"><img loading="lazy" src="images/kwalify/white/croleadership.png" alt=""></div>
                     <h3>CRO Leadership</h3>
                 </div>
                 <p>Scale validation across sponsors while reducing operational variability.</p>
@@ -978,7 +978,7 @@
 
             <div class="kw-role-card kw-role-card--2">
                 <div class="kw-role-card__header">
-                    <div class="kw-icon"><img src="images/kwalify/white/pharmaceutical.png" alt=""></div>
+                    <div class="kw-icon"><img loading="lazy" src="images/kwalify/white/pharmaceutical.png" alt=""></div>
                     <h3>Pharmaceutical &amp; Biotech Sponsors</h3>
                 </div>
                 <p>Strengthen submission confidence across global clinical programs.</p>
@@ -986,7 +986,7 @@
 
             <div class="kw-role-card kw-role-card--3">
                 <div class="kw-role-card__header">
-                    <div class="kw-icon"><img src="images/kwalify/white/clinicalprogrammer.png" alt=""></div>
+                    <div class="kw-icon"><img loading="lazy" src="images/kwalify/white/clinicalprogrammer.png" alt=""></div>
                     <h3>Clinical Data Managers &amp; SAS Programmers</h3>
                 </div>
                 <p>Quickly identify validation violations and investigate affected records.</p>
@@ -994,7 +994,7 @@
 
             <div class="kw-role-card kw-role-card--4">
                 <div class="kw-role-card__header">
-                    <div class="kw-icon"><img src="images/kwalify/white/qa.png" alt=""></div>
+                    <div class="kw-icon"><img loading="lazy" src="images/kwalify/white/qa.png" alt=""></div>
                     <h3>QA and Regulatory Teams</h3>
                 </div>
                 <p>Gain traceable, defensible validation outputs aligned with regulatory expectations.</p>
@@ -1003,7 +1003,7 @@
         </div>
 
         <div style="text-align: center;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Speak with a Clinical Data Expert'}" target="_blank" class="btn btn-primary">Speak with a Clinical Data Expert →</button>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Speak with a Clinical Data Expert'}" class="btn btn-primary" target="_blank">Speak with a Clinical Data Expert →</a>
         </div>
 
     </div>
@@ -1097,8 +1097,8 @@
         </p>
 
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-primary">Request an Executive Demonstration →</button>
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request a Technical Walkthrough'}" target="_blank" class="btn btn-outline">Schedule a Technical Deep Dive →</button>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" class="btn btn-primary" target="_blank">Request an Executive Demonstration →</a>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request a Technical Walkthrough'}" class="btn btn-outline" target="_blank">Schedule a Technical Deep Dive →</a>
         </div>
 
     </div>

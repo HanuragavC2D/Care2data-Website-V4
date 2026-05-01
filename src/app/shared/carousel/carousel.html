@@ -1,4 +1,4 @@
-<div class="overflow-hidden pt-0 lg:pt-5">
+﻿<div class="overflow-hidden pt-0 lg:pt-5">
   <div class="carousel-nav-row">
     <button class="carousel-arrow carousel-arrow--prev" (click)="go(-1)" aria-label="Previous slide">
       &#8592;
@@ -40,8 +40,7 @@
               *ngIf="card.link"
               [routerLink]="[card.link]"
               [fragment]="card.fragment"
-              target="_blank"
-              class="carousel-link mt-3 inline-block"
+              class="carousel-link mt-3 inline-block" target="_blank"
             >
               Read More →
             </a>

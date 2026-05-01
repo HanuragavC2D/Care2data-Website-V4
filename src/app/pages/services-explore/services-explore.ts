@@ -1,6 +1,10 @@
-import { CommonModule } from '@angular/common';
+﻿import { CommonModule } from '@angular/common';
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { getCanonicalUrl } from '../../shared/site-config';
+import { CanonicalService } from '../../shared/services/canonical.service';
 import { NavTriggerService } from '../../shared/services/nav-trigger.service';
 
 @Component({
@@ -14,6 +18,7 @@ export class ServicesExplore implements AfterViewInit, OnDestroy {
   activeSection = 'knowledge-modelling';
   private isPopstate = false;
   private observer!: IntersectionObserver;
+  private fragSub?: Subscription;
 
   private readonly sectionIds = [
     'knowledge-modelling',
@@ -33,10 +38,44 @@ export class ServicesExplore implements AfterViewInit, OnDestroy {
 
   private bc = new BroadcastChannel('se-navigate');
 
-  constructor(private route: ActivatedRoute, private navTrigger: NavTriggerService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private navTrigger: NavTriggerService,
+    private titleService: Title,
+    private metaService: Meta,
+    private canonicalService: CanonicalService
+  ) {}
 
   ngOnInit(): void {
     this.isPopstate = this.navTrigger.isPopstate();
+
+    this.canonicalService.setCanonical(getCanonicalUrl('services-explore'));
+    this.titleService.setTitle('Knowledge Offerings | Care2Data');
+
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Explore Care2Data knowledge offerings: knowledge modelling, semantic repository creation, discovery and reasoning, governance and lifecycle management, and training under the Build-Operate-Transfer model.'
+    });
+
+    this.metaService.updateTag({
+      name: 'og:url',
+      content: getCanonicalUrl('services-explore')
+    });
+
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'clinical knowledge offerings, knowledge modelling CDISC, semantic repository clinical data, clinical ontology framework, knowledge graph life sciences, clinical data governance lifecycle, AI reasoning clinical validation, BOT model clinical systems, knowledge discovery clinical trials, explainable AI life sciences, clinical data traceability, ontology-driven validation services, Care2Data services'
+    });
+
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Knowledge Offerings | Care2Data'
+    });
+
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Explore Care2Data knowledge offerings: knowledge modelling, semantic repository creation, discovery and reasoning, governance and lifecycle management, and BOT-model training enablement.'
+    });
   }
 
   ngAfterViewInit() {
@@ -59,15 +98,13 @@ export class ServicesExplore implements AfterViewInit, OnDestroy {
 
     if (this.isPopstate) return;
 
-    const rawHash = window.location.hash;
-    const lastHashIdx = rawHash.lastIndexOf('#');
-    const initFrag = lastHashIdx > 0 ? rawHash.slice(lastHashIdx + 1) : '';
+    const initFrag = window.location.hash ? window.location.hash.slice(1) : '';
 
     if (initFrag) {
       setTimeout(() => this.scrollToSection(initFrag), 400);
     }
 
-    this.route.fragment.subscribe(f => {
+    this.fragSub = this.route.fragment.subscribe(f => {
       if (f && f !== initFrag) setTimeout(() => this.scrollToSection(f), 200);
     });
   }
@@ -75,6 +112,7 @@ export class ServicesExplore implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.observer?.disconnect();
     this.bc.close();
+    this.fragSub?.unsubscribe();
   }
 
   scrollToSection(id: string) {
@@ -83,4 +121,6 @@ export class ServicesExplore implements AfterViewInit, OnDestroy {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     this.activeSection = id;
   }
+
+  trackByIndex(i: number) { return i; }
 }

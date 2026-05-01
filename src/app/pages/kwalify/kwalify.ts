@@ -1,11 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { Component, ElementRef, NgZone, ViewChild, OnDestroy } from '@angular/core';
+﻿import { CommonModule } from '@angular/common';
+import { Component, ElementRef, NgZone, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
-import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
+import { CanonicalService } from '../../shared/services/canonical.service';
+import { getCanonicalUrl } from '../../shared/site-config';
 
 @Component({
   selector: 'app-kwalify',
@@ -13,16 +14,18 @@ import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
   templateUrl: './kwalify.html',
   styleUrl: './kwalify.scss',
 })
-export class Kwalify implements OnDestroy {
+export class Kwalify implements OnInit, OnDestroy {
 
   isAtStart = false;
   isAtEnd = false;
   private resizeSubscription: Subscription | undefined;
   private scrollSubscription: Subscription | undefined;
   @ViewChild('scrollContainer', { static: false }) scrollContainer!: ElementRef;
-  constructor(private titleService: Title, private metaService: Meta, private ngZone: NgZone) { }
+  constructor(private titleService: Title, private metaService: Meta, private ngZone: NgZone, private canonicalService: CanonicalService) { }
 
   ngOnInit(): void {
+
+    this.canonicalService.setCanonical(getCanonicalUrl('kwalify'));
 
     // Change Page Title
     this.titleService.setTitle(
@@ -31,8 +34,8 @@ export class Kwalify implements OnDestroy {
 
     // Change Meta Description
     this.metaService.updateTag({
-      name: 'og:description',
-      content: 'KWALIFY™ by Care2Data is an intelligent clinical data validation platform using semantic inference and contextual rules to deliver audit-ready, submission-ready clinical trial datasets.'
+      name: 'description',
+      content: 'KWALIFY™ by Care2Data is an ontology-driven clinical data validation platform for CDISC SDTM, ADaM, and SEND domains — delivering explainable AI validation, audit-ready traceability, and FDA submission-ready clinical datasets.'
     });
 
     // Change Meta url
@@ -44,7 +47,7 @@ export class Kwalify implements OnDestroy {
     // Change Keywords
     this.metaService.updateTag({
       name: 'keywords',
-      content: 'Clinical data validation software, Intelligent clinical data verification, Clinical trial data validation platform,Knowledge graph validation in clinical research, Submission-ready clinical datasets, Regulatory compliant data validation, 21 CFR Part 11 compliant validation software,Clinical data integrity platform,Double programming alternative,Automated QC for clinical trials,CRO validation software,Clinical data discrepancy detection,Audit-ready clinical datasets'
+      content: 'KWALIFY, clinical data validation software, CDISC validation platform, SDTM validation, ADaM validation, SEND validation, 21 CFR Part 11 compliance, ALCOA++ data integrity, explainable AI clinical trials, ontology-based validation, knowledge graph clinical data, cross-domain contextual validation, anomaly detection clinical data, audit-ready clinical datasets, submission-ready clinical data, FDA regulatory submission, clinical data discrepancy detection, CRO validation software, double programming alternative, automated QC clinical trials, root cause analysis clinical data, clinical data integrity platform, GAMP5 validation'
     });
 
     // Open Graph Title
@@ -56,8 +59,99 @@ export class Kwalify implements OnDestroy {
     // Open Graph Description
     this.metaService.updateTag({
       property: 'og:description',
-      content: 'KWALIFY™ by Care2Data is an intelligent clinical data validation platform using semantic inference and contextual rules to deliver audit-ready, submission-ready clinical trial datasets.'
+      content: 'KWALIFY™ by Care2Data is an ontology-driven clinical data validation platform for CDISC SDTM, ADaM, and SEND domains — delivering explainable AI validation, audit-ready traceability, and FDA submission-ready clinical datasets.'
     });
+
+    this.metaService.updateTag({ name: 'twitter:title', content: 'KWALIFY™ | Intelligent Clinical Data Validation Software' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'KWALIFY™ by Care2Data — ontology-driven clinical data validation for CDISC SDTM, ADaM, and SEND. Explainable AI, audit-ready traceability, FDA submission-ready datasets.' });
+
+    // BreadcrumbList + WebPage schema
+    this.injectSchema('kw-page-schema', {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://care2data.com' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'KWALIFY™', 'item': 'https://care2data.com/kwalify' }
+          ]
+        },
+        {
+          '@type': 'WebPage',
+          '@id': 'https://care2data.com/kwalify',
+          'url': 'https://care2data.com/kwalify',
+          'name': 'KWALIFY™ | Intelligent Clinical Data Validation Software',
+          'description': 'Ontology-driven clinical data validation platform for CDISC SDTM, ADaM, and SEND domains.',
+          'isPartOf': { '@id': 'https://care2data.com/#website' },
+          'about': { '@id': 'https://care2data.com/#org' }
+        }
+      ]
+    });
+
+    // FAQ JSON-LD structured data for AIEO
+    const existing = document.getElementById('kw-faq-schema');
+    if (existing) existing.remove();
+    const faqSchema = document.createElement('script');
+    faqSchema.id = 'kw-faq-schema';
+    faqSchema.type = 'application/ld+json';
+    faqSchema.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': 'What is Kwalify™?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': 'Kwalify™ is an intelligent clinical data validation and verification platform developed by Care2Data to identify discrepancies, inconsistencies, and data integrity issues in clinical trial datasets prior to regulatory submission. It extends beyond submission checks to support the entire clinical trial data lifecycle.' }
+        },
+        {
+          '@type': 'Question',
+          'name': 'How does Kwalify™ validate clinical trial data?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': 'Kwalify™ applies semantic relationships, inference techniques, contextual validation, and intelligent rule application to detect both explicit and implicit data inconsistencies. By combining semantic intelligence with explainable AI, the platform evaluates cross-domain relationships, study logic, and regulatory expectations.' }
+        },
+        {
+          '@type': 'Question',
+          'name': 'How is Kwalify™ different from double programming?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': 'Traditional double programming relies on duplicate code and manual comparison — time-consuming, resource-intensive, and prone to human variability. Kwalify™ introduces both validation and verification within a unified intelligence layer, detecting inconsistencies and verifying data integrity through anomaly detection and cross-dataset reasoning.' }
+        },
+        {
+          '@type': 'Question',
+          'name': 'What does validation and verification mean in Kwalify™?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': 'Validation ensures that clinical data conforms to predefined rules, standards, and regulatory expectations. Verification goes further — identifying hidden inconsistencies, unexpected patterns, and cross-domain conflicts that rules alone may not capture. Together they ensure true data integrity, not just rule compliance.' }
+        },
+        {
+          '@type': 'Question',
+          'name': 'Who should use Kwalify™?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': 'Kwalify™ is designed for teams responsible for clinical data quality and submission readiness: Contract Research Organizations (CROs), Pharmaceutical and Biotech Sponsors, Clinical Data Management and Biostatistics Teams, and Quality Assurance and Regulatory Affairs Professionals.' }
+        },
+        {
+          '@type': 'Question',
+          'name': 'Is Kwalify™ suitable for regulatory submissions?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': 'Yes. Kwalify™ is built to support submission-ready and audit-ready datasets, with embedded traceability, lineage, and explainable validation outputs. The platform aligns with regulatory expectations including 21 CFR Part 11 compliance.' }
+        },
+        {
+          '@type': 'Question',
+          'name': 'What types of clinical data does Kwalify™ support?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': 'Kwalify™ supports structured clinical datasets including SDTM, ADaM, derived variables, statistical outputs, and data used for clinical reporting and regulatory submission.' }
+        },
+        {
+          '@type': 'Question',
+          'name': 'How does Kwalify™ fit into existing clinical workflows?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': 'Kwalify™ integrates seamlessly with existing clinical systems including EDC platforms, CDMS, and statistical programming environments. It works alongside current workflows, enhancing validation capabilities without requiring system replacement or disruption.' }
+        },
+        {
+          '@type': 'Question',
+          'name': 'What measurable impact does Kwalify™ deliver?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': '93% of datasets had missing reference ranges in LB domain — surfaced automatically. 79% of cross-domain datasets had unit mismatches — identified through semantic reasoning. 67% of AE domain datasets had duplicate events — detected before submission. 63% of DM records had missing RFSTDTC — traced via cross-domain AI. Validation errors that take 30 minutes to 2 hours manually are resolved with AI-assisted root cause analysis.' }
+        },
+        {
+          '@type': 'Question',
+          'name': 'What are the most common challenges in clinical data validation today?',
+          'acceptedAnswer': { '@type': 'Answer', 'text': 'Based on Care2Data\'s survey: 47% of teams report no error prioritisation, 41% report vague error messages, and 35% report difficulty identifying affected records. These gaps reflect reliance on static rule execution. Kwalify™ addresses each through explainable AI outputs, intelligent error prioritisation, and cross-domain impact tracing.' }
+        }
+      ]
+    });
+    document.head.appendChild(faqSchema);
+
     this.checkDevice();
     this.resizeSubscription = fromEvent(window, 'resize')
       .pipe(debounceTime(200))
@@ -262,4 +356,6 @@ export class Kwalify implements OnDestroy {
     clearInterval(this.timer);
     this.startAutoSlide();
   }
+
+  trackByIndex(i: number) { return i; }
 }

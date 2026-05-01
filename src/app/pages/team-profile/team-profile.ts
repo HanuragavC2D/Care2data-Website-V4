@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+﻿import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -68,4 +68,6 @@ export class TeamProfile implements OnInit {
       this.metaService.updateTag({ name: 'description', content: this.leader.tagline });
     }
   }
+
+  trackByIndex(i: number) { return i; }
 }

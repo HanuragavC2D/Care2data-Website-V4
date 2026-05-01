@@ -8,27 +8,31 @@
   <title>Care2Data | Home</title>
 
   <meta name="description"
-    content="Care2Data delivers intelligent clinical data validation software through KWALIFY™, enabling regulatory-compliant, audit-ready and submission-ready clinical trial datasets.">
+    content="Care2Data builds knowledge-driven clinical data validation software for life sciences. KWALIFY™ delivers ontology-based, explainable validation across SDTM, ADaM, and SEND domains — producing audit-ready, FDA submission-ready datasets. TrialGen™ generates privacy-safe synthetic clinical data aligned to CDISC standards.">
 
-  <meta name="keywords" content="Clinical data validation,
-    Regulatory confidence,
-    Data integrity,
-    Submission readiness,
-    Audit trails,
-    Life sciences software,
-    Semantic Intelligence">
+  <meta name="keywords" content="
+    clinical data validation, CDISC validation software, SDTM validation, ADaM validation,
+    SEND validation, CDASH compliance, 21 CFR Part 11, ALCOA++ data integrity, GAMP5,
+    clinical trial data quality, submission-ready clinical data, audit-ready datasets,
+    FDA regulatory submission, regulatory compliance life sciences,
+    ontology-based validation, knowledge graph clinical data, semantic clinical data validation,
+    explainable AI clinical trials, cross-domain validation, anomaly detection clinical data,
+    synthetic clinical data generation, privacy-safe clinical data, protocol-aligned datasets,
+    clinical data management software, life sciences data governance, data lineage traceability,
+    KWALIFY, TrialGen, Care2Data, clinical data intelligence platform,
+    CRO data validation, pharma data submission, clinical data automation">
 
   <meta name="author" content="Care2Data">
   <meta name="robots" content="index, follow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="./">
+  <base href="/">
 
   <!-- Open Graph (LinkedIn / WhatsApp / Facebook) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://care2data.com/">
   <meta property="og:title" content="Care2Data | Home">
   <meta property="og:description"
-    content="Care2Data delivers intelligent clinical data validation software through KWALIFY™, enabling regulatory-compliant, audit-ready and submission-ready clinical trial datasets.">
+    content="Care2Data builds knowledge-driven clinical data validation software for life sciences. KWALIFY™ delivers ontology-based, explainable validation across SDTM, ADaM, and SEND domains — producing audit-ready, FDA submission-ready datasets.">
   <meta property="og:image" content="https://care2data.com/assets/Care2data.jpg">
   <meta property="og:site_name" content="KWALIFY™ by Care2Data">
 
@@ -36,7 +40,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Care2Data | Home">
   <meta name="twitter:description"
-    content="Care2Data delivers intelligent clinical data validation software through KWALIFY™, enabling regulatory-compliant, audit-ready and submission-ready clinical trial datasets.">
+    content="Care2Data builds knowledge-driven clinical data validation software for life sciences. KWALIFY™ delivers ontology-based, explainable validation across SDTM, ADaM, and SEND domains — producing audit-ready, FDA submission-ready datasets.">
   <meta name="twitter:image" content="https://care2data.com/assets/Care2data.jpg">
 
   <!-- Favicon -->
@@ -46,6 +50,13 @@
   <link rel="preload" as="image" href="images/home.webp" type="image/webp">
   <link rel="preload" as="image" href="images/about-us.webp" type="image/webp">
   <link rel="preload" as="image" href="images/knowledge-servics.webp" type="image/webp">
+
+  <!-- Preconnect to third-party origins — reduces render-blocking latency -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
   <!-- Fonts -->
   <link
@@ -74,6 +85,68 @@
       security_storage:        'granted',
       wait_for_update:         500
     });
+  </script>
+
+  <!-- Structured Data (JSON-LD) — WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://care2data.com/#website",
+    "url": "https://care2data.com",
+    "name": "Care2Data",
+    "description": "Knowledge-driven clinical data validation and synthetic data generation software for life sciences.",
+    "publisher": { "@id": "https://care2data.com/#org" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": { "@type": "EntryPoint", "urlTemplate": "https://care2data.com/news?q={search_term_string}" },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Structured Data (JSON-LD) — Organization + Products -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://care2data.com/#org",
+        "name": "Care2Data",
+        "url": "https://care2data.com",
+        "logo": "https://care2data.com/assets/logo.png",
+        "description": "Care2Data is a life sciences technology company that builds knowledge-driven clinical data validation and synthetic data generation software for regulatory submissions.",
+        "sameAs": ["https://www.linkedin.com/company/care2data/"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "admin@care2data.com",
+          "telephone": "+91-44-42606602",
+          "contactType": "customer support"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "KWALIFY™",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://care2data.com/kwalify",
+        "description": "Ontology-driven clinical data validation platform for CDISC SDTM, ADaM, and SEND domains — delivering explainable, audit-ready, submission-ready datasets.",
+        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" },
+        "creator": { "@id": "https://care2data.com/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "TrialGen™",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://care2data.com/trialgen",
+        "description": "AI-powered synthetic clinical data generation platform — protocol-aligned, CDISC-compliant, and privacy-safe for feasibility studies and validation testing.",
+        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" },
+        "creator": { "@id": "https://care2data.com/#org" }
+      }
+    ]
+  }
   </script>
 
   <!-- Google Tag Manager -->

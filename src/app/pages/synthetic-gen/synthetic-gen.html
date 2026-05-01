@@ -1,4 +1,4 @@
-<section class="sg-hero" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);">
+﻿<section class="sg-hero" style="background: linear-gradient(180deg, #090f21 0%, #0e1f44 42%, #08112a 100%);">
     <!-- ═══ HERO ═══ -->
     <div class="sg-hero__split">
 
@@ -24,8 +24,8 @@
             </p>
 
             <div class="sg-hero-actions">
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore our Services'}" target="_blank" class="btn btn-primary">Explore TrialGen™ →</button>
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-outline">Request a Demo →</button>
+                <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore TrialGen™'}" class="btn btn-primary" target="_blank">Explore TrialGen™ →</a>
+                <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request a TrialGen™ Demo'}" class="btn btn-outline" target="_blank">Request a Demo →</a>
             </div>
 
         </div>
@@ -99,7 +99,7 @@
                 <span class="sg-shift-label">The Shift</span>
                 <h3>TrialGen™ removes this dependency — enabling teams to simulate realistic clinical datasets on
                     demand and validate systems before real data is available.</h3>
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Explore our Services'}" target="_blank" class="btn btn-primary">Understand the Approach →</button>
+                <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Understand the TrialGen™ Approach'}" class="btn btn-primary" target="_blank">Understand the Approach →</a>
             </div>
 
         </div>
@@ -158,7 +158,7 @@
         </div>
 
         <div style="text-align: center;">
-            <button [routerLink]="['/contact-us']" [queryParams]="{interest:'See How it Works'}" target="_blank" class="btn btn-primary">See How It Works →</button>
+            <a [routerLink]="['/contact-us']" [queryParams]="{interest:'See How it Works'}" class="btn btn-primary" target="_blank">See How It Works →</a>
         </div>
 
     </div>
@@ -201,8 +201,8 @@
             </p>
 
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                <button [routerLink]="['/contact-us']" [queryParams]="{interest:'Request an Executive Demo'}" target="_blank" class="btn btn-primary">Request a Demo →</button>
-                <a href="assets/trialgen-brochure.pdf" target="_blank" class="btn btn-outline">Download Brochure →</a>
+                <a [routerLink]="['/contact-us']" [queryParams]="{interest:'Request a TrialGen™ Demo'}" class="btn btn-primary" target="_blank">Request a Demo →</a>
+                <a href="assets/trialgen-brochure.pdf" target="_blank" class="btn btn-outline" rel="noopener noreferrer">Download Brochure →</a>
             </div>
         </div>
 

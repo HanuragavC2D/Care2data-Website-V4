@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { CanonicalService } from '../../shared/services/canonical.service';
 import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
 
 @Component({
@@ -13,7 +14,7 @@ import { getCanonicalUrl, SITE_CONFIG } from '../../shared/site-config';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home implements OnDestroy {
+export class Home implements OnInit, OnDestroy {
   slides = [
     {
       title: 'Kwalify™  ·  Data Quality Platform',
@@ -45,7 +46,7 @@ export class Home implements OnDestroy {
   animationClass = 'opacity-100 scale-100';
   private intervalId: ReturnType<typeof setInterval> | undefined;
 
-  constructor(private titleService: Title, private metaService: Meta) { }
+  constructor(private titleService: Title, private metaService: Meta, private canonicalService: CanonicalService) { }
 
   ngOnInit(): void {
     this.intervalId = setInterval(() => {
@@ -58,6 +59,8 @@ export class Home implements OnDestroy {
 
     }, 4000);
 
+    this.canonicalService.setCanonical(getCanonicalUrl('home'));
+
     // Change Page Title
     this.titleService.setTitle(
       'Care2Data | Home'
@@ -66,19 +69,19 @@ export class Home implements OnDestroy {
     // Change Meta Description
     this.metaService.updateTag({
       name: 'description',
-      content: 'Care2Data delivers intelligent clinical data validation software through KWALIFY™, enabling regulatory-compliant, audit-ready and submission-ready clinical trial datasets.'
+      content: 'Care2Data builds knowledge-driven clinical data validation software for life sciences. KWALIFY™ delivers ontology-based, explainable validation across SDTM, ADaM, and SEND domains — producing audit-ready, FDA submission-ready datasets. TrialGen™ generates privacy-safe synthetic clinical data aligned to CDISC standards.'
     });
 
     // Change Meta url
     this.metaService.updateTag({
-      name: 'url',
+      name: 'og:url',
       content: getCanonicalUrl('home')
     });
 
     // Change Keywords
     this.metaService.updateTag({
       name: 'keywords',
-      content: 'Clinical data validation, Regulatory confidence, Data integrity, Submission readiness, Audit trails, Life sciences software, Semantic Intelligence'
+      content: 'clinical data validation, CDISC validation software, SDTM validation, ADaM validation, SEND validation, CDASH compliance, 21 CFR Part 11, ALCOA++ data integrity, GAMP5, clinical trial data quality, submission-ready clinical data, audit-ready datasets, FDA regulatory submission, regulatory compliance life sciences, ontology-based validation, knowledge graph clinical data, semantic clinical data validation, explainable AI clinical trials, cross-domain validation, anomaly detection clinical data, synthetic clinical data generation, privacy-safe clinical data, KWALIFY, TrialGen, Care2Data, clinical data intelligence platform, CRO data validation, pharma data submission, clinical data automation'
     });
 
     // Open Graph Title
@@ -90,7 +93,7 @@ export class Home implements OnDestroy {
     // Open Graph Description
     this.metaService.updateTag({
       property: 'og:description',
-      content: 'Care2Data delivers intelligent clinical data validation software through KWALIFY™, enabling regulatory-compliant, audit-ready and submission-ready clinical trial datasets.'
+      content: 'Care2Data builds knowledge-driven clinical data validation software for life sciences. KWALIFY™ delivers ontology-based, explainable validation across SDTM, ADaM, and SEND domains — producing audit-ready, FDA submission-ready datasets.'
     });
 
     // Open Graph Image
@@ -98,6 +101,9 @@ export class Home implements OnDestroy {
       property: 'og:image',
       content: SITE_CONFIG.ogImage
     });
+
+    this.metaService.updateTag({ name: 'twitter:title', content: 'Care2Data | Home' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Care2Data builds knowledge-driven clinical data validation software for life sciences. KWALIFY™ delivers ontology-based, explainable validation across SDTM, ADaM, and SEND domains.' });
   }
 
   hoverTimeout: ReturnType<typeof setTimeout> | undefined;
