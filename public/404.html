@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Care2Data</title>
+  <script>
+    // GitHub Pages SPA redirect — preserves the path when a direct URL is hit
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.host + l.pathname.split('/').slice(0, 2).join('/') +
+      '/?p=' + encodeURIComponent(l.pathname.slice(1) + l.search) + l.hash
+    );
+  </script>
+</head>
+<body></body>
+</html>
