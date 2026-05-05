@@ -38,13 +38,14 @@ export class App implements OnInit, OnDestroy {
           document.body.scrollTop = 0;
         }
 
-        // Fire GA4 page_view on every SPA navigation
-        if (this.analyticsEnabled && (window as any).gtag) {
-          (window as any).gtag('event', 'page_view', {
-            page_path: e.urlAfterRedirects,
-            page_title: document.title
-          });
-        }
+        // Push page_view to dataLayer so the GTM Custom Event trigger fires on SPA navigations
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({
+          event: 'page_view',
+          page_path: e.urlAfterRedirects,
+          page_title: document.title,
+          page_location: window.location.href,
+        });
       });
   }
 
