@@ -1,0 +1,38 @@
+# Care2Data
+
+> Care2Data is a life sciences technology company that builds knowledge-driven clinical data validation and synthetic data generation software. Using ontology frameworks, knowledge graphs, and semantic reasoning, Care2Data transforms fragmented clinical datasets into governed, audit-ready, submission-confident knowledge systems.
+
+## Products
+
+- [KWALIFY™](https://care2data.com/kwalify): Ontology-driven clinical data validation platform for CDISC SDTM, ADaM, and SEND domains. Delivers explainable AI validation, audit-ready traceability, and FDA submission-ready clinical datasets. Replaces double programming with semantic intelligence and cross-domain contextual validation.
+
+- [TrialGen™](https://care2data.com/trialgen): AI-powered synthetic clinical data generation platform. Produces protocol-aligned, CDISC-compliant, privacy-safe synthetic datasets for feasibility studies, validation pipeline testing, and team training. Compliant with GDPR, HIPAA, and ICH E6.
+
+## Services
+
+- [Knowledge Services](https://care2data.com/knowledge-services): Consulting and implementation services covering knowledge modelling, semantic repository creation, knowledge discovery and reasoning, governance and lifecycle management, and training under the Build-Operate-Transfer (BOT) model.
+
+- [Engagement Models](https://care2data.com/engagement-models): Advisory, implementation, validation, and enablement engagement options for life sciences organizations embedding clinical data intelligence.
+
+## Company
+
+- [About Us](https://care2data.com/about-us): Care2Data was founded by Giri Balasubramanian (CEO) and Gopinath Viswanathan (CTO), combining 25+ years of clinical data, CDISC standards, and knowledge engineering expertise. Headquartered in Chennai, India.
+
+- [Careers](https://care2data.com/careers): Open roles in data engineering, regulatory affairs, and knowledge systems.
+
+- [News & Insights](https://care2data.com/news): Research insights and company news on clinical data intelligence.
+
+## Key Facts
+
+- Specialisation: Clinical data validation, CDISC compliance, SDTM/ADaM/SEND validation, synthetic clinical data
+- Standards supported: CDISC, SDTM, ADaM, SEND, CDASH, 21 CFR Part 11, ALCOA++, GAMP5, ICH E6
+- Customers: CROs, pharmaceutical sponsors, biotech companies, clinical data management teams
+- Technology: Ontology frameworks, knowledge graphs, explainable AI (XAI), semantic reasoning
+- Location: Chennai, India
+- Contact: admin@care2data.com | +91-44-42606602
+
+## Optional
+
+- [Privacy Policy](https://care2data.com/privacy-policy)
+- [Terms of Use](https://care2data.com/terms-conditions)
+- [Accessibility](https://care2data.com/accessibility)
